@@ -15,14 +15,14 @@ import javax.persistence.Transient;
 import org.springframework.core.style.ToStringCreator;
 
 @Entity
-//@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class Referentiel implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	protected Long id;
 	
-	@Column(name="designation")
+	@Column(name="designation",unique = true)
 	protected String designation;
 	
 	public String toString(){

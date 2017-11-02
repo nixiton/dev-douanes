@@ -39,6 +39,23 @@ public class Agent {
 	@OneToMany(mappedBy="detenteur")
 	private List<Materiel> matdetenu = new ArrayList<Materiel>();
 	
+	//Localisation
+	@ManyToOne
+	@JoinColumn(name="idDirection")
+	private Direction direction;
+	
+	@ManyToOne
+	@JoinColumn(name="idService")
+	private Service service;
+	
+	@ManyToOne
+	@JoinColumn(name="idBureau")
+	private Bureau bureau;
+
+
+
+	@Transient
+	private String ip;
 	//@OneToMany(mappedBy="dc")
 	//@Transient
 	//private List<Materiel> matEntree;
@@ -128,6 +145,38 @@ public class Agent {
 
 	public void setPosteny(Poste poste) {
 		this.posteny = poste;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public Direction getDirection() {
+		return direction;
+	}
+
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
+
+	public Service getService() {
+		return service;
+	}
+
+	public void setService(Service service) {
+		this.service = service;
+	}
+
+	public Bureau getBureau() {
+		return bureau;
+	}
+
+	public void setBureau(Bureau bureau) {
+		this.bureau = bureau;
 	}
 	
 }

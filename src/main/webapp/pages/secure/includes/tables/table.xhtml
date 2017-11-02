@@ -2,7 +2,8 @@
 <div class="box dark" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 	<header>
 		<div class="icons">
 			<i class="fa fa-edit"></i>
@@ -25,7 +26,41 @@
 	</header>
 	<div class="body">
 
-		<div   class="body collapse in table-responsive">
+		<div id="defaultTabletest" class="body collapse in table-responsive">
+			<table class="table responsive-table">
+				<p:dataTable
+					value="#{operationBean.mesOperations}" var="oper">
+					<p:column>
+						<f:facet name="header">ID</f:facet>
+            				#{oper.id}
+       				</p:column>
+					<p:column>
+						<f:facet name="header">Date</f:facet>
+            				#{oper.date}
+       				 </p:column>
+       				 <p:column>
+						<f:facet name="header">Agent</f:facet>
+            				#{oper.operateur}
+       				 </p:column>
+       				 <p:column>
+						<f:facet name="header">Etat</f:facet>
+            				#{oper.state}
+       				 </p:column>
+       				 <p:column>
+						<f:facet name="header">Post Utilisé</f:facet>
+            				#{oper.poste}
+       				 </p:column>
+       				 <p:column>
+						<f:facet name="header">Détail</f:facet>
+            				#{oper.motifretour}
+       				 </p:column>
+				</p:dataTable>
+			</table>
+		</div>
+
+
+
+		<div id="defaultTable" class="body collapse in table-responsive">
 			<table class="table responsive-table">
 
 				<thead>

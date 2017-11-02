@@ -30,6 +30,8 @@ public class OpSortie extends Operation{
 	private MotifSortie motifsortie;
 	//String motifnonaccept;
 	
+	private String pj;
+	
 	static {
 		numerochronos = 1L;
 	}
@@ -111,6 +113,14 @@ public class OpSortie extends Operation{
 	public OpSortie() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getPj() {
+		return pj;
+	}
+
+	public void setPj(String pj) {
+		this.pj = pj;
 	}
 
 	/*public String getMotifnonaccept() {

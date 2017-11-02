@@ -43,7 +43,7 @@ public class RefMetierImpl implements IRefMetier{
 	public Referentiel addRef(Referentiel r, Agent oper) {
 		// TODO Auto-generated method stub
 		Referentiel refx = refrepos.save(r);
-		OpSaisie saisiref = new OpSaisie(new Date(), new Date(), "0.0.0.0.0", oper, r.getLeref(),refx.getId());
+		OpSaisie saisiref = new OpSaisie(new Date(), new Date(), oper.getIp(), oper, r.getLeref(),refx.getId());
 		saisiref.valider();
 		oprepos.save(saisiref);
 		return refx;
@@ -70,7 +70,7 @@ public class RefMetierImpl implements IRefMetier{
 	@Override
 	public void saveRefs(List<Referentiel> listrefs,Agent operat) {
 		// TODO Auto-generated method stub
-		OpSaisie saisiref = new OpSaisie(new Date(), new Date(), "0.0.0.0.0", operat, "des referentiels",null);
+		OpSaisie saisiref = new OpSaisie(new Date(), new Date(), operat.getIp(), operat, "des referentiels",null);
 		oprepos.save(saisiref);
 		refrepos.save(listrefs);
 	}
@@ -79,7 +79,7 @@ public class RefMetierImpl implements IRefMetier{
 	public void addFournisseur(FournisseurDetail f, Agent operat) {
 		// TODO Auto-generated method stub
 		FournisseurDetail fx= fournrepos.save(f);
-		OpSaisie saisiref = new OpSaisie(new Date(), new Date(), "0.0.0.0.0", operat, f.getLeref(),f.getIdFourn());
+		OpSaisie saisiref = new OpSaisie(new Date(), new Date(), operat.getIp(), operat, f.getLeref(),f.getIdFourn());
 		oprepos.save(saisiref);
 	}
 

@@ -9,19 +9,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Useri implements Serializable{
-	public Useri(String designation, String role) {
+public class Useri {
+	/*public Useri(String designation, String role) {
 		super();
 		this.designation = designation;
 		this.role = role;
-	}
+	}*/
 	public Useri(){
 		
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idUser;
-	
+
 	private String designation;
 	private String role;
 	
@@ -44,6 +44,7 @@ public class Useri implements Serializable{
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
+
 	public String getRole() {
 		return role;
 	}
@@ -53,6 +54,16 @@ public class Useri implements Serializable{
 	public int getIdUser(){
 		return this.idUser;
 	}
+	public Useri(String designation, String role) {
+		super();
+		this.designation = designation;
+		this.role = role;
+	}
+	public Useri(String designation) {
+		super();
+		this.designation = designation;
+	}
 	
+
 		
 }

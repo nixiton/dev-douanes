@@ -93,6 +93,26 @@
   PATH="/pages/secure/CM/ComptaMatiere.xhtml" SHAPE="560,401,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#secure#CA#ComptaAdmin.xhtml"
   PATH="/pages/secure/CA/ComptaAdmin.xhtml" SHAPE="768,209,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_priseEnCharge.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_priseEnCharge.xhtml"
+  SHAPE="560,2289,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_decharge.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_decharge.xhtml"
+  SHAPE="560,369,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_attribution.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_attribution.xhtml"
+  SHAPE="560,593,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieMatEx.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieMatEx.xhtml"
+  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_detachement.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_detachement.xhtml"
+  SHAPE="560,2401,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#secure#*" PATH="/pages/secure/*"
   SHAPE="288,721,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#pages#secure#*:0" NAME="item"
@@ -227,40 +247,47 @@
     TARGET="rules:#pages#secure#CM#content_forms#content_forms_saisieFournisseur.xhtml"
     TITLE="add_Fournisseur" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{saisieNomMB.Creer}:#pages#secure#CM#saisieRef.xhtml"
-    NAME="output24" PATH="/pages/secure/CM/saisieRef.xhtml"
-    TARGET="rules:#pages#secure#CM#saisieRef.xhtml"
-    TITLE="#{saisieNomMB.Creer}:success" model-entity="JSFProcessItemOutput"/>
+    ID="add_MotifSortie::#pages#secure#CM#content_forms#content_forms_saisieMotiSortie.xhtml"
+    NAME="output24"
+    PATH="/pages/secure/CM/content_forms/content_forms_saisieMotiSortie.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#content_forms_saisieMotiSortie.xhtml"
+    TITLE="add_MotifSortie" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{saisieTypeMatMB.Creer}:#pages#secure#CM#saisieRef.xhtml"
-    NAME="output25" PATH="/pages/secure/CM/saisieRef.xhtml"
-    TARGET="rules:#pages#secure#CM#saisieRef.xhtml"
-    TITLE="#{saisieTypeMatMB.Creer}:success" model-entity="JSFProcessItemOutput"/>
+    ID="add_Localite::#pages#secure#CM#content_forms#content_forms_saisieLocalite.xhtml"
+    NAME="output25"
+    PATH="/pages/secure/CM/content_forms/content_forms_saisieLocalite.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#content_forms_saisieLocalite.xhtml"
+    TITLE="add_Localite" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{saisieBureauMB.Creer}:#pages#secure#CM#saisieRef.xhtml"
-    NAME="output26" PATH="/pages/secure/CM/saisieRef.xhtml"
-    TARGET="rules:#pages#secure#CM#saisieRef.xhtml"
-    TITLE="#{saisieBureauMB.Creer}:success" model-entity="JSFProcessItemOutput"/>
+    ID="add_Direction::#pages#secure#CM#content_forms#content_forms_saisieDirection.xhtml"
+    NAME="output26"
+    PATH="/pages/secure/CM/content_forms/content_forms_saisieDirection.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#content_forms_saisieDirection.xhtml"
+    TITLE="add_Direction" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{saisieFinancementMB.Creer}:#pages#secure#CM#saisieRef.xhtml"
-    NAME="output27" PATH="/pages/secure/CM/saisieRef.xhtml"
-    TARGET="rules:#pages#secure#CM#saisieRef.xhtml"
-    TITLE="#{saisieFinancementMB.Creer}:success" model-entity="JSFProcessItemOutput"/>
+    ID="add_Poste::#pages#secure#CM#content_forms#content_forms_saisiePoste.xhtml"
+    NAME="output27"
+    PATH="/pages/secure/CM/content_forms/content_forms_saisiePoste.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#content_forms_saisiePoste.xhtml"
+    TITLE="add_Poste" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{saisieFournisseurMB.Creer}:#pages#secure#CM#saisieRef.xhtml"
-    NAME="output28" PATH="/pages/secure/CM/saisieRef.xhtml"
-    TARGET="rules:#pages#secure#CM#saisieRef.xhtml"
-    TITLE="#{saisieFournisseurMB.Creer}:success" model-entity="JSFProcessItemOutput"/>
+    ID="add_Role::#pages#secure#CM#content_forms#content_forms_saisieRole.xhtml"
+    NAME="output28"
+    PATH="/pages/secure/CM/content_forms/content_forms_saisieRole.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#content_forms_saisieRole.xhtml"
+    TITLE="add_Role" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{saisieListeDetMB.Creer}:#pages#secure#CM#saisieRef.xhtml"
-    NAME="output29" PATH="/pages/secure/CM/saisieRef.xhtml"
-    TARGET="rules:#pages#secure#CM#saisieRef.xhtml"
-    TITLE="#{saisieListeDetMB.Creer}:success" model-entity="JSFProcessItemOutput"/>
+    ID="add_Service::#pages#secure#CM#content_forms#content_forms_saisieService.xhtml"
+    NAME="output29"
+    PATH="/pages/secure/CM/content_forms/content_forms_saisieService.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#content_forms_saisieService.xhtml"
+    TITLE="add_Service" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="success:#{saisieMarqueMB.Creer}:#pages#secure#CM#saisieRef.xhtml"
-    NAME="output30" PATH="/pages/secure/CM/saisieRef.xhtml"
-    TARGET="rules:#pages#secure#CM#saisieRef.xhtml"
-    TITLE="#{saisieMarqueMB.Creer}:success" model-entity="JSFProcessItemOutput"/>
+    ID="add_Adresse::#pages#secure#CM#content_forms#content_forms_saisieAdresse.xhtml"
+    NAME="output30"
+    PATH="/pages/secure/CM/content_forms/content_forms_saisieAdresse.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#content_forms_saisieAdresse.xhtml"
+    TITLE="add_Adresse" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="success:#{saisieMotifAqMB.Creer}:#pages#secure#CM#saisieRef.xhtml"
     NAME="output31" PATH="/pages/secure/CM/saisieRef.xhtml"
@@ -311,98 +338,146 @@
     PATH="/pages/secure/CM/content_forms/content_forms_decharge.xhtml"
     TARGET="rules:#pages#secure#CM#content_forms#content_forms_decharge.xhtml"
     TITLE="add_Decharge" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="filtre_type_mat::#pages#secure#CM#content_forms#tables_listeMatStatHisto_type_mat.xhtml"
+    NAME="output40"
+    PATH="/pages/secure/CM/content_forms/tables_listeMatStatHisto_type_mat.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#tables_listeMatStatHisto_type_mat.xhtml"
+    TITLE="filtre_type_mat" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="filtre_nom::#pages#secure#CM#content_forms#tables_listeMatStatHisto_nom.xhtml"
+    NAME="output41"
+    PATH="/pages/secure/CM/content_forms/tables_listeMatStatHisto_nom.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#tables_listeMatStatHisto_nom.xhtml"
+    TITLE="filtre_nom" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="filtre_porte::#pages#secure#CM#content_forms#tables_listeMatStatHisto_type_porte.xhtml"
+    NAME="output42"
+    PATH="/pages/secure/CM/content_forms/tables_listeMatStatHisto_type_porte.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#tables_listeMatStatHisto_type_porte.xhtml"
+    TITLE="filtre_porte" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="filtre_localite::#pages#secure#CM#content_forms#tables_listeMatStatHisto_localite.xhtml"
+    NAME="output43"
+    PATH="/pages/secure/CM/content_forms/tables_listeMatStatHisto_localite.xhtml"
+    TARGET="rules:#pages#secure#CM#content_forms#tables_listeMatStatHisto_localite.xhtml"
+    TITLE="filtre_localite" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#saisieRef.xhtml"
-  PATH="/pages/secure/CM/saisieRef.xhtml" SHAPE="544,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#saisieMatEx.xhtml"
-  PATH="/pages/secure/CM/saisieMatEx.xhtml" SHAPE="544,1137,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#priseEnCharge.xhtml"
-  PATH="/pages/secure/CM/priseEnCharge.xhtml" SHAPE="544,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#attribution.xhtml"
-  PATH="/pages/secure/CM/attribution.xhtml" SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#detachement.xhtml"
-  PATH="/pages/secure/CM/detachement.xhtml" SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#tracabilite.xhtml"
-  PATH="/pages/secure/CM/tracabilite.xhtml" SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#listeMatStatHisto.xhtml"
-  PATH="/pages/secure/CM/listeMatStatHisto.xhtml" SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#editionEtats.xhtml"
-  PATH="/pages/secure/CM/editionEtats.xhtml" SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#validation#priseEnCharge.xhtml"
-  PATH="/pages/secure/CM/validation/priseEnCharge.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#validation#decharge.xhtml"
-  PATH="/pages/secure/CM/validation/decharge.xhtml" SHAPE="560,1393,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#validation#attribution.xhtml"
-  PATH="/pages/secure/CM/validation/attribution.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#secure#CM#decharge.xhtml"
-  PATH="/pages/secure/CM/decharge.xhtml" SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieNomenclature.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_saisieNomenclature.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieTypeMat.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_saisieTypeMat.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieEtatMat.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_saisieEtatMat.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieMarque.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_saisieMarque.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieListeDetenteur.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_saisieListeDetenteur.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieUtilisateurs.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_saisieUtilisateurs.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieBureau.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_saisieBureau.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
   NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieMotifAquisition.xhtml"
   PATH="/pages/secure/CM/content_forms/content_forms_saisieMotifAquisition.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
+  SHAPE="560,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#decharge.xhtml"
+  PATH="/pages/secure/CM/decharge.xhtml" SHAPE="560,2513,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieMotifDecharge.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_saisieMotifDecharge.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieMarque.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieMarque.xhtml"
+  SHAPE="560,3857,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#tracabilite.xhtml"
+  PATH="/pages/secure/CM/tracabilite.xhtml" SHAPE="560,2625,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#validation#priseEnCharge.xhtml"
+  PATH="/pages/secure/CM/validation/priseEnCharge.xhtml"
+  SHAPE="560,2961,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#saisieMatEx.xhtml"
+  PATH="/pages/secure/CM/saisieMatEx.xhtml" SHAPE="560,593,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#validation#attribution.xhtml"
+  PATH="/pages/secure/CM/validation/attribution.xhtml"
+  SHAPE="560,3073,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieTypeMat.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieTypeMat.xhtml"
+  SHAPE="560,3409,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#saisieRef.xhtml"
+  PATH="/pages/secure/CM/saisieRef.xhtml" SHAPE="560,2065,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieUtilisateurs.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieUtilisateurs.xhtml"
+  SHAPE="560,4081,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#detachement.xhtml"
+  PATH="/pages/secure/CM/detachement.xhtml" SHAPE="560,2401,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#priseEnCharge.xhtml"
+  PATH="/pages/secure/CM/priseEnCharge.xhtml" SHAPE="560,2289,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#attribution.xhtml"
+  PATH="/pages/secure/CM/attribution.xhtml" SHAPE="560,369,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
   NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieFinancement.xhtml"
   PATH="/pages/secure/CM/content_forms/content_forms_saisieFinancement.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
+  SHAPE="560,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieEtatMat.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieEtatMat.xhtml"
+  SHAPE="560,3521,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
   NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieFournisseur.xhtml"
   PATH="/pages/secure/CM/content_forms/content_forms_saisieFournisseur.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
+  SHAPE="560,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#listeMatStatHisto.xhtml"
+  PATH="/pages/secure/CM/listeMatStatHisto.xhtml" SHAPE="560,2737,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#validation#decharge.xhtml"
+  PATH="/pages/secure/CM/validation/decharge.xhtml" SHAPE="560,3185,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_priseEnCharge.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_priseEnCharge.xhtml"
-  SHAPE="560,2289,0,0" model-entity="JSFProcessGroup"/>
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieMotifDecharge.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieMotifDecharge.xhtml"
+  SHAPE="560,705,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_decharge.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_decharge.xhtml"
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieListeDetenteur.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieListeDetenteur.xhtml"
+  SHAPE="560,3969,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#CM#editionEtats.xhtml"
+  PATH="/pages/secure/CM/editionEtats.xhtml" SHAPE="560,2849,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieBureau.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieBureau.xhtml"
+  SHAPE="560,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieNomenclature.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieNomenclature.xhtml"
+  SHAPE="560,3297,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieRole.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieRole.xhtml"
   SHAPE="560,369,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_attribution.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_attribution.xhtml"
+  NAME="rules:#pages#secure#CM#content_forms#tables_listeMatStatHisto_type_porte.xhtml"
+  PATH="/pages/secure/CM/content_forms/tables_listeMatStatHisto_type_porte.xhtml"
+  SHAPE="560,3201,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieMotiSortie.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieMotiSortie.xhtml"
+  SHAPE="560,2417,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#tables_listeMatStatHisto_nom.xhtml"
+  PATH="/pages/secure/CM/content_forms/tables_listeMatStatHisto_nom.xhtml"
+  SHAPE="560,3089,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#tables_listeMatStatHisto_localite.xhtml"
+  PATH="/pages/secure/CM/content_forms/tables_listeMatStatHisto_localite.xhtml"
+  SHAPE="560,3313,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieDirection.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieDirection.xhtml"
+  SHAPE="560,2529,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisiePoste.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisiePoste.xhtml"
+  SHAPE="560,2641,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#tables_listeMatStatHisto_type_mat.xhtml"
+  PATH="/pages/secure/CM/content_forms/tables_listeMatStatHisto_type_mat.xhtml"
+  SHAPE="560,2977,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieLocalite.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieLocalite.xhtml"
   SHAPE="560,593,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieMatEx.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_saisieMatEx.xhtml"
-  SHAPE="560,817,0,0" model-entity="JSFProcessGroup"/>
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieService.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieService.xhtml"
+  SHAPE="560,2753,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM
-  NAME="rules:#pages#secure#CM#content_forms#content_forms_detachement.xhtml"
-  PATH="/pages/secure/CM/content_forms/content_forms_detachement.xhtml"
-  SHAPE="560,2401,0,0" model-entity="JSFProcessGroup"/>
+  NAME="rules:#pages#secure#CM#content_forms#content_forms_saisieAdresse.xhtml"
+  PATH="/pages/secure/CM/content_forms/content_forms_saisieAdresse.xhtml"
+  SHAPE="560,2865,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

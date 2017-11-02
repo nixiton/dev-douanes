@@ -1,6 +1,7 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -11,6 +12,7 @@ import com.douane.metier.referentiel.IRefMetier;
 import com.douane.metier.user.IUserMetier;
 
 public class TestMetier {
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -51,8 +53,10 @@ public class TestMetier {
 		
 		IUserMetier usermetier = (IUserMetier) context.getBean("usermetier");
 		
-		Useri role1 = new Useri("Un utilisateur qui peut tout faire", "GAC");
-		Useri role2 = new Useri("Un utilisateur normal", "Agent");
+		Useri role1 = new Useri("Un utilisateur qui peut tout faire");
+		role1.setRole("GAC");
+		Useri role2 = new Useri("Un utilisateur normal");
+		role2.setRole("Agent");
 		
 		usermetier.addUser(role1);
 		usermetier.addUser(role2);
@@ -171,33 +175,37 @@ public class TestMetier {
 		mat1.setDirec(compta);
 		mat1.setServ(dev);
 		mat1.setCategorie(categ);
+		mat1.setBureau(bureau);
 		//mat1.setDetenteur(null);
-		//usermetier.entrerMateriel(mat1, agent2);
+		//OpEntree op = usermetier.reqEntrerMateriel(mat1, agent2);
+		//Materiel materiel =op.getMat();
+		//System.out.println("materiel id"+materiel.getIdMateriel());
+		//Materiel mati = usermetier.getMatById(materiel.getIdMateriel());
 		//usermetier.delMat(mat);
-		
-		usermetier.seeMat(mat1);
-		
-		//entrer materiel mais encore à  valider
+		//System.out.println("mati id"+mati.getIdMateriel());
+//		usermetier.seeMat(mat1);
+//		
+//		//entrer materiel mais encore à  valider
 		OpEntree entree = usermetier.reqEntrerMateriel(mat1, agent2);
-		//Validation entrer materiel
+//		//Validation entrer materiel
 		Materiel m = usermetier.entrerMateriel(entree);
-		/*//Require modification pour validation
-		try {
-			entree = usermetier.reqMatAModifier(entree, "Tsy ampy kely");
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e.getMessage());
-		}
-		//Refuser
-		try {
-			entree = usermetier.reqMatRefuser(entree, "Tsy izy mintsn");
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e.getMessage());
-		}
-		*/
-		
-		//requete attribution de materiel
+//		/*//Require modification pour validation
+//		try {
+//			entree = usermetier.reqMatAModifier(entree, "Tsy ampy kely");
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			System.out.println(e.getMessage());
+//		}
+//		//Refuser
+//		try {
+//			entree = usermetier.reqMatRefuser(entree, "Tsy izy mintsn");
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			System.out.println(e.getMessage());
+//		}
+//		*/
+//		
+//		//requete attribution de materiel
 		OpAttribution attribution = null;
 		try {
 			attribution = usermetier.reqAttribution(m, agent2, agent1);
@@ -205,29 +213,29 @@ public class TestMetier {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
 		}
-		
+//		
 		if(attribution!=null) {
-			//Validation attribution
+//			//Validation attribution
 			m = usermetier.attriuberMateriel(attribution);
-			/*
-			//Amodifier attribution
-			try {
-				attribution = usermetier.reqAttrAModifier(attribution, "Tsy ilay olona");				
-			} catch (Exception e) {
-				// TODO: handle exception
-				System.out.println(e.getMessage());
-			}
-			
-			//Arefuser attribution
-			try {
-				attribution = usermetier.reqAttrRefuser(attribution, "Mandainga");				
-			} catch (Exception e) {
-				// TODO: handle exception
-				System.out.println(e.getMessage());
-			}
-			*/
+//			/*
+//			//Amodifier attribution
+//			try {
+//				attribution = usermetier.reqAttrAModifier(attribution, "Tsy ilay olona");				
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				System.out.println(e.getMessage());
+//			}
+//			
+//			//Arefuser attribution
+//			try {
+//				attribution = usermetier.reqAttrRefuser(attribution, "Mandainga");				
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				System.out.println(e.getMessage());
+//			}
+//			*/
 		}
-		System.out.println("after attribution");
+		/*System.out.println("after attribution");
 		if(m==null) {
 			System.out.println("Mater detenu null");
 		}
@@ -235,66 +243,114 @@ public class TestMetier {
 			System.out.println(ma.getIdMateriel());
 		}
 		
+		for(Materiel ma : usermetier.getListMatByDet(m.getDetenteur()) ) {
+			System.out.println(ma.getIdMateriel());
+		}*/
 		
-		//requete dettachement de materiel
-				OpDettachement det = null;
-				try {
-					det = usermetier.reqDettachement(m, agent2, m.getDetenteur());
-				} catch (Exception e) {
-					// TODO: handle exception
-					System.out.println(e.getMessage());
-				}
-				
-				if(det!=null) {
-					//Validation dettachement
-					Agent ancien = usermetier.detacherMateriel(det);
-					System.out.println("after dettachement");
-					for(Materiel ma : ancien.getMatdetenu()) {
-						System.out.println(ma.getIdMateriel());
-					}
-					
-					/*
-					//Amodifier dettachement
-					try {
-						det = usermetier.reqDettAModifier(det, "Tsy izy ilay materiels");				
-					} catch (Exception e) {
-						// TODO: handle exception
-						System.out.println(e.getMessage());
-					}
-					*//*
-					//Arefuser attribution
-					try {
-						det = usermetier.reqDetRefuser(det, "Mandainga");				
-					} catch (Exception e) {
-						// TODO: handle exception
-						System.out.println(e.getMessage());
-					}*/
-					
-				}
-			// Sortie de materiel
-			OpSortie sortie = null;
-			try {
-				sortie = usermetier.reqSortirMateriel(m, motifsortie, statistique, dev, bureau, agent1);
-			}
-			catch (Exception e) {
-				// TODO: handle exception
-				System.out.println(e.getMessage());
-			}
-			 
-			//Validation sortir materiel
-			try {
-				Materiel ms = usermetier.sortirMateriel(sortie);
-			}
-			catch (Exception e) {
-				// TODO: handle exception
-				System.out.println(e.getMessage());
-			}
-			//
-			//Require modification pour validation
-			//sortie = usermetier.reqSortirAModifier(sortie, "Tsy ampy kely");
-			//Refuser
-			//sortie = usermetier.reqSortirRefuser(sortie, "Tsy izy mintsn");
+//		
+//		//requete dettachement de materiel
+//			OpDettachement det = null;
+//				try {
+//					det = usermetier.reqDettachement(m, agent2, m.getDetenteur());
+//				} catch (Exception e) {
+//					// TODO: handle exception
+//					System.out.println(e.getMessage());
+//				}
+//				
+//				if(det!=null) {
+//					//Validation dettachement
+//					Agent ancien = usermetier.detacherMateriel(det);
+//					System.out.println("after dettachement");
+//					for(Materiel ma : ancien.getMatdetenu()) {
+//						System.out.println(ma.getIdMateriel());
+//					}
+//					
+//					/*
+//					//Amodifier dettachement
+//					try {
+//						det = usermetier.reqDettAModifier(det, "Tsy izy ilay materiels");				
+//					} catch (Exception e) {
+//						// TODO: handle exception
+//						System.out.println(e.getMessage());
+//					}
+//					*//*
+//					//Arefuser attribution
+//					try {
+//						det = usermetier.reqDetRefuser(det, "Mandainga");				
+//					} catch (Exception e) {
+//						// TODO: handle exception
+//						System.out.println(e.getMessage());
+//					}*/
+//					
+//				}
+//			// Sortie de materiel
+//			OpSortie sortie = null;
+//			try {
+//				sortie = usermetier.reqSortirMateriel(m, motifsortie, statistique, dev, bureau, agent1);
+//			}
+//			catch (Exception e) {
+//				// TODO: handle exception
+//				System.out.println(e.getMessage());
+//			}
+//			 
+//			//Validation sortir materiel
+//			try {
+//				Materiel ms = usermetier.sortirMateriel(sortie);
+//			}
+//			catch (Exception e) {
+//				// TODO: handle exception
+//				System.out.println(e.getMessage());
+//			}
+//			//
+//			//Require modification pour validation
+//			//sortie = usermetier.reqSortirAModifier(sortie, "Tsy ampy kely");
+//			//Refuser
+//			//sortie = usermetier.reqSortirRefuser(sortie, "Tsy izy mintsn");
 		
+			/* // Get all operations
+			for(Operation op : usermetier.getListOp()) {
+				System.out.println(op.getDate());
+			}
+			System.out.println("print operation entree");
+			for(OpEntree op : usermetier.getListOpEntree()) {
+					System.out.println(op.getNumentree());				
+			}*/
+			/*// Get operations By Operator
+			for(Operation op : usermetier.getListOpByOperator(agent2)) {
+				System.out.println(op.getDate());
+			}
+			for(OpEntree op : usermetier.getListOpEntreeByOperator(agent2)) {
+				System.out.println(op.getNumentree());				
+			}*/
+			/*//Get operations By Direction
+			for(Operation op : usermetier.getListOpByDirection(agent2.getDirection())) {
+				System.out.println(op.getDate());
+			}
+			for(OpEntree op : usermetier.getListOpEntreeByDirection(agent2.getDirection())) {
+				System.out.println(op.getNumentree());				
+			}
+			
+			*/
+			/*//get list materiel by
+			for(Materiel ma : usermetier.getListMatByNom(nm1)) {
+				System.out.println(ma.getNumSerie());
+			}*/
+			/*//get operation entre date
+			for(Operation ope: usermetier.getListOpBetween(new Date(System.currentTimeMillis()-24*60*60*1000),
+					new Date(System.currentTimeMillis()-24*60*60*1000))) {
+				System.out.println(ope.getDate());
+			}*/
+			for(OpEntree ope: usermetier.getListOpEntreeByMatBDate(mat1,new Date(System.currentTimeMillis()-24*60*60*1000),
+					new Date())) {
+				System.out.println(ope.getNumentree());
+			}
+			for(OpSortie ope: usermetier.getListOpSortieByMatBDate(mat1,new Date(System.currentTimeMillis()-24*60*60*1000),
+					new Date())) {
+				System.out.println(ope.getNumSortie());
+			}
+			
+		
+//		
 	}
 
 }

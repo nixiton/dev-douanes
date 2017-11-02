@@ -3,6 +3,7 @@ package com.douane.user.dao;
 import java.util.List;
 
 import com.douane.model.User;
+import org.springframework.transaction.annotation.Transactional;
 
 
 public interface IUserDAO {
@@ -10,7 +11,7 @@ public interface IUserDAO {
 	/**
 	 * Add User
 	 * 
-	 * @param  Useri user
+	 * @param  User user
 	 */
 	public void addUser(User user);
 	
@@ -24,7 +25,7 @@ public interface IUserDAO {
 	/**
 	 * Delete User
 	 * 
-	 * @param  Useri user
+	 * @param  User user
 	 */
 	public void deleteUser(User user);
 	
@@ -40,6 +41,11 @@ public interface IUserDAO {
 	 * 
 	 */
 	public List<User> getUsers();
-	
+
+	/**
+	 * Find User
+	 *
+	 * @param  String User Username
+	 */
 	public User findUser(String username);
 }

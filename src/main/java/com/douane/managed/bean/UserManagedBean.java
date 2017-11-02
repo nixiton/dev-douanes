@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
+import com.douane.metier.referentiel.IRefMetier;
 import org.primefaces.context.RequestContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,7 +21,6 @@ import com.douane.entite.Agent;
 import com.douane.entite.Useri;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.User;
-import com.douane.user.service.IUserService;
 
 
 @ManagedBean(name="userMB")
@@ -36,9 +36,17 @@ public class UserManagedBean implements Serializable {
 	@ManagedProperty(value="#{UserService}")
 	IUserService userService;
 	*/
+
+
 	@ManagedProperty(value="#{usermetier}")
 	IUserMetier usermetierimpl;
-	
+
+
+
+	@ManagedProperty(value="#{refmetier}")
+	IRefMetier refmetierimpl;
+
+
 	List<Agent> userList;
 	
 	private int id;
@@ -46,7 +54,9 @@ public class UserManagedBean implements Serializable {
 	private String username;
 	private String password;
 	private Long im;
-	  private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	private String role;
+	private String designation;
+	private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	/**
 	 * Add User
 	 * 
@@ -55,16 +65,28 @@ public class UserManagedBean implements Serializable {
 	public String addUser() {
 		try {
 			Agent user = new Agent();
+			Useri useri = new Useri();
 			//user.setName(getName());
+
 			user.setNomAgent(getName());
+
 			//user.setUsername(getUsername());
+
 			user.setPrenomAgent(getName());
 			user.setIm(getIm());
 			
-			 String hashedPassword = passwordEncoder.encode(getPassword());
-			 user.setPassword(hashedPassword);
-			//user.setPassword(hashedPassword);
-			getUsermetierimpl().addAgent(user);
+			String hashedPassword = passwordEncoder.encode(getPassword());
+			user.setPassword(hashedPassword);
+			user.setPassword(hashedPassword);
+			useri.setDesignation(designation);
+			useri.setRole(role);
+			user.setRoleAgent(useri);
+			//getUsermetierimpl().addAgent(user);
+			//refmetierimpl.addRef(new Useri(designation,role), new Agent(getIm(),getName(),hashedPassword,new Useri(designation,role)));
+			//refmetierimpl.addRef(useri,user);
+			usermetierimpl.addUser(useri);
+			usermetierimpl.addAgent(user);
+
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
 			return SUCCESS;
 		} catch (DataAccessException e) {
@@ -194,8 +216,29 @@ public class UserManagedBean implements Serializable {
 	public void setIm(Long im) {
 		this.im = im;
 	}
-	
-	
-	
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public IRefMetier getRefmetierimpl() {
+		return refmetierimpl;
+	}
+
+	public void setRefmetierimpl(IRefMetier refmetierimpl) {
+		this.refmetierimpl = refmetierimpl;
+	}
 	
 }

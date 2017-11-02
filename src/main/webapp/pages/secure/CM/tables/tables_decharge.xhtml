@@ -5,10 +5,9 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://primefaces.org/ui"
     >
 
-<div   class="body collapse in table-responsive">
+<div id="defaultTable" class="body collapse in table-responsive">
 
     <div class="col-lg-4">
 
@@ -19,24 +18,24 @@
 
     </div>
 
-    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{DepositaireBean.listDecharge}" var="d">
-        <p:column>
+    <h:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{dechargeMB.dechargeList}" var="d">
+        <h:column>
             <f:facet name="header">ID</f:facet>
             #{d.id}
-        </p:column>
-        <p:column>
+        </h:column>
+        <h:column>
             <f:facet name="header">Motif de sortie</f:facet>
-            #{.motifSortie.designation}
-        </p:column>
-         <p:column>
+            #{.materiel}
+        </h:column>
+         <h:column>
             <f:facet name="header">Materiel</f:facet>
-            #{d.materiel.nomenclature}
-        </p:column>
-         <p:column>
+            #{d.materiel}
+        </h:column>
+         <h:column>
             <f:facet name="header">Destination</f:facet>
-            #{a.destination.designation}
-        </p:column>
-    </p:dataTable>
+            #{a.destination}
+        </h:column>
+    </h:dataTable>
 
 
 

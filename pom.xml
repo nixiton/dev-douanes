@@ -17,7 +17,7 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-		<!--repository> <id>prime-repo</id> <name>PrimeFaces Maven Repository</name> 
+		<!--repository> <id>prime-repo</id> <name>PrimeFaces Maven Repository</name>
 			<url>http://repository.primefaces.org</url> <layout>default</layout> </repository -->
 	</repositories>
 	<pluginRepositories>
@@ -36,7 +36,7 @@
 		<spring.version>3.2.6.RELEASE</spring.version>
 		<!-- spring.version>4.0.3.RELEASE</spring.version -->
 
-		<hibernate.version>3.6.7.Final</hibernate.version>
+		<hibernate.version>4.2.8.Final</hibernate.version>
 		<hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -168,12 +168,12 @@
 			<version>5.3</version>
 		</dependency>
 
-		<!-- Hibernate library <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-core</artifactId> 
-			<version>4.1.0.Final</version> </dependency> <dependency> <groupId>org.hibernate.common</groupId> 
-			<artifactId>hibernate-commons-annotations</artifactId> <version>4.0.1.Final</version> 
-			</dependency> <dependency> <groupId>org.hibernate.javax.persistence</groupId> 
-			<artifactId>hibernate-jpa-2.0-api</artifactId> <version>1.0.0.Final</version> 
-			</dependency> <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-entitymanager</artifactId> 
+		<!-- Hibernate library <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-core</artifactId>
+			<version>4.1.0.Final</version> </dependency> <dependency> <groupId>org.hibernate.common</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId> <version>4.0.1.Final</version>
+			</dependency> <dependency> <groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId> <version>1.0.0.Final</version>
+			</dependency> <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-entitymanager</artifactId>
 			<version>3.6.7.Final</version> </dependency> -->
 
 		<!-- Hibernate -->
@@ -241,7 +241,7 @@
 		</dependency>
 
 
-		<!-- <dependency> <groupId>org.glassfish.web</groupId> <artifactId>el-impl</artifactId> 
+		<!-- <dependency> <groupId>org.glassfish.web</groupId> <artifactId>el-impl</artifactId>
 			<version>2.2.1-b05</version> </dependency> -->
 		<dependency>
 			<groupId>antlr</groupId>
@@ -339,11 +339,11 @@
 	</dependencies>
 	<profiles>
 		<profile>
-			<!-- When built in OpenShift the 'openshift' profile will be used when 
+			<!-- When built in OpenShift the 'openshift' profile will be used when
 				invoking mvn. -->
-			<!-- Use this profile for any OpenShift specific customization your app 
+			<!-- Use this profile for any OpenShift specific customization your app
 				will need. -->
-			<!-- By default that is to put the resulting archive into the 'webapps' 
+			<!-- By default that is to put the resulting archive into the 'webapps'
 				folder. -->
 			<!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
 			<id>openshift</id>

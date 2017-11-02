@@ -93,17 +93,16 @@
 
 
 
-	<!-- User Service Declaration -->
+	<!-- User Service Declaration 
 	<bean id="UserService" class="com.douane.user.service.UserService">
 		<property name="userDAO" ref="UserDAO" />
-	</bean>
+	</bean>-->
 	<!-- Referentiel DAO -->
 	<bean id="refdao" class="com.douane.dao.referentiel.RefDAOImpl"></bean>
 
-	<!-- User DAO Declaration -->
+	<!-- User DAO Declaration 
 	<bean id="UserDAO" class="com.douane.user.dao.UserDAO">
-		<!-- property name="sessionFactory" ref="SessionFactory" / -->
-	</bean>
+	</bean>-->
 
 	<!-- User DAO Declaration -->
 	<bean id="operationdao" class="come.douane.dao.operation.OperationDAOImpl">
@@ -161,7 +160,7 @@
 		</property>
 		<property name="jpaProperties">
 			<props>
-				<prop key="hibernate.hbm2ddl.auto">none</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
 			</props>
 		</property>

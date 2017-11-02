@@ -6,6 +6,7 @@ public class MyZillaMigration extends Flyway{
 	public void repairAndMigrate() {
 		//this.init();
 		this.setValidateOnMigrate(true);
+		this.setBaselineOnMigrate(true);
         this.repair();
         this.migrate();
     }

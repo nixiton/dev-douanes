@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-
+import com.douane.entite.Direction;
 import com.douane.entite.Referentiel;
 
 public class RefDAOImpl  implements IRefDAO{

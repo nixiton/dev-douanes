@@ -29,5 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `Agent`
 
 --
-INSERT INTO `Useri` (`idUser`, `designation`, `role`) VALUES(1, 'Un utilisateur qui peut tout faire', 'toor');
-INSERT INTO `Agent` (`im`, `nomAgent`, `PASSWORD`, `prenomAgent`, `idposteny`, `idrole`) VALUES (1, 'ADMINISTRATEUR', '$2a$10$I2sElP6dzguyXFLs0a1nSOOB6oFkSk3aiUoHzB.3d9svCbpVgDbUS', 'toor', NULL, 1);
+--INSERT INTO `Useri` (`idUser`, `designation`, `role`) VALUES(1, 'Un utilisateur qui peut tout faire', 'toor');
+--INSERT INTO `Agent` (`im`, `nomAgent`, `PASSWORD`, `prenomAgent`, `idposteny`, `idrole`) VALUES (1, 'ADMINISTRATEUR', '$2a$10$I2sElP6dzguyXFLs0a1nSOOB6oFkSk3aiUoHzB.3d9svCbpVgDbUS', 'toor', NULL, 1);
+--INSERT INTO `Useri` (`idUser`, `designation`, `role`) VALUES (1, 'admin', 'ROLE_ADMIN');
+--INSERT INTO `Agent` (`im`, `nomAgent`, `PASSWORD`, `prenomAgent`, `idposteny`, `idrole`) VALUES(1, 'admin', '$2a$10$PS4Bp3NTSGMVaBWdpAXXle4TmhxM46HhCANt/Oxru.lqJT5bEX2Z6', 'admin', NULL, 1);

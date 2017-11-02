@@ -33,11 +33,16 @@ public abstract class Operation implements Serializable{
 	
 	protected String poste;
 	protected String motifretour;
-	
+
 	@ManyToOne
 	@JoinColumn(name="idOperateur")
 	protected Agent operateur;
 	
+	@ManyToOne
+	@JoinColumn(name="idDirection")
+	protected Direction direction;
+
+
 	@Enumerated(EnumType.STRING)
 	protected EtatOperation state;
 	
@@ -83,6 +88,7 @@ public abstract class Operation implements Serializable{
 		this.poste = poste;
 		this.operateur = operateur;
 		this.state = EtatOperation.WAITING;
+		this.direction = operateur.getDirection();
 	}
 	public void valider() {
 		this.state = EtatOperation.ACCEPTED;
@@ -96,6 +102,16 @@ public abstract class Operation implements Serializable{
 		this.state = EtatOperation.REFUSED;
 	}
 	
+	public Direction getDirection() {
+		return direction;
+	}
+
+
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
+
+	
 
 
 	public Operation() {
@@ -103,15 +119,19 @@ public abstract class Operation implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
+	//For xhtml
+	public String getMotifretour() {
+		return motifretour;
+	}
 
-	/*public Agent getOperateur() {
+	public Agent getOperateur() {
 		return operateur;
 	}
 
 
-	public void setOperateur(Agent operateur) {
-		this.operateur = operateur;
-	}*/
+	public EtatOperation getState() {
+		return state;
+	}
 	
 
 }

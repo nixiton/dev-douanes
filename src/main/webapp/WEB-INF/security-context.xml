@@ -47,6 +47,8 @@
 
 	<!-- Set customUserDetailsService class as the authentication Manager for 
 		Spring Security -->
+	<beans:bean id="customAuthenticationProvider" class="com.douane.security.CustomAuthenticationProvider"/>
+
 	<sec:authentication-manager alias="authenticationManager">
 		<sec:authentication-provider ref="customAuthenticationProvider">
 		</sec:authentication-provider>
@@ -57,4 +59,5 @@
 		class="com.douane.managed.bean.LoginBean" scope="prototype">
 		<beans:property name="authenticationManager" ref="authenticationManager"></beans:property>
 	</beans:bean>
+
 </beans:beans>

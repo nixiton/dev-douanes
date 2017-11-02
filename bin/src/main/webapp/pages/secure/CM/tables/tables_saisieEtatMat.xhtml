@@ -4,6 +4,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
 	>
 
 <div id="defaultTable" class="body collapse in table-responsive">
@@ -17,16 +18,16 @@
 
 	</div>
 
-	<h:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{saisieEtatMatMB.etatmaterielList}" var="etat">
-		<h:column>
+	<p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{siseBean.listEtatmateriel}" var="etat">
+		<p:column>
 			<f:facet name="header">ID</f:facet>
 			#{etat.id}
-		</h:column>
-		<h:column>
+		</p:column>
+		<p:column>
 			<f:facet name="header">Désignation</f:facet>
 			#{etat.designation}
-		</h:column>
-	</h:dataTable>
+		</p:column>
+	</p:dataTable>
 
 
 

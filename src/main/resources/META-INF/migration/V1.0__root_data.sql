@@ -250,8 +250,8 @@ ALTER TABLE `OpSaisie` ADD CONSTRAINT `FKDA8CF54726D6721Fc6616075` FOREIGN KEY (
 ALTER TABLE `OpSortie` ADD CONSTRAINT `FKC72AC49B50E0AAF1` FOREIGN KEY (`idMotif`) REFERENCES `Referentiel` (`id`), ADD CONSTRAINT `FKC72AC49B5832859B` FOREIGN KEY (`idBureau`) REFERENCES `Referentiel` (`id`), ADD CONSTRAINT `FKC72AC49B5CBFA81A` FOREIGN KEY (`idServ`) REFERENCES `Referentiel` (`id`), ADD CONSTRAINT `FKC72AC49B9D3350D4` FOREIGN KEY (`idMat`) REFERENCES `Materiel` (`idMateriel`), ADD CONSTRAINT `FKC72AC49BE4489CF7` FOREIGN KEY (`idDirect`) REFERENCES `Referentiel` (`id`), ADD CONSTRAINT `FKDA8CF54726D6721Fc72ac49b` FOREIGN KEY (`idOperateur`) REFERENCES `Agent` (`im`);
 COMMIT;
 
-INSERT INTO `Useri` (`idUser`, `designation`, `role`) VALUES(1, 'Un utilisateur qui peut tout faire', 'toor');
-INSERT INTO `Agent` (`im`, `nomAgent`, `PASSWORD`, `prenomAgent`, `idposteny`, `idrole`) VALUES (1, 'ADMINISTRATEUR', '123456', 'toor', NULL, 1);
+--INSERT INTO `Useri` (`idUser`, `designation`, `role`) VALUES(1, 'Un utilisateur qui peut tout faire', 'toor');
+--INSERT INTO `Agent` (`im`, `nomAgent`, `PASSWORD`, `prenomAgent`, `idposteny`, `idrole`) VALUES (1, 'ADMINISTRATEUR', '123456', 'toor', NULL, 1);
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

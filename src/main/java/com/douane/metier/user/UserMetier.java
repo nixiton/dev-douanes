@@ -20,8 +20,10 @@ import com.douane.entite.Materiel;
 import com.douane.entite.MaterielNouv;
 import com.douane.entite.ModeAcquisition;
 import com.douane.entite.MotifSortie;
+import com.douane.entite.Nomenclature;
 import com.douane.entite.OpSaisie;
 import com.douane.entite.OpSortie;
+import com.douane.entite.Operation;
 import com.douane.entite.Service;
 import com.douane.entite.Useri;
 import com.douane.repository.*;
@@ -30,6 +32,7 @@ import come.douane.dao.operation.IOperationDAO;
 
 @Transactional
 public class UserMetier implements IUserMetier{
+	
 	@Autowired
 	private UserRepository userrepos;
 	@Autowired
@@ -41,9 +44,14 @@ public class UserMetier implements IUserMetier{
 	private OpRepository oprepos;
 	
 	@Autowired
+	private OpEntreeRepository opentreerepos;
+	
+	@Autowired
+	private OpSortieRepository opsortierepos;
+	
+	@Autowired
 	@ManagedProperty(value="#{operationdao}")
 	private IOperationDAO operationdao;
-	
 	
 	@Override
 	public Useri addUser(Useri u) {
@@ -57,7 +65,7 @@ public class UserMetier implements IUserMetier{
 		// TODO Auto-generated method stub
 		return (List<Useri>)userrepos.findAll();
 	}
-
+	
 	@Override
 	public void remUser(Useri u) {
 		// TODO Auto-generated method stub
@@ -115,7 +123,7 @@ public class UserMetier implements IUserMetier{
 		m.setDc(dc);
 		matrepos.save(m);
 		
-		OpEntree entree = new OpEntree(new Date(), new Date(), "0.0.0.0", dc, m);
+		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc, m);
 		oprepos.save(entree);
 		
 		return entree;
@@ -127,7 +135,7 @@ public class UserMetier implements IUserMetier{
 		if(m.getDetenteur()!=null) {
 			throw new Exception("detenu");
 		}
-		OpSortie sortie = new OpSortie(new Date(), new Date(), "0.0.0.0", oper, m, d, s, b, motif);
+		OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, d, s, b, motif);
 		oprepos.save(sortie);
 		return sortie;
 	}
@@ -251,7 +259,7 @@ public class UserMetier implements IUserMetier{
 		if(!m.isValidation()) {
 			throw new Exception("nonvalider");
 		}
-		OpAttribution attroper= new OpAttribution(new Date(), new Date(),"0.0.0.0", oper, m, detenteur);
+		OpAttribution attroper= new OpAttribution(new Date(), new Date(),oper.getIp(), oper, m, detenteur);
 	    oprepos.save(attroper);
 		return attroper;
 	}
@@ -319,7 +327,7 @@ public class UserMetier implements IUserMetier{
 		if(mat1.getDetenteur()==null) {
 			throw new Exception("aucun");
 		}
-	    OpDettachement opdet = new OpDettachement(new Date(), new Date(), "0.0.0.0", oper, mat1, dete);
+	    OpDettachement opdet = new OpDettachement(new Date(), new Date(), oper.getIp(), oper, mat1, dete);
 		oprepos.save(opdet);
 		return opdet;
 	}
@@ -352,6 +360,137 @@ public class UserMetier implements IUserMetier{
 
 	public void setOperationdao(IOperationDAO operationdao) {
 		this.operationdao = operationdao;
+	}
+	
+	/**
+	 * 
+	 * GETTERS
+	 */
+	@Override
+	public Materiel getMatById(Long idmat) {
+		// TODO Auto-generated method stub
+		return matrepos.findByIdMateriel(idmat);
+	}
+
+	@Override
+	public List<Materiel> getListMatByDet(Agent detenteur) {
+		// TODO Auto-generated method stub
+		return matrepos.findByDetenteur(detenteur);
+		//return null;
+	}
+
+	@Override
+	public List<Operation> getListOp() {
+		// TODO Auto-generated method stub
+		return oprepos.findAll();
+	}
+
+	@Override
+	public List<OpEntree> getListOpEntree() {
+		// TODO Auto-generated method stub
+		return opentreerepos.findAll();
+	}
+
+	@Override
+	public List<OpSortie> getListOpSortie() {
+		// TODO Auto-generated method stub
+		return opsortierepos.findAll();
+	}
+
+	@Override
+	public List<Operation> getListOpByOperator(Agent operator) {
+		// TODO Auto-generated method stub
+		return oprepos.findByOperateur(operator);
+	}
+
+	@Override
+	public List<OpEntree> getListOpEntreeByOperator(Agent operator) {
+		// TODO Auto-generated method stub
+		return opentreerepos.findByOperateur(operator);
+	}
+
+	@Override
+	public List<OpSortie> getListOpSortieByOperator(Agent operator) {
+		// TODO Auto-generated method stub
+		return opsortierepos.findByOperateur(operator);
+	}
+
+	@Override
+	public List<Operation> getListOpByDirection(Direction direction) {
+		// TODO Auto-generated method stub
+		return oprepos.findByDirection(direction);
+	}
+
+	@Override
+	public List<OpEntree> getListOpEntreeByDirection(Direction direction) {
+		// TODO Auto-generated method stub
+		return opentreerepos.findByDirection(direction);
+	}
+
+	@Override
+	public List<OpSortie> getListOpSortieByDirection(Direction direction) {
+		// TODO Auto-generated method stub
+		return opsortierepos.findByDirection(direction);
+	}
+
+	@Override
+	public List<Materiel> getListMatByNom(Nomenclature nomenclature) {
+		// TODO Auto-generated method stub
+		return matrepos.findByNomenMat(nomenclature);
+	}
+
+	@Override
+	public List<Materiel> getListMatByDirection(Direction direction) {
+		// TODO Auto-generated method stub
+		return matrepos.findByDirec(direction);
+	}
+
+	@Override
+	public List<Materiel> getListMatByService(Service service) {
+		// TODO Auto-generated method stub
+		return matrepos.findByServ(service);
+	}
+
+	@Override
+	public List<Materiel> getListMatByBureau(Bureau bureau) {
+		// TODO Auto-generated method stub
+		return matrepos.findByBureau(bureau);
+	}
+
+	@Override
+	public List<Operation> getListOpBetween(Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpByDate(startDate, endDate);
+	}
+
+	@Override
+	public List<OpEntree> getListOpEntreeByMat(Materiel m) {
+		// TODO Auto-generated method stub
+		return opentreerepos.findByMat(m);
+	}
+
+	@Override
+	public List<OpSortie> getListOpSortieByMat(Materiel m) {
+		// TODO Auto-generated method stub
+		return opsortierepos.findByMat(m);
+	}
+
+	@Override
+	public List<OpEntree> getListOpEntreeByMatBDate(Materiel m, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpEntreeByByMaterielBDate(m, startDate, endDate);
+	}
+
+	@Override
+	public List<OpSortie> getListOpSortieByMatBDate(Materiel m, Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return operationdao.getListOpSortieByByMaterielBDate(m, startDate, endDate);
+	}
+
+	@Override
+	public List<Materiel> getListMat() {
+		// TODO Auto-generated method stub
+		return (List<Materiel>)matrepos.findAll();
 	}
 
 	

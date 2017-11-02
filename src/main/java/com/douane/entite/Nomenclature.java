@@ -1,11 +1,13 @@
 package com.douane.entite;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
 public class Nomenclature extends Referentiel {
-	
+
+	@Column(unique = true)
 	private String nomenclature;
 
 	public String getNomenclature() {

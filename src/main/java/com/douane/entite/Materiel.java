@@ -27,11 +27,25 @@ public class Materiel implements Serializable{
 	private String reference;
 	private String numSerie;
 	private String autre;
-	private String codification;
+	//private String codification;
 	private boolean validation;
 	private String renseignement;
 	
 	private String code;
+	
+	private byte[] image;
+	
+	private String documentPath;
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	
 	
 	@ManyToOne
 	@JoinColumn(name="idNom")
@@ -50,6 +64,8 @@ public class Materiel implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idMarque")
 	private Marque marque;
+	
+	//localisation
 	@ManyToOne
 	@JoinColumn(name="idDirection")
 	private Direction direc;
@@ -59,6 +75,8 @@ public class Materiel implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idBureau")
 	private Bureau bureau;
+	
+	
 	
 	
 	/*@ManyToOne
@@ -142,12 +160,12 @@ public class Materiel implements Serializable{
 	public void setDc(Agent dc) {
 		this.dc = dc;
 	}
-	public String getCodification() {
+	/*public String getCodification() {
 		return codification;
 	}
 	public void setCodification(String codification) {
 		this.codification = codification;
-	}
+	}*/
 	public Marque getMarque() {
 		return marque;
 	}
@@ -163,7 +181,7 @@ public class Materiel implements Serializable{
 		this.reference = reference;
 		this.numSerie = numSerie;
 		this.autre = autre;
-		this.codification = codification;
+		//this.codification = codification;
 		this.nomenMat = nomenMat;
 		this.etat = etat;
 		this.caract = caract;
@@ -238,7 +256,14 @@ public class Materiel implements Serializable{
 	public void setRenseignement(String renseignement) {
 		this.renseignement = renseignement;
 	}
-	
+
+	public String getDocumentPath() {
+		return documentPath;
+	}
+
+	public void setDocumentPath(String documentPath) {
+		this.documentPath = documentPath;
+	}
 	
 	
 	

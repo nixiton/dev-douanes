@@ -5,6 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,15 +17,18 @@ import org.springframework.security.core.context.SecurityContextHolder;
 @ManagedBean(name="loginMgmtBean")
 @RequestScoped
 public class LoginBean {
-	 private String userName = null; 
+
+
+	private String immatriculation = null;
 	    private String password = null;
 	    
 	    @ManagedProperty(value="#{authenticationManager}")
 	    private AuthenticationManager authenticationManager = null;
 	    public String login() throws Exception {
 	    	FacesMessage message = null;
-	        try {
-	            Authentication request = new UsernamePasswordAuthenticationToken(this.getUserName(), this.getPassword());
+	        try
+			{
+	            Authentication request = new UsernamePasswordAuthenticationToken(this.getImmatriculation(), this.getPassword());
 	            Authentication result = authenticationManager.authenticate(request);
 	            SecurityContextHolder.getContext().setAuthentication(result);
 	        } catch (AuthenticationException e) {
@@ -33,7 +37,7 @@ public class LoginBean {
 	            FacesContext.getCurrentInstance().addMessage(null, message);
 	            return "incorrect";
 	        }
-	        message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", this.getUserName());
+	        message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", this.getImmatriculation());
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	        return "correct";
 	    }
@@ -59,13 +63,7 @@ public class LoginBean {
 	        this.authenticationManager = authenticationManager;
 	    }
 
-	    public String getUserName() {
-	        return userName;
-	    }
 
-	    public void setUserName(String userName) {
-	        this.userName = userName;
-	    }
 
 	    public String getPassword() {
 	        return password;
@@ -74,5 +72,11 @@ public class LoginBean {
 	    public void setPassword(String password) {
 	        this.password = password;
 	    }
-	 
+	public String getImmatriculation() {
+		return immatriculation;
+	}
+
+	public void setImmatriculation(String immatriculation) {
+		this.immatriculation = immatriculation;
+	}
 }

@@ -5,6 +5,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://xmlns.jcp.org/jsf/html"
     >
 
 <div class="col-md-4"></div>
@@ -23,8 +24,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.motif}">
-                        <f:selectItems value="#{siseBean.listMotifSortie}" var="m" itemLabel="#{m.designation}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{sise.listMotifSortie}">
+                        <f:selectItems value="#{saisieMotifDeMB.motifdeList}" var="m" itemLabel="#{m.designation}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -37,8 +38,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.materiel}"
-                    valueChangeListener="#{DepositaireBean.onMaterielChange}">
+                    <h:selectOneMenu  styleClass="form-control top" value="#{dechargeMB.materiel}"
+                    valueChangeListener="#{dechargeMB.materielChange}">
                         <f:selectItems value="#{saisieMatExMB.materielExistantList}" var="m" itemLabel="#{m.nomenclature}"/>
                     </h:selectOneMenu>
 
@@ -52,8 +53,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{DepositaireBean.marq.designation}" 
-                        disabled="true"></h:inputText>
+                    <h:inputText value="#{dechargeMB.marque}" 
+                        disabled="true"/>
 
                 </div>
                 
@@ -64,8 +65,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{DepositaireBean.reference}"   
-                        disabled="true"></h:inputText>
+                    <h:inputText value="#{dechargeMB.reference}" 
+                        disabled="true"/>
 
                 </div>
                 
@@ -77,7 +78,7 @@
                 <div class="col-lg-6">
 
                     <h:inputText value="#{dechargeMB.numSerie}" 
-                        disabled="true"></h:inputText>
+                        disabled="true"/>
 
                 </div>
                 
@@ -88,7 +89,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.destination}">
+                    <h:selectOneMenu  styleClass="form-control top" value="#{dechargeMB.destination}">
                         <f:selectItems value="#{siseBean.listBureau}" var="b" itemLabel="#{b.codeBureau}"/>
                     </h:selectOneMenu>
 
@@ -101,7 +102,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputFile id="files" value="#{DepositaireBean.file}"/>
+                   <c:inputFile id="files" value="#{dechargeMB.file}"/>
 
                 </div>
                 
@@ -116,7 +117,7 @@
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{DepositaireBean.addDecharge}" value="Décharger"
+                    <h:commandButton id="btnSignId" action="#{dechargeMB.Creer}" value="Décharger"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
 
