@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    
+<ui:include src="components/header.xhtml"></ui:include>
+
+
+
+<h:body styleClass="login">
+
+	<div class="form-signin">
+		<div class="text-center">
+			<h:graphicImage value="/pages/unsecure/assets/images/logo.jpeg" />
+		</div>
+		<br ></br >
+		<div class="tab-content">
+			<div id="login" class="tab-pane active">
+				<h:form id="loginFormId" prependId="false" >
+					<p:messages id="messages" showDetail="true" autoUpdate="true" />
+						
+					<h:outputLabel id="outTxtUserNameId" value="Entrer nom d'utilisateur et
+						mot de pass: " name="outTxtUserNameNm" styleClass="text-muted text-center"></h:outputLabel>
+					<p:inputText id="userName" required="true" value="#{loginMgmtBean.userName}" requiredMessage="Please enter username" placeholder="Nom d'Utilisateur"
+						styleClass="form-control top"></p:inputText>
+					<br ></br >
+					
+					
+					
+					<p:password id="password"  required="true" value="#{loginMgmtBean.password}" requiredMessage="Please enter password" placeholder="Mot de pass" styleClass="form-control bottom" ></p:password>
+					
+					<hr></hr>
+					
+					<h:commandButton id="btnLoginId" action="#{loginMgmtBean.login}" value="Se connecter"
+						class="btn btn-lg btn-primary btn-block" />
+					<br></br>
+					
+					<h:commandButton id="btnSignId" action="#{loginMgmtBean.signUp}" value="S'inscrire"
+						class="btn btn-lg btn-primary btn-block" immediate="true"/>
+						
+				</h:form>
+			</div>
+		</div>
+		
+		<hr></hr>
+		
+		<div class="text-center">
+			<ul class="list-inline">
+				<li><h:link value="Mot de pass oublié" outcome="index" /></li>
+			</ul>
+		</div>
+	</div>
+
+	<ui:include src="components/footer.xhtml"></ui:include>
+</h:body>
+
+</html>

@@ -1,0 +1,110 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:p="http://primefaces.org/ui"
+    >
+
+<div   class="body collapse in table-responsive">
+
+    <div class="col-lg-3">
+
+        <h:link value="Types de matériels" outcome="filtre_type_mat"
+            class="btn btn-default" immediate="true" />
+        <hr></hr>
+
+    </div> 
+    <div class="col-lg-3">
+
+        <h:link value="Nomenclatures" outcome="filtre_nom"
+            class="btn btn-default" immediate="true" />
+        <hr></hr>
+
+    </div>     
+    <div class="col-lg-3">
+
+        <h:link value="Porte" outcome="filtre_porte"
+            class="btn btn-default" immediate="true" />
+        <hr></hr>
+
+    </div> 
+    <div class="col-lg-3">
+
+        <h:link value="Localité" outcome="filtre_localite"
+            class="btn btn-default" immediate="true" />
+        <hr></hr>
+
+    </div>   
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{ListeMatStatHistoMB.materielListParTypeMateriel}" var="materiel">
+        <p:column>
+            <f:facet name="header">ID</f:facet>
+            #{materiel.idMateriel}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Prix Unitaire</f:facet>
+            #{materiel.pu}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Référence</f:facet>
+            #{materiel.reference}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Numéro de série</f:facet>
+            #{materiel.numSerie}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Autre</f:facet>
+            #{materiel.autre}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Codification</f:facet>
+            #{materiel.codification}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Nomenclature</f:facet>
+            #{materiel.nomenclature}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Etat</f:facet>
+            #{materiel.etat}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Caractéristiques</f:facet>
+            #{materiel.caraxt}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Marque</f:facet>
+            #{materiel.marque}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Détenteur</f:facet>
+            #{materiel.detenteur}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Dépositaire</f:facet>
+            #{materiel.dc}
+        </p:column>
+        <p:column>
+            <p:commandButton value="Statut" action="#{ListeMatStatHistoMB.setCurentMateriel(materiel)}" 
+            oncomplete="PF('statut').show()"/>
+        </p:column>
+        <p:column>
+            <p:commandButton value="Historique" action="#{ListeMatStatHistoMB.setCurentMateriel(materiel)}" 
+            oncomplete="PF('historique').show()"/>
+        </p:column>
+    </p:dataTable>
+
+
+<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_listeMatStatHisto.xhtml"></ui:include>
+
+
+
+
+</div>
+
+</html>

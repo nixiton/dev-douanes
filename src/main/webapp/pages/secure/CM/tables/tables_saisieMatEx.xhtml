@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    >
+
+<div   class="body collapse in table-responsive">
+
+    <div class="col-lg-4">
+
+        <h:link value="Ajouter" outcome="add_Mat_Ex"
+            class="btn btn-lg btn-primary btn-block " immediate="true" />
+            
+        <hr></hr>
+
+    </div>    
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{DepositaireBean.listMateriel}" var="materiel">
+        <p:column>
+            <f:facet name="header">ID</f:facet>
+            #{materiel.idMateriel}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Prix Unitaire</f:facet>
+            #{materiel.unitPrice}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Référence</f:facet>
+            #{materiel.reference}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Numéro de série</f:facet>
+            #{materiel.numSerie}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Autre</f:facet>
+            #{materiel.renseignement}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Codification</f:facet>
+            #{materiel.codification}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Nomenclature</f:facet>
+            #{materiel.nomencl}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Etat</f:facet>
+            #{materiel.etat}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Caractéristiques</f:facet>
+            #{materiel.carac}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Marque</f:facet>
+            #{materiel.marq}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Détenteur</f:facet>
+            #{materiel.detenteur}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Dépositaire</f:facet>
+            #{materiel.dc}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Documents</f:facet>
+            <h:outputLink value="#{materiel.fileName}" >
+                Download back
+            </h:outputLink>
+        </p:column>
+        <p:column>
+            <f:facet name="header">Photo</f:facet>
+            <h:graphicImage value="#{materiel.photo}" />
+        </p:column>
+        <p:column>
+            <p:commandButton value="Détail" action="#{DepositaireBean.setCurentMateriel(materiel)}" 
+            oncomplete="PF('detail').show()"/>
+        </p:column>
+    </p:dataTable>
+</div>
+
+<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_saisieMatEx.xhtml"></ui:include>
+
+</html>

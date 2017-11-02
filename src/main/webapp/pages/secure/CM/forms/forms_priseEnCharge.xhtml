@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html" 
+    xmlns:p="http://primefaces.org/ui"
+    >
+
+<div class="col-md-4"></div>
+<div class="box dark col-md-4">
+
+    <div class="body">
+
+        <h:form class="form-horizontal">
+
+            <div class="form-group">
+
+
+                <label for="text1" class="control-label col-lg-4">Type de Matériel
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.typemateriel}" 
+                    valueChangeListener="#{DepositaireBean.typeMatChange}">
+                        <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+                 <label for="text1" class="control-label col-lg-4">Nomenclature
+                </label>
+
+                <div class="col-lg-6">
+
+                    <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
+                        <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>
+
+                    </h:selectOneMenu-->
+
+                    <h:inputText value="#{priseEnChargeMB.nomencl}" 
+                        disabled="true"></h:inputText></h:inputText>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Marque
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.marq}">
+                        <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+
+                 <label for="text1" class="control-label col-lg-4">Référence
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText required="true"
+                        value="#{DepositaireBean.reference}"
+                        requiredMessage=""
+                        placeholder="Pu" styleClass="form-control top"></p:inputText>
+
+                </div>
+                
+                <hr></hr>
+
+                 <label for="text1" class="control-label col-lg-4">Numero de Série
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText required="true"
+                        value="#{DepositaireBean.numSerie}"
+                        requiredMessage=""
+                        placeholder="Pu" styleClass="form-control top"></p:inputText>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+                <label for="text1" class="control-label col-lg-4">Caractéristiques
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText id="caratceristique" required="true"
+                        value="#{DepositaireBean.carac}"
+                        requiredMessage=""
+                        placeholder="Pu" styleClass="form-control top"></p:inputText>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+
+
+                <label for="text1" class="control-label col-lg-4">Mode d'aquisition
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.acquisition}">
+                        <f:selectItems value="#{siseBean.listModeAcquisition}" var="etat" itemLabel="#{etat.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+
+                <label for="text1" class="control-label col-lg-4">Financement
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.financement}">
+                        <f:selectItems value="#{siseBean.listFinancment}" var="f" itemLabel="#{f.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+                <label for="text1" class="control-label col-lg-4">Montant sur facture
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText   required="true"
+                        value="#{DepositaireBean.montantFac}"
+                        requiredMessage=""
+                        placeholder="Pu" styleClass="form-control top"></p:inputText>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Référence facture
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText   required="true"
+                        value="#{DepositaireBean.refFacture}"
+                        requiredMessage=""
+                        placeholder="Pu" styleClass="form-control top"></p:inputText>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Fournisseur
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.fournisseur}">
+                        <f:selectItems value="#{siseBean.listFournisseur}" var="f" itemLabel="#{f.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+
+
+
+
+                <label for="text1" class="control-label col-lg-4">Etat
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.etat}">
+                        <f:selectItems value="#{siseBean.listEtat}" var="m" itemLabel="#{m.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Pièces justificatives
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:inputFile  value="#{DepositaireBean.file}"/>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Photo
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:inputFile  value="#{DepositaireBean.photo}"/>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <div class="col-lg-2"></div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="text1" class="control-label col-lg-4"></label>
+
+                <div class="col-lg-4">
+                    <h:commandButton id="btnSignId" action="#{DepositaireBean.addPriseEncharge}" value="Créer"
+                        class="btn btn-lg btn-primary btn-block"/>
+                </div>
+
+                <div class="col-lg-4"></div>
+
+            </div>
+
+        </h:form>
+
+    </div>
+
+</div>
+
+<div class="col-md-4"></div>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
+
+<h:body styleClass="login">
+
+	<div class="form-signin">
+		<div class="text-center">
+			<h:graphicImage value="/pages/unsecure/assets/images/logo.jpeg" />
+		</div>
+		<hr></hr>
+		<div class="tab-content">
+			<div id="login" class="tab-pane active">
+				<h:form id="ChoiceFormId" prependId="false">
+					<p class="text-muted text-center">Choisir le type de tableau de bord</p>
+					
+					<h:selectOneMenu styleClass="form-control top" value="#{choiceMB.choiceValue}">
+						<f:selectItem itemValue="admin" itemLabel="Administration"/>
+						<f:selectItem itemValue="Cm" itemLabel="Comptabilité Matière"/>
+						<f:selectItem itemValue="Ca" itemLabel="Comptabilité Administrative"/>
+					</h:selectOneMenu>
+               		 <hr></hr>
+					<h:commandButton  id="btnChoiceId"  action="#{choiceMB.choisir}" value="Tableau de bord"
+						class="btn btn-lg btn-primary btn-block" />
+
+				</h:form>
+				
+				<hr></hr>
+				
+				<h:form>
+				
+					<h:commandButton value="Logout" id="logout"
+					action="#{loginMgmtBean.logout}" class="btn btn-lg btn-primary btn-block" />
+					
+				</h:form>
+			</div>
+		</div>
+	</div>
+
+<ui:include src="/pages/unsecure/components/footer.xhtml"></ui:include>
+</h:body>
+
+</html>

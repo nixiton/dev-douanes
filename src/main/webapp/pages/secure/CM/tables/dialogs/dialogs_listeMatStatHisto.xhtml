@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:p="http://primefaces.org/ui"
+    >
+
+    <p:dialog id="statue" widgetVar="statut">
+        
+
+    <div  class="body collapse in table-responsive">
+
+        <table class="table responsive-table">
+                <tbody>
+                    <tr>
+                        
+                        <td>Détenteur</td>
+                        <td>#{ListeMatStatHistoMB.curentMateriel.detenteur}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Dépositaire comptable</td>
+                        <td>#{ListeMatStatHistoMB.curentMateriel.dc}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Localisation</td>
+                        <td>#{ListeMatStatHistoMB.curentMateriel.bureau}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Etat</td>
+                        <td>#{ListeMatStatHistoMB.curentMateriel.etat</td>
+                    </tr>
+                </tbody>                
+            </table>
+
+
+        </div>
+    </p:dialog>
+
+
+
+    <p:dialog id="historique" widgetVar="historique">
+        
+
+    <div  class="body collapse in table-responsive">
+
+        <table class="table responsive-table">
+                <tbody>
+                    <tr>
+                        
+                        <td>Origine</td>
+                        <td>#{ListeMatStatHistoMB.curentMateriel.origine}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Date d’entrée</td>
+                        <td>#{ListeMatStatHistoMB.curentMateriel.dateEntree}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Mouvements effectués</td>
+                        <td>#{ListeMatStatHistoMB.curentMateriel.mouvements}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Détenteurs successifs</td>
+                        <td>#{ListeMatStatHistoMB.curentMateriel.listeDetenteurs}</td>
+                    </tr>
+                </tbody>                
+            </table>
+
+
+        </div>
+    </p:dialog>
+
+
+</html>
