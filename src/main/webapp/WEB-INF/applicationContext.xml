@@ -125,8 +125,8 @@
 		<property name="driverClass" value="org.postgresql.Driver"/>
         <!--property name="jdbcUrl" value="jdbc:postgres://ec2-54-247-81-97.eu-west-1.compute.amazonaws.com:5432/d8jgiq3ojrd8fn"/-->
         <property name="jdbcUrl" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
-        <property name="user" value="actlrwduttupjm"/>
-        <property name="password" value="72476b02ae212770146ae0a1e16f6d1108e2a8938fb43995e0f37ca80f226781"/>
+        <property name="user" value="lfkmiohsvduuxg"/>
+        <property name="password" value="0a3943f9f147ee30fcbc440387917749523f216d1002b9a9f40ebe9f75180e8c"/>
 		<property name="maxPoolSize" value="10" />
 		<property name="maxStatements" value="0" />
 		<property name="minPoolSize" value="5" />
