@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<title>primestrap</title>
+	</f:facet>
+
+	<f:facet name="middle">
+
+		<h:outputScript library="theme1" name="js/jquery-2.0.2.min.js" />
+		<h:outputStylesheet library="theme1"
+			name="bootstrap/css/bootstrap.css" />
+		<h:outputStylesheet library="theme1" name="style/dashboard.css" />
+
+		<h:outputScript library="theme1" name="bootstrap/js/bootstrap.js" />
+	</f:facet>
+
+	<f:facet name="last">
+
+	</f:facet>
+</h:head>
+
+<h:body>
+
+	<ui:include src="/pages/template/common/commonHeader.xhtml" />
+
+	<ui:include src="/pages/template/common/commonContent.xhtml" />
+
+</h:body>
+</html>

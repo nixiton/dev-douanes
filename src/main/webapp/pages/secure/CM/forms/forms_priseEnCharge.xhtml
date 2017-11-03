@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html" 
+    xmlns:p="http://primefaces.org/ui"
+    >
+
+<div class="col-md-4"></div>
+<div class="box dark col-md-4">
+
+    <div class="body">
+
+        <h:form class="form-horizontal">
+
+            <div class="form-group">
+
+
+                <label for="text1" class="control-label col-lg-4">Type de Matériel
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{priseEnChargeMB.typeMateriel}" 
+                    valueChangeListener="#{priseEnChargeMB.typeMatChange}">
+                        <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="type" itemLabel="#{type.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+                 <label for="text1" class="control-label col-lg-4">Nomenclature
+                </label>
+
+                <div class="col-lg-6">
+
+                    <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
+                        <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>
+
+                    </h:selectOneMenu-->
+
+                    <h:inputText value="#{priseEnChargeMB.nomenclature}" 
+                        disabled="true"/>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Marque
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{priseEnChargeMB.marque}">
+                        <f:selectItems value="#{saisieMarqueMB.marqueList}" var="marque" itemLabel="#{marque.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+
+                 <label for="text1" class="control-label col-lg-4">Référence
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText required="true"
+                        value="#{priseEnChargeMB.reference}"
+                        requiredMessage=""
+                        placeholder="Pu" styleClass="form-control top"></p:inputText>
+
+                </div>
+                
+                <hr></hr>
+
+                 <label for="text1" class="control-label col-lg-4">Numero de Série
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText required="true"
+                        value="#{priseEnChargeMB.numSerie}"
+                        requiredMessage=""
+                        placeholder="Pu" styleClass="form-control top"></p:inputText>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+                <label for="text1" class="control-label col-lg-4">Caractéristiques
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText id="caratceristique" required="true"
+                        value="#{priseEnChargeMB.caract}"
+                        requiredMessage=""
+                        placeholder="Pu" styleClass="form-control top"></p:inputText>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+
+
+                <label for="text1" class="control-label col-lg-4">Mode d'aquisition
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.motifAq}">
+                        <f:selectItems value="#{saisieMotifAqMB.motifaqList}" var="etat" itemLabel="#{etat.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+
+                <label for="text1" class="control-label col-lg-4">Financement
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.financement}">
+                        <f:selectItems value="#{saisieFinancementMB.financementList}" var="f" itemLabel="#{f.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+                <label for="text1" class="control-label col-lg-4">Montant sur facture
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText   required="true"
+                        value="#{priseEnChargeMB.facture}"
+                        requiredMessage=""
+                        placeholder="Pu" styleClass="form-control top"></p:inputText>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Référence facture
+                </label>
+
+                <div class="col-lg-6">
+
+                    <p:inputText   required="true"
+                        value="#{priseEnChargeMB.refFacture}"
+                        requiredMessage=""
+                        placeholder="Pu" styleClass="form-control top"></p:inputText>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Fournisseur
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{priseEnChargeMB.fournisseur}">
+                        <f:selectItems value="#{saisieFournisseurMB.fournisseurList}" var="f" itemLabel="#{f.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+
+
+
+
+
+                <label for="text1" class="control-label col-lg-4">Etat
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{priseEnChargeMB.etat}">
+                        <f:selectItems value="#{saisieEtatMatMB.etatmaterielList}" var="m" itemLabel="#{m.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Pièces justificatives
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:inputFile  value="#{priseEnChargeMB.file}"/>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Photo
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:inputFile  value="#{priseEnChargeMB.photo}"/>
+
+                </div>
+                
+                <hr></hr>
+                
+
+
+
+                <div class="col-lg-2"></div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="text1" class="control-label col-lg-4"></label>
+
+                <div class="col-lg-4">
+                    <h:commandButton id="btnSignId" action="#{priseEnChargeMB.Creer}" value="Créer"
+                        class="btn btn-lg btn-primary btn-block"/>
+                </div>
+
+                <div class="col-lg-4"></div>
+
+            </div>
+
+        </h:form>
+
+    </div>
+
+</div>
+
+<div class="col-md-4"></div>
+
+</html>

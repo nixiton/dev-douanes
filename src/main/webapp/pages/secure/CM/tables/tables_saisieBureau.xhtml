@@ -1,0 +1,40 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	>
+
+<div id="defaultTable" class="body collapse in table-responsive">
+
+	<div class="col-lg-4">
+
+		<h:link value="Ajouter" outcome="add_Bureau"
+			class="btn btn-lg btn-primary btn-block " immediate="true" />
+			
+		<hr></hr>
+
+	</div>
+
+	<p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{siseBean.listBureau}" var="b">
+		<p:column>
+			<f:facet name="header">ID</f:facet>
+			#{b.id}
+		</p:column>
+		<p:column>
+			<f:facet name="header">Désignation</f:facet>
+			#{b.designation}
+		</p:column>
+		<p:column>
+			<f:facet name="header">Code</f:facet>
+			#{b.codeBureau}
+		</p:column>
+	</p:dataTable>
+
+
+
+</div>
+
+</html>

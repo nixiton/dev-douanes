@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    >
+
+<div id="defaultTable" class="body collapse in table-responsive">
+
+    <div class="col-lg-4">
+
+        <h:link value="Ajouter" outcome="add_Attribution"
+            class="btn btn-lg btn-primary btn-block " immediate="true" />
+            
+        <hr></hr>
+
+    </div>
+
+    <h:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{attibutionMB.attributionList}" var="a">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{a.id}
+        </h:column>
+         <h:column>
+            <f:facet name="header">Materiel</f:facet>
+            #{a.materiel}
+        </h:column>
+         <h:column>
+            <f:facet name="header">Détenteur</f:facet>
+            #{a.detenteur}
+        </h:column>
+    </h:dataTable>
+
+
+
+</div>
+
+</html>
