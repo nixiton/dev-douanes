@@ -163,7 +163,7 @@
 	</bean>
 	-->
 
-	<bean id="emf" depends-on="flyway"
+	<bean id="emf" 
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="DataSource"></property>
 		<property name="jpaVendorAdapter">
