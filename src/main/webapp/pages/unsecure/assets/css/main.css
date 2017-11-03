@@ -2573,5 +2573,9 @@ body.error .logo h1 {
 
 
 .ui-datatable{
-    margin-top: 30px!important;
+    margin-top: 75px!important;
+}
+
+table{
+  width: 100%!important;
 }
