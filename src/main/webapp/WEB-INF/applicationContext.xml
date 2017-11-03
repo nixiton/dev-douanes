@@ -117,7 +117,7 @@
 		<property name="user" value="root" />
 		<property name="password" value="" /-->
 		<property name="driverClass" value="org.postgresql.Driver"/>
-        <property name="jdbcUrl" value="jdbc:postgres://actlrwduttupjm:72476b02ae212770146ae0a1e16f6d1108e2a8938fb43995e0f37ca80f226781@ec2-54-247-81-97.eu-west-1.compute.amazonaws.com:5432/d8jgiq3ojrd8fn"/>
+        <property name="jdbcUrl" value="jdbc:postgres://ec2-54-247-81-97.eu-west-1.compute.amazonaws.com:5432/d8jgiq3ojrd8fn"/>
         <property name="user" value="actlrwduttupjm"/>
         <property name="password" value="72476b02ae212770146ae0a1e16f6d1108e2a8938fb43995e0f37ca80f226781"/>
 
