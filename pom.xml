@@ -3,7 +3,7 @@
   
   <modelVersion>4.0.0</modelVersion>
 	<groupId>douaneequipement</groupId>
-	<artifactId>douaneequipement</artifactId<name />
+	<artifactId>douaneequipement</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
 	<name>douaneequipement</name>
