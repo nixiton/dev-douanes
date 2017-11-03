@@ -138,7 +138,7 @@
 		</property> </bean -->
 
 	<!-- Bean FlyWay for DataBase Migration USING MyZillaMigration--> 
-	<bean id="flyway" class="com.myzilla.migration.MyZillaMigration"
+	<!--bean id="flyway" class="com.myzilla.migration.MyZillaMigration"
 		init-method="repairAndMigrate">
 		<property name="locations"> 
 			<list>
@@ -148,7 +148,7 @@
 		</property>
 		<property name="dataSource" ref="DataSource" />
 		<property name="validateOnMigrate" value="true" />
-	</bean>
+	</bean-->
 	
 	<!-- Bean FlyWay for DataBase Migration Simple	
 	<bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
