@@ -6,7 +6,7 @@
     xmlns:p="http://primefaces.org/ui"
     >
 
-<div id="defaultTable" class="body collapse in table-responsive">
+<div   class="body collapse in table-responsive">
 
     <div class="col-lg-4">
 
@@ -16,14 +16,14 @@
         <hr></hr>
 
     </div>    
-    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{depositaireBean.listMaterielexistant}" var="materiel">
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{DepositaireBean.listMaterielexistant}" var="materiel">
         <p:column>
             <f:facet name="header">ID</f:facet>
             #{materiel.idMateriel}
         </p:column>
         <p:column>
             <f:facet name="header">Prix Unitaire</f:facet>
-            #{materiel.pu}
+            #{materiel.unitPrice}
         </p:column>
         <p:column>
             <f:facet name="header">Référence</f:facet>
@@ -35,7 +35,7 @@
         </p:column>
         <p:column>
             <f:facet name="header">Autre</f:facet>
-            #{materiel.autre}
+            #{materiel.renseignement}
         </p:column>
         <p:column>
             <f:facet name="header">Codification</f:facet>
@@ -43,7 +43,7 @@
         </p:column>
         <p:column>
             <f:facet name="header">Nomenclature</f:facet>
-            #{materiel.nomenclature}
+            #{materiel.nomencl}
         </p:column>
         <p:column>
             <f:facet name="header">Etat</f:facet>
@@ -51,11 +51,11 @@
         </p:column>
         <p:column>
             <f:facet name="header">Caractéristiques</f:facet>
-            #{materiel.caraxt}
+            #{materiel.carac}
         </p:column>
         <p:column>
             <f:facet name="header">Marque</f:facet>
-            #{materiel.marque}
+            #{materiel.marq}
         </p:column>
         <p:column>
             <f:facet name="header">Détenteur</f:facet>
@@ -76,8 +76,12 @@
             <h:graphicImage value="#{materiel.photo}" />
         </p:column>
         <p:column>
-            <p:commandButton value="Détail" action="#{saisieMatExMB.setCurentMateriel(materiel)}" 
-            oncomplete="PF('detail').show()"/>
+            <p:commandButton  action="#{DepositaireBean.setCurentMateriel(materiel)}" 
+            oncomplete="PF('detail').show()">
+
+                <i class='fa fa-eye'></i>
+
+            </p:commandButton>
         </p:column>
     </p:dataTable>
 </div>

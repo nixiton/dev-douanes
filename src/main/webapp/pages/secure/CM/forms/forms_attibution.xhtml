@@ -21,8 +21,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{attibutionMB.materiel}">
-                        <f:selectItems value="#{saisieMatExMB.materielExistantList}" var="m" itemLabel="#{m.nomenclature}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.materiel}">
+                        <f:selectItems value="#{DepositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomenclature}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -35,8 +35,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{attibutionMB.detenteur}" valueChangeListener="#{saisieListDetMB.detenteurChange}">
-                        <f:selectItems value="#{saisieListDetMB.detenteurList}" var="d" itemLabel="#{d.im}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.detenteur}" valueChangeListener="#{DepositaireBean.onDetenteurChange}">
+                        <f:selectItems value="#{DepositaireBean.getDetenteurs}" var="d" itemLabel="#{d.im}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -49,8 +49,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{saisieListDetMB.nom}" 
-                        disabled="true"/>
+                    <h:inputText value="#{DepositaireBean.nom}" 
+                        disabled="true"></h:inputText>
 
                 </div>
                 
@@ -62,8 +62,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{saisieListDetMB.prenom}"                                                                              
-                        disabled="true"/>
+                    <h:inputText value="#{DepositaireBean.prenom}"                                                                              
+                        disabled="true"></h:inputText>
 
                 </div>
                 
@@ -78,7 +78,7 @@
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{attibutionMB.Creer}" value="Attribuer"
+                    <h:commandButton id="btnSignId" action="#{DepositaireBean.addAttribution}" value="Attribuer"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
 

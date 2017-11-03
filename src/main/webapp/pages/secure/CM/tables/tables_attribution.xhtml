@@ -5,9 +5,10 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
     >
 
-<div id="defaultTable" class="body collapse in table-responsive">
+<div   class="body collapse in table-responsive">
 
     <div class="col-lg-4">
 
@@ -18,20 +19,20 @@
 
     </div>
 
-    <h:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{attibutionMB.attributionList}" var="a">
-        <h:column>
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{onDetenteurChange.listAttribution}" var="a">
+        <p:column>
             <f:facet name="header">ID</f:facet>
             #{a.id}
-        </h:column>
-         <h:column>
+        </p:column>
+         <p:column>
             <f:facet name="header">Materiel</f:facet>
             #{a.materiel}
-        </h:column>
-         <h:column>
+        </p:column>
+         <p:column>
             <f:facet name="header">Détenteur</f:facet>
             #{a.detenteur}
-        </h:column>
-    </h:dataTable>
+        </p:column>
+    </p:dataTable>
 
 
 

@@ -21,9 +21,9 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.typeMateriel}" 
-                    valueChangeListener="#{saisieMatExMB.typeMatChange}">
-                        <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="type" itemLabel="#{type.designation}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.typemateriel}" 
+                    valueChangeListener="#{DepositaireBean.onTypeMaterielChange}">
+                        <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -41,8 +41,8 @@
 
                     </h:selectOneMenu-->
 
-                    <h:inputText value="#{saisieMatExMB.nomenclature}" 
-                        disabled="true"></h:inputText>
+                    <h:inputText value="#{DepositaireBean.nomencl}" 
+                        disabled="true"></h:inputText></h:inputText>
 
                 </div>
                 
@@ -54,8 +54,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.marque}">
-                        <f:selectItems value="#{saisieMarqueMB.marqueList}" var="marque" itemLabel="#{marque.designation}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.marq}">
+                        <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -70,9 +70,9 @@
                 <div class="col-lg-6">
 
                     <p:inputText  required="true"
-                        value="#{saisieMatExMB.pu}"
+                        value="#{DepositaireBean.unitPrice}"
                         requiredMessage=""
-                        placeholder="Pu" styleClass="form-control top"></p:inputText>
+                        placeholder="Prix unitaire" styleClass="form-control top"></p:inputText>
 
                 </div>
                 
@@ -84,7 +84,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText required="true"
-                        value="#{saisieMatExMB.reference}"
+                        value="#{DepositaireBean.reference}"
                         requiredMessage=""
                         placeholder="Référence" styleClass="form-control top"></p:inputText>
 
@@ -98,7 +98,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText  required="true"
-                        value="#{saisieMatExMB.numSerie}"
+                        value="#{DepositaireBean.numSerie}"
                         requiredMessage=""
                         placeholder="Numero de série" styleClass="form-control top"></p:inputText>
 
@@ -114,7 +114,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText id="caratceristique" required="true"
-                        value="#{saisieMatExMB.caract}"
+                        value="#{DepositaireBean.carac}"
                         requiredMessage=""
                         placeholder="Caractéristiques" styleClass="form-control top"></p:inputText>
 
@@ -130,7 +130,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText  required="true"
-                        value="#{saisieMatExMB.autre}"
+                        value="#{DepositaireBean.renseignement}"
                         requiredMessage=""
                         placeholder="Autre" styleClass="form-control top"></p:inputText>
 
@@ -144,8 +144,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.etat}">
-                        <f:selectItems value="#{saisieEtatMatMB.etatmaterielList}" var="etat" itemLabel="#{etat.designation}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.etat}">
+                        <f:selectItems value="#{siseBean.listEtat}" var="etat" itemLabel="#{etat.designation}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -159,7 +159,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputFile  value="#{saisieMatExMB..file}"/>
+                    <h:inputFile  value="#{DepositaireBean.file}"/>
 
                 </div>
                 
@@ -171,7 +171,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputFile  value="#{saisieMatExMB..photo}"/>
+                    <h:inputFile  value="#{DepositaireBean.photo}"/>
 
                 </div>
                 
@@ -187,7 +187,7 @@
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{saisieMatExMB.Creer}" value="Créer"
+                    <h:commandButton id="btnSignId" action="#{DepositaireBean.addMateriel}" value="Créer"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
 

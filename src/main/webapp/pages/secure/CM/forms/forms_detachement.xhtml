@@ -23,8 +23,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{detachementMB.detenteur}">
-                        <f:selectItems value="#{saisieListDetMB.detenteurList}" var="d" itemLabel="#{d.im}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.detenteur}">
+                        <f:selectItems value="#{DepositaireBean.getDetenteurs}" var="d" itemLabel="#{d.im}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -37,8 +37,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{detachementMB.materiel}">
-                        <f:selectItems value="#{saisieMatExMB.materielExistantList}" var="m" itemLabel="#{m.nomenclature}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.materiel}">
+                        <f:selectItems value="#{DepositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomenclature}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -52,7 +52,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText   required="true"
-                        value="#{detachementMB.motif}"
+                        value="#{DepositaireBean.motif}"
                         requiredMessage=""
                         placeholder="Désignation" styleClass="form-control top"></p:inputText>
 
@@ -69,7 +69,7 @@
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{detachementMB.Creer}" value="Détacher"
+                    <h:commandButton id="btnSignId" action="#{DepositaireBean.addDetachement}" value="Détacher"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
 

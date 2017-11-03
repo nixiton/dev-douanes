@@ -21,9 +21,9 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{priseEnChargeMB.typeMateriel}" 
-                    valueChangeListener="#{priseEnChargeMB.typeMatChange}">
-                        <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="type" itemLabel="#{type.designation}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.typemateriel}" 
+                    valueChangeListener="#{DepositaireBean.typeMatChange}">
+                        <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -41,8 +41,8 @@
 
                     </h:selectOneMenu-->
 
-                    <h:inputText value="#{priseEnChargeMB.nomenclature}" 
-                        disabled="true"/>
+                    <h:inputText value="#{priseEnChargeMB.nomencl}" 
+                        disabled="true"></h:inputText></h:inputText>
 
                 </div>
                 
@@ -54,8 +54,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{priseEnChargeMB.marque}">
-                        <f:selectItems value="#{saisieMarqueMB.marqueList}" var="marque" itemLabel="#{marque.designation}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.marq}">
+                        <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -71,7 +71,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText required="true"
-                        value="#{priseEnChargeMB.reference}"
+                        value="#{DepositaireBean.reference}"
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
@@ -85,7 +85,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText required="true"
-                        value="#{priseEnChargeMB.numSerie}"
+                        value="#{DepositaireBean.numSerie}"
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
@@ -101,7 +101,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText id="caratceristique" required="true"
-                        value="#{priseEnChargeMB.caract}"
+                        value="#{DepositaireBean.carac}"
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
@@ -118,8 +118,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.motifAq}">
-                        <f:selectItems value="#{saisieMotifAqMB.motifaqList}" var="etat" itemLabel="#{etat.designation}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.acquisition}">
+                        <f:selectItems value="#{siseBean.listModeAcquisition}" var="etat" itemLabel="#{etat.designation}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -134,8 +134,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.financement}">
-                        <f:selectItems value="#{saisieFinancementMB.financementList}" var="f" itemLabel="#{f.designation}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.financement}">
+                        <f:selectItems value="#{siseBean.listFinancment}" var="f" itemLabel="#{f.designation}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -150,7 +150,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText   required="true"
-                        value="#{priseEnChargeMB.facture}"
+                        value="#{DepositaireBean.montantFac}"
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
@@ -165,7 +165,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText   required="true"
-                        value="#{priseEnChargeMB.refFacture}"
+                        value="#{DepositaireBean.refFacture}"
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
@@ -179,8 +179,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{priseEnChargeMB.fournisseur}">
-                        <f:selectItems value="#{saisieFournisseurMB.fournisseurList}" var="f" itemLabel="#{f.designation}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.fournisseur}">
+                        <f:selectItems value="#{siseBean.listFournisseur}" var="f" itemLabel="#{f.designation}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -198,8 +198,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{priseEnChargeMB.etat}">
-                        <f:selectItems value="#{saisieEtatMatMB.etatmaterielList}" var="m" itemLabel="#{m.designation}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.etat}">
+                        <f:selectItems value="#{siseBean.listEtat}" var="m" itemLabel="#{m.designation}"/>
                     </h:selectOneMenu>
 
                 </div>
@@ -212,7 +212,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputFile  value="#{priseEnChargeMB.file}"/>
+                    <h:inputFile  value="#{DepositaireBean.file}"/>
 
                 </div>
                 
@@ -224,13 +224,11 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputFile  value="#{priseEnChargeMB.photo}"/>
+                    <h:inputFile  value="#{DepositaireBean.photo}"/>
 
                 </div>
                 
                 <hr></hr>
-                
-
 
 
                 <div class="col-lg-2"></div>
@@ -241,7 +239,7 @@
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{priseEnChargeMB.Creer}" value="Créer"
+                    <h:commandButton id="btnSignId" action="#{DepositaireBean.addPriseEncharge}" value="Créer"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
 

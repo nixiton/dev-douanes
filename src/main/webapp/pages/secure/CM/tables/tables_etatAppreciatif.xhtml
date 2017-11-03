@@ -1,0 +1,38 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    >
+
+<div   class="body collapse in table-responsive">
+
+
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{DepositaireBean.listEtatAppreciatif}" var="d">
+        <p:column>
+            <f:facet name="header">ID</f:facet>
+            #{d.id}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Annee</f:facet>
+            #{d.date}
+        </p:column>
+         <p:column>
+            <f:facet name="header">Détail</f:facet>
+             <p:commandButton  action="#{DepositaireBean.setCurentEtatAppreciatif(d)}" 
+            oncomplete="PF('detail').show()">
+
+                <i class='fa fa-eye'></i>
+
+            </p:commandButton>
+        </p:column>
+    </p:dataTable>
+
+<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_EtatAppreciatif.xhtml"></ui:include>
+
+</div>
+
+</html>

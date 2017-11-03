@@ -4,9 +4,10 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
     >
 
-<div id="defaultTable" class="body collapse in table-responsive">
+<div   class="body collapse in table-responsive">
 
     <div class="col-lg-4">
 
@@ -17,60 +18,71 @@
 
     </div>
 
-    <h:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{priseEncChargeMB.priseEnChargeList}" var="p">
-        <h:column>
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{DepositaireBean.listPriseEnCharge}" var="p">
+        <p:column>
             <f:facet name="header">ID</f:facet>
             #{p.id}
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
             <f:facet name="header">Type de Matériel</f:facet>
-            #{p.typeMateriel}
-        </h:column>
-        <h:column>
+            #{p.typemateriel}
+        </p:column>
+        <p:column>
             <f:facet name="header">Nomenclature</f:facet>
-            #{p.nomenclature}
-        </h:column>
-        <h:column>
+            #{p.nomencl}
+        </p:column>
+        <p:column>
             <f:facet name="header">Marque</f:facet>
-            #{p.marque}
-        </h:column>
-        <h:column>
+            #{p.marq}
+        </p:column>
+        <p:column>
             <f:facet name="header">Référence</f:facet>
             #{p.reference}
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
             <f:facet name="header">Numero de Série</f:facet>
             #{p.numSerie}
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
             <f:facet name="header">Caractéristiques</f:facet>
-            #{p.caract}
-        </h:column>
-        <h:column>
+            #{p.carac}
+        </p:column>
+        <p:column>
             <f:facet name="header">Mode d'aquisition</f:facet>
-            #{p.motifAq}
-        </h:column>
-        <h:column>
+            #{p.acquisition}
+        </p:column>
+        <p:column>
             <f:facet name="header">Financement</f:facet>
             #{p.financement}
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
             <f:facet name="header">Montant sur facture</f:facet>
-            #{p.facture}
-        </h:column>
-        <h:column>
+            #{p.montantFac}
+        </p:column>
+        <p:column>
             <f:facet name="header">Référence facture</f:facet>
             #{p.refFacture}
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
             <f:facet name="header">Fournisseur</f:facet>
             #{p.fournisseur}
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
             <f:facet name="header">Etat</f:facet>
             #{p.etat}
-        </h:column>
-    </h:dataTable>
+        </p:column>
+        <p:column>
+            <f:facet name="header">Pièces justificatives</f:facet>
+            <h:outputLink value="#{p.fileName}" >
+                Download back
+            </h:outputLink>
+        </p:column>
+        <p:column>
+            <f:facet name="header">Photo</f:facet>
+            <h:graphicImage value="#{p.photo}" />
+        </p:column>
+
+    </p:dataTable>
 
 
 

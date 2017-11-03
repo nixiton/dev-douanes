@@ -6,34 +6,35 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
     >
 
-<div id="defaultTable" class="body collapse in table-responsive">
+<div   class="body collapse in table-responsive">
 
 
-    <h:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{tracabiliteMB.tracabiliteList}" var="t">
-        <h:column>
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{tracabiliteMB.tracabiliteList}" var="t">
+        <p:column>
             <f:facet name="header">ID</f:facet>
             #{t.id}
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
         <f:facet name="header">Date</f:facet>
             #{t.date}
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
             <f:facet name="header">Heure</f:facet>
             #{t.time}
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
             <f:facet name="header">Poste</f:facet>
             #{t.poste}
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
             <f:facet name="header">Opérateur</f:facet>
             #{t.operateur}
-        </h:column>
+        </p:column>
 
-    </h:dataTable>
+    </p:dataTable>
 
 
 
