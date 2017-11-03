@@ -132,12 +132,6 @@
 		<property name="minPoolSize" value="5" />
 	</bean>
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-    
-    <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
-    <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
-</bean>
-
 	<!--bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager"> 
 		<property name="persistenceXmlLocations"> <list> <value>classpath*:WEB-INF/persistence.xml 
 		</value> </list> </property> <property name="defaultDataSource" ref="DataSource"> 
