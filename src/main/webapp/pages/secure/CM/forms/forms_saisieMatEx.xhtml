@@ -7,201 +7,199 @@
     >
 
 <div class="col-md-4"></div>
-<div class="box dark col-md-4">
+    <div class="box dark col-md-4">
 
-    <div class="body">
+        <div class="body">
 
-        <h:form class="form-horizontal">
+            <h:form class="form-horizontal">
 
-            <div class="form-group">
+                <div class="form-group">
 
 
-                <label for="text1" class="control-label col-lg-4">Type de Matériel
-                </label>
+                    <label for="text1" class="control-label col-lg-4">Type de Matériel
+                    </label>
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.typemateriel}" 
+                        <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.typemateriel}" 
                     valueChangeListener="#{DepositaireBean.onTypeMaterielChange}">
-                        <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
-                    </h:selectOneMenu>
+                            <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
+                        </h:selectOneMenu>
 
-                </div>
+                    </div>
                 
-                <hr></hr>
+                    <hr></hr>
 
 
-                 <label for="text1" class="control-label col-lg-4">Nomenclature
-                </label>
+                    <label for="text1" class="control-label col-lg-4">Nomenclature
+                    </label>
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
                     <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
                         <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>
 
                     </h:selectOneMenu-->
 
-                    <h:inputText value="#{DepositaireBean.nomencl}" 
+                        <h:inputText value="#{DepositaireBean.nomencl}" 
                         disabled="true"></h:inputText></h:inputText>
 
-                </div>
+                    </div>
                 
-                <hr></hr>
+                    <hr></hr>
 
 
-                <label for="text1" class="control-label col-lg-4">Marque
-                </label>
+                    <label for="text1" class="control-label col-lg-4">Marque
+                    </label>
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.marq}">
-                        <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
-                    </h:selectOneMenu>
+                        <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.marq}">
+                            <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
+                        </h:selectOneMenu>
 
-                </div>
+                    </div>
                 
-                <hr></hr>
+                    <hr></hr>
 
 
 
-                <label for="text1" class="control-label col-lg-4">Prix Unitaire
-                </label>
+                    <label for="text1" class="control-label col-lg-4">Prix Unitaire
+                    </label>
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
-                    <p:inputText  required="true"
+                        <p:inputText  required="true"
                         value="#{DepositaireBean.unitPrice}"
                         requiredMessage=""
                         placeholder="Prix unitaire" styleClass="form-control top"></p:inputText>
 
-                </div>
+                    </div>
                 
-                <hr></hr>
+                    <hr></hr>
 
-                 <label for="text1" class="control-label col-lg-4">Référence
-                </label>
+                    <label for="text1" class="control-label col-lg-4">Référence
+                    </label>
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
-                    <p:inputText required="true"
+                        <p:inputText required="true"
                         value="#{DepositaireBean.reference}"
                         requiredMessage=""
                         placeholder="Référence" styleClass="form-control top"></p:inputText>
 
-                </div>
+                    </div>
                 
-                <hr></hr>
+                    <hr></hr>
 
-                 <label for="text1" class="control-label col-lg-4">Numero de Série
-                </label>
+                    <label for="text1" class="control-label col-lg-4">Numero de Série
+                    </label>
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
-                    <p:inputText  required="true"
+                        <p:inputText  required="true"
                         value="#{DepositaireBean.numSerie}"
                         requiredMessage=""
                         placeholder="Numero de série" styleClass="form-control top"></p:inputText>
 
-                </div>
+                    </div>
                 
-                <hr></hr>
+                    <hr></hr>
 
 
 
-                <label for="text1" class="control-label col-lg-4">Caractéristiques
-                </label>
+                    <label for="text1" class="control-label col-lg-4">Caractéristiques
+                    </label>
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
-                    <p:inputText id="caratceristique" required="true"
+                        <p:inputText id="caratceristique" required="true"
                         value="#{DepositaireBean.carac}"
                         requiredMessage=""
                         placeholder="Caractéristiques" styleClass="form-control top"></p:inputText>
 
-                </div>
-                
-                <hr></hr>
+                    </div>
+                    
+                    <hr></hr>
 
                 
 
-                 <label for="text1" class="control-label col-lg-4">Autre
-                </label>
+                    <label for="text1" class="control-label col-lg-4">Autre
+                    </label>
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
-                    <p:inputText  required="true"
+                        <p:inputText  required="true"
                         value="#{DepositaireBean.renseignement}"
                         requiredMessage=""
                         placeholder="Autre" styleClass="form-control top"></p:inputText>
 
-                </div>
+                    </div>
                 
-                <hr></hr>
+                    <hr></hr>
 
 
-                <label for="text1" class="control-label col-lg-4">Etat
-                </label>
+                    <label for="text1" class="control-label col-lg-4">Etat
+                    </label>
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.etat}">
+                        <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.etat}">
                         <f:selectItems value="#{siseBean.listEtat}" var="etat" itemLabel="#{etat.designation}"/>
-                    </h:selectOneMenu>
+                        </h:selectOneMenu>
+
+                    </div>
+                
+                    <hr></hr>
+
+
+
+                    <label for="text1" class="control-label col-lg-4">Pièces justificatives
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <h:inputFile  value="#{DepositaireBean.file}"/>
+
+                    </div>
+                
+                    <hr></hr>
+
+
+                    <label for="text1" class="control-label col-lg-4">Photo
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <h:inputFile  value="#{DepositaireBean.photo}"/>
+
+                    </div>
+                
+                    <hr></hr>
+
+
+
+                    <div class="col-lg-2"></div>
 
                 </div>
-                
-                <hr></hr>
 
+                <div class="form-group">
+                    <label for="text1" class="control-label col-lg-4"></label>
 
-
-                <label for="text1" class="control-label col-lg-4">Pièces justificatives
-                </label>
-
-                <div class="col-lg-6">
-
-                    <h:inputFile  value="#{DepositaireBean.file}"/>
-
-                </div>
-                
-                <hr></hr>
-
-
-                <label for="text1" class="control-label col-lg-4">Photo
-                </label>
-
-                <div class="col-lg-6">
-
-                    <h:inputFile  value="#{DepositaireBean.photo}"/>
-
-                </div>
-                
-                <hr></hr>
-
-
-
-                <div class="col-lg-2"></div>
-
-            </div>
-
-            <div class="form-group">
-                <label for="text1" class="control-label col-lg-4"></label>
-
-                <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{DepositaireBean.addMateriel}" value="Créer"
+                    <div class="col-lg-4">
+                        <h:commandButton id="btnSignId" action="#{DepositaireBean.addMateriel}" value="Créer"
                         class="btn btn-lg btn-primary btn-block"/>
-                </div>
+                    </div>
 
                 <div class="col-lg-4"></div>
 
-            </div>
+                </div>
 
-        </h:form>
+            </h:form>
+
+        </div>
 
     </div>
-
-    </div>
-
-</div>
 
 <div class="col-md-4"></div>
 
