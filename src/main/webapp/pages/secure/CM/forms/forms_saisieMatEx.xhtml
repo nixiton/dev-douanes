@@ -21,8 +21,8 @@
 
                     <div class="col-lg-6">
 
-                        <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.typemateriel}" 
-                    valueChangeListener="#{DepositaireBean.onTypeMaterielChange}">
+                        <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
+                    valueChangeListener="#{depositaireBean.onTypeMaterielChange}">
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
                         </h:selectOneMenu>
 
@@ -43,7 +43,7 @@
 
                     </h:selectOneMenu-->
 
-                        <h:inputText value="#{DepositaireBean.nomencl}" 
+                        <h:inputText value="#{depositaireBean.nomencl}" 
                         disabled="true"></h:inputText>
 
                     <hr></hr>
@@ -61,7 +61,7 @@
 
                     <div class="col-lg-6">
 
-                        <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.marq}">
+                        <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.marq}">
                             <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
                         </h:selectOneMenu>
 
@@ -79,7 +79,7 @@
                     <div class="col-lg-6">
 
                         <p:inputText  required="true"
-                        value="#{DepositaireBean.unitPrice}"
+                        value="#{depositaireBean.unitPrice}"
                         requiredMessage=""
                         placeholder="Prix unitaire" styleClass="form-control top"></p:inputText>
 
@@ -95,7 +95,7 @@
                     <div class="col-lg-6">
 
                         <p:inputText required="true"
-                        value="#{DepositaireBean.reference}"
+                        value="#{depositaireBean.reference}"
                         requiredMessage=""
                         placeholder="Référence" styleClass="form-control top"></p:inputText>
 
@@ -111,7 +111,7 @@
                     <div class="col-lg-6">
 
                         <p:inputText  required="true"
-                        value="#{DepositaireBean.numSerie}"
+                        value="#{depositaireBean.numSerie}"
                         requiredMessage=""
                         placeholder="Numero de série" styleClass="form-control top"></p:inputText>
 
@@ -129,7 +129,7 @@
                     <div class="col-lg-6">
 
                         <p:inputText id="caratceristique" required="true"
-                        value="#{DepositaireBean.carac}"
+                        value="#{depositaireBean.carac}"
                         requiredMessage=""
                         placeholder="Caractéristiques" styleClass="form-control top"></p:inputText>
 
@@ -147,7 +147,7 @@
                     <div class="col-lg-6">
 
                         <p:inputText  required="true"
-                        value="#{DepositaireBean.renseignement}"
+                        value="#{depositaireBean.renseignement}"
                         requiredMessage=""
                         placeholder="Autre" styleClass="form-control top"></p:inputText>
 
@@ -166,7 +166,7 @@
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{DepositaireBean.addMateriel}" value="Créer"
+                    <h:commandButton id="btnSignId" action="#{depositaireBean.addMateriel}" value="Créer"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
 
