@@ -96,7 +96,7 @@ public interface IUserMetier {
 	public List<Useri> getListAllUseri();
 
 	//getEtatMateriel
-	public List<EtatMateriel> getListEtatMateriel(Materiel materiel);
+	/*public List<EtatMateriel> getListEtatMateriel(Materiel materiel);*/
 	public List<EtatMateriel> getListAllEtatMateriel();
 
 

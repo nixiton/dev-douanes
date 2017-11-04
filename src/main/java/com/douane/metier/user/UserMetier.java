@@ -495,10 +495,10 @@ public class UserMetier implements IUserMetier{
 		return useriRepository.findAll();
 	}
 
-	@Override
+	/*@Override
 	public List<EtatMateriel> getListEtatMateriel(Materiel materiel) {
 		return etatMaterielRepository.findByMateriel(materiel);
-	}
+	}*/
 
 	@Override
 	public List<EtatMateriel> getListAllEtatMateriel()

@@ -12,6 +12,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface EtatMaterielRepository extends CrudRepository<EtatMateriel, Long>{
 
-    public List<EtatMateriel> findByMateriel(Materiel materiel);
+    /*public List<EtatMateriel> findByMateriel(Materiel materiel);*/
     public List<EtatMateriel> findALl();
 }
