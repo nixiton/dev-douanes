@@ -487,7 +487,9 @@ public class UserMetier implements IUserMetier{
 
 	@Override
 	public List<Useri> getListUseriByAgent(Agent agent) {
-		return useriRepository.findByAgent(agent);
+
+		//return useriRepository.findByAgent(agent);
+		return null;
 	}
 
 	@Override
