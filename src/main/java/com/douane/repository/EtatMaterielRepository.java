@@ -13,4 +13,3 @@ public interface EtatMaterielRepository {
     public List<EtatMateriel> findByMateriel(Materiel materiel);
     public List<EtatMateriel> findALl();
 }
-

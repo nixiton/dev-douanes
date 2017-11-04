@@ -101,7 +101,7 @@ public interface IUserMetier {
 	 */
 	public void seeMat(Materiel m);
 	public void seeAgent(Agent a);
-	
+	²
 	
 	
 	
