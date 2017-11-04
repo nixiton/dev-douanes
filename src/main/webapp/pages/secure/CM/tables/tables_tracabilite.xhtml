@@ -12,7 +12,7 @@
 <div   class="body collapse in table-responsive">
 
 
-    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{tracabiliteMB.tracabiliteList}" var="t">
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{operationBean.mesOperations}" var="t">
         <p:column>
             <f:facet name="header">ID</f:facet>
             #{t.id}
@@ -31,7 +31,7 @@
         </p:column>
         <p:column>
             <f:facet name="header">Opérateur</f:facet>
-            #{t.operateur}
+            #{t.operateur.im}
         </p:column>
 
     </p:dataTable>
