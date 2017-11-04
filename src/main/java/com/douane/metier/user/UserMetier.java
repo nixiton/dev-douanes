@@ -505,4 +505,3 @@ public class UserMetier implements IUserMetier{
 	{
 		return etatMaterielRepository.findALl();
 	}
-}

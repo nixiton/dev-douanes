@@ -11,5 +11,5 @@ import java.util.List;
  */
 public interface UseriRepository extends CrudRepository<Useri, Long> {
     public List<Useri> findAll();
-    public List<Useri> findByAgent(Useri useri);
+    public List<Useri> findByAgent(Agent agent);
 }
