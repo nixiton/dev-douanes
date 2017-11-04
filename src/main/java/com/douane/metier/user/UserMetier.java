@@ -5,43 +5,54 @@ import java.util.List;
 
 import javax.faces.bean.ManagedProperty;
 
-import com.douane.entite.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.douane.entite.Agent;
+import com.douane.entite.Bureau;
+import com.douane.entite.Direction;
+import com.douane.entite.OpAttribution;
+import com.douane.entite.OpDettachement;
+import com.douane.entite.OpEntree;
+import com.douane.entite.Financement;
+import com.douane.entite.Fournisseur;
+import com.douane.entite.Materiel;
+import com.douane.entite.MaterielNouv;
+import com.douane.entite.ModeAcquisition;
+import com.douane.entite.MotifSortie;
+import com.douane.entite.Nomenclature;
+import com.douane.entite.OpSaisie;
+import com.douane.entite.OpSortie;
+import com.douane.entite.Operation;
+import com.douane.entite.Service;
+import com.douane.entite.Useri;
 import com.douane.repository.*;
 
 import come.douane.dao.operation.IOperationDAO;
 
 @Transactional
 public class UserMetier implements IUserMetier{
-
+	
 	@Autowired
 	private UserRepository userrepos;
 	@Autowired
 	private AgentRepository agentrepos;
 	@Autowired
 	private MaterielRepository matrepos;
-
+	
 	@Autowired
 	private OpRepository oprepos;
-
+	
 	@Autowired
 	private OpEntreeRepository opentreerepos;
-
+	
 	@Autowired
 	private OpSortieRepository opsortierepos;
-
-	@Autowired
-	private UseriRepository useriRepository;
-
-	@Autowired
-	private EtatMaterielRepository etatMaterielRepository;
-
+	
 	@Autowired
 	@ManagedProperty(value="#{operationdao}")
 	private IOperationDAO operationdao;
-
+	
 	@Override
 	public Useri addUser(Useri u) {
 		// TODO Auto-generated method stub
@@ -54,13 +65,13 @@ public class UserMetier implements IUserMetier{
 		// TODO Auto-generated method stub
 		return (List<Useri>)userrepos.findAll();
 	}
-
+	
 	@Override
 	public void remUser(Useri u) {
 		// TODO Auto-generated method stub
 		userrepos.delete(u);
 	}
-
+	
 	@Override
 	public Agent addAgent(Agent a) {
 		// TODO Auto-generated method stub
@@ -74,7 +85,7 @@ public class UserMetier implements IUserMetier{
 		a.setRoleAgent(u);
 		//u.addAgentToList(a);
 		agentrepos.save(a);
-
+		
 		return a;
 	}
 
@@ -83,13 +94,13 @@ public class UserMetier implements IUserMetier{
 		// TODO Auto-generated method stub
 		System.out.println("remove agent "+a.getIm());
 		agentrepos.delete(a.getIm());
-
+		
 	}
 
 	@Override
 	public List<Agent> findAgentByNom(String name) {
 		// TODO Auto-generated method stub
-
+		
 		return agentrepos.findByNomAgentContainingIgnoreCase(name);
 	}
 
@@ -98,27 +109,26 @@ public class UserMetier implements IUserMetier{
 		// TODO Auto-generated method stub
 		return agentrepos.findOne(im_agent);
 	}
-
+	
 	//temporary
 	@Override
 	public List<Agent> findAllAgents() {
 		// TODO Auto-generated method stub
 		return (List<Agent>) agentrepos.findAll();
 	}
-
+	
 	@Override
-	public OpEntree reqEntrerMateriel(Materiel m, Agent dc)
-	{
+	public OpEntree reqEntrerMateriel(Materiel m, Agent dc) {
 		// TODO Auto-generated method stub*
 		m.setDc(dc);
 		matrepos.save(m);
-
+		
 		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc, m);
 		oprepos.save(entree);
-
+		
 		return entree;
 	}
-
+	
 	@Override
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent oper) throws Exception {
 		// TODO Auto-generated method stub
@@ -129,8 +139,8 @@ public class UserMetier implements IUserMetier{
 		oprepos.save(sortie);
 		return sortie;
 	}
-
-
+	
+	
 	public Materiel entrerMateriel(OpEntree op) {
 		Materiel m = op.getMat();
 		m.setValidation(true);
@@ -140,11 +150,11 @@ public class UserMetier implements IUserMetier{
 		oprepos.save(op);
 		return m;
 	}
-
+	
 	@Override
 	public Materiel sortirMateriel(OpSortie sortie) throws Exception{
 		// TODO Auto-generated method stub
-
+		
 		Materiel m = sortie.getMat();
 		if(m.getDetenteur()!=null) {
 			throw new Exception("detenu");
@@ -153,7 +163,7 @@ public class UserMetier implements IUserMetier{
 		m.setBureau(sortie.getBureau());
 		m.setServ(sortie.getServ());
 		matrepos.save(m);
-
+		
 		sortie.valider();
 		sortie.generateNumSortie();
 		oprepos.save(sortie);
@@ -202,7 +212,7 @@ public class UserMetier implements IUserMetier{
 		matrepos.delete(m);
 	}
 
-
+	
 	/*
 	 * Affichage
 	 */
@@ -214,7 +224,7 @@ public class UserMetier implements IUserMetier{
 		Fournisseur f=null;
 		Float mont=0f;
 		String refFact=null;
-
+		
 		if(m instanceof MaterielNouv){
 			ma = ((MaterielNouv)m).getModAcq();
 			fi = ((MaterielNouv)m).getFinancement();
@@ -230,20 +240,18 @@ public class UserMetier implements IUserMetier{
 		System.out.println("--------");
 		System.out.println("Type| Nomenclature| marque | pu| ref| numSerie | caract | detenteur | autre |"
 				+ "|Etat | Mode Acqui | Financement | Montant | ref Fact | Fournisseur| :");
-		System.out.println(m.getCaract()+"|"+m.getNomenMat()+"|"+ m.getMarque()+"|"+ m.getPu()+"|"+ m.getReference()+"|"+
+		System.out.println(m.getCaract()+"|"+m.getNomenMat()+"|"+ m.getMarque()+"|"+ m.getPu()+"|"+ m.getReference()+"|"+ 
 				m.getNumSerie()+"|"+ "XX"+"|"+ detenteur+"|"+ m.getAutre()+"|"+m.getEtat()+"|"+ma+"|"+
 				fi+"|"+mont+"|"+refFact+"|"+f);
-
+		
 	}
 
 	@Override
 	public void seeAgent(Agent a) {
 		// TODO Auto-generated method stub
 		System.out.println("");
-
+		
 	}
-
-
 
 	@Override
 	public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception {
@@ -252,7 +260,7 @@ public class UserMetier implements IUserMetier{
 			throw new Exception("nonvalider");
 		}
 		OpAttribution attroper= new OpAttribution(new Date(), new Date(),oper.getIp(), oper, m, detenteur);
-		oprepos.save(attroper);
+	    oprepos.save(attroper);
 		return attroper;
 	}
 
@@ -282,7 +290,7 @@ public class UserMetier implements IUserMetier{
 		oprepos.save(entree);
 		return entree;
 	}
-
+	
 	@Override
 	public OpSortie reqSortirRefuser(OpSortie sortie, String string) {
 		// TODO Auto-generated method stub
@@ -319,7 +327,7 @@ public class UserMetier implements IUserMetier{
 		if(mat1.getDetenteur()==null) {
 			throw new Exception("aucun");
 		}
-		OpDettachement opdet = new OpDettachement(new Date(), new Date(), oper.getIp(), oper, mat1, dete);
+	    OpDettachement opdet = new OpDettachement(new Date(), new Date(), oper.getIp(), oper, mat1, dete);
 		oprepos.save(opdet);
 		return opdet;
 	}
@@ -333,6 +341,7 @@ public class UserMetier implements IUserMetier{
 		agentrepos.save(ancienDet);
 		det.valider();
 		oprepos.save(det);
+		
 		return ancienDet;*/
 		return operationdao.detacherMat(det);
 	}
@@ -344,7 +353,7 @@ public class UserMetier implements IUserMetier{
 		oprepos.save(det);
 		return det;
 	}
-
+	
 	public IOperationDAO getOperationdao() {
 		return operationdao;
 	}
@@ -352,9 +361,9 @@ public class UserMetier implements IUserMetier{
 	public void setOperationdao(IOperationDAO operationdao) {
 		this.operationdao = operationdao;
 	}
-
+	
 	/**
-	 *
+	 * 
 	 * GETTERS
 	 */
 	@Override
@@ -373,7 +382,7 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<Operation> getListOp() {
 		// TODO Auto-generated method stub
-		return (List<Operation>) oprepos.findAll();
+		return oprepos.findAll();
 	}
 
 	@Override
@@ -484,25 +493,9 @@ public class UserMetier implements IUserMetier{
 		return (List<Materiel>)matrepos.findAll();
 	}
 
+	
 
-	/*@Override
-	public List<Useri> getListUseriByAgent(Agent agent) {
-		return useriRepository.findByAgent(agent);
-	}*/
+	
+	
 
-	@Override
-	public List<Useri> getListAllUseri() {
-		return useriRepository.findAll();
-	}
-
-	/*@Override
-	public List<EtatMateriel> getListEtatMateriel(Materiel materiel) {
-		return etatMaterielRepository.findByMateriel(materiel);
-	}*/
-
-	@Override
-	public List<EtatMateriel> getListAllEtatMateriel()
-	{
-		return etatMaterielRepository.findALl();
-	}
 }
