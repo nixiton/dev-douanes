@@ -41,7 +41,7 @@
 
                     <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.materiel}"
                     valueChangeListener="#{depositaireBean.onMaterielChange}">
-                        <f:selectItems value="#{siseBean.mistMateriel}" var="m" itemLabel="#{m.nomenclature}"/>
+                        <f:selectItems value="#{siseBean.listMateriel}" var="m" itemLabel="#{m.nomenclature}"/>
                     </h:selectOneMenu>
 
                 <hr></hr>
