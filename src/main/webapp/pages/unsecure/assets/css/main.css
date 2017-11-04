@@ -2576,6 +2576,6 @@ body.error .logo h1 {
     margin-top: 75px!important;
 }
 
-table{
+table, .ui-datatable-tablewrapper {
   width: 100%!important;
 }
