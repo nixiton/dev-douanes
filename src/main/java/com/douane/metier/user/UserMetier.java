@@ -52,6 +52,12 @@ public class UserMetier implements IUserMetier{
 	@Autowired
 	@ManagedProperty(value="#{operationdao}")
 	private IOperationDAO operationdao;
+
+	@Autowired
+	private UseriRepository useriRepository;
+
+	@Autowired
+	private EtatMaterielRepository etatMaterielRepository;
 	
 	@Override
 	public Useri addUser(Useri u) {
