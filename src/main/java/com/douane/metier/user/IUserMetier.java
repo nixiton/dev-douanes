@@ -92,9 +92,9 @@ public interface IUserMetier {
 
 
 	//get Role By Agent
-	public List<Useri> getListUseriByAgent(Agent agent);
+	/*public List<Useri> getListUseriByAgent(Agent agent);
 	public List<Useri> getListAllUseri();
-
+	*/
 	//getEtatMateriel
 	public List<EtatMateriel> getListEtatMateriel(Materiel materiel);
 	public List<EtatMateriel> getListAllEtatMateriel();
