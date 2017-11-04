@@ -21,11 +21,11 @@
 	<p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{siseBean.listMarque}" var="m">
 		<p:column>
 			<f:facet name="header">ID</f:facet>
-			#{nomenclature.id}
+			#{m.id}
 		</p:column>
 		<p:column>
 			<f:facet name="header">Désignation</f:facet>
-			#{nomenclature.designation}
+			#{m.designation}
 		</p:column>
 	</p:dataTable>
 
