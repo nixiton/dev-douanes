@@ -102,7 +102,13 @@ public interface IUserMetier {
 	public void seeMat(Materiel m);
 	public void seeAgent(Agent a);
 	
-	
+	//get Role By Agent
+	/*public List<Useri> getListUseriByAgent(Agent agent);*/
+	public List<Useri> getListAllUseri();
+
+	//getEtatMateriel
+	/*public List<EtatMateriel> getListEtatMateriel(Materiel materiel);*/
+	public List<EtatMateriel> getListAllEtatMateriel();
 	
 	
 		
