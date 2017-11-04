@@ -21,8 +21,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.typemateriel}" 
-                    valueChangeListener="#{DepositaireBean.typeMatChange}">
+                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
+                    valueChangeListener="#{depositaireBean.typeMatChange}">
                         <f:selectItems value="#{siseBean.listNomenclature}"  var="type" itemLabel="#{type.designation}"/>
                     </h:selectOneMenu>
 
@@ -58,7 +58,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.marq}">
+                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.marq}">
                         <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
                     </h:selectOneMenu>
 
@@ -77,7 +77,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText required="true"
-                        value="#{DepositaireBean.reference}"
+                        value="#{depositaireBean.reference}"
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
@@ -93,7 +93,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText required="true"
-                        value="#{DepositaireBean.numSerie}"
+                        value="#{depositaireBean.numSerie}"
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
@@ -111,7 +111,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText id="caratceristique" required="true"
-                        value="#{DepositaireBean.carac}"
+                        value="#{depositaireBean.carac}"
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
@@ -131,7 +131,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.acquisition}">
+                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.acquisition}">
                         <f:selectItems value="#{siseBean.listModeAcquisition}" var="etat" itemLabel="#{etat.designation}"/>
                     </h:selectOneMenu>
 
@@ -150,7 +150,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.financement}">
+                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.financement}">
                         <f:selectItems value="#{siseBean.listFinancement}" var="f" itemLabel="#{f.designation}"/>
                     </h:selectOneMenu>
 
@@ -168,7 +168,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText   required="true"
-                        value="#{DepositaireBean.montantFac}"
+                        value="#{depositaireBean.montantFac}"
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
@@ -185,7 +185,7 @@
                 <div class="col-lg-6">
 
                     <p:inputText   required="true"
-                        value="#{DepositaireBean.refFacture}"
+                        value="#{depositaireBean.refFacture}"
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
@@ -201,7 +201,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.fournisseur}">
+                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.fournisseur}">
                         <f:selectItems value="#{siseBean.listFournisseur}" var="f" itemLabel="#{f.designation}"/>
                     </h:selectOneMenu>
 
@@ -220,7 +220,7 @@
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{DepositaireBean.addPriseEncharge}" value="Créer"
+                    <h:commandButton id="btnSignId" action="#{depositaireBean.addPriseEncharge}" value="Créer"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
 
