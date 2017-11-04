@@ -5,6 +5,8 @@ import com.douane.entite.Materiel;
 
 import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
+
 /**
  * Created by hasina on 11/4/17.
  */
