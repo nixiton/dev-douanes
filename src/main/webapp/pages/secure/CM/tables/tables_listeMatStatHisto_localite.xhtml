@@ -35,7 +35,7 @@
         <hr></hr>
 
     </div>   
-    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{ListeMatStatHistoMB.materielListParLocalite}" var="materiel">
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{depositaireBean.listMaterielexistantParLocalite}" var="materiel">
         <p:column>
             <f:facet name="header">ID</f:facet>
             #{materiel.idMateriel}
@@ -62,7 +62,7 @@
         </p:column>
         <p:column>
             <f:facet name="header">Nomenclature</f:facet>
-            #{materiel.nomenclature}
+            #{materiel.nomencl}
         </p:column>
         <p:column>
             <f:facet name="header">Etat</f:facet>
@@ -70,11 +70,11 @@
         </p:column>
         <p:column>
             <f:facet name="header">Caractéristiques</f:facet>
-            #{materiel.caraxt}
+            #{materiel.carac}
         </p:column>
         <p:column>
             <f:facet name="header">Marque</f:facet>
-            #{materiel.marque}
+            #{materiel.marq}
         </p:column>
         <p:column>
             <f:facet name="header">Détenteur</f:facet>
