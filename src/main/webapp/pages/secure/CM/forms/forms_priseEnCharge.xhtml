@@ -23,12 +23,14 @@
 
                     <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.typemateriel}" 
                     valueChangeListener="#{DepositaireBean.typeMatChange}">
-                        <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
+                        <f:selectItems value="#{siseBean.listNomenclature}"  var="type" itemLabel="#{type.designation}"/>
                     </h:selectOneMenu>
+
+                <hr></hr>
 
                 </div>
                 
-                <hr></hr>
+                
 
 
                  <label for="text1" class="control-label col-lg-4">Nomenclature
@@ -44,9 +46,11 @@
                     <h:inputText value="#{priseEnChargeMB.nomencl}" 
                         disabled="true"></h:inputText>
 
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
+                
 
 
                 <label for="text1" class="control-label col-lg-4">Marque
@@ -58,9 +62,11 @@
                         <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
                     </h:selectOneMenu>
 
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
+                
 
 
 
@@ -75,9 +81,11 @@
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
+                
 
                  <label for="text1" class="control-label col-lg-4">Numero de Série
                 </label>
@@ -89,9 +97,11 @@
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
+                
 
 
 
@@ -105,9 +115,12 @@
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
+                
+
 
 
 
@@ -122,9 +135,12 @@
                         <f:selectItems value="#{siseBean.listModeAcquisition}" var="etat" itemLabel="#{etat.designation}"/>
                     </h:selectOneMenu>
 
+
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
+                
 
 
 
@@ -138,9 +154,11 @@
                         <f:selectItems value="#{siseBean.listFinancement}" var="f" itemLabel="#{f.designation}"/>
                     </h:selectOneMenu>
 
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
+                
 
 
 
@@ -154,9 +172,11 @@
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
+                
 
 
                 <label for="text1" class="control-label col-lg-4">Référence facture
@@ -169,9 +189,11 @@
                         requiredMessage=""
                         placeholder="Pu" styleClass="form-control top"></p:inputText>
 
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
+                
 
 
                 <label for="text1" class="control-label col-lg-4">Fournisseur
@@ -183,9 +205,11 @@
                         <f:selectItems value="#{siseBean.listFournisseur}" var="f" itemLabel="#{f.designation}"/>
                     </h:selectOneMenu>
 
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
+                
 
 
                 <div class="col-lg-2"></div>
