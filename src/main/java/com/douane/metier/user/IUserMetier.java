@@ -3,7 +3,21 @@ package com.douane.metier.user;
 import java.util.Date;
 import java.util.List;
 
-import com.douane.entite.*;
+import com.douane.entite.Agent;
+import com.douane.entite.Bureau;
+import com.douane.entite.Direction;
+import com.douane.entite.OpAttribution;
+import com.douane.entite.OpDettachement;
+import com.douane.entite.OpEntree;
+import com.douane.entite.OpSortie;
+import com.douane.entite.Operation;
+import com.douane.entite.Service;
+import com.douane.entite.Materiel;
+import com.douane.entite.MaterielNouv;
+import com.douane.entite.MotifSortie;
+import com.douane.entite.Nomenclature;
+import com.douane.entite.Useri;
+import com.douane.entite.Useri;
 
 public interface IUserMetier {
 	public Useri addUser(Useri u);
@@ -88,13 +102,7 @@ public interface IUserMetier {
 	public void seeMat(Materiel m);
 	public void seeAgent(Agent a);
 	
-	//get Role By Agent
-	/*public List<Useri> getListUseriByAgent(Agent agent);*/
-	public List<Useri> getListAllUseri();
-
-	//getEtatMateriel
-	/*public List<EtatMateriel> getListEtatMateriel(Materiel materiel);*/
-	public List<EtatMateriel> getListAllEtatMateriel();
+	
 	
 	
 		
