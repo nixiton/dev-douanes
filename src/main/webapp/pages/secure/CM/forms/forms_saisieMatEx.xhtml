@@ -44,37 +44,126 @@
                 <hr></hr>
 
                 </div>
+
+
                 
-                
-
-
-                <label for="text1" class="control-label col-lg-4">Nom
-                </label>
-
-                <div class="col-lg-6">
-
-                    <h:inputText value="#{DepositaireBean.nom}" 
-                        disabled="true"></h:inputText>
-
-                <hr></hr>
-
-                </div>
                 
                 
 
 
-                <label for="text1" class="control-label col-lg-4">Prénom
-                </label>
+                 <label for="text1" class="control-label col-lg-4">Marque
+                    </label>
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
-                    <h:inputText value="#{DepositaireBean.prenom}"                                                                              
-                        disabled="true"></h:inputText>
+                        <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.marq}">
+                            <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
+                        </h:selectOneMenu>
 
-                <hr></hr>
+                    <hr></hr>
 
-                </div>
+                    </div>
                 
+                    
+
+
+
+                    <label for="text1" class="control-label col-lg-4">Prix Unitaire
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:inputText  required="true"
+                        value="#{DepositaireBean.unitPrice}"
+                        requiredMessage=""
+                        placeholder="Prix unitaire" styleClass="form-control top"></p:inputText>
+
+                    <hr></hr>
+
+                    </div>
+                
+                
+
+                    <label for="text1" class="control-label col-lg-4">Référence
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:inputText required="true"
+                        value="#{DepositaireBean.reference}"
+                        requiredMessage=""
+                        placeholder="Référence" styleClass="form-control top"></p:inputText>
+
+                    <hr></hr>
+
+                    </div>
+                
+                    
+
+                    <label for="text1" class="control-label col-lg-4">Numero de Série
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:inputText  required="true"
+                        value="#{DepositaireBean.numSerie}"
+                        requiredMessage=""
+                        placeholder="Numero de série" styleClass="form-control top"></p:inputText>
+
+                    <hr></hr>
+
+                    </div>
+                
+                    
+
+
+
+                    <label for="text1" class="control-label col-lg-4">Caractéristiques
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:inputText id="caratceristique" required="true"
+                        value="#{DepositaireBean.carac}"
+                        requiredMessage=""
+                        placeholder="Caractéristiques" styleClass="form-control top"></p:inputText>
+
+                        <hr></hr>
+
+                    </div>
+                    
+                    
+
+                
+
+                    <label for="text1" class="control-label col-lg-4">Autre
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:inputText  required="true"
+                        value="#{DepositaireBean.renseignement}"
+                        requiredMessage=""
+                        placeholder="Autre" styleClass="form-control top"></p:inputText>
+
+                    <hr></hr>
+
+                    </div>
+                
+                    
+
+
+                    <label for="text1" class="control-label col-lg-4">Etat
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.etat}">
+                        <f:selectItems value="#{siseBean.listEtat}" var="etat" itemLabel="#{etat.designation}"/>
+                        </h:selectOneMenu>
+                    <hr></hr>
+
+                    </div>
                 
 
 
