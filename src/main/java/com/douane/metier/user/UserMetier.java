@@ -493,26 +493,7 @@ public class UserMetier implements IUserMetier{
 		return (List<Materiel>)matrepos.findAll();
 	}
 
-	@Override
-	public List<Useri> getListUseriByAgent(Agent agent) {
-		return useriRepository.findByAgent(agent);
-	}
-
-	@Override
-	public List<Useri> getListAllUseri() {
-		return useriRepository.findAll();
-	}
-
-	@Override
-	public List<EtatMateriel> getListEtatMateriel(Materiel materiel) {
-		return etatMaterielRepository.findByMateriel(materiel);
-	}
-
-	@Override
-	public List<EtatMateriel> getListAllEtatMateriel()
-	{
-		return etatMaterielRepository.findALl();
-	}
+	
 
 	
 	
