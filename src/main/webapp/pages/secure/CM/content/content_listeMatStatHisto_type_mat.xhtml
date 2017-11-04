@@ -5,6 +5,28 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core">
 
+
+<ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
+
+<h:body class="  ">
+    <div class="bg-dark dk" id="wrap">
+        <div id="top">
+
+            <ui:include src="/pages/unsecure/components/navbar_top.xhtml"></ui:include>
+
+            <ui:include src="/pages/unsecure/components/top.xhtml"></ui:include>
+
+        </div>
+
+        <ui:include src="/pages/unsecure/components/left.xhtml">
+            
+        </ui:include>
+
+        <!-- /#wrap -->
+
+        <div id="content">
+
+
 <div >
     <div class="box dark">
         <header>
@@ -32,6 +54,14 @@
         </div>
     </div>
 </div>
+
+        </div>
+
+    </div>
+
+    <ui:include src="/pages/unsecure/components/footer.xhtml"></ui:include>
+
+
 
 
 
