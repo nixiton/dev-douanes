@@ -70,7 +70,7 @@ public class SISEformBean {
     private String codeBureau;
     private String codeService;
     private String codeDirection;
-    
+
 
     
     /*private String adresse;
@@ -582,7 +582,14 @@ public class SISEformBean {
 	public void setUtilisateurmetierimpl(IUtilisateurMetier utilisateurmetierimpl) {
 		this.utilisateurmetierimpl = utilisateurmetierimpl;
 	}
-	
+	public String addRole() {
+		//Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		Useri useri = new Useri();
+		useri.setDesignation(designation);
+        useri.setRole(role);
+		usermetierimpl.addUser(useri);
+		return SUCCESS;
+	}
 	
 	
 }
