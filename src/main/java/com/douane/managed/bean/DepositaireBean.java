@@ -43,15 +43,15 @@ public class DepositaireBean {
     @ManagedProperty(value="#{fournisseurmetier}")
     IFournisseurMetier fournisseurmetierimpl;
 
-    private Float unitPrice;
+	private Float unitPrice;
     private String reference;
     private String numSerie;
     private String carac;
     private String renseignement;
-    private EtatMateriel     etat;
+    private EtatMateriel	 etat;
     private Nomenclature typemateriel;
     private String nomencl;
-    private Marque marq;
+	private Marque marq;
     private ModeAcquisition acquisition;
     private Financement financement;
     private Fournisseur fournisseur;
@@ -83,9 +83,10 @@ public class DepositaireBean {
     //private Materiel materiel;
 
     /*
-    Sélection du mode d’acquisition : Achats-dons-excédent-dotation
-        Financement : RPI/ Gasynet/ Fasad/Crédit DGD
+    Sélection du mode d’acquisition : Achats-dons-excédent-dotation
+        Financement : RPI/ Gasynet/ Fasad/Crédit DGD
         Bailleur/Partenaires + champ libre
+
             -Montant sur facture
         -Référence facture
             - Fournisseur – Liste déroulante Référentiel
@@ -274,280 +275,280 @@ public class DepositaireBean {
         this.etatMatPresent = etatMatPresent;
     }
 
-    public List<Materiel> getListMaterielexistant() {
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        //return usermetierimpl.getListMatByDirection(agent.getDirection());
-        return usermetierimpl.getListMat();
-    }
+	public List<Materiel> getListMaterielexistant() {
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		//return usermetierimpl.getListMatByDirection(agent.getDirection());
+		return usermetierimpl.getListMat();
+	}
 
-    public void setListMaterielexistant(List<Materiel> listMaterielexistant) {
-        this.listMaterielexistant = listMaterielexistant;
-    }
+	public void setListMaterielexistant(List<Materiel> listMaterielexistant) {
+		this.listMaterielexistant = listMaterielexistant;
+	}
 
-    public Materiel getCurentMateriel() {
-        return curentMateriel;
-    }
+	public Materiel getCurentMateriel() {
+		return curentMateriel;
+	}
 
-    public void setCurentMateriel(Materiel curentMateriel) {
-        this.curentMateriel = curentMateriel;
-    }
-    
-    public IFournisseurMetier getFournisseurmetierimpl() {
-        return fournisseurmetierimpl;
-    }
+	public void setCurentMateriel(Materiel curentMateriel) {
+		this.curentMateriel = curentMateriel;
+	}
+	
+	public IFournisseurMetier getFournisseurmetierimpl() {
+		return fournisseurmetierimpl;
+	}
 
-    public void setFournisseurmetierimpl(IFournisseurMetier fournisseurmetierimpl) {
-        this.fournisseurmetierimpl = fournisseurmetierimpl;
-    }
+	public void setFournisseurmetierimpl(IFournisseurMetier fournisseurmetierimpl) {
+		this.fournisseurmetierimpl = fournisseurmetierimpl;
+	}
 
-    public String getAutre() {
-        return autre;
-    }
+	public String getAutre() {
+		return autre;
+	}
 
-    public void setAutre(String autre) {
-        this.autre = autre;
-    }
+	public void setAutre(String autre) {
+		this.autre = autre;
+	}
 
-    public Nomenclature getTypemateriel() {
-        return typemateriel;
-    }
+	public Nomenclature getTypemateriel() {
+		return typemateriel;
+	}
 
-    public void setTypemateriel(Nomenclature typemateriel) {
-        this.typemateriel = typemateriel;
-    }
-    public String getNom() {
-        return nom;
-    }
+	public void setTypemateriel(Nomenclature typemateriel) {
+		this.typemateriel = typemateriel;
+	}
+	public String getNom() {
+		return nom;
+	}
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
-    public String getPrenom() {
-        return prenom;
-    }
+	public String getPrenom() {
+		return prenom;
+	}
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-    
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	
 
-    public Agent getDetenteur() {
-        return detenteur;
-    }
-    
-    public void setDetenteur(Agent detenteur) {
-        this.detenteur = detenteur;
-    }
-    
-    public MotifSortie getMotifSortie() {
-        return motifSortie;
-    }
+	public Agent getDetenteur() {
+		return detenteur;
+	}
+	
+	public void setDetenteur(Agent detenteur) {
+		this.detenteur = detenteur;
+	}
+	
+	public MotifSortie getMotifSortie() {
+		return motifSortie;
+	}
 
-    public void setMotifSortie(MotifSortie motifSortie) {
-        this.motifSortie = motifSortie;
-    }
+	public void setMotifSortie(MotifSortie motifSortie) {
+		this.motifSortie = motifSortie;
+	}
 
-    public Materiel getMateriel() {
-        return materiel;
-    }
+	public Materiel getMateriel() {
+		return materiel;
+	}
 
-    public void setMateriel(Materiel materiel) {
-        this.materiel = materiel;
-    }
+	public void setMateriel(Materiel materiel) {
+		this.materiel = materiel;
+	}
 
-    public Bureau getDestination() {
-        return destination;
-    }
+	public Bureau getDestination() {
+		return destination;
+	}
 
-    public void setDestination(Bureau destination) {
-        this.destination = destination;
-    }
-    public Service getDestinationService() {
-        return destinationService;
-    }
+	public void setDestination(Bureau destination) {
+		this.destination = destination;
+	}
+	public Service getDestinationService() {
+		return destinationService;
+	}
 
-    public void setDestinationService(Service destinationService) {
-        this.destinationService = destinationService;
-    }
+	public void setDestinationService(Service destinationService) {
+		this.destinationService = destinationService;
+	}
 
-    public Service getService() {
-        return service;
-    }
+	public Service getService() {
+		return service;
+	}
 
-    public void setService(Service service) {
-        this.service = service;
-    }
+	public void setService(Service service) {
+		this.service = service;
+	}
 
-    public Direction getDirection() {
-        return direction;
-    }
+	public Direction getDirection() {
+		return direction;
+	}
 
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
 
-    public Fournisseur getFournisseur() {
-        return fournisseur;
-    }
+	public Fournisseur getFournisseur() {
+		return fournisseur;
+	}
 
-    public void setFournisseur(Fournisseur fournisseur) {
-        this.fournisseur = fournisseur;
-    }
+	public void setFournisseur(Fournisseur fournisseur) {
+		this.fournisseur = fournisseur;
+	}
 
-    public Bureau getBureau() {
-        return bureau;
-    }
+	public Bureau getBureau() {
+		return bureau;
+	}
 
-    public void setBureau(Bureau bureau) {
-        this.bureau = bureau;
-    }
+	public void setBureau(Bureau bureau) {
+		this.bureau = bureau;
+	}
 
-    public Direction getDestinationDirec() {
-        return destinationDirec;
-    }
+	public Direction getDestinationDirec() {
+		return destinationDirec;
+	}
 
-    public void setDestinationDirec(Direction destinationDirec) {
-        this.destinationDirec = destinationDirec;
-    }
+	public void setDestinationDirec(Direction destinationDirec) {
+		this.destinationDirec = destinationDirec;
+	}
 
-    public String getCaracteristique() {
-        return caracteristique;
-    }
+	public String getCaracteristique() {
+		return caracteristique;
+	}
 
-    public void setCaracteristique(String caracteristique) {
-        this.caracteristique = caracteristique;
-    }
+	public void setCaracteristique(String caracteristique) {
+		this.caracteristique = caracteristique;
+	}
 
-    
-    public void onTypeMaterielChange() {
-        this.setNombPerType(this.getTypemateriel().getNomenclature());
-    }
-    public void onDetenteurChange() {
-        this.setNom(getDetenteur().getNomAgent());
-        this.setPrenom(getDetenteur().getPrenomAgent());
-    }
-    public void onMaterielChange() {
-        this.setMarq(this.getMateriel().getMarque());
-        this.setReference(this.getMateriel().getReference());
-        this.setNumSerie(this.getMateriel().getNumSerie());
-    }
-    
-    public String addMateriel() {
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        //agent.setIp()
-        MaterielEx m = new MaterielEx();
-        m.setAutre(getAutre());
-        m.setBureau(getBureau());
-        m.setAutre(getAutre());
-        //m.setDirec(getDirection());
-        m.setDirec(agent.getDirection());
-        m.setDocumentPath("default");
-        m.setEtat(getEtat());
-        m.setMarque(getMarq());
-        m.setNomenMat(getTypemateriel());
-        m.setNumSerie(getNumSerie());
-        m.setPu(getUnitPrice());
-        m.setReference(getReference());
-        m.setRenseignement(getRenseignement());
-        m.setServ(getService());
-        
-        //m.setCaract(caract);
-        //m.setCategorie(categorie);
-        //m.setImage(image);
-        //m.setDocumentPath(documentPath);
-        
-        //set Operation requete entrer materiel existant
-        OpEntree opentree = usermetierimpl.reqEntrerMateriel(m, agent);
-        //set Operation valider automatique car ne necessite pas de validation GAC
-        usermetierimpl.entrerMateriel(opentree);
-        
+	
+	public void onTypeMaterielChange() {
+		this.setNombPerType(this.getTypemateriel().getNomenclature());
+	}
+	public void onDetenteurChange() {
+		this.setNom(getDetenteur().getNomAgent());
+		this.setPrenom(getDetenteur().getPrenomAgent());
+	}
+	public void onMaterielChange() {
+		this.setMarq(this.getMateriel().getMarque());
+		this.setReference(this.getMateriel().getReference());
+		this.setNumSerie(this.getMateriel().getNumSerie());
+	}
+	
+	public String addMateriel() {
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		//agent.setIp()
+		MaterielEx m = new MaterielEx();
+		m.setAutre(getAutre());
+		m.setBureau(getBureau());
+		m.setAutre(getAutre());
+		//m.setDirec(getDirection());
+		m.setDirec(agent.getDirection());
+		m.setDocumentPath("default");
+		m.setEtat(getEtat());
+		m.setMarque(getMarq());
+		m.setNomenMat(getTypemateriel());
+		m.setNumSerie(getNumSerie());
+		m.setPu(getUnitPrice());
+		m.setReference(getReference());
+		m.setRenseignement(getRenseignement());
+		m.setServ(getService());
+		
+		//m.setCaract(caract);
+		//m.setCategorie(categorie);
+		//m.setImage(image);
+		//m.setDocumentPath(documentPath);
+		
+		//set Operation requete entrer materiel existant
+		OpEntree opentree = usermetierimpl.reqEntrerMateriel(m, agent);
+		//set Operation valider automatique car ne necessite pas de validation GAC
+		usermetierimpl.entrerMateriel(opentree);
+		
         return SUCCESS;
-    }
-    
-    public String addPriseEncharge() {
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        //agent.setIp()
-        MaterielNouv m = new MaterielNouv();
-        m.setAutre(getAutre());
-        m.setBureau(getBureau());
-        m.setAutre(getAutre());
-        //m.setDirec(getDirection());
-        m.setDirec(agent.getDirection());
-        m.setDocumentPath("default");
-        m.setEtat(getEtat());
-        m.setMarque(getMarq());
-        m.setNomenMat(getTypemateriel());
-        m.setNumSerie(getNumSerie());
-        m.setPu(getUnitPrice());
-        m.setReference(getReference());
-        m.setRenseignement(getRenseignement());
-        m.setServ(getService());
-        
-        //m.setCaract(caract);
-        //m.setCategorie(categorie);
-        //m.setImage(image);
-        //m.setDocumentPath(documentPath);
-        
-        // proprietes propre aux materiels nouveaux
-        m.setFinancement(getFinancement());
-        m.setFournisseur(getFournisseur());
-        m.setModAcq(getAcquisition());
-        m.setMontant_facture(getMontantFac());
-        
-        //m.setRefFacture(refFacture);
-        
-        //set Operation requete entrer materiel nouveau
-        OpEntree opEntree = usermetierimpl.reqEntrerMateriel(m, agent);
-        return SUCCESS;
-    }
-    
-    public String addAttribution() {
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        //agent.setIp()
-        OpAttribution opAt= null;
-        try {
-            //getCurrent Materiel ve?????
-             opAt=usermetierimpl.reqAttribution(getMateriel(), agent, getDetenteur());
-        }catch (Exception e) {
-            // TODO: handle exception
-            System.out.println(e.getMessage());
-        }
-        return SUCCESS;
-    }
-    
-    public String addDetachement() {
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        //agent.setIp()
-        OpDettachement opDet = null;
-        try {
-            //getCurrent Materiel ve?????
-            opDet =usermetierimpl.reqDettachement(this.getMateriel(), agent, getDetenteur());
-        }catch (Exception e) {
-            // TODO: handle exception
-            System.out.println(e.getMessage());
-        }
-        
-        
-        return SUCCESS;
-    }
-    
-    public String addDecharge() {
-        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-        //agent.setIp()
-        OpSortie opSort= null;
-        try {
-            opSort =usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(), 
-                    this.getDestinationDirec(), this.getDestinationService(), this.getDestination(), agent);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            System.out.println(e.getMessage());
-        }
-        return SUCCESS;
-    }
-    
-    ///OLD FUNCTION
-    //insert unit price
+	}
+	
+	public String addPriseEncharge() {
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		//agent.setIp()
+		MaterielNouv m = new MaterielNouv();
+		m.setAutre(getAutre());
+		m.setBureau(getBureau());
+		m.setAutre(getAutre());
+		//m.setDirec(getDirection());
+		m.setDirec(agent.getDirection());
+		m.setDocumentPath("default");
+		m.setEtat(getEtat());
+		m.setMarque(getMarq());
+		m.setNomenMat(getTypemateriel());
+		m.setNumSerie(getNumSerie());
+		m.setPu(getUnitPrice());
+		m.setReference(getReference());
+		m.setRenseignement(getRenseignement());
+		m.setServ(getService());
+		
+		//m.setCaract(caract);
+		//m.setCategorie(categorie);
+		//m.setImage(image);
+		//m.setDocumentPath(documentPath);
+		
+		// proprietes propre aux materiels nouveaux
+		m.setFinancement(getFinancement());
+		m.setFournisseur(getFournisseur());
+		m.setModAcq(getAcquisition());
+		m.setMontant_facture(getMontantFac());
+		
+		//m.setRefFacture(refFacture);
+		
+		//set Operation requete entrer materiel nouveau
+		OpEntree opEntree = usermetierimpl.reqEntrerMateriel(m, agent);
+		return SUCCESS;
+	}
+	
+	public String addAttribution() {
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		//agent.setIp()
+		OpAttribution opAt= null;
+		try {
+			//getCurrent Materiel ve?????
+			 opAt=usermetierimpl.reqAttribution(getMateriel(), agent, getDetenteur());
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+		return SUCCESS;
+	}
+	
+	public String addDetachement() {
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		//agent.setIp()
+		OpDettachement opDet = null;
+		try {
+			//getCurrent Materiel ve?????
+			opDet =usermetierimpl.reqDettachement(this.getMateriel(), agent, getDetenteur());
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+		
+		
+		return SUCCESS;
+	}
+	
+	public String addDecharge() {
+		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+		//agent.setIp()
+		OpSortie opSort= null;
+		try {
+			opSort =usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(), 
+					this.getDestinationDirec(), this.getDestinationService(), this.getDestination(), agent);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		return SUCCESS;
+	}
+	
+	///OLD FUNCTION
+	//insert unit price
     public String insertMaterielEx()
     {
         //set unit price for type materiel
@@ -585,10 +586,11 @@ public class DepositaireBean {
         Sélection sur une liste déroulante de la marque
         Insertion de la référence
         Insertion du numéro de série (matériels informatiques)
-        Insertion des caractéristiques 
-        Sélection du mode d’acquisition : Achats-dons-excédent-dotation
-        Financement : RPI/ Gasynet/ Fasad/Crédit DGD
+        Insertion des caractéristiques 
+        Sélection du mode d’acquisition : Achats-dons-excédent-dotation
+        Financement : RPI/ Gasynet/ Fasad/Crédit DGD
         Bailleur/Partenaires + champ libre
+
             -Montant sur facture
         -Référence facture
             - Fournisseur – Liste déroulante Référentiel
@@ -614,6 +616,7 @@ public class DepositaireBean {
 
         /*File file = new File("C:\\mavan-hibernate-image-mysql.gif");
         byte[] bFile = new byte[(int) file.length()];
+
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
             //convert file into array of bytes
@@ -622,10 +625,11 @@ public class DepositaireBean {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         Avatar avatar = new Avatar();
         avatar.setImage(bFile);*/
 
         return SUCCESS;
     }
-    
+	
 }
