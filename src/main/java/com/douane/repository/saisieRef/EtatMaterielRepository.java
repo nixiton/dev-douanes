@@ -11,3 +11,4 @@ import com.douane.entite.Nomenclature;
 public interface EtatMaterielRepository extends CrudRepository<EtatMateriel, Long> {
 	
 }
+
