@@ -1,4 +1,46 @@
-ndao;
+package com.douane.metier.user;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.faces.bean.ManagedProperty;
+
+import com.douane.entite.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.douane.repository.*;
+
+import come.douane.dao.operation.IOperationDAO;
+
+@Transactional
+public class UserMetier implements IUserMetier{
+
+	@Autowired
+	private UserRepository userrepos;
+	@Autowired
+	private AgentRepository agentrepos;
+	@Autowired
+	private MaterielRepository matrepos;
+
+	@Autowired
+	private OpRepository oprepos;
+
+	@Autowired
+	private OpEntreeRepository opentreerepos;
+
+	@Autowired
+	private OpSortieRepository opsortierepos;
+
+	@Autowired
+	private UseriRepository useriRepository;
+
+	@Autowired
+	private EtatMaterielRepository etatMaterielRepository;
+
+	@Autowired
+	@ManagedProperty(value="#{operationdao}")
+	private IOperationDAO operationdao;
 
 	@Override
 	public Useri addUser(Useri u) {
