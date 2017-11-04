@@ -1,508 +1,631 @@
-package com.douane.metier.user;
-
-import java.util.Date;
-import java.util.List;
-
-import javax.faces.bean.ManagedProperty;
+package com.douane.managed.bean;
 
 import com.douane.entite.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
+import com.douane.exception.GetFieldName;
+import com.douane.exception.NullPointerAttributeException;
+import com.douane.metier.fournisseur.IFournisseurMetier;
+import com.douane.metier.marque.IMarqueMetier;
+import com.douane.metier.nomenclature.INomenclatureMetier;
+import com.douane.metier.referent.IRefMetier;
+import com.douane.metier.typeMateriel.ITypeMaterielMetier;
+import com.douane.metier.user.IUserMetier;
+import com.douane.requesthttp.RequestFilter;
 
-import com.douane.repository.*;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
-import come.douane.dao.operation.IOperationDAO;
+/**
+ * Created by hasina on 10/29/17.
+ */
+@ManagedBean(name="depositaireBean")
+public class DepositaireBean {
 
-@Transactional
-public class UserMetier implements IUserMetier{
+    private static final String SUCCESS = "success";
+    private static final String ERROR   = "error";
 
-    @Autowired
-    private UserRepository userrepos;
-    @Autowired
-    private AgentRepository agentrepos;
-    @Autowired
-    private MaterielRepository matrepos;
+    @ManagedProperty(value="#{typematerielmetier}")
+    ITypeMaterielMetier typematerielmetier;
 
-    @Autowired
-    private OpRepository oprepos;
+    @ManagedProperty(value="#{nomenclaturemetier}")
+    INomenclatureMetier nomenclaturemetier;
 
-    @Autowired
-    private OpEntreeRepository opentreerepos;
-
-    @Autowired
-    private OpSortieRepository opsortierepos;
-
-    @Autowired
-    private UseriRepository useriRepository;
-
-    @Autowired
-    private EtatMaterielRepository etatMaterielRepository;
-
-    @Autowired
-    @ManagedProperty(value="#{operationdao}")
-    private IOperationDAO operationdao;
-
-    @Override
-    public Useri addUser(Useri u) {
-        // TODO Auto-generated method stub
-        userrepos.save(u);
-        return u;
-    }
-
-    @Override
-    public List<Useri> listUser() {
-        // TODO Auto-generated method stub
-        return (List<Useri>)userrepos.findAll();
-    }
-
-    @Override
-    public void remUser(Useri u) {
-        // TODO Auto-generated method stub
-        userrepos.delete(u);
-    }
-
-    @Override
-    public Agent addAgent(Agent a) {
-        // TODO Auto-generated method stub
-        agentrepos.save(a);
-        return a;
-    }
-
-    @Override
-    public Agent addAgentUser(Agent a, Useri u) {
-        // TODO Auto-generated method stub
-        a.setRoleAgent(u);
-        //u.addAgentToList(a);
-        agentrepos.save(a);
-
-        return a;
-    }
-
-    @Override
-    public void remAgent(Agent a) {
-        // TODO Auto-generated method stub
-        System.out.println("remove agent "+a.getIm());
-        agentrepos.delete(a.getIm());
-
-    }
-
-    @Override
-    public List<Agent> findAgentByNom(String name) {
-        // TODO Auto-generated method stub
-
-        return agentrepos.findByNomAgentContainingIgnoreCase(name);
-    }
-
-    @Override
-    public Agent findAgentByIm(Long im_agent) {
-        // TODO Auto-generated method stub
-        return agentrepos.findOne(im_agent);
-    }
-
-    //temporary
-    @Override
-    public List<Agent> findAllAgents() {
-        // TODO Auto-generated method stub
-        return (List<Agent>) agentrepos.findAll();
-    }
-
-    @Override
-    public OpEntree reqEntrerMateriel(Materiel m, Agent dc)
-    {
-        // TODO Auto-generated method stub*
-        m.setDc(dc);
-        matrepos.save(m);
-
-        OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc, m);
-        oprepos.save(entree);
-
-        return entree;
-    }
-
-    @Override
-    public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent oper) throws Exception {
-        // TODO Auto-generated method stub
-        if(m.getDetenteur()!=null) {
-            throw new Exception("detenu");
-        }
-        OpSortie sortie = new OpSortie(new Date(), new Date(), oper.getIp(), oper, m, d, s, b, motif);
-        oprepos.save(sortie);
-        return sortie;
-    }
+    @ManagedProperty(value="#{marquemetier}")
+    IMarqueMetier marquemetier;
 
 
-    public Materiel entrerMateriel(OpEntree op) {
-        Materiel m = op.getMat();
-        m.setValidation(true);
-        matrepos.save(m);
-        op.valider();
-        op.generateNumEntree();
-        oprepos.save(op);
-        return m;
-    }
 
-    @Override
-    public Materiel sortirMateriel(OpSortie sortie) throws Exception{
-        // TODO Auto-generated method stub
+    @ManagedProperty(value="#{usermetier}")
+    IUserMetier usermetierimpl;
 
-        Materiel m = sortie.getMat();
-        if(m.getDetenteur()!=null) {
-            throw new Exception("detenu");
-        }
-        m.setDirec(sortie.getDirec());
-        m.setBureau(sortie.getBureau());
-        m.setServ(sortie.getServ());
-        matrepos.save(m);
+    @ManagedProperty(value="#{fournisseurmetier}")
+    IFournisseurMetier fournisseurmetierimpl;
 
-        sortie.valider();
-        sortie.generateNumSortie();
-        oprepos.save(sortie);
-        return m;
-    }
-
-    /*Old function
-    @Override
-    public Materiel attriuberMateriel(Long idMat, Long im) {
-        // TODO Auto-generated method stub
-        Materiel m = (Materiel) matrepos.findOne(idMat);
-        Agent detenteur = (Agent) agentrepos.findOne(im);
-        m.setDetenteur(detenteur);
-        matrepos.save(m);
-        return m;
-    }*/
-
-    @Override
-    public Materiel attriuberMateriel(OpAttribution attr) {
-        // TODO Auto-generated method stub
-        /*System.out.println("Attribution begin");
-        Materiel m = attr.getMat();
-        m.setCodification("codified"+new Date());
-        //m.setDetenteur(attr.getDetenteur());
-        matrepos.save(m);
-        Agent detent = attr.getDetenteur();
-        detent.getMatdetenu().add(m);
-        agentrepos.save(detent);
-        attr.valider();
-        oprepos.save(attr);*/
-        //return m;
-        return operationdao.attribuerMat(attr);
-    }
-
-    /*@Override
-    public Materiel dettacherMateriel(Materiel m) {
-        // TODO Auto-generated method stub
-        m.setDetenteur(null);
-        matrepos.save(m);
-        return null;
-    }*/
-
-    @Override
-    public void delMat(Materiel m) {
-        // TODO Auto-generated method stub
-        matrepos.delete(m);
-    }
-
+    private Float unitPrice;
+    private String reference;
+    private String numSerie;
+    private String carac;
+    private String renseignement;
+    private EtatMateriel     etat;
+    private Nomenclature typemateriel;
+    private String nomencl;
+    private Marque marq;
+    private ModeAcquisition acquisition;
+    private Financement financement;
+    private Fournisseur fournisseur;
+    private Float montantFac;
+    private String refFacture;
+    private String nombPerType;
+    private String etatMatPresent;
+    private String autre;
+    private String caracteristique;
+    
+    //localisation
+    private Bureau bureau;
+    private Service service;
+    private Direction direction;
+    
+    private List<Materiel> listMaterielexistant;
+    private Materiel curentMateriel;
+    private String nom;
+    private String prenom;
+    
+    //Sortie Materiel
+    private Bureau destination;
+    private Direction destinationDirec;
+    private Service destinationService;
+    private MotifSortie motifSortie;
+    private Agent detenteur;
+    
+    private Materiel materiel;
+    //private Materiel materiel;
 
     /*
-     * Affichage
-     */
-    @Override
-    public void seeMat(Materiel m) {
-        // TODO Auto-generated method stub
-        ModeAcquisition ma=null;
-        Financement fi=null;
-        Fournisseur f=null;
-        Float mont=0f;
-        String refFact=null;
+    Sélection du mode d’acquisition : Achats-dons-excédent-dotation
+        Financement : RPI/ Gasynet/ Fasad/Crédit DGD
+        Bailleur/Partenaires + champ libre
+            -Montant sur facture
+        -Référence facture
+            - Fournisseur – Liste déroulante Référentiel
+        Nombre par type
+        Sélection de l’état au moment de la réception (Neuf/En état de marche/Réparable/hors service)
+        Attachement des pièces justificatives (PV, facture, bon de livraison, Ordre de sortie  …)
+        Insertion photo du matériel
+        Transfert au GAC après pré validation
+        Mise à jour du journal (automatique) après validation du GAC*/
 
-        if(m instanceof MaterielNouv){
-            ma = ((MaterielNouv)m).getModAcq();
-            fi = ((MaterielNouv)m).getFinancement();
-            f = ((MaterielNouv)m).getFournisseur();
-            mont = ((MaterielNouv)m).getMontant_facture();
-            refFact = ((MaterielNouv)m).getRefFacture();
-        }
-        String detenteur ="aucun";
-        if(m.getDetenteur()!=null) {
-            detenteur = m.getDetenteur().getNomAgent();
-        }
-        System.out.println("MATERIEL:");
-        System.out.println("--------");
-        System.out.println("Type| Nomenclature| marque | pu| ref| numSerie | caract | detenteur | autre |"
-                + "|Etat | Mode Acqui | Financement | Montant | ref Fact | Fournisseur| :");
-        System.out.println(m.getCaract()+"|"+m.getNomenMat()+"|"+ m.getMarque()+"|"+ m.getPu()+"|"+ m.getReference()+"|"+
-                m.getNumSerie()+"|"+ "XX"+"|"+ detenteur+"|"+ m.getAutre()+"|"+m.getEtat()+"|"+ma+"|"+
-                fi+"|"+mont+"|"+refFact+"|"+f);
-
-    }
-
-    @Override
-    public void seeAgent(Agent a) {
-        // TODO Auto-generated method stub
-        System.out.println("");
-
-    }
-
-
-
-    @Override
-    public OpAttribution reqAttribution(Materiel m, Agent oper, Agent detenteur) throws Exception {
-        // TODO Auto-generated method stub
-        if(!m.isValidation()) {
-            throw new Exception("nonvalider");
-        }
-        OpAttribution attroper= new OpAttribution(new Date(), new Date(),oper.getIp(), oper, m, detenteur);
-        oprepos.save(attroper);
-        return attroper;
-    }
-
-    @Override
-    public OpEntree reqMatAModifier(OpEntree entree, String motif) throws Exception {
-        // TODO Auto-generated method stub
-        if(entree.getMat().isValidation()) {
-            throw new Exception("dejavalider");
-        }
-        entree.amodifier(motif);
-        oprepos.save(entree);
-        return entree;
-    }
-    @Override
-    public OpSortie reqSortirAModifier(OpSortie sort, String motif){
-        // TODO Auto-generated method stub
-        sort.amodifier(motif);
-        oprepos.save(sort);
-        return sort;
-    }
-    public OpEntree reqMatRefuser(OpEntree entree, String motif) throws Exception {
-        // TODO Auto-generated method stub
-        if(entree.getMat().isValidation()) {
-            throw new Exception("dejavalider");
-        }
-        entree.arefuser(motif);
-        oprepos.save(entree);
-        return entree;
-    }
-
-    @Override
-    public OpSortie reqSortirRefuser(OpSortie sortie, String string) {
-        // TODO Auto-generated method stub
-        sortie.arefuser(string);
-        oprepos.save(sortie);
-        return sortie;
-    }
-
-    @Override
-    public OpAttribution reqAttrAModifier(OpAttribution attr, String motif) throws Exception {
-        // TODO Auto-generated method stub
-        if(attr.getMat().getDetenteur()!=null) {
-            throw new Exception("detenu");
-        }
-        attr.amodifier(motif);
-        oprepos.save(attr);
-        return attr;
-    }
-
-    @Override
-    public OpAttribution reqAttrRefuser(OpAttribution attr, String motif) throws Exception {
-        // TODO Auto-generated method stub
-        if(attr.getMat().getDetenteur()!=null) {
-            throw new Exception("detenu");
-        }
-        attr.arefuser(motif);
-        oprepos.save(attr);
-        return attr;
-    }
-
-    @Override
-    public OpDettachement reqDettachement(Materiel mat1, Agent oper, Agent dete) throws Exception {
-        // TODO Auto-generated method stub
-        if(mat1.getDetenteur()==null) {
-            throw new Exception("aucun");
-        }
-        OpDettachement opdet = new OpDettachement(new Date(), new Date(), oper.getIp(), oper, mat1, dete);
-        oprepos.save(opdet);
-        return opdet;
-    }
-
-    @Override
-    public Agent detacherMateriel(OpDettachement det) {
-        // TODO Auto-generated method stub
-        /*Agent ancienDet = det.getMat().getDetenteur();
-        Materiel m = det.getMat();
-        ancienDet.getMatdetenu().remove(m);
-        agentrepos.save(ancienDet);
-        det.valider();
-        oprepos.save(det);
-        return ancienDet;*/
-        return operationdao.detacherMat(det);
-    }
-
-    @Override
-    public OpDettachement reqDetRefuser(OpDettachement det, String string) {
-        // TODO Auto-generated method stub
-        det.arefuser(string);
-        oprepos.save(det);
-        return det;
-    }
-
-    public IOperationDAO getOperationdao() {
-        return operationdao;
-    }
-
-    public void setOperationdao(IOperationDAO operationdao) {
-        this.operationdao = operationdao;
-    }
-
-    /**
-     *
-     * GETTERS
-     */
-    @Override
-    public Materiel getMatById(Long idmat) {
-        // TODO Auto-generated method stub
-        return matrepos.findByIdMateriel(idmat);
-    }
-
-    @Override
-    public List<Materiel> getListMatByDet(Agent detenteur) {
-        // TODO Auto-generated method stub
-        return matrepos.findByDetenteur(detenteur);
-        //return null;
-    }
-
-    @Override
-    public List<Operation> getListOp() {
-        // TODO Auto-generated method stub
-        return (List<Operation>) oprepos.findAll();
-    }
-
-    @Override
-    public List<OpEntree> getListOpEntree() {
-        // TODO Auto-generated method stub
-        return opentreerepos.findAll();
-    }
-
-    @Override
-    public List<OpSortie> getListOpSortie() {
-        // TODO Auto-generated method stub
-        return opsortierepos.findAll();
-    }
-
-    @Override
-    public List<Operation> getListOpByOperator(Agent operator) {
-        // TODO Auto-generated method stub
-        return oprepos.findByOperateur(operator);
-    }
-
-    @Override
-    public List<OpEntree> getListOpEntreeByOperator(Agent operator) {
-        // TODO Auto-generated method stub
-        return opentreerepos.findByOperateur(operator);
-    }
-
-    @Override
-    public List<OpSortie> getListOpSortieByOperator(Agent operator) {
-        // TODO Auto-generated method stub
-        return opsortierepos.findByOperateur(operator);
-    }
-
-    @Override
-    public List<Operation> getListOpByDirection(Direction direction) {
-        // TODO Auto-generated method stub
-        return oprepos.findByDirection(direction);
-    }
-
-    @Override
-    public List<OpEntree> getListOpEntreeByDirection(Direction direction) {
-        // TODO Auto-generated method stub
-        return opentreerepos.findByDirection(direction);
-    }
-
-    @Override
-    public List<OpSortie> getListOpSortieByDirection(Direction direction) {
-        // TODO Auto-generated method stub
-        return opsortierepos.findByDirection(direction);
-    }
-
-    @Override
-    public List<Materiel> getListMatByNom(Nomenclature nomenclature) {
-        // TODO Auto-generated method stub
-        return matrepos.findByNomenMat(nomenclature);
-    }
-
-    @Override
-    public List<Materiel> getListMatByDirection(Direction direction) {
-        // TODO Auto-generated method stub
-        return matrepos.findByDirec(direction);
-    }
-
-    @Override
-    public List<Materiel> getListMatByService(Service service) {
-        // TODO Auto-generated method stub
-        return matrepos.findByServ(service);
-    }
-
-    @Override
-    public List<Materiel> getListMatByBureau(Bureau bureau) {
-        // TODO Auto-generated method stub
-        return matrepos.findByBureau(bureau);
-    }
-
-    @Override
-    public List<Operation> getListOpBetween(Date startDate, Date endDate) {
-        // TODO Auto-generated method stub
-        return operationdao.getListOpByDate(startDate, endDate);
-    }
-
-    @Override
-    public List<OpEntree> getListOpEntreeByMat(Materiel m) {
-        // TODO Auto-generated method stub
-        return opentreerepos.findByMat(m);
-    }
-
-    @Override
-    public List<OpSortie> getListOpSortieByMat(Materiel m) {
-        // TODO Auto-generated method stub
-        return opsortierepos.findByMat(m);
-    }
-
-    @Override
-    public List<OpEntree> getListOpEntreeByMatBDate(Materiel m, Date startDate, Date endDate) {
-        // TODO Auto-generated method stub
-        return operationdao.getListOpEntreeByByMaterielBDate(m, startDate, endDate);
-    }
-
-    @Override
-    public List<OpSortie> getListOpSortieByMatBDate(Materiel m, Date startDate, Date endDate) {
-        // TODO Auto-generated method stub
-        return operationdao.getListOpSortieByByMaterielBDate(m, startDate, endDate);
-    }
-
-    @Override
-    public List<Materiel> getListMat() {
-        // TODO Auto-generated method stub
-        return (List<Materiel>)matrepos.findAll();
-    }
-
-
-    @Override
-    public List<Useri> getListUseriByAgent(Agent agent) {
-        return useriRepository.findByAgent(agent);
-    }
-
-    @Override
-    public List<Useri> getListAllUseri() {
-        return useriRepository.findAll();
-    }
-
-    @Override
-    public List<EtatMateriel> getListEtatMateriel(Materiel materiel) {
-        return etatMaterielRepository.findByMateriel(materiel);
-    }
-
-    @Override
-    public List<EtatMateriel> getListAllEtatMateriel()
+    private String listParamShouldNotBeNull = "";
+    //list materiel, nomenclature,marque
+    //get list materiel
+    public List<TypeMateriel>  getListTypeMateriel()
     {
-        return etatMaterielRepository.findALl();
+        return typematerielmetier.findAllTypeMateriel();
     }
+
+    //get nomenclature
+    public List<Nomenclature> getNomenclature()
+    {
+        return nomenclaturemetier.findAllNomenclatures();
+    }
+
+    //get marque
+    public List<Marque> getMarque()
+    {
+        return marquemetier.findAllMarque();
+    }
+
+    //get list detenteur
+    public List<Agent> getDetenteurs()
+    {
+        return usermetierimpl.findAllAgents();
+    }
+
+    //get list fournisseur
+    public List<Fournisseur> getFOurnisseur()
+    {
+        return fournisseurmetierimpl.findAllFournisseur();
+    }
+
+    public Float getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(Float unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public ITypeMaterielMetier getTypematerielmetier() {
+        return typematerielmetier;
+    }
+
+    public void setTypematerielmetier(ITypeMaterielMetier typematerielmetier) {
+        this.typematerielmetier = typematerielmetier;
+    }
+
+    public INomenclatureMetier getNomenclaturemetier() {
+        return nomenclaturemetier;
+    }
+
+    public void setNomenclaturemetier(INomenclatureMetier nomenclaturemetier) {
+        this.nomenclaturemetier = nomenclaturemetier;
+    }
+
+    public IMarqueMetier getMarquemetier() {
+        return marquemetier;
+    }
+
+    public void setMarquemetier(IMarqueMetier marquemetier) {
+        this.marquemetier = marquemetier;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public String getNumSerie() {
+        return numSerie;
+    }
+
+    public void setNumSerie(String numSerie) {
+        this.numSerie = numSerie;
+    }
+
+    public String getCarac() {
+        return carac;
+    }
+
+    public void setCarac(String carac) {
+        this.carac = carac;
+    }
+
+    public IUserMetier getUsermetierimpl() {
+        return usermetierimpl;
+    }
+
+    public void setUsermetierimpl(IUserMetier usermetierimpl) {
+        this.usermetierimpl = usermetierimpl;
+    }
+
+    public String getRenseignement() {
+        return renseignement;
+    }
+
+    public void setRenseignement(String renseignement) {
+        this.renseignement = renseignement;
+    }
+
+    public EtatMateriel getEtat() {
+        return etat;
+    }
+
+    public void setEtat(EtatMateriel etat) {
+        this.etat = etat;
+    }
+
+
+    public String getNomencl() {
+        return nomencl;
+    }
+
+    public void setNomencl(String nomencl) {
+        this.nomencl = nomencl;
+    }
+
+    public Marque getMarq() {
+        return marq;
+    }
+
+    public void setMarq(Marque marq) {
+        this.marq = marq;
+    }
+
+    public ModeAcquisition getAcquisition() {
+        return acquisition;
+    }
+
+    public void setAcquisition(ModeAcquisition acquisition) {
+        this.acquisition = acquisition;
+    }
+
+    public Financement getFinancement() {
+        return financement;
+    }
+
+    public void setFinancement(Financement financement) {
+        this.financement = financement;
+    }
+
+
+    public Float getMontantFac() {
+        return montantFac;
+    }
+
+    public void setMontantFac(Float montantFac) {
+        this.montantFac = montantFac;
+    }
+
+    public String getRefFacture() {
+        return refFacture;
+    }
+
+    public void setRefFacture(String refFacture) {
+        this.refFacture = refFacture;
+    }
+
+    public String getNombPerType() {
+        return nombPerType;
+    }
+
+    public void setNombPerType(String nombPerType) {
+        this.nombPerType = nombPerType;
+    }
+
+    public String getEtatMatPresent() {
+        return etatMatPresent;
+    }
+
+    public void setEtatMatPresent(String etatMatPresent) {
+        this.etatMatPresent = etatMatPresent;
+    }
+
+    public List<Materiel> getListMaterielexistant() {
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        //return usermetierimpl.getListMatByDirection(agent.getDirection());
+        return usermetierimpl.getListMat();
+    }
+
+    public void setListMaterielexistant(List<Materiel> listMaterielexistant) {
+        this.listMaterielexistant = listMaterielexistant;
+    }
+
+    public Materiel getCurentMateriel() {
+        return curentMateriel;
+    }
+
+    public void setCurentMateriel(Materiel curentMateriel) {
+        this.curentMateriel = curentMateriel;
+    }
+    
+    public IFournisseurMetier getFournisseurmetierimpl() {
+        return fournisseurmetierimpl;
+    }
+
+    public void setFournisseurmetierimpl(IFournisseurMetier fournisseurmetierimpl) {
+        this.fournisseurmetierimpl = fournisseurmetierimpl;
+    }
+
+    public String getAutre() {
+        return autre;
+    }
+
+    public void setAutre(String autre) {
+        this.autre = autre;
+    }
+
+    public Nomenclature getTypemateriel() {
+        return typemateriel;
+    }
+
+    public void setTypemateriel(Nomenclature typemateriel) {
+        this.typemateriel = typemateriel;
+    }
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+    
+
+    public Agent getDetenteur() {
+        return detenteur;
+    }
+    
+    public void setDetenteur(Agent detenteur) {
+        this.detenteur = detenteur;
+    }
+    
+    public MotifSortie getMotifSortie() {
+        return motifSortie;
+    }
+
+    public void setMotifSortie(MotifSortie motifSortie) {
+        this.motifSortie = motifSortie;
+    }
+
+    public Materiel getMateriel() {
+        return materiel;
+    }
+
+    public void setMateriel(Materiel materiel) {
+        this.materiel = materiel;
+    }
+
+    public Bureau getDestination() {
+        return destination;
+    }
+
+    public void setDestination(Bureau destination) {
+        this.destination = destination;
+    }
+    public Service getDestinationService() {
+        return destinationService;
+    }
+
+    public void setDestinationService(Service destinationService) {
+        this.destinationService = destinationService;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    public Fournisseur getFournisseur() {
+        return fournisseur;
+    }
+
+    public void setFournisseur(Fournisseur fournisseur) {
+        this.fournisseur = fournisseur;
+    }
+
+    public Bureau getBureau() {
+        return bureau;
+    }
+
+    public void setBureau(Bureau bureau) {
+        this.bureau = bureau;
+    }
+
+    public Direction getDestinationDirec() {
+        return destinationDirec;
+    }
+
+    public void setDestinationDirec(Direction destinationDirec) {
+        this.destinationDirec = destinationDirec;
+    }
+
+    public String getCaracteristique() {
+        return caracteristique;
+    }
+
+    public void setCaracteristique(String caracteristique) {
+        this.caracteristique = caracteristique;
+    }
+
+    
+    public void onTypeMaterielChange() {
+        this.setNombPerType(this.getTypemateriel().getNomenclature());
+    }
+    public void onDetenteurChange() {
+        this.setNom(getDetenteur().getNomAgent());
+        this.setPrenom(getDetenteur().getPrenomAgent());
+    }
+    public void onMaterielChange() {
+        this.setMarq(this.getMateriel().getMarque());
+        this.setReference(this.getMateriel().getReference());
+        this.setNumSerie(this.getMateriel().getNumSerie());
+    }
+    
+    public String addMateriel() {
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        //agent.setIp()
+        MaterielEx m = new MaterielEx();
+        m.setAutre(getAutre());
+        m.setBureau(getBureau());
+        m.setAutre(getAutre());
+        //m.setDirec(getDirection());
+        m.setDirec(agent.getDirection());
+        m.setDocumentPath("default");
+        m.setEtat(getEtat());
+        m.setMarque(getMarq());
+        m.setNomenMat(getTypemateriel());
+        m.setNumSerie(getNumSerie());
+        m.setPu(getUnitPrice());
+        m.setReference(getReference());
+        m.setRenseignement(getRenseignement());
+        m.setServ(getService());
+        
+        //m.setCaract(caract);
+        //m.setCategorie(categorie);
+        //m.setImage(image);
+        //m.setDocumentPath(documentPath);
+        
+        //set Operation requete entrer materiel existant
+        OpEntree opentree = usermetierimpl.reqEntrerMateriel(m, agent);
+        //set Operation valider automatique car ne necessite pas de validation GAC
+        usermetierimpl.entrerMateriel(opentree);
+        
+        return SUCCESS;
+    }
+    
+    public String addPriseEncharge() {
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        //agent.setIp()
+        MaterielNouv m = new MaterielNouv();
+        m.setAutre(getAutre());
+        m.setBureau(getBureau());
+        m.setAutre(getAutre());
+        //m.setDirec(getDirection());
+        m.setDirec(agent.getDirection());
+        m.setDocumentPath("default");
+        m.setEtat(getEtat());
+        m.setMarque(getMarq());
+        m.setNomenMat(getTypemateriel());
+        m.setNumSerie(getNumSerie());
+        m.setPu(getUnitPrice());
+        m.setReference(getReference());
+        m.setRenseignement(getRenseignement());
+        m.setServ(getService());
+        
+        //m.setCaract(caract);
+        //m.setCategorie(categorie);
+        //m.setImage(image);
+        //m.setDocumentPath(documentPath);
+        
+        // proprietes propre aux materiels nouveaux
+        m.setFinancement(getFinancement());
+        m.setFournisseur(getFournisseur());
+        m.setModAcq(getAcquisition());
+        m.setMontant_facture(getMontantFac());
+        
+        //m.setRefFacture(refFacture);
+        
+        //set Operation requete entrer materiel nouveau
+        OpEntree opEntree = usermetierimpl.reqEntrerMateriel(m, agent);
+        return SUCCESS;
+    }
+    
+    public String addAttribution() {
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        //agent.setIp()
+        OpAttribution opAt= null;
+        try {
+            //getCurrent Materiel ve?????
+             opAt=usermetierimpl.reqAttribution(getMateriel(), agent, getDetenteur());
+        }catch (Exception e) {
+            // TODO: handle exception
+            System.out.println(e.getMessage());
+        }
+        return SUCCESS;
+    }
+    
+    public String addDetachement() {
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        //agent.setIp()
+        OpDettachement opDet = null;
+        try {
+            //getCurrent Materiel ve?????
+            opDet =usermetierimpl.reqDettachement(this.getMateriel(), agent, getDetenteur());
+        }catch (Exception e) {
+            // TODO: handle exception
+            System.out.println(e.getMessage());
+        }
+        
+        
+        return SUCCESS;
+    }
+    
+    public String addDecharge() {
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        //agent.setIp()
+        OpSortie opSort= null;
+        try {
+            opSort =usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(), 
+                    this.getDestinationDirec(), this.getDestinationService(), this.getDestination(), agent);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println(e.getMessage());
+        }
+        return SUCCESS;
+    }
+    
+    ///OLD FUNCTION
+    //insert unit price
+    public String insertMaterielEx()
+    {
+        //set unit price for type materiel
+
+        //list typemateriel, nomencl,marq
+        if(typemateriel==null || getTypemateriel().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"typemateriel ";
+        if(nomencl==null || getNomencl().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"nomenclature ";
+        if(marq==null || getNomencl().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"numero de serie ";
+        if(unitPrice==null || getUnitPrice().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"unitPrice ";
+        if(reference==null || getReference().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"reference ";
+        if(numSerie==null || getNumSerie().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"numero de serie ";
+        if(carac==null || getCarac().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"carateristiques ";
+        if(etat==null || getEtat().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"etat ";
+
+        if(!listParamShouldNotBeNull.equals(""))
+            throw new NullPointerAttributeException(listParamShouldNotBeNull+"should not be empty ");
+
+
+        return SUCCESS;
+    }
+
+    public String insertNouvMat()
+    {
+        /*
+        Sélection sur une liste déroulante du type de matériels
+        Affichage automatique de la nomenclature
+        Sélection sur une liste déroulante de la marque
+        Insertion de la référence
+        Insertion du numéro de série (matériels informatiques)
+        Insertion des caractéristiques 
+        Sélection du mode d’acquisition : Achats-dons-excédent-dotation
+        Financement : RPI/ Gasynet/ Fasad/Crédit DGD
+        Bailleur/Partenaires + champ libre
+            -Montant sur facture
+        -Référence facture
+            - Fournisseur – Liste déroulante Référentiel
+        Nombre par type
+        Sélection de l’état au moment de la réception (Neuf/En état de marche/Réparable/hors service)
+        Attachement des pièces justificatives (PV, facture, bon de livraison, Ordre de sortie  …)
+        Insertion photo du matériel
+        Transfert au GAC après pré validation
+        Mise à jour du journal (automatique) après validation du GAC
+*/
+        if(typemateriel==null || getTypemateriel().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"typemateriel ";
+        if(nomencl==null || getNomencl().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"nomenclature ";
+        if(marq==null || getNomencl().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"numero de serie ";
+        if(reference==null || getReference().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"reference ";
+        if(numSerie==null || getNumSerie().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"numero de serie ";
+        if(carac==null || getCarac().equals(""))
+            listParamShouldNotBeNull = listParamShouldNotBeNull+"carateristiques ";
+
+        /*File file = new File("C:\\mavan-hibernate-image-mysql.gif");
+        byte[] bFile = new byte[(int) file.length()];
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            //convert file into array of bytes
+            fileInputStream.read(bFile);
+            fileInputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Avatar avatar = new Avatar();
+        avatar.setImage(bFile);*/
+
+        return SUCCESS;
+    }
+    
 }
