@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.douane.entite.*
+import com.douane.entite.*;
 import com.douane.repository.*;
 
 import come.douane.dao.operation.IOperationDAO;
