@@ -25,6 +25,8 @@
                     valueChangeListener="#{DepositaireBean.onTypeMaterielChange}">
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
                         </h:selectOneMenu>
+                    <label for="text1" class="control-label col-lg-4">Materiel
+                    </label>
                         <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.materiel}">
                         <f:selectItems value="#{DepositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomenclature}"/>
                     </h:selectOneMenu>
