@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by hasina on 11/4/17.
  */
-public interface EtatMaterielRepository {
+public interface EtatMaterielRepository extends CrudRepository<EtatMateriel, Long>{
 
     public List<EtatMateriel> findByMateriel(Materiel materiel);
     public List<EtatMateriel> findALl();
