@@ -10,7 +10,7 @@
 			<from-action>#{loginMgmtBean.login}</from-action>
 			<from-outcome>correct</from-outcome>
 			<!--to-view-id>/pages/secure/choice.xhtml</to-view-id-->
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieMatEx.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/priseEnCharge.xhtml</to-view-id>
 			
 			<redirect />
 		</navigation-case>

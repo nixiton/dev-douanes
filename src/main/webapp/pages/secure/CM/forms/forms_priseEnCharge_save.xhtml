@@ -188,6 +188,49 @@
                 <hr></hr>
 
 
+
+
+
+
+
+                <label for="text1" class="control-label col-lg-4">Etat
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.etat}">
+                        <f:selectItems value="#{siseBean.listEtat}" var="m" itemLabel="#{m.designation}"/>
+                    </h:selectOneMenu>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Pièces justificatives
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:inputFile  value="#{DepositaireBean.file}"/>
+
+                </div>
+                
+                <hr></hr>
+
+
+                <label for="text1" class="control-label col-lg-4">Photo
+                </label>
+
+                <div class="col-lg-6">
+
+                    <h:inputFile  value="#{DepositaireBean.photo}"/>
+
+                </div>
+                
+                <hr></hr>
+
+
                 <div class="col-lg-2"></div>
 
             </div>
