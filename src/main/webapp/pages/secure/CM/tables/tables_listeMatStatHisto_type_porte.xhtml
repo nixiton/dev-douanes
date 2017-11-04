@@ -90,7 +90,7 @@
         </p:column>
          <p:column>
             <f:facet name="header">Statut</f:facet>
-            <p:commandButton  action="#{ListeMatStatHistoMB.setCurentMateriel(materiel)}" 
+            <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
             oncomplete="PF('statut').show()">
 
             <i class='fa fa-eye'></i>
@@ -99,7 +99,7 @@
         </p:column>
         <p:column>
             <f:facet name="header">Histoique</f:facet>
-            <p:commandButton  action="#{ListeMatStatHistoMB.setCurentMateriel(materiel)}" 
+            <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
             oncomplete="PF('historique').show()">
 
             <i class='fa fa-eye'></i>
