@@ -11,7 +11,7 @@
 <div   class="body collapse in table-responsive">
 
 
-    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{DepositaireBean.listDetenteurEffectif}" var="d">
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{depositaireBean.listDetenteurEffectif}" var="d">
         <p:column>
             <f:facet name="header">ID</f:facet>
             #{d.id}
@@ -22,7 +22,7 @@
         </p:column>
          <p:column>
             <f:facet name="header">Détail</f:facet>
-             <p:commandButton  action="#{DepositaireBean.setCurentDetenteurEffectif(d)}" 
+             <p:commandButton  action="#{depositaireBean.setCurentDetenteurEffectif(d)}" 
             oncomplete="PF('detail').show()">
 
                 <i class='fa fa-eye'></i>

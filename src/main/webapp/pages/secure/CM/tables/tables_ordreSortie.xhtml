@@ -10,7 +10,7 @@
 
 <div   class="body collapse in table-responsive">
 
-    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{DepositaireBean.listOrdreSortie}" var="d">
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{depositaireBean.listOrdreSortie}" var="d">
         <p:column>
             <f:facet name="header">ID</f:facet>
             #{d.id}
@@ -21,7 +21,7 @@
         </p:column>
          <p:column>
             <f:facet name="header">Détail</f:facet>
-             <p:commandButton  action="#{DepositaireBean.setCurentOrdreSortie(d)}" 
+             <p:commandButton  action="#{depositaireBean.setCurentOrdreSortie(d)}" 
             oncomplete="PF('detail').show()">
 
                 <i class='fa fa-eye'></i>

@@ -21,8 +21,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.materiel}">
-                        <f:selectItems value="#{DepositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomenclature}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.materiel}">
+                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomenclature}"/>
                     </h:selectOneMenu>
 
                 <hr></hr>
@@ -37,8 +37,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{DepositaireBean.detenteur}" valueChangeListener="#{DepositaireBean.onDetenteurChange}">
-                        <f:selectItems value="#{DepositaireBean.getDetenteurs}" var="d" itemLabel="#{d.im}"/>
+                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.detenteur}" valueChangeListener="#{depositaireBean.onDetenteurChange}">
+                        <f:selectItems value="#{depositaireBean.getDetenteurs}" var="d" itemLabel="#{d.im}"/>
                     </h:selectOneMenu>
 
                 <hr></hr>
@@ -53,7 +53,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{DepositaireBean.nom}" 
+                    <h:inputText value="#{depositaireBean.nom}" 
                         disabled="true"></h:inputText>
 
                 <hr></hr>
@@ -68,7 +68,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{DepositaireBean.prenom}"                                                                              
+                    <h:inputText value="#{depositaireBean.prenom}"                                                                              
                         disabled="true"></h:inputText>
 
                 <hr></hr>
@@ -86,7 +86,7 @@
                 <label for="text1" class="control-label col-lg-4"></label>
 
                 <div class="col-lg-4">
-                    <h:commandButton id="btnSignId" action="#{DepositaireBean.addAttribution}" value="Attribuer"
+                    <h:commandButton id="btnSignId" action="#{depositaireBean.addAttribution}" value="Attribuer"
                         class="btn btn-lg btn-primary btn-block"/>
                 </div>
 

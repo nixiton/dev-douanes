@@ -77,7 +77,9 @@
             <h:graphicImage value="#{materiel.photo}" />
         </p:column>
         <p:column>
-            <p:commandButton  action="#{DepositaireBean.setCurentMateriel(materiel)}" 
+
+            <f:facet name="header">Détail</f:facet>
+            <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
             oncomplete="PF('detail').show()">
 
                 <i class='fa fa-eye'></i>
