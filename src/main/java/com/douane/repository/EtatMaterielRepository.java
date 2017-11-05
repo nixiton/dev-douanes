@@ -14,4 +14,5 @@ public interface EtatMaterielRepository extends CrudRepository<EtatMateriel, Lon
 
     /*public List<EtatMateriel> findByMateriel(Materiel materiel);*/
     public List<EtatMateriel> findALl();
+    
 }
