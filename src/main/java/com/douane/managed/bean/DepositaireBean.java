@@ -798,7 +798,7 @@ public class DepositaireBean {
 
 		// m.setCaract(caract);
 		// m.setCategorie(categorie);
-		//m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
+		m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
 		// m.setDocumentPath(documentPath);
 
 		// set Operation requete entrer materiel existant
