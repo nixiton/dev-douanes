@@ -40,11 +40,6 @@
 		<!-- property name="refdao" ref="refdao"></property -->
 	</bean>
 
-	<!-- EtatMateriel Metier Declaration -->
-	<bean id="etatmaterielmetier" class="com.douane.metier.etatMateriel.EtatMaterielMetier">
-		<!-- property name="refdao" ref="refdao"></property -->
-	</bean>
-
 	<!-- Financement Metier Declaration -->
 	<bean id="financementmetier" class="com.douane.metier.financement.FinancementMetier">
 		<!-- property name="refdao" ref="refdao"></property -->
