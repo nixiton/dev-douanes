@@ -682,7 +682,7 @@ public class DepositaireBean {
 	}
 
 	public List<Materiel> getListMaterielexistant() {
-		return usermetierimpl.getListMat();	
+		return usermetierimpl.getListMat();
 	}
 
 	public void setListMaterielexistant(List<Materiel> listMaterielexistant) {
@@ -777,8 +777,6 @@ public class DepositaireBean {
 	}
 
 	public String addMateriel() {
-
-		try{
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
 		MaterielEx m = new MaterielEx();
@@ -808,11 +806,6 @@ public class DepositaireBean {
 		usermetierimpl.entrerMateriel(opentree);
 
 		return SUCCESS;
-		}
-		catch(Exception e){
-			
-			return ERROR;
-		}
 	}
 
 	public String addPriseEncharge() {
@@ -922,4 +915,4 @@ public class DepositaireBean {
 	public void setDocumentPath(String documentPath) {
 		this.documentPath = documentPath;
 	}
-}																														
+}

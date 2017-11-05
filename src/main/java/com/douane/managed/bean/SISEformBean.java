@@ -103,6 +103,7 @@ public class SISEformBean {
     private List<Poste> listPoste;
     private List<Service> listService;
     private List<Useri> listUseri;
+    private List<TypeObjet> listTypeObjet;
     
     public List<Direction> getListDirection() {
     	ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Direction());
@@ -129,6 +130,7 @@ public class SISEformBean {
         }
 		return ds;
 	}
+	
 	public void setListEtatMateriel(List<EtatMateriel> listEtatMateriel) {
 		this.listEtatMateriel = listEtatMateriel;
 	}
@@ -536,7 +538,20 @@ public class SISEformBean {
         }
 		return ds;
 	}
-	
+	public List<TypeObjet> getListTypeObjet() {
+		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Nomenclature());
+    	List<TypeObjet> ds = new ArrayList<TypeObjet>();
+        for (Object d :  r)
+        {
+        	if(d instanceof TypeObjet) {
+        		ds.add((TypeObjet)d);
+        	}
+        }
+		return ds;
+	}
+	public void setListTypeObjet(List<TypeObjet> listTypeObjet) {
+		this.listTypeObjet = listTypeObjet;
+	}
 	
 	
 	public String addService()
