@@ -79,8 +79,8 @@ public class SISEformBean {
     private String motifSortie;
     private String poste;
     private String service;
-    				direction;
-    				bureau;
+                    direction;
+                    bureau;
     */
     
     
@@ -103,196 +103,198 @@ public class SISEformBean {
     private List<Poste> listPoste;
     private List<Service> listService;
     private List<Useri> listUseri;
+    private List<TypeObjet> listTypeObjet;
     
     public List<Direction> getListDirection() {
-    	ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Direction());
-    	List<Direction> ds = new ArrayList<Direction>();
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Direction());
+        List<Direction> ds = new ArrayList<Direction>();
         for (Object d :  r)
         {
-        	if(d instanceof Direction) {
-        		ds.add((Direction)d);
-        	}
+            if(d instanceof Direction) {
+                ds.add((Direction)d);
+            }
         }
-		return ds;
-	}
-	public void setListDirection(List<Direction> listDirection) {
-		this.listDirection = listDirection;
-	}
-	public List<EtatMateriel> getListEtatMateriel() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new EtatMateriel());
-    	List<EtatMateriel> ds = new ArrayList<EtatMateriel>();
+        return ds;
+    }
+    public void setListDirection(List<Direction> listDirection) {
+        this.listDirection = listDirection;
+    }
+    public List<EtatMateriel> getListEtatMateriel() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new EtatMateriel());
+        List<EtatMateriel> ds = new ArrayList<EtatMateriel>();
         for (Object d :  r)
         {
-        	if(d instanceof EtatMateriel) {
-        		ds.add((EtatMateriel)d);
-        	}
+            if(d instanceof EtatMateriel) {
+                ds.add((EtatMateriel)d);
+            }
         }
-		return ds;
-	}
-	public void setListEtatMateriel(List<EtatMateriel> listEtatMateriel) {
-		this.listEtatMateriel = listEtatMateriel;
-	}
-	public List<Financement> getListFinancement() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Financement());
-    	List<Financement> ds = new ArrayList<Financement>();
+        return ds;
+    }
+    
+    public void setListEtatMateriel(List<EtatMateriel> listEtatMateriel) {
+        this.listEtatMateriel = listEtatMateriel;
+    }
+    public List<Financement> getListFinancement() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Financement());
+        List<Financement> ds = new ArrayList<Financement>();
         for (Object d :  r)
         {
-        	if(d instanceof Financement) {
-        		ds.add((Financement)d);
-        	}
+            if(d instanceof Financement) {
+                ds.add((Financement)d);
+            }
         }
-		return ds;
-	}
-	public void setListFinancement(List<Financement> listFinancement) {
-		this.listFinancement = listFinancement;
-	}
-	public List<Fournisseur> getListFournisseur() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Fournisseur());
-    	List<Fournisseur> ds = new ArrayList<Fournisseur>();
+        return ds;
+    }
+    public void setListFinancement(List<Financement> listFinancement) {
+        this.listFinancement = listFinancement;
+    }
+    public List<Fournisseur> getListFournisseur() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Fournisseur());
+        List<Fournisseur> ds = new ArrayList<Fournisseur>();
         for (Object d :  r)
         {
-        	if(d instanceof Fournisseur) {
-        		ds.add((Fournisseur)d);
-        	}
+            if(d instanceof Fournisseur) {
+                ds.add((Fournisseur)d);
+            }
         }
-		return ds;
-	}
-	public void setListFournisseur(List<Fournisseur> listFournisseur) {
-		this.listFournisseur = listFournisseur;
-	}
-	public List<Marque> getListMarque() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Marque());
-    	List<Marque> ds = new ArrayList<Marque>();
+        return ds;
+    }
+    public void setListFournisseur(List<Fournisseur> listFournisseur) {
+        this.listFournisseur = listFournisseur;
+    }
+    public List<Marque> getListMarque() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Marque());
+        List<Marque> ds = new ArrayList<Marque>();
         for (Object d :  r)
         {
-        	if(d instanceof Marque) {
-        		ds.add((Marque)d);
-        	}
+            if(d instanceof Marque) {
+                ds.add((Marque)d);
+            }
         }
-		return ds;
-	}
-	public void setListMarque(List<Marque> listMarque) {
-		this.listMarque = listMarque;
-	}
-	public List<ModeAcquisition> getListModeAcquisition() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new ModeAcquisition());
-    	List<ModeAcquisition> ds = new ArrayList<ModeAcquisition>();
+        return ds;
+    }
+    public void setListMarque(List<Marque> listMarque) {
+        this.listMarque = listMarque;
+    }
+    public List<ModeAcquisition> getListModeAcquisition() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new ModeAcquisition());
+        List<ModeAcquisition> ds = new ArrayList<ModeAcquisition>();
         for (Object d :  r)
         {
-        	if(d instanceof ModeAcquisition) {
-        		ds.add((ModeAcquisition)d);
-        	}
+            if(d instanceof ModeAcquisition) {
+                ds.add((ModeAcquisition)d);
+            }
         }
-		return ds;
-	}
-	public void setListModeAcquisition(List<ModeAcquisition> listModeAcquisition) {
-		this.listModeAcquisition = listModeAcquisition;
-	}
-	public List<MotifDecharge> getListMotifDecharge() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new MotifDecharge());
-    	List<MotifDecharge> ds = new ArrayList<MotifDecharge>();
+        return ds;
+    }
+    public void setListModeAcquisition(List<ModeAcquisition> listModeAcquisition) {
+        this.listModeAcquisition = listModeAcquisition;
+    }
+    public List<MotifDecharge> getListMotifDecharge() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new MotifDecharge());
+        List<MotifDecharge> ds = new ArrayList<MotifDecharge>();
         for (Object d :  r)
         {
-        	if(d instanceof MotifDecharge) {
-        		ds.add((MotifDecharge)d);
-        	}
+            if(d instanceof MotifDecharge) {
+                ds.add((MotifDecharge)d);
+            }
         }
-		return ds;
-	}
-	public void setListMotifDecharge(List<MotifDecharge> listMotifDecharge) {
-		this.listMotifDecharge = listMotifDecharge;
-	}
-	public List<TypeMateriel> getListTypeMateriel() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new TypeMateriel());
-    	List<TypeMateriel> ds = new ArrayList<TypeMateriel>();
+        return ds;
+    }
+    public void setListMotifDecharge(List<MotifDecharge> listMotifDecharge) {
+        this.listMotifDecharge = listMotifDecharge;
+    }
+    public List<TypeMateriel> getListTypeMateriel() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new TypeMateriel());
+        List<TypeMateriel> ds = new ArrayList<TypeMateriel>();
         for (Object d :  r)
         {
-        	if(d instanceof TypeMateriel) {
-        		ds.add((TypeMateriel)d);
-        	}
+            if(d instanceof TypeMateriel) {
+                ds.add((TypeMateriel)d);
+            }
         }
-		return ds;
-	}
-	public void setListTypeMateriel(List<TypeMateriel> listTypeMateriel) {
-		this.listTypeMateriel = listTypeMateriel;
-	}
-	public List<Adresse> getListAdresse() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Adresse());
-    	List<Adresse> ds = new ArrayList<Adresse>();
+        return ds;
+    }
+    public void setListTypeMateriel(List<TypeMateriel> listTypeMateriel) {
+        this.listTypeMateriel = listTypeMateriel;
+    }
+    public List<Adresse> getListAdresse() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Adresse());
+        List<Adresse> ds = new ArrayList<Adresse>();
         for (Object d :  r)
         {
-        	if(d instanceof Adresse) {
-        		ds.add((Adresse)d);
-        	}
+            if(d instanceof Adresse) {
+                ds.add((Adresse)d);
+            }
         }
-		return ds;
-	}
-	public void setListAdresse(List<Adresse> listAdresse) {
-		this.listAdresse = listAdresse;
-	}
-	public List<Localite> getListLocalite() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Localite());
-    	List<Localite> ds = new ArrayList<Localite>();
+        return ds;
+    }
+    public void setListAdresse(List<Adresse> listAdresse) {
+        this.listAdresse = listAdresse;
+    }
+    public List<Localite> getListLocalite() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Localite());
+        List<Localite> ds = new ArrayList<Localite>();
         for (Object d :  r)
         {
-        	if(d instanceof Localite) {
-        		ds.add((Localite)d);
-        	}
+            if(d instanceof Localite) {
+                ds.add((Localite)d);
+            }
         }
-		return ds;
-	}
-	public void setListLocalite(List<Localite> listLocalite) {
-		this.listLocalite = listLocalite;
-	}
-	public List<MotifSortie> getListMotifSortie() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new MotifSortie());
-    	List<MotifSortie> ds = new ArrayList<MotifSortie>();
+        return ds;
+    }
+    public void setListLocalite(List<Localite> listLocalite) {
+        this.listLocalite = listLocalite;
+    }
+    public List<MotifSortie> getListMotifSortie() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new MotifSortie());
+        List<MotifSortie> ds = new ArrayList<MotifSortie>();
         for (Object d :  r)
         {
-        	if(d instanceof MotifSortie) {
-        		ds.add((MotifSortie)d);
-        	}
+            if(d instanceof MotifSortie) {
+                ds.add((MotifSortie)d);
+            }
         }
-		return ds;
-	}
-	public void setListMotifSortie(List<MotifSortie> listMotifSortie) {
-		this.listMotifSortie = listMotifSortie;
-	}
-	public List<Poste> getListPoste() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Poste());
-    	List<Poste> ds = new ArrayList<Poste>();
+        return ds;
+    }
+    public void setListMotifSortie(List<MotifSortie> listMotifSortie) {
+        this.listMotifSortie = listMotifSortie;
+    }
+    public List<Poste> getListPoste() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Poste());
+        List<Poste> ds = new ArrayList<Poste>();
         for (Object d :  r)
         {
-        	if(d instanceof Poste) {
-        		ds.add((Poste)d);
-        	}
+            if(d instanceof Poste) {
+                ds.add((Poste)d);
+            }
         }
-		return ds;
-	}
-	public void setListPoste(List<Poste> listPoste) {
-		this.listPoste = listPoste;
-	}
-	public List<Service> getListService() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Service());
-    	List<Service> ds = new ArrayList<Service>();
+        return ds;
+    }
+    public void setListPoste(List<Poste> listPoste) {
+        this.listPoste = listPoste;
+    }
+    public List<Service> getListService() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Service());
+        List<Service> ds = new ArrayList<Service>();
         for (Object d :  r)
         {
-        	if(d instanceof Service) {
-        		ds.add((Service)d);
-        	}
+            if(d instanceof Service) {
+                ds.add((Service)d);
+            }
         }
-		return ds;
-	}
-	public void setListService(List<Service> listService) {
-		this.listService = listService;
-	}
-	public List<Useri> getListUseri() {
-		
-		return utilisateurmetierimpl.findAllUtilisateur() ;
-	}
-	public void setListUseri(List<Useri> listUseri) {
-		this.listUseri = listUseri;
-	}
+        return ds;
+    }
+    public void setListService(List<Service> listService) {
+        this.listService = listService;
+    }
+    public List<Useri> getListUseri() {
+        
+        return utilisateurmetierimpl.findAllUtilisateur() ;
+    }
+    public void setListUseri(List<Useri> listUseri) {
+        this.listUseri = listUseri;
+    }
     
 
     public String addNomenclature()
@@ -478,118 +480,131 @@ public class SISEformBean {
     public void setUsermetierimpl(IUserMetier usermetierimpl) {
         this.usermetierimpl = usermetierimpl;
     }
-	
-	public String addBureau() {
-		Bureau b = new Bureau(this.getDesignation(), this.getCodeBureau());
+    
+    public String addBureau() {
+        Bureau b = new Bureau(this.getDesignation(), this.getCodeBureau());
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
         refmetierimpl.addRef(b,agent);
         return SUCCESS;
-	}
-	
-	public String addLocalite() {
+    }
+    
+    public String addLocalite() {
 
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		refmetierimpl.addRef(new Localite(this.getDesignation()), agent);
-		return SUCCESS;
-	}
-	
-	public String addPoste() {
+        refmetierimpl.addRef(new Localite(this.getDesignation()), agent);
+        return SUCCESS;
+    }
+    
+    public String addPoste() {
 
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		refmetierimpl.addRef(new Poste(this.getDesignation()), agent);
-		return SUCCESS;
-	}
-	
-	public String addMotifSortie() {
+        refmetierimpl.addRef(new Poste(this.getDesignation()), agent);
+        return SUCCESS;
+    }
+    
+    public String addMotifSortie() {
 
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		refmetierimpl.addRef(new MotifSortie(this.getDesignation()), agent);
-		return SUCCESS;
-	}
-	
-	public String addAdresse() {
-		Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		refmetierimpl.addRef(new Adresse(this.getDesignation()), agent);
-		return SUCCESS;
-	}
-	
-	public String getCodeBureau() {
-		return codeBureau;
-	}
-	public void setCodeBureau(String codeBureau) {
-		this.codeBureau = codeBureau;
-	}
-	public List<Bureau> getListBureau() {
-		return bureaumetierimpl.findAllBureaus();
-	}
-	public void setListBureau(List<Bureau> listBureau) {
-		this.listBureau = listBureau;
-	}
-	public List<Nomenclature> getListNomenclature() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Nomenclature());
-    	List<Nomenclature> ds = new ArrayList<Nomenclature>();
+        refmetierimpl.addRef(new MotifSortie(this.getDesignation()), agent);
+        return SUCCESS;
+    }
+    
+    public String addAdresse() {
+        Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        refmetierimpl.addRef(new Adresse(this.getDesignation()), agent);
+        return SUCCESS;
+    }
+    
+    public String getCodeBureau() {
+        return codeBureau;
+    }
+    public void setCodeBureau(String codeBureau) {
+        this.codeBureau = codeBureau;
+    }
+    public List<Bureau> getListBureau() {
+        return bureaumetierimpl.findAllBureaus();
+    }
+    public void setListBureau(List<Bureau> listBureau) {
+        this.listBureau = listBureau;
+    }
+    public List<Nomenclature> getListNomenclature() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Nomenclature());
+        List<Nomenclature> ds = new ArrayList<Nomenclature>();
         for (Object d :  r)
         {
-        	if(d instanceof Nomenclature) {
-        		ds.add((Nomenclature)d);
-        	}
+            if(d instanceof Nomenclature) {
+                ds.add((Nomenclature)d);
+            }
         }
-		return ds;
-	}
-	
-	
-	
-	public String addService()
-	{
-		Service service = new Service(this.getDesignation(), this.getCodeService());
+        return ds;
+    }
+    public List<TypeObjet> getListTypeObjet() {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Nomenclature());
+        List<TypeObjet> ds = new ArrayList<TypeObjet>();
+        for (Object d :  r)
+        {
+            if(d instanceof TypeObjet) {
+                ds.add((TypeObjet)d);
+            }
+        }
+        return ds;
+    }
+    public void setListTypeObjet(List<TypeObjet> listTypeObjet) {
+        this.listTypeObjet = listTypeObjet;
+    }
+    
+    
+    public String addService()
+    {
+        Service service = new Service(this.getDesignation(), this.getCodeService());
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
         refmetierimpl.addRef(service,agent);
         return SUCCESS;
-	}
-	
-	public String addDirection()
-	{
-		Direction direction = new Direction(this.getDesignation(), this.getCodeDirection());
+    }
+    
+    public String addDirection()
+    {
+        Direction direction = new Direction(this.getDesignation(), this.getCodeDirection());
         Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
         refmetierimpl.addRef(direction,agent);
         return SUCCESS;
-	}
-	
-	public void setListNomenclature(List<Nomenclature> listNomenclature) {
-		this.listNomenclature = listNomenclature;
-	}
-	public String getCodeService() {
-		return codeService;
-	}
-	public void setCodeService(String codeService) {
-		this.codeService = codeService;
-	}
-	public String getCodeDirection() {
-		return codeDirection;
-	}
-	public void setCodeDirection(String codeDirection) {
-		this.codeDirection = codeDirection;
-	}
-	public IBureauMetier getBureaumetierimpl() {
-		return bureaumetierimpl;
-	}
-	public void setBureaumetierimpl(IBureauMetier bureaumetierimpl) {
-		this.bureaumetierimpl = bureaumetierimpl;
-	}
-	public IUtilisateurMetier getUtilisateurmetierimpl() {
-		return utilisateurmetierimpl;
-	}
-	public void setUtilisateurmetierimpl(IUtilisateurMetier utilisateurmetierimpl) {
-		this.utilisateurmetierimpl = utilisateurmetierimpl;
-	}
-	public String addRole() {
-		//Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
-		Useri useri = new Useri();
-		useri.setDesignation(designation);
+    }
+    
+    public void setListNomenclature(List<Nomenclature> listNomenclature) {
+        this.listNomenclature = listNomenclature;
+    }
+    public String getCodeService() {
+        return codeService;
+    }
+    public void setCodeService(String codeService) {
+        this.codeService = codeService;
+    }
+    public String getCodeDirection() {
+        return codeDirection;
+    }
+    public void setCodeDirection(String codeDirection) {
+        this.codeDirection = codeDirection;
+    }
+    public IBureauMetier getBureaumetierimpl() {
+        return bureaumetierimpl;
+    }
+    public void setBureaumetierimpl(IBureauMetier bureaumetierimpl) {
+        this.bureaumetierimpl = bureaumetierimpl;
+    }
+    public IUtilisateurMetier getUtilisateurmetierimpl() {
+        return utilisateurmetierimpl;
+    }
+    public void setUtilisateurmetierimpl(IUtilisateurMetier utilisateurmetierimpl) {
+        this.utilisateurmetierimpl = utilisateurmetierimpl;
+    }
+    public String addRole() {
+        //Agent agent = (Agent)RequestFilter.getSession().getAttribute("agent");
+        Useri useri = new Useri();
+        useri.setDesignation(designation);
         useri.setRole(role);
-		usermetierimpl.addUser(useri);
-		return SUCCESS;
-	}
-	
-	
+        usermetierimpl.addUser(useri);
+        return SUCCESS;
+    }
+    
+    
 }
