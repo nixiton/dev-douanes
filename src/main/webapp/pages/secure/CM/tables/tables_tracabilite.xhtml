@@ -13,7 +13,7 @@
 
 
     <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{operationBean.mesOperations}" var="t">
-        <p:column>
+        <p:column filterBy="#{t.id}">
             <f:facet name="header">ID</f:facet>
             #{t.id}
         </p:column>
