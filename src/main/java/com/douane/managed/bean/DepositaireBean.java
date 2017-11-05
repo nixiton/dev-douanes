@@ -682,7 +682,7 @@ public class DepositaireBean {
 	}
 
 	public List<Materiel> getListMaterielexistant() {
-		return usermetierimpl.getListMat();
+		return usermetierimpl.getListMat();	
 	}
 
 	public void setListMaterielexistant(List<Materiel> listMaterielexistant) {
@@ -915,4 +915,4 @@ public class DepositaireBean {
 	public void setDocumentPath(String documentPath) {
 		this.documentPath = documentPath;
 	}
-}
+}																														
