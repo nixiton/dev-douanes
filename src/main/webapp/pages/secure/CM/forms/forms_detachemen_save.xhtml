@@ -24,7 +24,11 @@
                 </label>
 
                 <div class="col-lg-6">
-                    
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.detenteur}">
+                        <f:selectItems value="#{depositaireBean.getDetenteurs}" var="d" itemLabel="#{d.im}"/>
+                    </h:selectOneMenu>
+
                 </div>
                 
                 <hr></hr>
