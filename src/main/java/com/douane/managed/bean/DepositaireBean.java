@@ -778,8 +778,6 @@ public class DepositaireBean {
 
 	public String addMateriel() {
 
-		console.log("KINDY FA TAFIDITRA");
-
 		try{
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
