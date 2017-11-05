@@ -441,8 +441,16 @@
 
 		<navigation-case>
 			<from-action>#{depositaireBean.addMateriel}</from-action>
-			<from-outcome>success</from-outcome>
+			<from-outcome>error</from-outcome>
 			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+		<navigation-case>
+			<from-action>#{depositaireBean.addMateriel}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/admin/admin.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
