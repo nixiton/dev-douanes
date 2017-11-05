@@ -69,19 +69,19 @@ public class DepositaireBean {
 	private static final String SUCCESS = "success";
 	private static final String ERROR = "error";
 
-	@ManagedProperty(value = "#{typematerielmetier}")
+	@Autowired
 	ITypeMaterielMetier typematerielmetier;
 
-	@ManagedProperty(value = "#{nomenclaturemetier}")
+	@Autowired
 	INomenclatureMetier nomenclaturemetier;
 
-	@ManagedProperty(value = "#{marquemetier}")
+	@Autowired
 	IMarqueMetier marquemetier;
 
-	@ManagedProperty(value = "#{usermetier}")
+	@Autowired
 	IUserMetier usermetierimpl;
 
-	@ManagedProperty(value = "#{fournisseurmetier}")
+	@Autowired
 	IFournisseurMetier fournisseurmetierimpl;
 
 	/* attribute for file upload */
@@ -777,6 +777,8 @@ public class DepositaireBean {
 	}
 
 	public String addMateriel() {
+
+		
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
 		MaterielEx m = new MaterielEx();
