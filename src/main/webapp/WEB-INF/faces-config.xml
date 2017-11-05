@@ -167,6 +167,14 @@
 			<to-view-id>/pages/secure/CM/validation/priseEnCharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>v_detachement</from-outcome>
+			<to-view-id>/pages/secure/CM/validation/detachement.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		
 		
 		
 		<navigation-case>

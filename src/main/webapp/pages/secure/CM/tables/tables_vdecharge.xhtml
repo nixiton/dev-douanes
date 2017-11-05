@@ -8,29 +8,26 @@
     xmlns:p="http://primefaces.org/ui"
     >
 
+<h:head></h:head>
+
 <div   class="body collapse in table-responsive">
 
-    <div class="col-lg-4">
-
-        <h:link value="Ajouter" outcome="add_Attribution"
-            class="btn btn-lg btn-primary btn-block " immediate="true" />
-            
-        <hr></hr>
-
-    </div>
-
-    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{depositaireBean.listAttribution}" var="a">
+    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{depositaireBean.listDecharge}" var="d">
         <p:column>
             <f:facet name="header">ID</f:facet>
-            #{a.id}
+            #{d.id}
+        </p:column>
+        <p:column>
+            <f:facet name="header">Motif de sortie</f:facet>
+            #{d.motifSortie.designation}
         </p:column>
          <p:column>
             <f:facet name="header">Materiel</f:facet>
-            #{a.materiel}
+            #{d.materiel.nomenclature}
         </p:column>
          <p:column>
-            <f:facet name="header">Détenteur</f:facet>
-            #{a.detenteur}
+            <f:facet name="header">Destination</f:facet>
+            #{a.destination.im}
         </p:column>
     </p:dataTable>
 
