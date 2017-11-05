@@ -492,6 +492,15 @@ public class UserMetier implements IUserMetier{
 		// TODO Auto-generated method stub
 		return (List<Materiel>)matrepos.findAll();
 	}
+
+	@Override
+	public List<Agent> listAgentByDirection(Direction direction) {
+		// TODO Auto-generated method stub
+		return agentrepos.findByDirection(direction);
+	}
+
+	
+
 	
 	
 

@@ -162,21 +162,21 @@ public class SISEformBean {
 	}
 	public List<Marque> getListMarque() {
 		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Marque());
-		ArrayList<Marque> ds = new ArrayList<Marque>();
+    	List<Marque> ds = new ArrayList<Marque>();
         for (Object d :  r)
         {
         	if(d instanceof Marque) {
         		ds.add((Marque)d);
         	}
         }
-		return (ArrayList<Marque>)ds;
+		return ds;
 	}
 	public void setListMarque(List<Marque> listMarque) {
 		this.listMarque = listMarque;
 	}
 	public List<ModeAcquisition> getListModeAcquisition() {
 		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new ModeAcquisition());
-		ArrayList<ModeAcquisition> ds = new ArrayList<ModeAcquisition>();
+    	List<ModeAcquisition> ds = new ArrayList<ModeAcquisition>();
         for (Object d :  r)
         {
         	if(d instanceof ModeAcquisition) {

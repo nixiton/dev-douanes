@@ -22,7 +22,7 @@ public abstract class Referentiel implements Serializable {
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	protected Long id;
 	
-	@Column(name="designation",unique = true)
+	@Column(name="designation")
 	protected String designation;
 	
 	public String toString(){

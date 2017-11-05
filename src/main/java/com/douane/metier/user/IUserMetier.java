@@ -21,17 +21,16 @@ import com.douane.entite.Useri;
 
 public interface IUserMetier {
 	public Useri addUser(Useri u);
-	public List<Useri> listUser();
+	
 	public void remUser(Useri u);
 	
 	public Agent addAgent(Agent a);
 	public void remAgent (Agent a);
 	
-	//temporary
-	public List<Agent> findAllAgents();
+	
 	
 	public Agent addAgentUser(Agent a, Useri u);
-	public List<Agent> findAgentByNom(String name);
+	
 	public Agent findAgentByIm (Long im_agent);
 	
 	//les requetes
@@ -96,6 +95,13 @@ public interface IUserMetier {
 	
 	public List<OpEntree> getListOpEntreeByMatBDate(Materiel m, Date startDate, Date endDate);
 	public List<OpSortie> getListOpSortieByMatBDate(Materiel m, Date startDate, Date endDate);
+	
+	
+	public List<Useri> listUser();
+	//temporary
+	public List<Agent> findAllAgents();
+	public List<Agent> findAgentByNom(String name);
+	public List<Agent> listAgentByDirection(Direction direction);
 	/**
 	 * Affichage
 	 */

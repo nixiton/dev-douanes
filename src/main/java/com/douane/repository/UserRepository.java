@@ -7,5 +7,5 @@ import com.douane.entite.Useri;
 
 
 public interface UserRepository extends CrudRepository<Useri, Integer>{
-    
+
 }

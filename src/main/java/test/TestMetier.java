@@ -72,12 +72,13 @@ public class TestMetier {
 		Agent agent1 = new Agent(2252L, "RAKOTONANDRA", "Zazo");
 		Agent agent2 = new Agent(2244L, "RASAMY", "Natacha", role2);
 		//metier.addRef(new Poste("Depositaire"), )
-		Poste dep = new Poste("Depositaire");
+		Poste dep = new Poste("Depositairex");
 		metier.addRefWithoutOper(dep);
 		//agent1.setPosteny(dep);
 		//agent2.setPosteny(dep);
 		agent1.setPassword("123456");
 		agent2.setPassword("123456");
+		
 		
 		usermetier.addAgentUser(agent1, null);
 		usermetier.addAgent(agent2);
@@ -339,7 +340,7 @@ public class TestMetier {
 			for(Operation ope: usermetier.getListOpBetween(new Date(System.currentTimeMillis()-24*60*60*1000),
 					new Date(System.currentTimeMillis()-24*60*60*1000))) {
 				System.out.println(ope.getDate());
-			}*/
+			}
 			for(OpEntree ope: usermetier.getListOpEntreeByMatBDate(mat1,new Date(System.currentTimeMillis()-24*60*60*1000),
 					new Date())) {
 				System.out.println(ope.getNumentree());
@@ -347,8 +348,18 @@ public class TestMetier {
 			for(OpSortie ope: usermetier.getListOpSortieByMatBDate(mat1,new Date(System.currentTimeMillis()-24*60*60*1000),
 					new Date())) {
 				System.out.println(ope.getNumSortie());
+			}*/
+			//list agent by direction
+			agent1.setDirection(statistique);
+			usermetier.addAgent(agent1);
+			System.out.println("statistique" );
+			for(Agent a: usermetier.listAgentByDirection(statistique)) {
+				System.out.println("statistique" + a.getNomAgent());
 			}
-			
+			System.out.println("comptabilite");
+			for(Agent a: usermetier.listAgentByDirection(compta)) {
+				System.out.println("comptabilite" +a.getNomAgent());
+			}
 		
 //		
 	}
