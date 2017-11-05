@@ -492,9 +492,6 @@ public class UserMetier implements IUserMetier{
 		// TODO Auto-generated method stub
 		return (List<Materiel>)matrepos.findAll();
 	}
-
-	
-
 	
 	
 
