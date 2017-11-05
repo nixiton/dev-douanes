@@ -812,7 +812,6 @@ public class DepositaireBean {
 			System.out.println(e.getMessage());
 			return null;
 		}
-		return null;
 	}
 
 	public String addPriseEncharge() {
