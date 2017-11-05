@@ -682,7 +682,7 @@ public class DepositaireBean {
 	}
 
 	public List<Materiel> getListMaterielexistant() {
-		return usermetierimpl.getListMat();
+		return listMaterielexistant;
 	}
 
 	public void setListMaterielexistant(List<Materiel> listMaterielexistant) {
