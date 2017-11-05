@@ -777,6 +777,7 @@ public class DepositaireBean {
 	}
 
 	public String addMateriel() {
+		try{
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
 		MaterielEx m = new MaterielEx();
@@ -806,6 +807,10 @@ public class DepositaireBean {
 		usermetierimpl.entrerMateriel(opentree);
 
 		return SUCCESS;
+		}
+		catch(Exception e){
+			System.println(e.printStackTrace);
+		}
 	}
 
 	public String addPriseEncharge() {
