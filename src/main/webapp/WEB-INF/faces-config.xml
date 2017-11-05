@@ -426,6 +426,21 @@
 		</navigation-case>
 
 
+
+
+
+
+
+
+
+		<navigation-case>
+			<from-action>#{depositaireBean.addMateriel}</from-action>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
 	
 
 
