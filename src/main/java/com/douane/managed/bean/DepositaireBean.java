@@ -784,7 +784,6 @@ public class DepositaireBean {
 		MaterielEx m = new MaterielEx();
 		m.setAutre(getAutre());
 		m.setBureau(getBureau());
-		m.setAutre(getAutre());
 		// m.setDirec(getDirection());
 		m.setDirec(agent.getDirection());
 		m.setDocumentPath("default");
@@ -799,7 +798,7 @@ public class DepositaireBean {
 
 		// m.setCaract(caract);
 		// m.setCategorie(categorie);
-		m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
+		//m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
 		// m.setDocumentPath(documentPath);
 
 		// set Operation requete entrer materiel existant
