@@ -777,6 +777,9 @@ public class DepositaireBean {
 	}
 
 	public String addMateriel() {
+
+		console.log("KINDY FA TAFIDITRA");
+
 		try{
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
@@ -809,7 +812,7 @@ public class DepositaireBean {
 		return SUCCESS;
 		}
 		catch(Exception e){
-			System.out.println(e.getMessage());
+			
 			return ERROR;
 		}
 	}
