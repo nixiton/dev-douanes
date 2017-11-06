@@ -17,6 +17,15 @@
 
             <div class="form-group">
 
+                    <label for="text1" class="control-label col-lg-4">Liste Services
+                    </label>
+
+                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.serviceforMat}"
+                                      valueChangeListener="#{depositaireBean.onGetService}">
+                        <f:selectItems value="#{depositaireBean.listServices}" var="type" itemLabel="#{type.designation}"/>
+                    </h:selectOneMenu>
+
+
 
                     <label for="text1" class="control-label col-lg-4">Type de Matériel
                     </label>
