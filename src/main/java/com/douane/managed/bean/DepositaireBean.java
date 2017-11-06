@@ -6,7 +6,7 @@ import com.douane.exception.NullPointerAttributeException;
 import com.douane.metier.fournisseur.IFournisseurMetier;
 import com.douane.metier.marque.IMarqueMetier;
 import com.douane.metier.nomenclature.INomenclatureMetier;
-import com.douane.metier.referent.IRefMetier;
+import com.douane.metier.referentiel.IRefMetier;
 import com.douane.metier.typeMateriel.ITypeMaterielMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.DocumentModel;
@@ -84,6 +84,10 @@ public class DepositaireBean {
 	@Autowired
 	IFournisseurMetier fournisseurmetierimpl;
 
+    //@ManagedProperty(value="#{refmetier}")
+    @Autowired
+    IRefMetier refmetierimpl;
+
 	/* attribute for file upload */
 	private static final long serialVersionUID = 1L;
 
@@ -152,6 +156,15 @@ public class DepositaireBean {
 
 	private ArrayList<UploadedFile> uploadedFiles = new ArrayList<UploadedFile>();
 	private UploadedFile uploadedFile;
+
+
+    //Service
+    private Service serviceforMat;
+
+    public void onGetService()
+    {
+        setServiceforMat(getServiceforMat());
+    }
 
 	public List<TypeMateriel> getListTypeMateriel() {
 		return typematerielmetier.findAllTypeMateriel();
@@ -776,6 +789,19 @@ public class DepositaireBean {
 		this.setNumSerie(this.getMateriel().getNumSerie());
 	}
 
+    //list services
+    public List<Service> getListServices()
+    {
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Financement());
+        List<Service> ds = new ArrayList<Service>();
+        for (Object d :  r)
+        {
+            if(d instanceof Service) {
+                ds.add((Service)d);
+            }
+        }
+        return ds;
+    }
 	public String addMateriel() {
 
 		try{
@@ -920,4 +946,13 @@ public class DepositaireBean {
 	public void setDocumentPath(String documentPath) {
 		this.documentPath = documentPath;
 	}
+
+    public Service getServiceforMat() {
+        return serviceforMat;
+    }
+
+    public void setServiceforMat(Service serviceforMat) {
+        this.serviceforMat = serviceforMat;
+    }
+
 }
