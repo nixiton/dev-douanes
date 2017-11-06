@@ -32,7 +32,6 @@ import com.douane.metier.user.IUserMetier;
 public class CustomAuthenticationProvider implements AuthenticationProvider {
     private Logger log = Logger.getLogger(this.getClass().getName());
 
-    @ManagedProperty(value="#{usermetier}")
     @Autowired
     private IUserMetier usermetier;
 
