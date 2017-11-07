@@ -24,6 +24,7 @@ public class LoginBean {
 	    
 	    @ManagedProperty(value="#{authenticationManager}")
 	    private AuthenticationManager authenticationManager = null;
+
 	    public String login() throws Exception {
 	    	FacesMessage message = null;
 	        try
