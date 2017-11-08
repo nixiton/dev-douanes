@@ -27,6 +27,12 @@
                         <f:selectItems value="#{depositaireBean.listServices}" var="type" itemLabel="#{type.designation}"/>
                     </p:selectOneMenu>
 
+                    <p:selectOneMenu value="#{depositaireBean.serviceforMat}" converter="themeConverter"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{depositaireBean.listServices}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <h:outputText value="#{t.designation}" />
+                    </p:selectOneMenu>
+
                     <hr></hr>
 
                     </div>
