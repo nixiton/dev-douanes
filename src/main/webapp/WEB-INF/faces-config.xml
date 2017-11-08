@@ -107,7 +107,7 @@
 		
 		<navigation-case>
 			<from-outcome>saisie_ref</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
@@ -197,116 +197,116 @@
 		
 		<navigation-case>
 			<from-outcome>add_Nom</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieNomenclature.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieNomenclature.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>add_TypeMat</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieTypeMat.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieTypeMat.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>add_EtatMat</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieEtatMat.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieEtatMat.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>add_Marque</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieMarque.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieMarque.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>add_ListDet</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieListeDetenteur.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieListeDetenteur.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>add_Utilisateur</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieUtilisateurs.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieUtilisateurs.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>add_Bureau</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieBureau.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieBureau.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>add_MotifAq</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieMotifAquisition.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieMotifAquisition.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>add_MotifDe</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieMotifDecharge.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieMotifDecharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>add_Financement</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieFinancement.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieFinancement.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>add_Fournisseur</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieFournisseur.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieFournisseur.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 
 		<navigation-case>
 			<from-outcome>add_MotifSortie</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieMotiSortie.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieMotiSortie.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 
 		<navigation-case>
 			<from-outcome>add_Localite</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieLocalite.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieLocalite.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 
 		<navigation-case>
 			<from-outcome>add_Direction</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieDirection.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieDirection.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 
 		<navigation-case>
 			<from-outcome>add_Poste</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisiePoste.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisiePoste.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 
 		<navigation-case>
 			<from-outcome>add_Role</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieRole.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieRole.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 
 		<navigation-case>
 			<from-outcome>add_Service</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieService.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieService.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 
 		<navigation-case>
 			<from-outcome>add_Adresse</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieAdresse.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieAdresse.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
@@ -464,7 +464,7 @@
 		
 		<navigation-case>
 			<from-outcome>add_Mat_Ex</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_saisieMatEx.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieMatEx.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
