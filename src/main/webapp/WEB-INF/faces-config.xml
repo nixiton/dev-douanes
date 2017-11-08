@@ -161,16 +161,19 @@
 			<to-view-id>/pages/secure/CM/editionEtats.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+
+
 		
 		<navigation-case>
 			<from-outcome>v_prise_en_charge</from-outcome>
-			<to-view-id>/pages/secure/CM/validation/priseEnCharge.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/GAC/validation/priseEnCharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 		<navigation-case>
 			<from-outcome>v_detachement</from-outcome>
-			<to-view-id>/pages/secure/CM/validation/detachement.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/GAC/validation/detachement.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
@@ -179,14 +182,14 @@
 		
 		<navigation-case>
 			<from-outcome>v_detenteur </from-outcome>
-			<to-view-id>/pages/secure/CM/validation/attribution.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/GAC/validation/attribution.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		
 		<navigation-case>
 			<from-outcome>v_decharge</from-outcome>
-			<to-view-id>/pages/secure/CM/validation/decharge.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/GAC/validation/decharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
@@ -315,21 +318,21 @@
 		<navigation-case>
 			<from-action>#{siseBean.addNomenclature}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>	
 		
 		<navigation-case>
 			<from-action>#{siseBean.addBureau}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addAdresse}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
@@ -337,77 +340,77 @@
 		<navigation-case>
 			<from-action>#{siseBean.addDirection}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addEtatMateriel}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addFinancement}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addFournisseur}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addLocaliter}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addMarque}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addMaterielExistant}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addModeAcquisition}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{siseBean.addModeDecharge}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addMotifSortie}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addPoste}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
@@ -415,21 +418,21 @@
 		<navigation-case>
 			<from-action>#{siseBean.addRole}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addService}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{siseBean.addTypeMateriel}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
@@ -442,7 +445,7 @@
 		<navigation-case>
 			<from-action>#{depositaireBean.addMateriel}</from-action>
 			<from-outcome>error</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieRef.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
