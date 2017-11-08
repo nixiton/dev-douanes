@@ -6,7 +6,7 @@
 
 
 <ui:include src="/pages/unsecure/components/header.xhtml">
-    <ui:param name="title" value="Prise en charge" />
+    <ui:param name="title" value="Décharge" />
 </ui:include>
 
 <h:body class="  ">
@@ -16,7 +16,7 @@
             <ui:include src="/pages/unsecure/components/navbar_top.xhtml"></ui:include>
 
             <ui:include src="/pages/unsecure/components/top.xhtml">
-                <ui:param name="title" value="Prise en charge" />
+                <ui:param name="title" value="Décharge"/>
             </ui:include>
 
         </div>
@@ -28,8 +28,6 @@
         <!-- /#wrap -->
 
         <div id="content">
-
-            
         
             <div>
                 <div class="box dark">
@@ -37,7 +35,7 @@
                     <div class="icons">
                         <i class="fa fa-edit"></i>
                     </div>
-                    <h5>Prise en charge</h5>
+                    <h5>Décharge</h5>
                     <!-- .toolbar -->
                     <div class="toolbar">
                         <nav style="padding: 8px;"> <a href="javascript:;"
@@ -52,13 +50,15 @@
                     <!-- /.toolbar --> </header>
                     <div class="body">
 
-                        <ui:include src="/pages/secure/CM/forms/forms_priseEnCharge.xhtml"></ui:include>   
+                        <!--ui:include src="/pages/secure/CM/tables/tables_decharge.xhtml"></ui:include-->
 
+                        <ui:include src="/pages/secure/CM/DC/forms/forms_decharge.xhtml"></ui:include>   
 
 
                     </div>
                 </div>
             </div>
+
             
           
                 

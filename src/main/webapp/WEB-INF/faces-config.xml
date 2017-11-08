@@ -113,34 +113,34 @@
 		
 		<navigation-case>
 			<from-outcome>saisie_mat_ex</from-outcome>
-			<to-view-id>/pages/secure/CM/saisieMatEx.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/DC/saisieMatEx.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		
 		<navigation-case>
 			<from-outcome>prise_en_charge</from-outcome>
-			<to-view-id>/pages/secure/CM/priseEnCharge.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/DC/priseEnCharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		
 		<navigation-case>
 			<from-outcome>attribution</from-outcome>
-			<to-view-id>/pages/secure/CM/attribution.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/DC/attribution.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>detachement</from-outcome>
-			<to-view-id>/pages/secure/CM/detachement.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/DC/detachement.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		
 		<navigation-case>
 			<from-outcome>decharge</from-outcome>
-			<to-view-id>/pages/secure/CM/decharge.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/DC/decharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
@@ -464,7 +464,7 @@
 		
 		<navigation-case>
 			<from-outcome>add_Mat_Ex</from-outcome>
-			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieMatEx.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/DC/content_forms/content_forms_saisieMatEx.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 

@@ -6,7 +6,7 @@
 
 
 <ui:include src="/pages/unsecure/components/header.xhtml">
-    <ui:param name="title" value="Décharge" />
+    <ui:param name="title" value="Saisie des matériels éxistants" />
 </ui:include>
 
 <h:body class="  ">
@@ -16,7 +16,7 @@
             <ui:include src="/pages/unsecure/components/navbar_top.xhtml"></ui:include>
 
             <ui:include src="/pages/unsecure/components/top.xhtml">
-                <ui:param name="title" value="Décharge"/>
+                <ui:param name="title" value="Liste des matériels éxistants" />
             </ui:include>
 
         </div>
@@ -29,13 +29,13 @@
 
         <div id="content">
         
-            <div>
+            <div >
                 <div class="box dark">
                     <header>
                     <div class="icons">
                         <i class="fa fa-edit"></i>
                     </div>
-                    <h5>Décharge</h5>
+                    <h5>Materiels</h5>
                     <!-- .toolbar -->
                     <div class="toolbar">
                         <nav style="padding: 8px;"> <a href="javascript:;"
@@ -50,16 +50,13 @@
                     <!-- /.toolbar --> </header>
                     <div class="body">
 
-                        <!--ui:include src="/pages/secure/CM/tables/tables_decharge.xhtml"></ui:include-->
-
-                        <ui:include src="/pages/secure/CM/forms/forms_decharge.xhtml"></ui:include>   
+                        <ui:include src="/pages/secure/CM/DC/tables/tables_saisieMatEx.xhtml"></ui:include>
 
 
                     </div>
                 </div>
             </div>
-
-            
+                        
           
                 
         
