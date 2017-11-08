@@ -23,9 +23,28 @@ public class SuiviEditionBean {
     private Direction direction;
     private Date startDate;
     private Date endDate;
-
-
-
+    private List<Operation> listAllOperation;
+    private List<OpEntree> listOperationEntree;
+    private List<OpSortie> listOperationSortie;
+    private List<Operation> listOperatoinByOperateur;
+    private List<OpEntree> listOperationEntreeByOperator;
+    private List<OpSortie> listOperationSortieByOperator;
+    private List<Operation> listOperatoinByDirection;
+    private List<OpEntree> listOperationEntreeByDirection;
+    private List<OpSortie> listOperationSortieByDirection;
+    private List<Operation> listOperationBetween;
+    private List<OpEntree> listOperationEntreeByMateriel;
+    private List<OpSortie> listOperationSortieByMateriel;
+    private List<OpEntree> listOperationEntreeByMaterielByDate;
+    private List<OpSortie> listOperationSortieByMaterielByDate;
+    private List<OpAttribution> listOperationAttribution;
+    private List<OpDettachement> listOperationDetachement;
+    private List<OpAttribution> listOperationAttributionByOperator;
+    private List<OpDettachement> listOperationDetachementByOperator;
+    private List<OpAttribution> listOperationAttributionByDirection;
+    private List<OpDettachement> listOperationDeetachementByDirection;
+    private List<OpAttribution> listOperationAttributionByMateriel;
+    private List<OpDettachement> listOperationDetachementByMateriel;
     private Materiel materiel;
 
     public List<Operation> getListAllOperation()
