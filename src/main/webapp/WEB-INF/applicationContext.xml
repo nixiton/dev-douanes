@@ -1,19 +1,19 @@
-<!-- beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-	xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/tx
-	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-3.0.xsd" -->
+<!-- beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa" 
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd" -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
-		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
-		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
     <!-- Package needed to be scanned for annotation -->
     <context:component-scan base-package="com.douane" />
 
@@ -93,14 +93,14 @@
 
 
 
-    <!-- User Service Declaration
+    <!-- User Service Declaration 
     <bean id="UserService" class="com.douane.user.service.UserService">
         <property name="userDAO" ref="UserDAO" />
     </bean>-->
     <!-- Referentiel DAO -->
     <bean id="refdao" class="com.douane.dao.referentiel.RefDAOImpl"></bean>
 
-    <!-- User DAO Declaration
+    <!-- User DAO Declaration 
     <bean id="UserDAO" class="com.douane.user.dao.UserDAO">
     </bean>-->
 
@@ -111,38 +111,38 @@
 
     <!-- Data Source Declaration -->
     <bean id="DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-          destroy-method="close">
+        destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/Test" />
         <property name="user" value="root" />
-        <property name="password" value="root" />
+        <property name="password" value="" />
         <property name="maxPoolSize" value="10" />
         <property name="maxStatements" value="0" />
         <property name="minPoolSize" value="5" />
     </bean>
 
-    <!--bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
-        <property name="persistenceXmlLocations"> <list> <value>classpath*:WEB-INF/persistence.xml
-        </value> </list> </property> <property name="defaultDataSource" ref="DataSource">
+    <!--bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager"> 
+        <property name="persistenceXmlLocations"> <list> <value>classpath*:WEB-INF/persistence.xml 
+        </value> </list> </property> <property name="defaultDataSource" ref="DataSource"> 
         </property> </bean -->
 
-    <!-- Bean FlyWay for DataBase Migration USING MyZillaMigration-->
+    <!-- Bean FlyWay for DataBase Migration USING MyZillaMigration--> 
     <bean id="flyway" class="com.myzilla.migration.MyZillaMigration"
-          init-method="repairAndMigrate">
-        <property name="locations">
+        init-method="repairAndMigrate">
+        <property name="locations"> 
             <list>
-                <value>classpath:META-INF/migration</value>
-                <value>classpath:META-INF/data</value>
+            <value>classpath:META-INF/migration</value>
+            <value>classpath:META-INF/data</value>
             </list>
         </property>
         <property name="dataSource" ref="DataSource" />
         <property name="validateOnMigrate" value="true" />
     </bean>
-
-    <!-- Bean FlyWay for DataBase Migration Simple
+    
+    <!-- Bean FlyWay for DataBase Migration Simple  
     <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
         <property name="baselineOnMigrate" value="true" />
-        <property name="locations">
+        <property name="locations"> 
             <list>
             <value>classpath:META-INF/migration</value>
             <value>classpath:META-INF/data</value>
@@ -153,7 +153,7 @@
     -->
 
     <bean id="emf" depends-on="flyway"
-          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="DataSource"></property>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
@@ -165,16 +165,16 @@
             </props>
         </property>
     </bean>
-    <!-- bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="persistenceUnitManager" ref="persistenceUnitManager"> </property>
+    <!-- bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
+        <property name="persistenceUnitManager" ref="persistenceUnitManager"> </property> 
         <property name="persistenceUnitName" value="mypu"></property> </bean -->
 
 
-    <!-- Session Factory Declaration <bean id="SessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="DataSource" /> <property name="annotatedClasses">
-        <list> <value>com.douane.model.User</value> </list> </property> <property
-        name="hibernateProperties"> <props> <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-        <prop key="hibernate.show_sql">true</prop> <prop key="hibernate.hbm2ddl.auto">update</prop>
+    <!-- Session Factory Declaration <bean id="SessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> 
+        <property name="dataSource" ref="DataSource" /> <property name="annotatedClasses"> 
+        <list> <value>com.douane.model.User</value> </list> </property> <property 
+        name="hibernateProperties"> <props> <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> 
+        <prop key="hibernate.show_sql">true</prop> <prop key="hibernate.hbm2ddl.auto">update</prop> 
         </props> </property> </bean> -->
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -186,13 +186,13 @@
     <tx:annotation-driven transaction-manager="transactionManager" />
 
     <!-- Transaction Manager is defined -->
-    <!-- >bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    <!-- >bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"> 
         <property name="sessionFactory" ref="SessionFactory"/> </bean -->
 
     <import resource="security-context.xml" />
 
     <jpa:repositories base-package="com.douane.repository"
-                      transaction-manager-ref="transactionManager"
-                      entity-manager-factory-ref="emf" />
+        transaction-manager-ref="transactionManager"
+        entity-manager-factory-ref="emf" />
 
 </beans>
