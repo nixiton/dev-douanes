@@ -146,19 +146,19 @@
 		
 		<navigation-case>
 			<from-outcome>tracabilite</from-outcome>
-			<to-view-id>/pages/secure/CM/tracabilite.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/DGD/tracabilite.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>liste_mat</from-outcome>
-			<to-view-id>/pages/secure/CM/listeMatStatHisto.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/DGD/listeMatStatHisto.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>edition_etats</from-outcome>
-			<to-view-id>/pages/secure/CM/editionEtats.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/DGD/editionEtats.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
