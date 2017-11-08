@@ -11,6 +11,8 @@ import java.util.List;
 /**
  * Created by hasina on 11/3/17.
  */
+
+@Component
 @ManagedBean(name="suivieditionBean")
 public class SuiviEditionBean {
     @Autowired
