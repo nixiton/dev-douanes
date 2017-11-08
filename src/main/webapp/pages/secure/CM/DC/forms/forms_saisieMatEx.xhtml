@@ -20,10 +20,16 @@
                     <label for="text1" class="control-label col-lg-4">Liste Services
                     </label>
 
+                    <div class="col-lg-6">
+
                     <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.serviceforMat}"
                                       valueChangeListener="#{depositaireBean.onGetService}">
                         <f:selectItems value="#{depositaireBean.listServices}" var="type" itemLabel="#{type.designation}"/>
                     </h:selectOneMenu>
+
+                    <hr></hr>
+
+                    </div>
 
 
 
