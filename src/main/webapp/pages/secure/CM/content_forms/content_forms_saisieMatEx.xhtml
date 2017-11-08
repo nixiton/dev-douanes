@@ -5,7 +5,9 @@
     xmlns:h="http://java.sun.com/jsf/html">
 
 
-<ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
+<ui:include src="/pages/unsecure/components/header.xhtml">
+    <ui:param name="title" value="Matériel éxistant" />
+</ui:include>
 
 
 
@@ -15,7 +17,9 @@
 
             <ui:include src="/pages/unsecure/components/navbar_top.xhtml"></ui:include>
 
-            <ui:include src="/pages/unsecure/components/top.xhtml"></ui:include>
+            <ui:include src="/pages/unsecure/components/top.xhtml">
+                <ui:param name="title" value="Matériel éxistant" />
+            </ui:include>
 
         </div>
 

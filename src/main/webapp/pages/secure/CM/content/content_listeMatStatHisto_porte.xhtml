@@ -9,7 +9,9 @@
  <h:head></h:head>
 
 
-<ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
+<ui:include src="/pages/unsecure/components/header.xhtml">
+    <ui:param name="title" value="Liste des matériels par porte" />
+</ui:include>
 
 <h:body class="  ">
     <div class="bg-dark dk" id="wrap">
@@ -17,7 +19,9 @@
 
             <ui:include src="/pages/unsecure/components/navbar_top.xhtml"></ui:include>
 
-            <ui:include src="/pages/unsecure/components/top.xhtml"></ui:include>
+            <ui:include src="/pages/unsecure/components/top.xhtml">
+                <ui:param name="title" value="Liste des matériels par porte" />
+            </ui:include>
 
         </div>
 

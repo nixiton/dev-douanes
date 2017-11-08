@@ -6,7 +6,9 @@
     xmlns:h="http://java.sun.com/jsf/html">
 
 
-<ui:include src="/pages/unsecure/components/header.xhtml"></ui:include>
+<ui:include src="/pages/unsecure/components/header.xhtml">
+    <ui:param name="title" value="Motif de sortie" />
+</ui:include>
 
 <h:body class="  ">
     <div class="bg-dark dk" id="wrap">
@@ -14,7 +16,9 @@
 
             <ui:include src="/pages/unsecure/components/navbar_top.xhtml"></ui:include>
 
-            <ui:include src="/pages/unsecure/components/top.xhtml"></ui:include>
+            <ui:include src="/pages/unsecure/components/top.xhtml">
+                <ui:param name="title" value="Motif de sortie" />
+            </ui:include>
 
         </div>
 
