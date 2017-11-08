@@ -29,8 +29,10 @@
 
                     <p:selectOneMenu value="#{depositaireBean.serviceforMat}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItems value="#{depositaireBean.listServices}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />                        
+                        <f:selectItems value="#{depositaireBean.listServices}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
                             <h:outputText value="#{t.designation}" />
+                        </p:column>
 
                     </p:selectOneMenu>
 
