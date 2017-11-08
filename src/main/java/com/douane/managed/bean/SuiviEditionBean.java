@@ -7,13 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.faces.bean.ManagedBean;
 import java.util.Date;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by hasina on 11/3/17.
  */
 
-@Component
+
 @ManagedBean(name="suivieditionBean")
+@Component
 public class SuiviEditionBean {
     @Autowired
     IUserMetier usermetierimpl;
