@@ -16,9 +16,6 @@ public class SuiviEditionBean {
     @Autowired
     IUserMetier usermetierimpl;
 
-
-
-
     private Agent agentOperateur;
     private Direction direction;
     private Date startDate;
