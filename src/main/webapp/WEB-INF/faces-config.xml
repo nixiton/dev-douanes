@@ -366,7 +366,7 @@
 		</navigation-case>
 		
 		<navigation-case>
-			<from-action>#{siseBean.addLocaliter}</from-action>
+			<from-action>#{siseBean.addLocalite}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/pages/secure/CM/SISE/saisieRef.xhtml</to-view-id>
 			<redirect />
