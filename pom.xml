@@ -348,6 +348,14 @@
 		</dependency>
 
 
+		<!-- https://mvnrepository.com/artifact/org.webjars/jquery-migrate -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>jquery-migrate</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 <profiles>
