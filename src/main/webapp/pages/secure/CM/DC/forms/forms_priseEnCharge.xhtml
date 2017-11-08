@@ -23,10 +23,10 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
                     valueChangeListener="#{depositaireBean.typeMatChange}">
                         <f:selectItems value="#{siseBean.listNomenclature}"  var="type" itemLabel="#{type.designation}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 <hr></hr>
 
@@ -60,9 +60,9 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.marq}">
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.marq}">
                         <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 <hr></hr>
 
@@ -133,9 +133,9 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.acquisition}">
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.acquisition}">
                         <f:selectItems value="#{siseBean.listModeAcquisition}" var="etat" itemLabel="#{etat.designation}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
 
                 <hr></hr>
@@ -152,9 +152,9 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.financement}">
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.financement}">
                         <f:selectItems value="#{siseBean.listFinancement}" var="f" itemLabel="#{f.designation}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 <hr></hr>
 
@@ -203,9 +203,9 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.fournisseur}">
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.fournisseur}">
                         <f:selectItems value="#{siseBean.listFournisseur}" var="f" itemLabel="#{f.designation}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 <hr></hr>
 

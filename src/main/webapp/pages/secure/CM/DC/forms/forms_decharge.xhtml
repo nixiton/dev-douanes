@@ -25,9 +25,9 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.motifSortie}">
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.motifSortie}">
                         <f:selectItems value="#{siseBean.listMotifSortie}" var="m" itemLabel="#{m.designation}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 <hr></hr>
 
@@ -41,10 +41,10 @@
 
                 <div class="col-lg-6">
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.materiel}"
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.materiel}"
                     valueChangeListener="#{depositaireBean.onMaterielChange}">
                         <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomenclature}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 <hr></hr>
 
@@ -98,21 +98,21 @@
 
                     <label for="text1" >Bureau</label>
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.destination}">
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.destination}">
                         <f:selectItems value="#{siseBean.listBureau}" var="b" itemLabel="#{b.codeBureau}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                     <label for="text1" >Service</label>
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.destination}">
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.destination}">
                         <f:selectItems value="#{siseBean.listService}" var="b" itemLabel="#{b.codeService}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                     <label for="text1" >Direction</label>
 
-                    <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.destination}">
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.destination}">
                         <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
 
                 <hr></hr>
 

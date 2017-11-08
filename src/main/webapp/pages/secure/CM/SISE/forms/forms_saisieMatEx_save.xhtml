@@ -23,10 +23,10 @@
 
                     <div class="col-lg-6">
 
-                        <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
+                        <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
                     valueChangeListener="#{depositaireBean.onTypeMaterielChange}">
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
-                        </h:selectOneMenu>
+                        </p:selectOneMenu>
 
                     <hr></hr>
 
@@ -63,9 +63,9 @@
 
                     <div class="col-lg-6">
 
-                        <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.marq}">
+                        <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.marq}">
                             <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
-                        </h:selectOneMenu>
+                        </p:selectOneMenu>
 
                     <hr></hr>
 
@@ -165,9 +165,9 @@
 
                     <div class="col-lg-6">
 
-                        <h:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.etat}">
+                        <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.etat}">
                         <f:selectItems value="#{siseBean.listEtat}" var="etat" itemLabel="#{etat.designation}"/>
-                        </h:selectOneMenu>
+                        </p:selectOneMenu>
                     <hr></hr>
 
                     </div>
