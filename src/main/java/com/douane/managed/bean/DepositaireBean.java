@@ -792,7 +792,7 @@ public class DepositaireBean {
     //list services
     public List<Service> getListServices()
     {
-        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Financement());
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Service());
         List<Service> ds = new ArrayList<Service>();
         for (Object d :  r)
         {
