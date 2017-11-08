@@ -52,7 +52,7 @@ import java.util.zip.ZipOutputStream;
  * Created by hasina on 10/29/17.
  */
 @ManagedBean(name = "depositaireBean")
-@Component
+@RequestScoped
 @PropertySource("classpath:config.properties")
 public class DepositaireBean {
 
@@ -85,7 +85,7 @@ public class DepositaireBean {
 	IFournisseurMetier fournisseurmetierimpl;
 
     //@ManagedProperty(value="#{refmetier}")
-    @Autowired
+	@Autowired
     IRefMetier refmetierimpl;
 
 	/* attribute for file upload */
@@ -792,7 +792,7 @@ public class DepositaireBean {
     //list services
     public List<Service> getListServices()
     {
-        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Service());
+        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Financement());
         List<Service> ds = new ArrayList<Service>();
         for (Object d :  r)
         {

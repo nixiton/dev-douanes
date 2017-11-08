@@ -24,7 +24,7 @@ public class Useri {
 
 	private String designation;
 	private String role;
-	
+
 	/*TEMPORARY NOT NEEDED 
 	 * @OneToMany(mappedBy="roleAgent", fetch=FetchType.LAZY)
 	private List<Agent> agents;
@@ -63,7 +63,7 @@ public class Useri {
 		super();
 		this.designation = designation;
 	}
-	
+
 
 		
 }

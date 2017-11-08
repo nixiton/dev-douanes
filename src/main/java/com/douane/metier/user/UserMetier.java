@@ -9,11 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.douane.entite.Agent;
+import com.douane.entite.Article;
 import com.douane.entite.Bureau;
+import com.douane.entite.CodeArticle;
 import com.douane.entite.Direction;
 import com.douane.entite.OpAttribution;
 import com.douane.entite.OpDettachement;
 import com.douane.entite.OpEntree;
+import com.douane.entite.OpEntreeArticle;
 import com.douane.entite.Financement;
 import com.douane.entite.Fournisseur;
 import com.douane.entite.Materiel;
@@ -23,8 +26,10 @@ import com.douane.entite.MotifSortie;
 import com.douane.entite.Nomenclature;
 import com.douane.entite.OpSaisie;
 import com.douane.entite.OpSortie;
+import com.douane.entite.OpSortieArticle;
 import com.douane.entite.Operation;
 import com.douane.entite.Service;
+import com.douane.entite.TypeObjet;
 import com.douane.entite.Useri;
 import com.douane.repository.*;
 
@@ -32,27 +37,45 @@ import come.douane.dao.operation.IOperationDAO;
 
 @Transactional
 public class UserMetier implements IUserMetier{
-	
+
 	@Autowired
 	private UserRepository userrepos;
 	@Autowired
 	private AgentRepository agentrepos;
 	@Autowired
 	private MaterielRepository matrepos;
-	
+
 	@Autowired
 	private OpRepository oprepos;
-	
+
 	@Autowired
 	private OpEntreeRepository opentreerepos;
-	
+
 	@Autowired
 	private OpSortieRepository opsortierepos;
-	
+
+	@Autowired
+	private OpAttrRepository opattrrepos;
+
+	@Autowired
+	private OpDettRepository opdettrepos;
+
+	@Autowired
+	private CodeArticleRepository codeartrepos;
+
+	@Autowired
+	private ArticleRepository artreops;
+
+	@Autowired
+	private OpEnArtRepository opentreeartrepos;
+
+	@Autowired
+	private OpSortArtRepository opsortieartrepos;
+
 	@Autowired
 	@ManagedProperty(value="#{operationdao}")
 	private IOperationDAO operationdao;
-	
+
 	@Override
 	public Useri addUser(Useri u) {
 		// TODO Auto-generated method stub
@@ -65,13 +88,13 @@ public class UserMetier implements IUserMetier{
 		// TODO Auto-generated method stub
 		return (List<Useri>)userrepos.findAll();
 	}
-	
+
 	@Override
 	public void remUser(Useri u) {
 		// TODO Auto-generated method stub
 		userrepos.delete(u);
 	}
-	
+
 	@Override
 	public Agent addAgent(Agent a) {
 		// TODO Auto-generated method stub
@@ -85,7 +108,7 @@ public class UserMetier implements IUserMetier{
 		a.setRoleAgent(u);
 		//u.addAgentToList(a);
 		agentrepos.save(a);
-		
+
 		return a;
 	}
 
@@ -94,13 +117,13 @@ public class UserMetier implements IUserMetier{
 		// TODO Auto-generated method stub
 		System.out.println("remove agent "+a.getIm());
 		agentrepos.delete(a.getIm());
-		
+
 	}
 
 	@Override
 	public List<Agent> findAgentByNom(String name) {
 		// TODO Auto-generated method stub
-		
+
 		return agentrepos.findByNomAgentContainingIgnoreCase(name);
 	}
 
@@ -109,26 +132,26 @@ public class UserMetier implements IUserMetier{
 		// TODO Auto-generated method stub
 		return agentrepos.findOne(im_agent);
 	}
-	
+
 	//temporary
 	@Override
 	public List<Agent> findAllAgents() {
 		// TODO Auto-generated method stub
 		return (List<Agent>) agentrepos.findAll();
 	}
-	
+
 	@Override
 	public OpEntree reqEntrerMateriel(Materiel m, Agent dc) {
 		// TODO Auto-generated method stub*
 		m.setDc(dc);
 		matrepos.save(m);
-		
+
 		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc, m);
 		oprepos.save(entree);
-		
+
 		return entree;
 	}
-	
+
 	@Override
 	public OpSortie reqSortirMateriel(Materiel m, MotifSortie motif, Direction d, Service s, Bureau b, Agent oper) throws Exception {
 		// TODO Auto-generated method stub
@@ -139,8 +162,8 @@ public class UserMetier implements IUserMetier{
 		oprepos.save(sortie);
 		return sortie;
 	}
-	
-	
+
+
 	public Materiel entrerMateriel(OpEntree op) {
 		Materiel m = op.getMat();
 		m.setValidation(true);
@@ -150,11 +173,11 @@ public class UserMetier implements IUserMetier{
 		oprepos.save(op);
 		return m;
 	}
-	
+
 	@Override
 	public Materiel sortirMateriel(OpSortie sortie) throws Exception{
 		// TODO Auto-generated method stub
-		
+
 		Materiel m = sortie.getMat();
 		if(m.getDetenteur()!=null) {
 			throw new Exception("detenu");
@@ -163,7 +186,7 @@ public class UserMetier implements IUserMetier{
 		m.setBureau(sortie.getBureau());
 		m.setServ(sortie.getServ());
 		matrepos.save(m);
-		
+
 		sortie.valider();
 		sortie.generateNumSortie();
 		oprepos.save(sortie);
@@ -212,7 +235,7 @@ public class UserMetier implements IUserMetier{
 		matrepos.delete(m);
 	}
 
-	
+
 	/*
 	 * Affichage
 	 */
@@ -224,7 +247,7 @@ public class UserMetier implements IUserMetier{
 		Fournisseur f=null;
 		Float mont=0f;
 		String refFact=null;
-		
+
 		if(m instanceof MaterielNouv){
 			ma = ((MaterielNouv)m).getModAcq();
 			fi = ((MaterielNouv)m).getFinancement();
@@ -240,17 +263,17 @@ public class UserMetier implements IUserMetier{
 		System.out.println("--------");
 		System.out.println("Type| Nomenclature| marque | pu| ref| numSerie | caract | detenteur | autre |"
 				+ "|Etat | Mode Acqui | Financement | Montant | ref Fact | Fournisseur| :");
-		System.out.println(m.getCaract()+"|"+m.getNomenMat()+"|"+ m.getMarque()+"|"+ m.getPu()+"|"+ m.getReference()+"|"+ 
+		System.out.println(m.getCaract()+"|"+m.getNomenMat()+"|"+ m.getMarque()+"|"+ m.getPu()+"|"+ m.getReference()+"|"+
 				m.getNumSerie()+"|"+ "XX"+"|"+ detenteur+"|"+ m.getAutre()+"|"+m.getEtat()+"|"+ma+"|"+
 				fi+"|"+mont+"|"+refFact+"|"+f);
-		
+
 	}
 
 	@Override
 	public void seeAgent(Agent a) {
 		// TODO Auto-generated method stub
 		System.out.println("");
-		
+
 	}
 
 	@Override
@@ -260,7 +283,7 @@ public class UserMetier implements IUserMetier{
 			throw new Exception("nonvalider");
 		}
 		OpAttribution attroper= new OpAttribution(new Date(), new Date(),oper.getIp(), oper, m, detenteur);
-	    oprepos.save(attroper);
+		oprepos.save(attroper);
 		return attroper;
 	}
 
@@ -290,7 +313,7 @@ public class UserMetier implements IUserMetier{
 		oprepos.save(entree);
 		return entree;
 	}
-	
+
 	@Override
 	public OpSortie reqSortirRefuser(OpSortie sortie, String string) {
 		// TODO Auto-generated method stub
@@ -327,7 +350,7 @@ public class UserMetier implements IUserMetier{
 		if(mat1.getDetenteur()==null) {
 			throw new Exception("aucun");
 		}
-	    OpDettachement opdet = new OpDettachement(new Date(), new Date(), oper.getIp(), oper, mat1, dete);
+		OpDettachement opdet = new OpDettachement(new Date(), new Date(), oper.getIp(), oper, mat1, dete);
 		oprepos.save(opdet);
 		return opdet;
 	}
@@ -341,7 +364,7 @@ public class UserMetier implements IUserMetier{
 		agentrepos.save(ancienDet);
 		det.valider();
 		oprepos.save(det);
-		
+
 		return ancienDet;*/
 		return operationdao.detacherMat(det);
 	}
@@ -353,7 +376,7 @@ public class UserMetier implements IUserMetier{
 		oprepos.save(det);
 		return det;
 	}
-	
+
 	public IOperationDAO getOperationdao() {
 		return operationdao;
 	}
@@ -361,9 +384,9 @@ public class UserMetier implements IUserMetier{
 	public void setOperationdao(IOperationDAO operationdao) {
 		this.operationdao = operationdao;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * GETTERS
 	 */
 	@Override
@@ -499,9 +522,174 @@ public class UserMetier implements IUserMetier{
 		return agentrepos.findByDirection(direction);
 	}
 
-	
+	@Override
+	public List<OpAttribution> getListOpAttribution() {
+		// TODO Auto-generated method stub
+		return opattrrepos.findAll();
+	}
 
-	
-	
+	@Override
+	public List<OpDettachement> getListOpDettachement() {
+		// TODO Auto-generated method stub
+		return opdettrepos.findAll();
+	}
+
+	@Override
+	public List<OpAttribution> getListOpAttrByOperator(Agent operator) {
+		// TODO Auto-generated method stub
+		return opattrrepos.findByOperateur(operator);
+	}
+
+	@Override
+	public List<OpDettachement> getListOpDettByOperatort(Agent operator) {
+		// TODO Auto-generated method stub
+		return opdettrepos.findByOperateur(operator);
+	}
+
+	@Override
+	public List<OpAttribution> getListOpAttrByDirection(Direction direction) {
+		// TODO Auto-generated method stub
+		return opattrrepos.findByDirection(direction);
+	}
+
+	@Override
+	public List<OpDettachement> getListOpDettByDirection(Direction direction) {
+		// TODO Auto-generated method stub
+		return opdettrepos.findByDirection(direction);
+	}
+
+	@Override
+	public List<OpAttribution> getListOpAttrByMat(Materiel m) {
+		// TODO Auto-generated method stub
+		return opattrrepos.findByMat(m);
+	}
+
+	@Override
+	public List<OpDettachement> getListOpDettByMat(Materiel m) {
+		// TODO Auto-generated method stub
+		return opdettrepos.findByMat(m);
+	}
+
+	@Override
+	public CodeArticle addCodeArticle(CodeArticle codeArticle) {
+		// TODO Auto-generated method stub
+		return codeartrepos.save(codeArticle);
+	}
+
+	@Override
+	public void removeCodeArticle(CodeArticle codearticle) {
+		// TODO Auto-generated method stub
+		codeartrepos.delete(codearticle);
+	}
+
+	@Override
+	public List<CodeArticle> listCodeArticle() {
+		// TODO Auto-generated method stub
+		return codeartrepos.findAll();
+	}
+
+	@Override
+	public List<CodeArticle> listCodeArticleByTypeObj(TypeObjet typeObj) {
+		// TODO Auto-generated method stub
+		return codeartrepos.findByTypeObjet(typeObj);
+	}
+
+	@Override
+	public OpEntreeArticle reqEntrerArticle(Article article, Agent dc) {
+		// TODO Auto-generated method stub
+		article.setDc(dc);
+		artreops.save(article);
+
+		OpEntreeArticle entreeart = new OpEntreeArticle(new Date(), new Date(), dc.getIp(), dc, article);
+		opentreeartrepos.save(entreeart);
+		return entreeart;
+
+	}
+
+	@Override
+	public OpSortieArticle reqSortirArticle(Article article, Agent op, Agent destinataire) throws Exception {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		if(!article.isValidation()) {
+			throw new Exception("nonvalider");
+		}
+		OpSortieArticle opsortieart= new OpSortieArticle(new Date(), new Date(),op.getIp(), op, article, destinataire);
+		opsortieartrepos.save(opsortieart);
+		return opsortieart;
+	}
+
+	@Override
+	public OpEntreeArticle reqArtAModifier(OpEntreeArticle entreeArt, String motif) throws Exception {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		if(entreeArt.getArticle().isValidation()) {
+			throw new Exception("dejavalider");
+		}
+		entreeArt.amodifier(motif);
+		opentreeartrepos.save(entreeArt);
+		return entreeArt;
+	}
+
+	@Override
+	public OpSortieArticle reqSortirArtAModifier(OpSortieArticle sortArt, String motif) throws Exception{
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		if(sortArt.getArticle().isValidation()) {
+			throw new Exception("dejavalider");
+		}
+		sortArt.amodifier(motif);
+		opsortieartrepos.save(sortArt);
+		return sortArt;
+	}
+
+	@Override
+	public OpEntreeArticle reqArtRefuser(OpEntreeArticle entreeArt, String motif) throws Exception {
+		// TODO Auto-generated method stub
+		if(entreeArt.getArticle().isValidation()) {
+			throw new Exception("dejavalider");
+		}
+		entreeArt.arefuser(motif);
+		opentreeartrepos.save(entreeArt);
+		return entreeArt;
+	}
+
+	@Override
+	public OpSortieArticle reqSortirRefuser(OpSortieArticle sortArt, String motif) throws Exception {
+		// TODO Auto-generated method stub
+		if(sortArt.getArticle().isValidation()) {
+			throw new Exception("dejavalider");
+		}
+		sortArt.arefuser(motif);
+		opsortieartrepos.save(sortArt);
+		return sortArt;
+	}
+
+	@Override
+	public Article entrerArticle(OpEntreeArticle opentreeart) {
+		// TODO Auto-generated method stub
+		Article a = opentreeart.getArticle();
+		a.setValidation(true);
+		artreops.save(a);
+		opentreeart.valider();
+		opentreeartrepos.save(opentreeart);
+		return a;
+	}
+
+	@Override
+	public Article sortirArticle(OpSortieArticle sortieart) throws Exception {
+		// TODO Auto-generated method stub
+		Article a  = sortieart.getArticle();
+
+		Agent beneficiaire = sortieart.getBeneficiaire();
+		a.setBeneficiaire(beneficiaire);
+
+		artreops.save(a);
+		sortieart.valider();
+		//oprepos.save(attr);
+		opsortieartrepos.save(sortieart);
+		return a;
+	}
+
+
 
 }
