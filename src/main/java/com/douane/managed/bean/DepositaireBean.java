@@ -52,7 +52,7 @@ import java.util.zip.ZipOutputStream;
  * Created by hasina on 10/29/17.
  */
 @ManagedBean(name = "depositaireBean")
-@RequestScoped
+@Component
 @PropertySource("classpath:config.properties")
 public class DepositaireBean {
 
