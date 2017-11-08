@@ -26,6 +26,12 @@ public class GACBean {
     private HashMap<Agent,List<Operation>> AgentOp = new HashMap<Agent, List<Operation>>();
     private Agent gac;
 
+
+
+    private List<Operation> listAllOperation;
+
+
+
     public HashMap<Agent,List<Operation>> getOperationAndDepositaire()
     {
         //first get direction of GAC
@@ -55,6 +61,15 @@ public class GACBean {
 
     public void validateDechargeSortie(OpSortie sortie) throws Exception {
         usermetierimpl.sortirMateriel(sortie);
+    }
+
+    public void setListAllOperation(List<Operation> listAllOperation) {
+        this.listAllOperation = listAllOperation;
+    }
+
+    public List<Operation> getListAllOperation()
+    {
+        return usermetierimpl.getListOp();
     }
 
     private List<Agent> getAllAgents()
