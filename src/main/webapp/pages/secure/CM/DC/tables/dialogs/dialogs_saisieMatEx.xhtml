@@ -39,29 +39,29 @@
                     </tr>
                     <tr>
                         <td>Nomenclature</td>
-                        <td>#{depositaireBean.curentMateriel.nomencl}</td>
+                        <td>#{depositaireBean.curentMateriel.nomMat.nomenclature}</td>
                     </tr>
                     <tr>
                         <td>Etat</td>
-                        <td>#{depositaireBean.curentMateriel.etat}</td>
+                        <td>#{depositaireBean.curentMateriel.etat.designation}</td>
                     </tr>
                     <tr>
                         <td>Caractéristiques</td>
-                        <td>#{depositaireBean.curentMateriel.carac}</td>
+                        <td>#{depositaireBean.curentMateriel.caract}</td>
                     </tr>
                     <tr>
                         <td>Marque</td>
-                        <td>#{depositaireBean.curentMateriel.marq}</td>
+                        <td>#{depositaireBean.curentMateriel.marque.designation}</td>
                     </tr>
                     <tr>
                         <td>Détenteur</td>
-                        <td>#{depositaireBean.curentMateriel.detenteur}</td>
+                        <td>#{depositaireBean.curentMateriel.detenteur;im}</td>
                     </tr>
                     <tr>
                         <td>Dépositaire</td>
-                        <td>#{depositaireBean.curentMateriel.dc}</td>
+                        <td>#{depositaireBean.curentMateriel.dc.im}</td>
                     </tr>
-                    <tr>
+                    <!--tr>
                         <td>Documents</td>
                         <td><h:outputLink value="#{depositaireBean.curentMateriel.fileName}" >
                             Download back
@@ -70,7 +70,7 @@
                     <tr>
                         <td>Photo</td>
                         <td><h:graphicImage value="#{depositaireBean.curentMateriel.photo}" /></td>
-                    </tr>           
+                    </tr-->           
             </table>
         </div>
     </p:dialog>
