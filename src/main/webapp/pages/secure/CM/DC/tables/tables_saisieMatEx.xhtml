@@ -24,7 +24,7 @@
         </p:column>
         <p:column>
             <f:facet name="header">Prix Unitaire</f:facet>
-            #{materiel.unitPrice}
+            #{materiel.pu}
         </p:column>
         <p:column>
             <f:facet name="header">Référence</f:facet>
@@ -36,37 +36,37 @@
         </p:column>
         <p:column>
             <f:facet name="header">Autre</f:facet>
-            #{materiel.renseignement}
+            #{materiel.autre}
         </p:column>
         <p:column>
             <f:facet name="header">Codification</f:facet>
-            #{materiel.codification}
+            #{materiel.code}
         </p:column>
         <p:column>
             <f:facet name="header">Nomenclature</f:facet>
-            #{materiel.nomencl}
+            #{materiel.nomenMat.nomenclature}
         </p:column>
         <p:column>
             <f:facet name="header">Etat</f:facet>
-            #{materiel.etat}
+            #{materiel.etat.designation}
         </p:column>
         <p:column>
             <f:facet name="header">Caractéristiques</f:facet>
-            #{materiel.carac}
+            #{materiel.caract}
         </p:column>
         <p:column>
             <f:facet name="header">Marque</f:facet>
-            #{materiel.marq}
+            #{materiel.marque.designation}
         </p:column>
         <p:column>
             <f:facet name="header">Détenteur</f:facet>
-            #{materiel.detenteur}
+            #{materiel.detenteur.im}
         </p:column>
         <p:column>
             <f:facet name="header">Dépositaire</f:facet>
-            #{materiel.dc}
+            #{materiel.dcim}
         </p:column>
-        <p:column>
+        <!--p:column>
             <f:facet name="header">Documents</f:facet>
             <h:outputLink value="#{materiel.fileName}" >
                 Download back
@@ -75,7 +75,7 @@
         <p:column>
             <f:facet name="header">Photo</f:facet>
             <h:graphicImage value="#{materiel.photo}" />
-        </p:column>
+        </p:column-->
         <p:column>
 
             <f:facet name="header">Détail</f:facet>
