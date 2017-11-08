@@ -27,10 +27,17 @@
                         <f:selectItems value="#{depositaireBean.listServices}" var="type" itemLabel="#{type.designation}"/>
                     </p:selectOneMenu>
 
-                    <p:selectOneMenu value="#{depositaireBean.serviceforMat}"
+                    <p:selectOneMenu value="#{depositaireBean.serviceforMat}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{depositaireBean.listServices}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-                        <h:outputText value="#{t.designation}" />
+                        <p:column style="width:10%">
+                            <h:outputText styleClass="ui-theme ui-theme-#{t.desination}" />
+                        </p:column>
+             
+                        <p:column>
+                            <h:outputText value="#{t.id}" />
+                        </p:column>
+
                     </p:selectOneMenu>
 
                     <hr></hr>
