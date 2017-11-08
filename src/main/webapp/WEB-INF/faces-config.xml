@@ -161,16 +161,19 @@
 			<to-view-id>/pages/secure/CM/editionEtats.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+
+
 		
 		<navigation-case>
 			<from-outcome>v_prise_en_charge</from-outcome>
-			<to-view-id>/pages/secure/CM/validation/priseEnCharge.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/GAC/validation/priseEnCharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
 		<navigation-case>
 			<from-outcome>v_detachement</from-outcome>
-			<to-view-id>/pages/secure/CM/validation/detachement.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/GAC/validation/detachement.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
@@ -179,14 +182,14 @@
 		
 		<navigation-case>
 			<from-outcome>v_detenteur </from-outcome>
-			<to-view-id>/pages/secure/CM/validation/attribution.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/GAC/validation/attribution.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
 		
 		<navigation-case>
 			<from-outcome>v_decharge</from-outcome>
-			<to-view-id>/pages/secure/CM/validation/decharge.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/GAC/validation/decharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		
