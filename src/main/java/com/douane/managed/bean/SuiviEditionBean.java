@@ -69,7 +69,7 @@ public class SuiviEditionBean {
     }
 
     //-------------GET List of operations by OPERATOR --------------------------------
-        //get direction
+    //get direction
     public Direction getDirection() {
         return direction;
     }
