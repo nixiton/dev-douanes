@@ -1,11 +1,11 @@
 package com.douane.repository;
 
+import com.douane.entite.Useri;
 import org.springframework.data.repository.CrudRepository;
 
-import com.douane.entite.Useri;
-
-
-
-public interface UserRepository extends CrudRepository<Useri, Integer>{
+/**
+ * Created by hasina on 11/8/17.
+ */
+public interface UserRepository extends CrudRepository<Useri, Integer> {
 
 }

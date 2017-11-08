@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Created by hasina on 10/29/17.
  */
-@ManagedBean(name="depositaireBean")
+
 public class DepositaireBeanBackupwithoutfileupload {
 
     private static final String SUCCESS = "success";
