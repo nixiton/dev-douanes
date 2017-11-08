@@ -40,11 +40,6 @@
         <!-- property name="refdao" ref="refdao"></property -->
     </bean>
 
-    <!-- EtatMateriel Metier Declaration -->
-    <bean id="etatmaterielmetier" class="com.douane.metier.etatMateriel.EtatMaterielMetier">
-        <!-- property name="refdao" ref="refdao"></property -->
-    </bean>
-
     <!-- Financement Metier Declaration -->
     <bean id="financementmetier" class="com.douane.metier.financement.FinancementMetier">
         <!-- property name="refdao" ref="refdao"></property -->
@@ -110,12 +105,23 @@
     </bean>
 
     <!-- Data Source Declaration -->
+
+    <bean class="java.net.URI" id="dbUrl">
+        <constructor-arg value="#{systemEnvironment['DATABASE_URL']}"/>
+    </bean>
+
+
     <bean id="DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
         destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <!--property name="driverClass" value="com.mysql.jdbc.Driver" />
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/Test" />
         <property name="user" value="root" />
-        <property name="password" value="" />
+        <property name="password" value="" /-->
+        <property name="driverClass" value="org.postgresql.Driver"/>
+        <!--property name="jdbcUrl" value="jdbc:postgres://ec2-54-247-81-97.eu-west-1.compute.amazonaws.com:5432/d8jgiq3ojrd8fn"/-->
+        <property name="jdbcUrl" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
+        <property name="user" value="lfkmiohsvduuxg"/>
+        <property name="password" value="0a3943f9f147ee30fcbc440387917749523f216d1002b9a9f40ebe9f75180e8c"/>
         <property name="maxPoolSize" value="10" />
         <property name="maxStatements" value="0" />
         <property name="minPoolSize" value="5" />
@@ -127,7 +133,7 @@
         </property> </bean -->
 
     <!-- Bean FlyWay for DataBase Migration USING MyZillaMigration--> 
-    <bean id="flyway" class="com.myzilla.migration.MyZillaMigration"
+    <!--bean id="flyway" class="com.myzilla.migration.MyZillaMigration"
         init-method="repairAndMigrate">
         <property name="locations"> 
             <list>
@@ -137,7 +143,7 @@
         </property>
         <property name="dataSource" ref="DataSource" />
         <property name="validateOnMigrate" value="true" />
-    </bean>
+    </bean-->
     
     <!-- Bean FlyWay for DataBase Migration Simple  
     <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
@@ -152,7 +158,7 @@
     </bean>
     -->
 
-    <bean id="emf" depends-on="flyway"
+    <bean id="emf"
         class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="DataSource"></property>
         <property name="jpaVendorAdapter">
@@ -160,8 +166,8 @@
         </property>
         <property name="jpaProperties">
             <props>
-                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.dialect"> org.hibernate.dialect.PostgreSQLDialect</prop>
             </props>
         </property>
     </bean>
