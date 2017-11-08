@@ -2579,3 +2579,20 @@ body.error .logo h1 {
 table, .ui-datatable-tablewrapper {
   width: 100%!important;
 }
+
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+    background: none!important;
+    box-shadow: none!important;
+    color: #313131;
+}
+
+.ui-selectonemenu {
+    width: 100%!important;
+    background: none!important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+
+  background: none!important;
+}
