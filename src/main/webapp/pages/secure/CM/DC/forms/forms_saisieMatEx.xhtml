@@ -42,10 +42,19 @@
 
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
+                    <!--p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
                     valueChangeListener="#{depositaireBean.onTypeMaterielChange}">
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
-                        </p:selectOneMenu>
+                        </p:selectOneMenu-->
+
+                    <p:selectOneMenu value="#{depositaireBean.typemateriel}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{siseBean.listNomenclature}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
 
                     <hr></hr>
 
@@ -64,7 +73,7 @@
 
                     </h:selectOneMenu-->
 
-                        <h:inputText value="#{depositaireBean.nomencl}" 
+                        <h:inputText value="#{depositaireBean.nomencl}"  styleClass="form-control top"
                         ></h:inputText>
 
                     <hr></hr>
