@@ -75,5 +75,49 @@ public abstract class Referentiel implements Serializable {
 	public void setLeref(String leref) {
 		this.leref = leref;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((designation == null) ? 0 : designation.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((leref == null) ? 0 : leref.hashCode());
+		//result = prime * result + ((table == null) ? 0 : table.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Referentiel other = (Referentiel) obj;
+		if (designation == null) {
+			if (other.designation != null)
+				return false;
+		} else if (!designation.equals(other.designation))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (leref == null) {
+			if (other.leref != null)
+				return false;
+		} else if (!leref.equals(other.leref))
+			return false;
+		/*if (table == null) {
+			if (other.table != null)
+				return false;
+		} else if (!table.equals(other.table))
+			return false;*/
+		return true;
+	}
+	
 	
 }

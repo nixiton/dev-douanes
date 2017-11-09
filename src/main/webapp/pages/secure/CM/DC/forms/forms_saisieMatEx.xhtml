@@ -42,8 +42,7 @@
 
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}"
-                    valueChangeListener="#{depositaireBean.onTypeMaterielChange}">
+                        <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}">
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
                         </p:selectOneMenu>
 
@@ -173,7 +172,7 @@
                     <div class="col-lg-6">
 
                         <p:inputText  required="true"
-                        value="#{depositaireBean.renseignement}"
+                        value="#{depositaireBean.autre}"
                         requiredMessage=""
                         placeholder="Autre" styleClass="form-control top"></p:inputText>
 

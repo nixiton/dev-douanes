@@ -29,26 +29,32 @@ public class RefConverter implements Converter {
     IRefMetier refmetierimpl;
 
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
+    	System.out.println("Vao iditra");
+        
         if(value != null && value.trim().length() > 0) {
             try {
                 //refmetierimpl
+            	System.out.println("Tafiditra");
+                
 
                 Referentiel ref = refmetierimpl.findById(Long.parseLong(value));
                 if(ref instanceof EtatMateriel)
                 {
-                    return (EtatMateriel) refmetierimpl.findById(Long.parseLong(value));
+                	EtatMateriel e = (EtatMateriel) ref;
+                	System.out.println("Etat Materiel :"+e.getClass().getName()+" - "+e.getDesignation());
+                    return e;
                 }
                 else if(ref instanceof Marque)
                 {
-                    return (Marque) refmetierimpl.findById(Long.parseLong(value));
+                    return (Marque) ref;
                 }
                 else if(ref instanceof Nomenclature)
                 {
-                    return (Nomenclature) refmetierimpl.findById(Long.parseLong(value));
+                    return (Nomenclature) ref;
                 }
                 else if(ref instanceof Service)
                 {
-                    return (Service) refmetierimpl.findById(Long.parseLong(value));
+                    return (Service) ref;
                 }
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));

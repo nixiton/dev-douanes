@@ -52,7 +52,7 @@ import java.util.zip.ZipOutputStream;
  * Created by hasina on 10/29/17.
  */
 @ManagedBean(name = "depositaireBean")
-@ViewScoped
+@RequestScoped
 @PropertySource("classpath:config.properties")
 public class DepositaireBean {
 
@@ -92,6 +92,17 @@ public class DepositaireBean {
 	//@Autowired
     @ManagedProperty(value="#{refmetier}")
     IRefMetier refmetierimpl;
+
+	public IRefMetier getRefmetierimpl() {
+		return refmetierimpl;
+	}
+
+	public void setRefmetierimpl(IRefMetier refmetierimpl) {
+		this.refmetierimpl = refmetierimpl;
+	}
+
+
+
 
 	/* attribute for file upload */
 	private static final long serialVersionUID = 1L;
@@ -808,7 +819,7 @@ public class DepositaireBean {
         return ds;
     }
 	public String addMateriel() {
-
+		System.out.println("ADD MATERIEL");
 		try{
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()

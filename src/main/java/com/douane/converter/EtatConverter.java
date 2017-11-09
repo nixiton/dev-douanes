@@ -29,6 +29,7 @@ public class EtatConverter implements Converter {
         if(value != null && value.trim().length() > 0) {
             try {
                 //refmetierimpl
+            	System.out.println("Tafiditra");
                 return (EtatMateriel) refmetierimpl.findById(Long.parseLong(value));
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
