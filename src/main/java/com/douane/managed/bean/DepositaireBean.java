@@ -11,7 +11,7 @@ import com.douane.metier.typeMateriel.ITypeMaterielMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.DocumentModel;
 import com.douane.model.DocumentModelSimple;
-import com.douanfullmodel.UploadedFileByte;
+//import com.douanfullmodel.UploadedFileByte;
 import com.douane.requesthttp.RequestFilter;
 import org.apache.commons.io.FilenameUtils;
 import org.primefaces.context.ApplicationContext;
