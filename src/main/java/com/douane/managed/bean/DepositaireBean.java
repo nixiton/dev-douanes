@@ -819,7 +819,7 @@ public class DepositaireBean {
         return ds;
     }
 	public String addMateriel() {
-		System.out.println("ADD MATERIEL");
+		
 		try{
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
@@ -851,6 +851,7 @@ public class DepositaireBean {
 		return SUCCESS;
 		}
 		catch(Exception e){
+			System.out.println(e.getMessage());
 			return ERROR;
 		}
 	}
