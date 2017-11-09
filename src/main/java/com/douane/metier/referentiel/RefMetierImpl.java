@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.douane.dao.referentiel.IRefDAO;
 import com.douane.entite.Agent;
+import com.douane.entite.EtatMateriel;
 import com.douane.entite.FournisseurDetail;
 import com.douane.entite.OpSaisie;
 import com.douane.entite.Referentiel;
@@ -94,5 +95,13 @@ public class RefMetierImpl implements IRefMetier{
 		// TODO Auto-generated method stub
 		return (List<FournisseurDetail>)fournrepos.findAll();
 	}
+
+	@Override
+	public Referentiel findById(Long id) {
+		// TODO Auto-generated method stub
+		return refrepos.findOne(id);
+	}
+
+	
 
 }
