@@ -46,9 +46,15 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String immatriculation = authentication.getName();
         String password = authentication.getCredentials().toString();
         //Agent user = null;
-        Agent user = usermetier.findAgentByIm(Long.parseLong(immatriculation));
-        user.setIp("IP default");
-
+        Agent user;
+        if (immatriculation.matches("[0-9]+") && immatriculation.length() > 2) {
+            user = usermetier.findAgentByIm(Long.parseLong(immatriculation));
+            user.setIp("IP default");
+        }
+        else
+        {
+            user = null;
+        }
         //RequestFilter.getSession().setAttribute("agent",usermetier.findAgentByIm(Long.parseLong(immatriculation)));
         RequestFilter.getSession().setAttribute("agent",user);
 

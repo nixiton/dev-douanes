@@ -22,7 +22,7 @@
 
                     <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.serviceforMat}" panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.serviceforMat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{depositaireBean.listServices}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
@@ -42,7 +42,7 @@
 
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
+                        <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}"
                     valueChangeListener="#{depositaireBean.onTypeMaterielChange}">
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
                         </p:selectOneMenu>
@@ -82,7 +82,7 @@
 
                     <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.marq}" panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
@@ -188,7 +188,7 @@
                 <div class="col-lg-6">
 
 
-                    <p:selectOneMenu value="#{depositaireBean.etat}" panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.etat}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
@@ -208,6 +208,7 @@
 
             </div>
 
+            <p:messages id="messages" />
             <div class="form-group">
                 <label for="text1" class="control-label col-lg-4"></label>
 

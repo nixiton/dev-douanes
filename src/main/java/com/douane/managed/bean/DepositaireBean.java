@@ -52,7 +52,7 @@ import java.util.zip.ZipOutputStream;
  * Created by hasina on 10/29/17.
  */
 @ManagedBean(name = "depositaireBean")
-@Component
+@ViewScoped
 @PropertySource("classpath:config.properties")
 public class DepositaireBean {
 
@@ -69,23 +69,28 @@ public class DepositaireBean {
 	private static final String SUCCESS = "success";
 	private static final String ERROR = "error";
 
-	@Autowired
+	//@Autowired
+    @ManagedProperty(value="#{typematerielmetier}")
 	ITypeMaterielMetier typematerielmetier;
 
-	@Autowired
+	//@Autowired
+    @ManagedProperty(value="#{nomenclaturemetier}")
 	INomenclatureMetier nomenclaturemetier;
 
-	@Autowired
+	//@Autowired
+    @ManagedProperty(value="#{marquemetier}")
 	IMarqueMetier marquemetier;
 
-	@Autowired
+	//@Autowired
+    @ManagedProperty(value="#{usermetier}")
 	IUserMetier usermetierimpl;
 
-	@Autowired
+    //@Autowired
+    @ManagedProperty(value="#{fournisseurmetier}")
 	IFournisseurMetier fournisseurmetierimpl;
 
-    //@ManagedProperty(value="#{refmetier}")
-	@Autowired
+	//@Autowired
+    @ManagedProperty(value="#{refmetier}")
     IRefMetier refmetierimpl;
 
 	/* attribute for file upload */
@@ -954,5 +959,102 @@ public class DepositaireBean {
     public void setServiceforMat(Service serviceforMat) {
         this.serviceforMat = serviceforMat;
     }
+
+
+
+
+    //------------------------------PRIME FACES---------------------------------------
+	//list service
+	//list nomenclature
+	//list marque
+	//list etat
+
+
+
+	private Service servicePrim;
+	private List<Service> servicesPrim;
+
+	private Nomenclature nomenclaturePrim;
+	private  List<Nomenclature> nomenclaturesPrim;
+
+	private Marque marquePrim;
+	private List<Marque> marquesPrim;
+
+	private EtatMateriel etatMaterielPrim;
+	private List<EtatMateriel> etatMaterielsPrim;
+
+
+
+
+
+
+
+
+	public List<Service> getServicesPrim() {
+		return servicesPrim;
+	}
+
+	public void setServicesPrim(List<Service> servicesPrim) {
+		this.servicesPrim = servicesPrim;
+	}
+	public EtatMateriel getEtatMaterielPrim() {
+		return etatMaterielPrim;
+	}
+
+	public void setEtatMaterielPrim(EtatMateriel etatMaterielPrim) {
+		this.etatMaterielPrim = etatMaterielPrim;
+	}
+
+
+
+	public Marque getMarquePrim() {
+		return marquePrim;
+	}
+
+	public void setMarquePrim(Marque marquePrim) {
+		this.marquePrim = marquePrim;
+	}
+
+
+
+	public Service getServicePrim() {
+		return servicePrim;
+	}
+
+	public void setServicePrim(Service servicePrim) {
+		this.servicePrim = servicePrim;
+	}
+
+	public Nomenclature getNomenclaturePrim() {
+		return nomenclaturePrim;
+	}
+
+	public void setNomenclaturePrim(Nomenclature nomenclaturePrim) {
+		this.nomenclaturePrim = nomenclaturePrim;
+	}
+
+	public List<Nomenclature> getNomenclaturesPrim() {
+		return nomenclaturesPrim;
+	}
+
+	public void setNomenclaturesPrim(List<Nomenclature> nomenclaturesPrim) {
+		this.nomenclaturesPrim = nomenclaturesPrim;
+	}
+
+	public List<Marque> getMarquesPrim() {
+		return marquesPrim;
+	}
+
+	public void setMarquesPrim(List<Marque> marquesPrim) {
+		this.marquesPrim = marquesPrim;
+	}
+
+	public List<EtatMateriel> getEtatMaterielsPrim() {
+		return etatMaterielsPrim;
+	}
+
+	public void setEtatMaterielsPrim(List<EtatMateriel> etatMaterielsPrim) {
+		this.etatMaterielsPrim = etatMaterielsPrim;
+	}
 
 }
