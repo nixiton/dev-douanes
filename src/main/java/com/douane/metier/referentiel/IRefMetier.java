@@ -3,6 +3,7 @@ package com.douane.metier.referentiel;
 import java.util.List;
 
 import com.douane.entite.Agent;
+import com.douane.entite.EtatMateriel;
 import com.douane.entite.FournisseurDetail;
 import com.douane.entite.Referentiel;
 
@@ -16,4 +17,6 @@ public interface IRefMetier {
 	public void addFournisseur(FournisseurDetail f, Agent operat);
 	public void removeFournisseur(FournisseurDetail f);
 	public List<FournisseurDetail> listFournisseur();
+	
+	public Referentiel findById(Long id);
 }
