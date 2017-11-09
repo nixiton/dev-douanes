@@ -167,6 +167,8 @@ public class UserMetier implements IUserMetier{
 	public Materiel entrerMateriel(OpEntree op) {
 		Materiel m = op.getMat();
 		m.setValidation(true);
+		
+		System.out.println("materiel m"+ m.getDc());
 		matrepos.save(m);
 		op.valider();
 		op.generateNumEntree();
