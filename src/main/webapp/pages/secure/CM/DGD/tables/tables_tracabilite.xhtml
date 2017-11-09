@@ -42,63 +42,7 @@
     </p:dataTable>
 
 
-    <h:form>
-    <p:dataTable id="tbl" var="c" value="#{operationBean.mesOperations}"
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
-                 paginator="true" rows="10" style="margin-bottom:20px">
- 
-        <f:facet name="{Exporters}">
- 
-            <h:commandLink>
-                <h:outputText value="PDF" />
-                <p:dataExporter type="pdf" target="tbl" fileName="mesOperations"/>
-            </h:commandLink>
-        </f:facet>
- 
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Id" />
-            </f:facet>
-            <h:outputText value="#{c.id}" />
-        </p:column>
- 
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Date"/>
-            </f:facet>
-            <h:outputText value="#{c.date}" />
-        </p:column>
- 
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Heure" />
-            </f:facet>
-            <h:outputText value="#{c.time}" />
-        </p:column>
- 
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Poste" />
-            </f:facet>
-            <h:outputText value="#{c.poste}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Operateur" />
-            </f:facet>
-            <h:outputText value="#{c.operateur.im}" />
-        </p:column>
-    </p:dataTable>
- 
-    <h3>Export Page Data Only</h3>
- 
-    <h:commandLink>
-        <h:outputText value="PDF" />
-        <p:dataExporter type="pdf" target="tbl" fileName="cars" pageOnly="true" />
-    </h:commandLink>
-
-</h:form>
-
+   
 
 
 </div>
