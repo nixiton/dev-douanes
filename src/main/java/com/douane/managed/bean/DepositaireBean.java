@@ -576,7 +576,7 @@ public class DepositaireBean {
 
 	}
 
-	public String uploadFiles() throws IOException {
+	/*public String uploadFiles() throws IOException {
 		String fileName = "";
 		ArrayList<UploadedFileByte> uploadedfiles = (ArrayList<UploadedFileByte>) RequestFilter.getSession()
 				.getAttribute("uploadedFiles");
@@ -605,7 +605,7 @@ public class DepositaireBean {
 		}
 		zipFiles(filesTozip);
 		return SUCCESS;
-	}
+	}*/
 
 	public void zipFiles(List<String> files) {
 
