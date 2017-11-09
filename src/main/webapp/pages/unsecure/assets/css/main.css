@@ -2592,7 +2592,7 @@ table, .ui-datatable-tablewrapper {
     background: none!important;
 }
 
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default , .ui-widget-header{
 
   background: none!important;
 }
