@@ -4,7 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("MEX")
+@DiscriminatorValue(1)
 public class MaterielEx extends Materiel {
 	
 	public MaterielEx() {
