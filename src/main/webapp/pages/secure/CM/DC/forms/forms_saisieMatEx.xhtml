@@ -22,11 +22,6 @@
 
                     <div class="col-lg-6">
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.serviceforMat}"
-                                      valueChangeListener="#{depositaireBean.onGetService}">
-                        <f:selectItems value="#{depositaireBean.listServices}" var="type" itemLabel="#{type.designation}"/>
-                    </p:selectOneMenu>
-
                     <p:selectOneMenu value="#{depositaireBean.serviceforMat}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{depositaireBean.listServices}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
@@ -87,9 +82,14 @@
 
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.marq}">
-                            <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
-                        </p:selectOneMenu>
+                    <p:selectOneMenu value="#{depositaireBean.marq}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
 
                     <hr></hr>
 
@@ -187,8 +187,14 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.etat}">
-                        <f:selectItems value="#{siseBean.listEtatMateriel}" var="etat" itemLabel="#{etat.designation}"/>
+
+                    <p:selectOneMenu value="#{depositaireBean.etat}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{siseBean.listEtatMateriel}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
                     </p:selectOneMenu>
 
                 <hr></hr>
