@@ -63,7 +63,7 @@ public class DepositaireBean {
 	private String fileupload;
 	// @Autowired
 	// ConfigurableApplicationContext context;
-
+	
 	private String fileUploadSize;
 
 	private static final String SUCCESS = "success";
@@ -819,7 +819,7 @@ public class DepositaireBean {
         return ds;
     }
 	public String addMateriel() {
-		
+		System.out.println("ADD MATERIEL");
 		try{
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
@@ -851,7 +851,7 @@ public class DepositaireBean {
 		return SUCCESS;
 		}
 		catch(Exception e){
-			System.out.println(e.getMessage());
+			System.out.println(e.getStackTrace());
 			return ERROR;
 		}
 	}
