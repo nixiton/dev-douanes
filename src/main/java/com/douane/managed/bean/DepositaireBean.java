@@ -924,6 +924,7 @@ public class DepositaireBean {
 			opAt = usermetierimpl.reqAttribution(getMateriel(), agent, getDetenteur());
 		} catch (Exception e) {
 			// TODO: handle exception
+			return ERROR;
 			System.out.println(e.getMessage());
 
 		}
@@ -939,6 +940,7 @@ public class DepositaireBean {
 			opDet = usermetierimpl.reqDettachement(this.getMateriel(), agent, getDetenteur());
 		} catch (Exception e) {
 			// TODO: handle exception
+			return ERROR;
 			System.out.println(e.getMessage());
 		}
 
@@ -955,6 +957,7 @@ public class DepositaireBean {
 					this.getDestinationDirec(), this.getDestinationService(), this.getDestination(), agent);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			return ERROR;
 			System.out.println(e.getMessage());
 		}
 

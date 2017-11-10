@@ -447,6 +447,48 @@
 		</navigation-case>
 
 
+
+
+		<navigation-case>
+			<from-action>#{depositaireBean.addPriseEncharge}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/admin/admin.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+		<navigation-case>
+			<from-action>#{depositaireBean.addDecharge}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/admin/admin.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+		<navigation-case>
+			<from-action>#{depositaireBean.addAttribution}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/admin/admin.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+		<navigation-case>
+			<from-action>#{depositaireBean.addDetachement}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/secure/admin/admin.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+
+		
+
+		
+
+		
+
+
+
 	
 
 
