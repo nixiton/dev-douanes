@@ -29,9 +29,12 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.motifSortie}">
-                        <f:selectItems value="#{siseBean.listMotifSortie}" var="m" itemLabel="#{m.designation}"/>
-                    </p:selectOneMenu>
+                    <p:selectOneMenu value="#{depositaireBean.motifSortie}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{siseBean.listMotifSortie}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
 
                 <hr></hr>
 
@@ -47,7 +50,7 @@
 
                     <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.materiel}"
                     valueChangeListener="#{depositaireBean.onMaterielChange}">
-                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomenclature}"/>
+                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomMat.nomenclature}"/>
                     </p:selectOneMenu>
 
                 <hr></hr>
@@ -62,8 +65,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{depositaireBean.marq.designation}" 
-                        disabled="true"></h:inputText>
+                    <h:inputText value="#{depositaireBean.marq.designation}" ></h:inputText>
 
                 </div>
                 
@@ -74,8 +76,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{depositaireBean.reference}"   
-                        disabled="true"></h:inputText>
+                    <h:inputText value="#{depositaireBean.reference}" ></h:inputText>
 
                 </div>
                 
@@ -86,8 +87,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{dechargeMB.numSerie}" 
-                        disabled="true"></h:inputText>
+                    <h:inputText value="#{dechargeMB.numSerie}" ></h:inputText>
 
                 </div>
                 

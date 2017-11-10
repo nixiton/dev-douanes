@@ -28,7 +28,7 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.materiel}">
-                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomenclature}"/>
+                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomMat.nomenclature}"/>   
                     </p:selectOneMenu>
 
                 <hr></hr>
@@ -57,7 +57,7 @@
                 <div class="col-lg-6">
 
                     <h:inputText value="#{depositaireBean.nom}" 
-                        disabled="true"></h:inputText>
+                        ></h:inputText>
 
                 <hr></hr>
 
@@ -72,7 +72,7 @@
                 <div class="col-lg-6">
 
                     <h:inputText value="#{depositaireBean.prenom}"                                                                              
-                        disabled="true"></h:inputText>
+                        ></h:inputText>
 
                 <hr></hr>
 
