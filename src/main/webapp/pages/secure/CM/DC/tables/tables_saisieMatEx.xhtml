@@ -17,7 +17,7 @@
         <hr></hr>
 
     </div>    
-    <p:dataTable id="tbl" var="c" value="#{operationBean.mesOperations}"
+    <p:dataTable id="tbl" var="materiel" value="#{depositaireBean.listMaterielexistant}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="10" style="margin-bottom:20px">
  
@@ -25,73 +25,73 @@
             <f:facet name="header">
                 <h:outputText value="ID" />
             </f:facet>
-            <h:outputText value="#{materiel.idMateriel}" />
+            <h:outputText value="#{materiel.idMateriel}" />y
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Prix Unitaire" />
             </f:facet>
-            <h:outputText value="#{materiel.pu}" />
+            <h:outputText value="#{materiel.pu}" />y
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Référence" />
             </f:facet>
-            <h:outputText value="#{materiel.reference}" />
+            <h:outputText value="#{materiel.reference}" />y
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Numéro de série" />
             </f:facet>
-            <h:outputText value="#{materiel.numSerie}" />
+            <h:outputText value="#{materiel.numSerie}" />y
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Autre" />
             </f:facet>
-           <h:outputText value=" #{materiel.autre}" />
+           <h:outputText value=" #{materiel.autre}" />y
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Codification" />
             </f:facet>
-            <h:outputText value="#{materiel.code}" />
+            <h:outputText value="#{materiel.code}" />y
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Nomenclature" />
             </f:facet>
-            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
+            <h:outputText value="#{materiel.nomenMat.nomenclature}" />y
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Etat" />
             </f:facet>
-            <h:outputText value="#{materiel.etat.designation}" />
+            <h:outputText value="#{materiel.etat.designation}" />y
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Caractéristiques" />
             </f:facet>
-            <h:outputText value="#{materiel.caract}" />
+            <h:outputText value="#{materiel.caract}" />y
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Marque" />
             </f:facet>
-            <h:outputText value="#{materiel.marque.designation}" />
+            <h:outputText value="#{materiel.marque.designation}" />y
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Détenteur" />
             </f:facet>
-            <h:outputText value="#{materiel.detenteur.im}" />
+            <h:outputText value="#{materiel.detenteur.im}" />y
         </p:column>
         <p:column>
             <f:facet name="header">
                 <h:outputText value="Dépositaire" />
             </f:facet>
-            <h:outputText value="#{materiel.dc.nomAgent}" />
+            <h:outputText value="#{materiel.dc.nomAgent}" />y
         </p:column>
         <!--p:column>
             <f:facet name="header">
