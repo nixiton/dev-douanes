@@ -11,6 +11,7 @@ import com.douane.metier.typeMateriel.ITypeMaterielMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.DocumentModel;
 import com.douane.model.DocumentModelSimple;
+import org.hibernate.JDBCException;
 //import com.douanfullmodel.UploadedFileByte;
 import com.douane.requesthttp.RequestFilter;
 import org.apache.commons.io.FilenameUtils;
@@ -850,11 +851,15 @@ public class DepositaireBean {
 
 		return SUCCESS;
 		}
-		catch(Exception e){
+		catch(JDBCException jdbce){
+			jdbce.getSQLException().getNextException().printStackTrace();
+			return ERROR;
+		}
+		/*catch(Exception e){
 			e.printStackTrace();
 			e.getNextException();
 			return ERROR;
-		}
+		}*/
 	}
 
 	public String addPriseEncharge() {
