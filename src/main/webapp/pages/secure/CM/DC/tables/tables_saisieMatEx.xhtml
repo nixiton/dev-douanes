@@ -83,7 +83,9 @@
 
             <f:facet name="header">Détail</f:facet>
             <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
-            oncomplete="PF('detail').show()" value="<i class='fa fa-eye'></i>"></p:commandButton>
+            oncomplete="PF('detail').show()" >
+                <i class='fa fa-eye'></i>
+            </p:commandButton>
         </p:column>
     </p:dataTable>
 </div>
