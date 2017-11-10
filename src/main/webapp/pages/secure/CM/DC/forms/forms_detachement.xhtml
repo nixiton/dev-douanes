@@ -41,9 +41,9 @@
 
                     <p:selectOneMenu value="#{depositaireBean.materiel}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.nomenMat.nomenclature}" itemValue="#{theme}" />
+                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />
                         <p:column>
-                            <h:outputText value="#{t.nomenMat.nomenclature}" />
+                            <h:outputText value="#{t.nomenMat.designation}" />
                         </p:column>
 
                     </p:selectOneMenu>
