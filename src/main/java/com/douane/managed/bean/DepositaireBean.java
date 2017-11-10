@@ -730,8 +730,8 @@ public class DepositaireBean {
 		this.direction = direction;
 	}
 
-	public List<Materiel> getListMaterielexistant() {
-		return usermetierimpl.getListMat();
+	public List<MaterielEx> getListMaterielexistant() {
+		return usermetierimpl.getListMatEx();
 	}
 
 	public void setListMaterielexistant(List<MaterielEx> listMaterielexistant) {
