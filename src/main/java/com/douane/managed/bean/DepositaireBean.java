@@ -930,6 +930,7 @@ public class DepositaireBean {
 
 		// set Operation requete entrer materiel nouveau
 		OpEntree opEntree = usermetierimpl.reqEntrerMateriel(m, agent);
+		
 		return SUCCESS;
 	}
 

@@ -23,6 +23,7 @@ public class OperationBean {
     
 
 	private List<Operation> mesOperations;
+	private List<Operation> listOperations;
 	private Operation operation;
 
 
@@ -51,6 +52,15 @@ public class OperationBean {
 
 	public void setMesOperations(List<Operation> mesOperations) {
 		this.mesOperations = mesOperations;
+	}
+
+	public List<Operation> getListOperations() {
+		this.setListOperations(usermetierimpl.getListOp());
+		return listOperations;
+	}
+
+	public void setListOperations(List<Operation> listOperations) {
+		this.listOperations = listOperations;
 	}
 
 }
