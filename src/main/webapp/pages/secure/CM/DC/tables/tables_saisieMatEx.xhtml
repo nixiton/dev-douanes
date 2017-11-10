@@ -17,7 +17,10 @@
         <hr></hr>
 
     </div>    
-    <p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{depositaireBean.listMaterielexistant}" var="materiel">
+    <p:dataTable id="tbl" var="c" value="#{operationBean.mesOperations}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                 paginator="true" rows="10" style="margin-bottom:20px">
+ 
         <p:column>
             <f:facet name="header">ID</f:facet>
             #{materiel.idMateriel}
@@ -80,11 +83,7 @@
 
             <f:facet name="header">Détail</f:facet>
             <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
-            oncomplete="PF('detail').show()">
-
-                <i class='fa fa-eye'></i>
-                
-            </p:commandButton>
+            oncomplete="PF('detail').show()" value="<i class='fa fa-eye'></i>"></p:commandButton>
         </p:column>
     </p:dataTable>
 </div>
