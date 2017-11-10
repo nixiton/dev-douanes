@@ -22,66 +22,96 @@
                  paginator="true" rows="10" style="margin-bottom:20px">
  
         <p:column>
-            <f:facet name="header">ID</f:facet>
-            #{materiel.idMateriel}
+            <f:facet name="header">
+                <h:outputText value="ID" />
+            </f:facet>
+            <h:outputText value="#{materiel.idMateriel}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Prix Unitaire</f:facet>
-            #{materiel.pu}
+            <f:facet name="header">
+                <h:outputText value="Prix Unitaire" />
+            </f:facet>
+            <h:outputText value="#{materiel.pu}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Référence</f:facet>
-            #{materiel.reference}
+            <f:facet name="header">
+                <h:outputText value="Référence" />
+            </f:facet>
+            <h:outputText value="#{materiel.reference}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Numéro de série</f:facet>
-            #{materiel.numSerie}
+            <f:facet name="header">
+                <h:outputText value="Numéro de série" />
+            </f:facet>
+            <h:outputText value="#{materiel.numSerie}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Autre</f:facet>
-            #{materiel.autre}
+            <f:facet name="header">
+                <h:outputText value="Autre" />
+            </f:facet>
+           <h:outputText value=" #{materiel.autre}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Codification</f:facet>
-            #{materiel.code}
+            <f:facet name="header">
+                <h:outputText value="Codification" />
+            </f:facet>
+            <h:outputText value="#{materiel.code}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Nomenclature</f:facet>
-            #{materiel.nomenMat.nomenclature}
+            <f:facet name="header">
+                <h:outputText value="Nomenclature" />
+            </f:facet>
+            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Etat</f:facet>
-            #{materiel.etat.designation}
+            <f:facet name="header">
+                <h:outputText value="Etat" />
+            </f:facet>
+            <h:outputText value="#{materiel.etat.designation}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Caractéristiques</f:facet>
-            #{materiel.caract}
+            <f:facet name="header">
+                <h:outputText value="Caractéristiques" />
+            </f:facet>
+            <h:outputText value="#{materiel.caract}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Marque</f:facet>
-            #{materiel.marque.designation}
+            <f:facet name="header">
+                <h:outputText value="Marque" />
+            </f:facet>
+            <h:outputText value="#{materiel.marque.designation}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Détenteur</f:facet>
-            #{materiel.detenteur.im}
+            <f:facet name="header">
+                <h:outputText value="Détenteur" />
+            </f:facet>
+            <h:outputText value="#{materiel.detenteur.im}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Dépositaire</f:facet>
-            #{materiel.dc.nomAgent}
+            <f:facet name="header">
+                <h:outputText value="Dépositaire" />
+            </f:facet>
+            <h:outputText value="#{materiel.dc.nomAgent}" />
         </p:column>
         <!--p:column>
-            <f:facet name="header">Documents</f:facet>
+            <f:facet name="header">
+                <h:outputText value="Documents" />
+            </f:facet>
             <h:outputLink value="#{materiel.fileName}" >
                 Download back
             </h:outputLink>
         </p:column>
         <p:column>
-            <f:facet name="header">Photo</f:facet>
+            <f:facet name="header">
+                <h:outputText value="Photo" />
+            </f:facet>
             <h:graphicImage value="#{materiel.photo}" />
         </p:column-->
         <p:column>
 
-            <f:facet name="header">Détail</f:facet>
+            <f:facet name="header">
+                <h:outputText value="Détail" />
+            </f:facet>
             <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
             oncomplete="PF('detail').show()" >
                 <i class='fa fa-eye'></i>
