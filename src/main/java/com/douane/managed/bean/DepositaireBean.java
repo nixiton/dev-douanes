@@ -925,9 +925,9 @@ public class DepositaireBean {
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
-			return ERROR;
+			
 			System.out.println(e.getMessage());
-
+			return ERROR;
 		}
 		
 	}
@@ -942,8 +942,9 @@ public class DepositaireBean {
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
-			return ERROR;
+			
 			System.out.println(e.getMessage());
+			return ERROR;
 		}
 
 		
@@ -960,8 +961,9 @@ public class DepositaireBean {
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			return ERROR;
+			
 			System.out.println(e.getMessage());
+			return ERROR;
 		}
 
 		
