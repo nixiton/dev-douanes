@@ -41,7 +41,7 @@
         <hr></hr>
 
     </div>   
-    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielexistant}" 
+    <p:dataTable   var="materiel" value="#{depositaireBean.listAllMateriel}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="10" style="margin-bottom:20px">
         <p:column>
@@ -95,14 +95,14 @@
         <p:column>
             <f:facet name="header">Statut</f:facet>
             <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
-            oncomplete="PF('statut').show()" icon="fa fa-eye">
+            oncomplete="PF('statut').show()" icon="ui-icon-info">
 
             </p:commandButton>
         </p:column>
         <p:column>
             <f:facet name="header">Histoique</f:facet>
             <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
-            oncomplete="PF('historique').show()" icon="fa fa-eye">
+            oncomplete="PF('historique').show()" icon="ui-icon-clipboard">
             </p:commandButton>
         </p:column>
     </p:dataTable>
