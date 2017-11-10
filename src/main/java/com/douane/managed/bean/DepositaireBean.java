@@ -153,7 +153,26 @@ public class DepositaireBean {
 	private Service service;
 	private Direction direction;
 
-	private List<Materiel> listMaterielexistant;
+	private List<MaterielEx> listMaterielexistant;
+
+	public List<MaterielNouv> getListMaterielnouveau() {
+		return usermetierimpl.getListMatNouv();
+	}
+
+	public void setListMaterielnouveau(List<MaterielNouv> listMaterielnouveau) {
+		this.listMaterielnouveau = listMaterielnouveau;
+	}
+
+	public List<Materiel> getListAllMateriel() {
+		return usermetierimpl.getListMat();
+	}
+
+	public void setListAllMateriel(List<Materiel> listAllMateriel) {
+		this.listAllMateriel = listAllMateriel;
+	}
+
+	private List<MaterielNouv> listMaterielnouveau;
+	private List<Materiel> listAllMateriel;
 	private Materiel curentMateriel;
 	private String nom;
 	private String prenom;
@@ -715,7 +734,7 @@ public class DepositaireBean {
 		return usermetierimpl.getListMat();
 	}
 
-	public void setListMaterielexistant(List<Materiel> listMaterielexistant) {
+	public void setListMaterielexistant(List<MaterielEx> listMaterielexistant) {
 		this.listMaterielexistant = listMaterielexistant;
 	}
 

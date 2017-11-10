@@ -16,8 +16,8 @@ public interface ITypeMaterielMetier {
 	public void remTypeMateriel(TypeMateriel t);
 	
 	//temporary
-	
-	
+
+	public List<Materiel> getListMaterielByType(Materiel m);
 	public List<TypeMateriel> findAllTypeMateriel();	
 	
 	 

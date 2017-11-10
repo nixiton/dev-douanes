@@ -2,6 +2,8 @@ package com.douane.metier.typeMateriel;
 
 import java.util.List;
 
+import com.douane.dao.materiel.IMatDAO;
+import com.douane.entite.Materiel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.douane.entite.Nomenclature;
@@ -15,7 +17,7 @@ public class TypeMaterielMetier implements ITypeMaterielMetier{
 	@Autowired
 	private TypeMaterielRepository typeMatrepos;
 	
-	
+	private IMatDAO matDAO;
 	@Override
 	public TypeMateriel addTypeMateriel(TypeMateriel t) {
 		typeMatrepos.save(t);
@@ -28,10 +30,17 @@ public class TypeMaterielMetier implements ITypeMaterielMetier{
 		
 	}
 
+
+
 	@Override
 	public List<TypeMateriel> findAllTypeMateriel() {
 		return (List<TypeMateriel>)typeMatrepos.findAll();
 	}
 
+	@Override
+	public List<Materiel> getListMaterielByType(Materiel m)
+	{
 
+		return matDAO.listMat(m);
+	}
 }
