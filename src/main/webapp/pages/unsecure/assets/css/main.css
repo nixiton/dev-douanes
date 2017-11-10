@@ -2597,4 +2597,6 @@ table, .ui-datatable-tablewrapper {
   background: none!important;
 }
 
-
+.ui-messages-warn {
+  display: none!important;
+}
