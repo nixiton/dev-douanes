@@ -463,7 +463,6 @@ public class DepositaireBean {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			e.getNextException();
 		}
 
 	}
@@ -853,6 +852,7 @@ public class DepositaireBean {
 		}
 		catch(Exception e){
 			e.printStackTrace();
+			e.getNextException();
 			return ERROR;
 		}
 	}
