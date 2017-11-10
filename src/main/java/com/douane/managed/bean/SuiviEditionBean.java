@@ -24,6 +24,9 @@ public class SuiviEditionBean {
     private Direction direction;
     private Date startDate;
     private Date endDate;
+
+
+
     private List<Operation> listAllOperation;
     private List<OpEntree> listOperationEntree;
     private List<OpSortie> listOperationSortie;
@@ -205,4 +208,106 @@ public class SuiviEditionBean {
         return usermetierimpl.getListOpDettByMat(getMateriel());
     }
 
+
+
+
+    public void setListAllOperation(List<Operation> listAllOperation) {
+        this.listAllOperation = listAllOperation;
+    }
+
+    public void setListOperationEntree(List<OpEntree> listOperationEntree) {
+        this.listOperationEntree = listOperationEntree;
+    }
+
+    public void setListOperationSortie(List<OpSortie> listOperationSortie) {
+        this.listOperationSortie = listOperationSortie;
+    }
+
+    public void setListOperatoinByOperateur(List<Operation> listOperatoinByOperateur) {
+        this.listOperatoinByOperateur = listOperatoinByOperateur;
+    }
+
+    public void setListOperationEntreeByOperator(List<OpEntree> listOperationEntreeByOperator) {
+        this.listOperationEntreeByOperator = listOperationEntreeByOperator;
+    }
+
+    public void setListOperationSortieByOperator(List<OpSortie> listOperationSortieByOperator) {
+        this.listOperationSortieByOperator = listOperationSortieByOperator;
+    }
+
+    public void setListOperatoinByDirection(List<Operation> listOperatoinByDirection) {
+        this.listOperatoinByDirection = listOperatoinByDirection;
+    }
+
+    public void setListOperationEntreeByDirection(List<OpEntree> listOperationEntreeByDirection) {
+        this.listOperationEntreeByDirection = listOperationEntreeByDirection;
+    }
+
+    public void setListOperationSortieByDirection(List<OpSortie> listOperationSortieByDirection) {
+        this.listOperationSortieByDirection = listOperationSortieByDirection;
+    }
+
+    public List<Operation> getListOperationBetween() {
+        return listOperationBetween;
+    }
+
+    public void setListOperationBetween(List<Operation> listOperationBetween) {
+        this.listOperationBetween = listOperationBetween;
+    }
+
+    public void setListOperationEntreeByMateriel(List<OpEntree> listOperationEntreeByMateriel) {
+        this.listOperationEntreeByMateriel = listOperationEntreeByMateriel;
+    }
+
+    public void setListOperationSortieByMateriel(List<OpSortie> listOperationSortieByMateriel) {
+        this.listOperationSortieByMateriel = listOperationSortieByMateriel;
+    }
+
+    public List<OpEntree> getListOperationEntreeByMaterielByDate() {
+        return listOperationEntreeByMaterielByDate;
+    }
+
+    public void setListOperationEntreeByMaterielByDate(List<OpEntree> listOperationEntreeByMaterielByDate) {
+        this.listOperationEntreeByMaterielByDate = listOperationEntreeByMaterielByDate;
+    }
+
+    public List<OpSortie> getListOperationSortieByMaterielByDate() {
+        return listOperationSortieByMaterielByDate;
+    }
+
+    public void setListOperationSortieByMaterielByDate(List<OpSortie> listOperationSortieByMaterielByDate) {
+        this.listOperationSortieByMaterielByDate = listOperationSortieByMaterielByDate;
+    }
+
+    public void setListOperationAttribution(List<OpAttribution> listOperationAttribution) {
+        this.listOperationAttribution = listOperationAttribution;
+    }
+
+    public void setListOperationDetachement(List<OpDettachement> listOperationDetachement) {
+        this.listOperationDetachement = listOperationDetachement;
+    }
+
+    public void setListOperationAttributionByOperator(List<OpAttribution> listOperationAttributionByOperator) {
+        this.listOperationAttributionByOperator = listOperationAttributionByOperator;
+    }
+
+    public void setListOperationDetachementByOperator(List<OpDettachement> listOperationDetachementByOperator) {
+        this.listOperationDetachementByOperator = listOperationDetachementByOperator;
+    }
+
+    public void setListOperationAttributionByDirection(List<OpAttribution> listOperationAttributionByDirection) {
+        this.listOperationAttributionByDirection = listOperationAttributionByDirection;
+    }
+
+    public void setListOperationDeetachementByDirection(List<OpDettachement> listOperationDeetachementByDirection) {
+        this.listOperationDeetachementByDirection = listOperationDeetachementByDirection;
+    }
+
+    public void setListOperationAttributionByMateriel(List<OpAttribution> listOperationAttributionByMateriel) {
+        this.listOperationAttributionByMateriel = listOperationAttributionByMateriel;
+    }
+
+    public void setListOperationDetachementByMateriel(List<OpDettachement> listOperationDetachementByMateriel) {
+        this.listOperationDetachementByMateriel = listOperationDetachementByMateriel;
+    }
 }
