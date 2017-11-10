@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
+@Table(name="operationentree")
 public class OpEntree extends Operation{
 	private static Long numerochronoe;
 	
