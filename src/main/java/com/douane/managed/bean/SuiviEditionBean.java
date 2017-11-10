@@ -58,7 +58,8 @@ public class SuiviEditionBean {
 
     public List<OpEntree> getListOperationEntree()
     {
-        return usermetierimpl.getListOpEntree();
+        setListOperationEntree(usermetierimpl.getListOpEntree());
+        return listOperationEntree;
     }
 
     public List<OpSortie> getListOperationSortie()
