@@ -95,19 +95,14 @@
         <p:column>
             <f:facet name="header">Statut</f:facet>
             <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
-            oncomplete="PF('statut').show()">
-
-            <i class='fa fa-eye'></i>
+            oncomplete="PF('statut').show()" icon="fa fa-eye">
 
             </p:commandButton>
         </p:column>
         <p:column>
             <f:facet name="header">Histoique</f:facet>
             <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
-            oncomplete="PF('historique').show()">
-
-            <i class='fa fa-eye'></i>
-
+            oncomplete="PF('historique').show()" icon="fa fa-eye">
             </p:commandButton>
         </p:column>
     </p:dataTable>
