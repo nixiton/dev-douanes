@@ -44,7 +44,11 @@ public class OpEntree extends Operation{
 	    	mm=""+m;
 	    }
 		yy=""+y%200;
-		this.numentree="OE "+ numerochronoe+ "/"+mat.getServ().getCodeService()+ "/" +dd+ "/" +mm+ "/" +yy;
+		String codeservice ="tsy misy";
+		if(mat.getServ()!=null) {
+			codeservice = mat.getServ().getCodeService();
+		}
+		this.numentree="OE "+ numerochronoe+ "/"+codeservice+ "/" +dd+ "/" +mm+ "/" +yy;
 	}
 	public Materiel getMat() {
 		return mat;
