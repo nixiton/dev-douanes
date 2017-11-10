@@ -27,8 +27,13 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.materiel}">
-                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomMat.nomenclature}"/>   
+                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.nomMat.nomenclature}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.nomMat.nomenclature}" />
+                        </p:column>
+
                     </p:selectOneMenu>
 
                 <hr></hr>

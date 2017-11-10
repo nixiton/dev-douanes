@@ -39,10 +39,14 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.materiel}">
-                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomMat.nomenclature}"/>
-                    </p:selectOneMenu>
+                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.nomMat.nomenclature}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.nomMat.nomenclature}" />
+                        </p:column>
 
+                    </p:selectOneMenu>
                 </div>
                 
                 <hr></hr>
@@ -53,12 +57,12 @@
 
                 <div class="col-lg-6">
 
-                    <p:inputText   required="true"
-                        value="#{depositaireBean.motifSortie}"
-                        requiredMessage=""
-                        placeholder="Désignation" styleClass="form-control top"></p:inputText>
-
-                    
+                    <p:selectOneMenu value="#{depositaireBean.motifSortie}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{siseBean.listMotifSortie}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
 
                     </p:selectOneMenu>
 
