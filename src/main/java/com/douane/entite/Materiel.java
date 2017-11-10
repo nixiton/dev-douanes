@@ -17,7 +17,7 @@ import javax.persistence.Transient;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="typeMateriel", discriminatorType=DiscriminatorType.STRING,length=4)
+@DiscriminatorColumn(name="typeMateriels", discriminatorType=DiscriminatorType.INTEGER)
 public class Materiel implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

@@ -6,7 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-@DiscriminatorValue("MN")
+@DiscriminatorValue("3")
 public class MaterielNouv extends Materiel{
 	
 	@ManyToOne
