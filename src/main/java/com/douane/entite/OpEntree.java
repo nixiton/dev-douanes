@@ -23,6 +23,7 @@ public class OpEntree extends Operation{
 	public OpEntree(Date date, Date time, String poste, Agent operateur, Materiel mater) {
 		super(date, time, poste, operateur);
 		this.setMat(mater);
+		this.numentree = "";
 	}
 	public OpEntree() {
 		
