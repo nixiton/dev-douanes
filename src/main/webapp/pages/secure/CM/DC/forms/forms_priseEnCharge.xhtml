@@ -24,9 +24,12 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
-                    valueChangeListener="#{depositaireBean.typeMatChange}">
-                        <f:selectItems value="#{siseBean.listNomenclature}"  var="type" itemLabel="#{type.designation}"/>
+                     <p:selectOneMenu value="#{depositaireBean.typemateriel}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{siseBean.listNomenclature}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
                     </p:selectOneMenu>
 
                 <hr></hr>
@@ -60,10 +63,14 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.marq}">
-                        <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
-                    </p:selectOneMenu>
+                     <p:selectOneMenu value="#{depositaireBean.marq}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{siseBean.listMarque}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
 
+                    </p:selectOneMenu>
                 <hr></hr>
 
                 </div>
@@ -133,8 +140,13 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.acquisition}">
-                        <f:selectItems value="#{siseBean.listModeAcquisition}" var="etat" itemLabel="#{etat.designation}"/>
+                     <p:selectOneMenu value="#{depositaireBean.acquisition}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{siseBean.listModeAcquisition}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
                     </p:selectOneMenu>
 
 
@@ -152,8 +164,13 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.financement}">
-                        <f:selectItems value="#{siseBean.listFinancement}" var="f" itemLabel="#{f.designation}"/>
+
+                    <p:selectOneMenu value="#{depositaireBean.financement}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{siseBean.listFinancement}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
                     </p:selectOneMenu>
 
                 <hr></hr>
@@ -203,9 +220,14 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.fournisseur}">
-                        <f:selectItems value="#{siseBean.listFournisseur}" var="f" itemLabel="#{f.designation}"/>
+                    <p:selectOneMenu value="#{depositaireBean.fournisseur}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{siseBean.listFournisseur}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
                     </p:selectOneMenu>
+
 
                 <hr></hr>
 
