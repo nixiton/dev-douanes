@@ -27,7 +27,7 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.materiel}"  panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.nomenMat.nomenclature}" itemValue="#{theme}" />
                         <p:column>
