@@ -11,10 +11,10 @@ import com.douane.metier.typeMateriel.ITypeMaterielMetier;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.DocumentModel;
 import com.douane.model.DocumentModelSimple;
-import org.hibernate.JDBCException;
-//import com.douanfullmodel.UploadedFileByte;
+//import com.douane.model.UploadedFileByte;
 import com.douane.requesthttp.RequestFilter;
 import org.apache.commons.io.FilenameUtils;
+import org.hibernate.JDBCException;
 import org.primefaces.context.ApplicationContext;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
@@ -64,7 +64,7 @@ public class DepositaireBean {
 	private String fileupload;
 	// @Autowired
 	// ConfigurableApplicationContext context;
-	
+
 	private String fileUploadSize;
 
 	private static final String SUCCESS = "success";
@@ -819,7 +819,7 @@ public class DepositaireBean {
         }
         return ds;
     }
-	public String addMateriel() {
+    public String addMateriel() {
 		System.out.println("ADD MATERIEL");
 		try{
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
@@ -828,7 +828,7 @@ public class DepositaireBean {
 		m.setAutre(getAutre());
 		m.setBureau(getBureau());
 		// m.setDirec(getDirection());
-		m.setDirec(agent.getDirection());
+		//m.setDirec(agent.getDirection());
 		m.setDocumentPath("default");
 		m.setEtat(getEtat());
 		m.setMarque(getMarq());
@@ -837,7 +837,8 @@ public class DepositaireBean {
 		m.setPu(getUnitPrice());
 		m.setReference(getReference());
 		m.setRenseignement(getRenseignement());
-		m.setServ(getService());
+		
+		m.setServ(getServiceforMat());
 
 		// m.setCaract(caract);
 		// m.setCategorie(categorie);
@@ -861,7 +862,6 @@ public class DepositaireBean {
 			return ERROR;
 		}*/
 	}
-
 	public String addPriseEncharge() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
