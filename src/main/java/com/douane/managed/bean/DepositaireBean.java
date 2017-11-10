@@ -922,13 +922,14 @@ public class DepositaireBean {
 		try {
 			// getCurrent Materiel ve?????
 			opAt = usermetierimpl.reqAttribution(getMateriel(), agent, getDetenteur());
+			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
 			return ERROR;
 			System.out.println(e.getMessage());
 
 		}
-		return SUCCESS;
+		
 	}
 
 	public String addDetachement() {
@@ -938,13 +939,14 @@ public class DepositaireBean {
 		try {
 			// getCurrent Materiel ve?????
 			opDet = usermetierimpl.reqDettachement(this.getMateriel(), agent, getDetenteur());
+			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
 			return ERROR;
 			System.out.println(e.getMessage());
 		}
 
-		return SUCCESS;
+		
 
 	}
 
@@ -955,13 +957,14 @@ public class DepositaireBean {
 		try {
 			opSort = usermetierimpl.reqSortirMateriel(this.getMateriel(), this.getMotifSortie(),
 					this.getDestinationDirec(), this.getDestinationService(), this.getDestination(), agent);
+			return SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			return ERROR;
 			System.out.println(e.getMessage());
 		}
 
-		return SUCCESS;
+		
 
 	}
 
