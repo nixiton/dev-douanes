@@ -13,52 +13,88 @@
 
 	<div class="body">
 
-		<h:form class="form-horizontal">
+		<h:form id="myform">
+					<p:messages id="messages" showDetail="true" autoUpdate="true" />
 
-			<div class="form-group">
-				<label for="text1" class="control-label col-lg-4">Désignation
-				</label>
 
-				<div class="col-lg-6">
+					<h:outputLabel for="name" styleClass="col-md-6"
+						value="Nom et prénom : " />
+					<p:inputText id="name" styleClass="col-md-6" value="#{userMB.name}"
+						required="true">
 
-					<p:inputText   required="true"
-						value="#{siseBean.designation}"
-						requiredMessage=""
-						placeholder="Désignation" styleClass="form-control top"></p:inputText>
+						<p:ajax event="blur" update="nameMsg" />
+					</p:inputText>
+					<p:message id="nameMsg" for="name" display="icon" />
 
-				</div>
-				
-				<hr></hr>
-				
-				<label for="text2" class="control-label col-lg-4">rôle
-				</label>
 
-				<div class="col-lg-6">
+					<h:outputLabel for="im" styleClass="col-md-6"
+						value="Imatriculation : " />
+					<p:inputText id="im" styleClass="col-md-6" value="#{userMB.im}"
+						required="true">
+					</p:inputText>
 
-					<p:inputText id="nomenclature" required="true"
-						value="#{siseBean.role}"
-						requiredMessage=""
-						placeholder="Role" styleClass="form-control top"></p:inputText>
+					<!-- User role -->
+					<h:outputLabel for="role" styleClass="col-md-6"
+								   value="Role : " />
+					<p:inputText id="role" styleClass="col-md-6" value="#{userMB.role}"
+								 required="true">
+					</p:inputText>
+					<h:outputLabel for="designation" styleClass="col-md-6"
+								   value="designation : " />
+					<p:inputText id="designation" styleClass="col-md-6" value="#{userMB.designation}"
+								 required="true">
+					</p:inputText>
 
-				</div>
 
-				<div class="col-lg-2"></div>
 
-			</div>
+					<h:outputLabel styleClass="col-md-6" for="username"
+						value="Login : " />
+					<p:inputText id="username" styleClass="col-md-6"
+						value="#{userMB.username}" required="true">
 
-			<div class="form-group">
-				<label for="text1" class="control-label col-lg-4"></label>
+						<p:ajax event="blur" update="usernameMsg" />
+					</p:inputText>
+					<p:message id="usernameMsg" for="username" display="icon" />
 
-				<div class="col-lg-4">
-					<h:commandButton id="btnSignId" action="#{siseBean.addUser}" value="Créer"
-						class="btn btn-lg btn-primary btn-block"/>
-				</div>
 
-				<div class="col-lg-4"></div>
+					<h:outputLabel for="password1" styleClass="col-md-6"
+						value="Mot de passe : " />
+					<p:password id="password1" styleClass="col-md-6"
+						value="#{userMB.password}" match="password2" required="true">
+					</p:password>
 
-			</div>
 
-		</h:form>
+					<h:outputLabel styleClass="col-md-6" for="password2"
+						value="Retaper mot de passe : " />
+					<p:password id="password2" styleClass="col-md-6"
+						value="#{userMB.password}" required="true">
+					</p:password>
+
+
+					<h:outputLabel styleClass="col-md-6" 
+						value="Direction " />
+
+					<p:selectOneMenu value="#{UserMB.direction}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems value="#{siseBean.listDirection}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <p:column>
+                            <h:outputText value="#{t.designation}" />
+                        </p:column>
+
+                    </p:selectOneMenu>
+
+
+
+					<h:commandButton id="addUser" action="#{userMB.addUser}"
+						value="S'enregistrer" ajax="false" class="btn btn-lg btn-primary btn-block" />
+
+					
+
+					<h:commandButton id="reset" action="#{userMB.reset}"
+						value="Réinitialiser" ajax="false" class="btn btn-lg btn-primary btn-block" />
+
+
+				</h:form>
 
 	</div>
 

@@ -11,28 +11,12 @@
 
 	<div class="col-lg-4">
 
-		<h:link value="Ajouter" outcome="add_Utilisateur"
+		<h:link value="Ajouter Utilisateur" outcome="add_Utilisateur"
 			class="btn btn-primary-lg btn-primary btn-block" immediate="true" />
 			
 		<hr></hr>
 
 	</div>
-
-	<p:dataTable styleClass="table table-bordered table-condensed table-hover table-striped" value="#{siseBean.listUtilisateur}" var="u">
-		<p:column>
-			<f:facet name="header">ID</f:facet>
-			#{u.idUser}
-		</p:column>
-		<p:column>
-			<f:facet name="header">Désignation</f:facet>
-			#{u.designation}
-		</p:column>
-		<p:column>
-			<f:facet name="header">Rôle</f:facet>
-			#{u.role}
-		</p:column>
-	</p:dataTable>
-
 
 
 </div>
