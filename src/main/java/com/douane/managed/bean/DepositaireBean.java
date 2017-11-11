@@ -822,7 +822,7 @@ public class DepositaireBean {
 	}
 
 	public void onTypeMaterielChange() {
-		System.out.println("Nomeclature  = "+ getTypemateriel().getNomenclature());
+		
 		this.setNomencl(getTypemateriel().getNomenclature());
 	}
 
