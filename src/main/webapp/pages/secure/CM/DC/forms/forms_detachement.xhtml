@@ -28,10 +28,16 @@
                 </label>
 
                 <div class="col-lg-6">
-                    
+
+                    <p:selectOneMenu id="zone" styleClass="form-control top" converter="#{UseriConverter}" value="#{depositaireBean.detenteur}">
+                            <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}"/>
+                            <p:ajax event="change" update="nom"  listener="#{depositaireBean.onDetenteurChange}"/>
+                        </p:selectOneMenu>
+
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
 
 
                 <label for="text1" class="control-label col-lg-4">Matériel
@@ -39,7 +45,7 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.materiel}" panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.materiel}" panelStyle="width:180px" converter="#{MaterielConverter}"   style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />
                         <p:column>
@@ -47,9 +53,10 @@
                         </p:column>
 
                     </p:selectOneMenu>
+                <hr></hr>
                 </div>
                 
-                <hr></hr>
+                
 
 
                 <label for="text1" class="control-label col-lg-4">Motif
@@ -66,9 +73,11 @@
 
                     </p:selectOneMenu>
 
+                <hr></hr>
+
                 </div>
                 
-                <hr></hr>
+                
 
 
                 <div class="col-lg-2"></div>
