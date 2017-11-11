@@ -45,7 +45,7 @@
 
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}" onchange="#{depositaireBean.onTypeMaterielChange(this.nomenclature)}">
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}" listener="#{depositaireBean.onTypeMaterielChange}" update="data" >
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
                         </p:selectOneMenu>
 
@@ -59,14 +59,14 @@
                     <label for="text1" class="control-label col-lg-4">Nomenclature
                     </label>
 
-                    <div class="col-lg-6" id="data">
+                    <div class="col-lg-6">
 
                     <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
                         <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>
 
                     </h:selectOneMenu-->
 
-                        <h:inputText value="#{depositaireBean.nomencl}" 
+                        <h:inputText  id="data" value="#{depositaireBean.nomencl}" 
                         ></h:inputText>
 
                     <hr></hr>
