@@ -5,7 +5,9 @@ import com.douane.entite.Useri;
 import com.douane.metier.user.IUserMetier;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -14,6 +16,9 @@ import javax.faces.convert.ConverterException;
 /**
  * Created by hasina on 11/11/17.
  */
+
+@ManagedBean
+@RequestScoped
 public class MaterielConverter implements Converter {
 
     @ManagedProperty(value="#{usermetier}")
