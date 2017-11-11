@@ -22,9 +22,13 @@
 					<p:inputText id="name" styleClass="col-md-6" value="#{userMB.name}"
 						required="true">
 
+					<hr></hr>
+
 						<p:ajax event="blur" update="nameMsg" />
 					</p:inputText>
 					<p:message id="nameMsg" for="name" display="icon" />
+
+					<hr></hr>
 
 
 					<h:outputLabel for="im" styleClass="col-md-6"
@@ -33,18 +37,21 @@
 						required="true">
 					</p:inputText>
 
+					<hr></hr>
+
 					<!-- User role -->
-					<h:outputLabel for="role" styleClass="col-md-6"
-								   value="Role : " />
-					<p:inputText id="role" styleClass="col-md-6" value="#{userMB.role}"
-								 required="true">
-					</p:inputText>
 					<h:outputLabel for="designation" styleClass="col-md-6"
-								   value="designation : " />
+								   value="Designation  du role : " />
 					<p:inputText id="designation" styleClass="col-md-6" value="#{userMB.designation}"
 								 required="true">
 					</p:inputText>
+					<h:outputLabel for="role" styleClass="col-md-6"
+								   value="Code du role : " />
+					<p:inputText id="role" styleClass="col-md-6" value="#{userMB.role}"
+								 required="true">
+					</p:inputText>
 
+					<hr></hr>
 
 
 					<h:outputLabel styleClass="col-md-6" for="username"
@@ -52,9 +59,13 @@
 					<p:inputText id="username" styleClass="col-md-6"
 						value="#{userMB.username}" required="true">
 
+					<hr></hr>
+
 						<p:ajax event="blur" update="usernameMsg" />
 					</p:inputText>
 					<p:message id="usernameMsg" for="username" display="icon" />
+
+					<hr></hr>
 
 
 					<h:outputLabel for="password1" styleClass="col-md-6"
@@ -63,6 +74,8 @@
 						value="#{userMB.password}" match="password2" required="true">
 					</p:password>
 
+					<hr></hr>
+
 
 					<h:outputLabel styleClass="col-md-6" for="password2"
 						value="Retaper mot de passe : " />
@@ -70,11 +83,13 @@
 						value="#{userMB.password}" required="true">
 					</p:password>
 
+					<hr></hr>
+
 
 					<h:outputLabel styleClass="col-md-6" 
 						value="Direction " />
 
-					<p:selectOneMenu value="#{UserMB.direction}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+					<p:selectOneMenu value="#{userMB.direction}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{siseBean.listDirection}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
@@ -83,9 +98,11 @@
 
                     </p:selectOneMenu>
 
+                    <hr></hr>
 
 
-					<h:commandButton id="addUser" action="#{userMB.addUser}"
+
+					<h:commandButton id="addUser" action="#{userMB.addUserRef}"
 						value="S'enregistrer" ajax="false" class="btn btn-lg btn-primary btn-block" />
 
 					

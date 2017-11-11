@@ -1,11 +1,11 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://primefaces.org/ui"
-    >
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
 
 <div   class="body collapse in table-responsive">
 
@@ -16,78 +16,108 @@
             
         <hr></hr>
 
-    </div>
-
-    <p:dataTable   var="p" value="#{depositaireBean.listPriseEnCharge}" 
+    </div>    
+    <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielnouveau}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="10" style="margin-bottom:20px">
+ 
         <p:column>
-            <f:facet name="header">ID</f:facet>
-            #{p.id}
+            <f:facet name="header">
+                <h:outputText value="ID" />
+            </f:facet>
+            <h:outputText value="#{materiel.idMateriel}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Type de Matériel</f:facet>
-            #{p.typemateriel}
+            <f:facet name="header">
+                <h:outputText value="Prix Unitaire" />
+            </f:facet>
+            <h:outputText value="#{materiel.pu}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Nomenclature</f:facet>
-            #{p.nomencl}
+            <f:facet name="header">
+                <h:outputText value="Référence" />
+            </f:facet>
+            <h:outputText value="#{materiel.reference}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Marque</f:facet>
-            #{p.marq}
+            <f:facet name="header">
+                <h:outputText value="Numéro de série" />
+            </f:facet>
+            <h:outputText value="#{materiel.numSerie}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Référence</f:facet>
-            #{p.reference}
+            <f:facet name="header">
+                <h:outputText value="Autre" />
+            </f:facet>
+           <h:outputText value=" #{materiel.autre}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Numero de Série</f:facet>
-            #{p.numSerie}
+            <f:facet name="header">
+                <h:outputText value="Codification" />
+            </f:facet>
+            <h:outputText value="#{materiel.code}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Caractéristiques</f:facet>
-            #{p.carac}
+            <f:facet name="header">
+                <h:outputText value="Nomenclature" />
+            </f:facet>
+            <h:outputText value="#{materiel.nomenMat.designation}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Mode d'aquisition</f:facet>
-            #{p.acquisition}
+            <f:facet name="header">
+                <h:outputText value="Etat" />
+            </f:facet>
+            <h:outputText value="#{materiel.etat.designation}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Financement</f:facet>
-            #{p.financement}
+            <f:facet name="header">
+                <h:outputText value="Caractéristiques" />
+            </f:facet>
+            <h:outputText value="#{materiel.caract}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Montant sur facture</f:facet>
-            #{p.montantFac}
+            <f:facet name="header">
+                <h:outputText value="Marque" />
+            </f:facet>
+            <h:outputText value="#{materiel.marque.designation}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Référence facture</f:facet>
-            #{p.refFacture}
+            <f:facet name="header">
+                <h:outputText value="Détenteur" />
+            </f:facet>
+            <h:outputText value="#{materiel.detenteur.im}" />
         </p:column>
         <p:column>
-            <f:facet name="header">Fournisseur</f:facet>
-            #{p.fournisseur}
+            <f:facet name="header">
+                <h:outputText value="Dépositaire" />
+            </f:facet>
+            <h:outputText value="#{materiel.dc.nomAgent}" />
         </p:column>
-        <p:column>
-            <f:facet name="header">Etat</f:facet>
-            #{p.etat}
-        </p:column>
-        <p:column>
-            <f:facet name="header">Pièces justificatives</f:facet>
-            <h:outputLink value="#{p.fileName}" >
+        <!--p:column>
+            <f:facet name="header">
+                <h:outputText value="Documents" />
+            </f:facet>
+            <h:outputLink value="#{materiel.fileName}" >
                 Download back
             </h:outputLink>
         </p:column>
         <p:column>
-            <f:facet name="header">Photo</f:facet>
-            <h:graphicImage value="#{p.photo}" />
+            <f:facet name="header">
+                <h:outputText value="Photo" />
+            </f:facet>
+            <h:graphicImage value="#{materiel.photo}" />
+        </p:column-->
+        <p:column>
+
+            <f:facet name="header">
+                <h:outputText value="Détail" />
+            </f:facet>
+            <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
+            oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column>
-
     </p:dataTable>
-
-
-
 </div>
+
+<!--ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_saisieMatEx.xhtml"></ui:include-->
 
 </html>

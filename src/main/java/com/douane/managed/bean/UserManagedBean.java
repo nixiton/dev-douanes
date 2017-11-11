@@ -18,9 +18,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.douane.entite.Agent;
+import com.douane.entite.Direction;
 import com.douane.entite.Useri;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.User;
+
 
 
 @ManagedBean(name="userMB")
@@ -57,6 +59,7 @@ public class UserManagedBean implements Serializable {
 	private String role;
 	private String designation;
 	private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	private Direction direction;
 	/**
 	 * Add User
 	 * 
@@ -81,6 +84,43 @@ public class UserManagedBean implements Serializable {
 			useri.setDesignation(designation);
 			useri.setRole(role);
 			user.setRoleAgent(useri);
+			user.setDirection(direction);
+			//getUsermetierimpl().addAgent(user);
+			//refmetierimpl.addRef(new Useri(designation,role), new Agent(getIm(),getName(),hashedPassword,new Useri(designation,role)));
+			//refmetierimpl.addRef(useri,user);
+			usermetierimpl.addUser(useri);
+			usermetierimpl.addAgent(user);
+
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
+			return SUCCESS;
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		} 	
+		FacesContext.getCurrentInstance().addMessage("myForm:password1", new FacesMessage("Password Doesnt Match"));
+		return ERROR;
+	}
+
+
+	public String addUserRef() {
+		try {
+			Agent user = new Agent();
+			Useri useri = new Useri();
+			//user.setName(getName());
+
+			user.setNomAgent(getName());
+
+			//user.setUsername(getUsername());
+
+			user.setPrenomAgent(getName());
+			user.setIm(getIm());
+			
+			String hashedPassword = passwordEncoder.encode(getPassword());
+			user.setPassword(hashedPassword);
+			user.setPassword(hashedPassword);
+			useri.setDesignation(designation);
+			useri.setRole(role);
+			user.setRoleAgent(useri);
+			user.setDirection(direction);
 			//getUsermetierimpl().addAgent(user);
 			//refmetierimpl.addRef(new Useri(designation,role), new Agent(getIm(),getName(),hashedPassword,new Useri(designation,role)));
 			//refmetierimpl.addRef(useri,user);
@@ -166,6 +206,27 @@ public class UserManagedBean implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
+	/**
+	 * Get User Direction
+	 * 
+	 * @return Direction - User direction
+	 */
+	public Direction getDirection() {
+		return direction;
+	}
+
+	/**
+	 * Set User direction
+	 * 
+	 * @param Direction - User direction
+	 */
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
+
+
 
 	/**
 	 * Get User Name
