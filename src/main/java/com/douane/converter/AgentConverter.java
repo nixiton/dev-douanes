@@ -32,14 +32,15 @@ public class AgentConverter implements Converter{
         
         if(value != null && value.trim().length() > 0)
         {
-        System.out.println("***************************AGENT CONV*****ERRORR********************************");
+        
             try {
+                System.out.println("***************************AGENT CONV*****ERRORR********************************   "+ 
+                    this.userMetier.findAgentByIm(Long.parseLong(value)).getNomAgent());
                 return this.userMetier.findAgentByIm(Long.parseLong(value));
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
         }
-        System.out.println("***************************AGENT CONV**NULL***ERRORR********************************");
         return null;
     }
 
