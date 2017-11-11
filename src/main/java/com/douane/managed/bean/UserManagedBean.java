@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.douane.entite.*;
 
 
+
 @ManagedBean(name="userMB")
 @RequestScoped
 @Transactional
