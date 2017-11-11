@@ -963,7 +963,7 @@ public class DepositaireBean {
 	}
 
 	public String addAttribution() {
-		System.out.println("********************************************ERRORR********************************");
+		System.out.println("****************************ADD ATTR**ERRORR********************************");
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
 

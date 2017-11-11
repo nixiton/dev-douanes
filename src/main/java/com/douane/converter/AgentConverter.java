@@ -37,6 +37,7 @@ public class AgentConverter implements Converter{
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
         }
+        System.out.println("***************************AGENT CONV*****ERRORR********************************");
         return null;
     }
 
