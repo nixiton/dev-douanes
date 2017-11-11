@@ -967,9 +967,8 @@ System.out.println("****************************ADD1 ATTR**ERRORR***************
 
 		try {
 			// getCurrent Materiel ve?????
-System.out.println("****************************ADD2 ATTR**ERRORR******************************** "+
-			getMateriel().getNomenMat().getDesignation()+ "     "+ agent.getNomAgent()+ "  " +
-			getDetenteur().getNomAgent());
+System.out.println("****************************ADD2 ATTR**ERRORR*****NULL*************************** "+
+			getMateriel().getNomenMat().getDesignation());
 
 			OpAttribution opAt = usermetierimpl.reqAttribution(getMateriel(), agent, getDetenteur());
 System.out.println("****************************ADD3 ATTR**ERRORR********************************");
