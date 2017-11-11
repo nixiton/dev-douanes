@@ -177,7 +177,7 @@ public class UserManagedBean implements Serializable {
 	 * 
 	 * @return Direction - User direction
 	 */
-	public int getDirection() {
+	public Direction getDirection() {
 		return direction;
 	}
 
