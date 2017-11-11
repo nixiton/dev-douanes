@@ -29,9 +29,10 @@ public class AgentConverter implements Converter{
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        System.out.println("***************************AGENT CONV*****ERRORR********************************");
+        
         if(value != null && value.trim().length() > 0)
         {
+        System.out.println("***************************AGENT CONV*****ERRORR********************************");
             try {
                 return this.userMetier.findAgentByIm(Long.parseLong(value));
             } catch(NumberFormatException e) {
