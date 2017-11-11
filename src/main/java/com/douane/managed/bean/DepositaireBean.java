@@ -839,10 +839,7 @@ public class DepositaireBean {
 		this.setNomencl(getTypemateriel().getNomenclature());
 	}
 
-	public void onDetenteurChange() {
-
-		System.out.println("++++++++++++++++++++++++++++NOM    ++++++++   PRENOM       " );
-
+	public void onDetenteurChange(){
 		this.setNom(getDetenteur().getNomAgent());
 		this.setPrenom(getDetenteur().getPrenomAgent());
 	}
