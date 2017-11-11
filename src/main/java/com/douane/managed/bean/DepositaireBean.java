@@ -822,8 +822,8 @@ public class DepositaireBean {
 	}
 
 	public void onTypeMaterielChange() {
-		System.out.println("Nomeclature  = "+ getTypemateriel.nomenclature );
-		this.setNomencl(getTypemateriel.nomenclature);
+		System.out.println("Nomeclature  = "+ getTypemateriel().nomenclature);
+		this.setNomencl(getTypemateriel().nomenclature);
 	}
 
 	public void onDetenteurChange() {
