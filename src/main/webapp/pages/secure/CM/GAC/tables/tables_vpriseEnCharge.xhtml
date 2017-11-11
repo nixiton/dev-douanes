@@ -15,34 +15,34 @@
     <p:dataTable   var="c" value="#{suivieditionBean.listOperationEntree}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="10" style="margin-bottom:20px">
-        <p:column>
+        <p:column sortBy="#{c.id}">
             <f:facet name="header">
                 <h:outputText value="Id" />
             </f:facet>
             <h:outputText value="#{c.id}" />
         </p:column>
  
-        <p:column>
+        <p:column sortBy="#{c.date}">
             <f:facet name="header">
                 <h:outputText value="Date"/>
             </f:facet>
             <h:outputText value="#{c.date}" />
         </p:column>
  
-        <p:column>
+        <p:column sortBy="#{c.time}">
             <f:facet name="header">
                 <h:outputText value="Heure" />
             </f:facet>
             <h:outputText value="#{c.time}" />
         </p:column>
  
-        <p:column>
+        <p:column sortBy="#{c.poste}">
             <f:facet name="header">
                 <h:outputText value="Poste" />
             </f:facet>
             <h:outputText value="#{c.poste}" />
         </p:column>
-        <p:column>
+        <p:column sortBy="#{c.operateur.im}">
             <f:facet name="header">
                 <h:outputText value="Operateur" />
             </f:facet>
