@@ -5,6 +5,8 @@ import com.douane.metier.user.IUserMetier;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import java.util.Date;
 import java.util.List;
 import org.springframework.stereotype.Component;
@@ -15,9 +17,11 @@ import org.springframework.stereotype.Component;
 
 
 @ManagedBean(name="suivieditionBean")
-@Component
+@RequestScoped
 public class SuiviEditionBean {
-    @Autowired
+
+
+    @ManagedProperty(value="#{usermetier}")
     IUserMetier usermetierimpl;
 
     private Agent agentOperateur;
@@ -87,8 +91,9 @@ public class SuiviEditionBean {
 
     public List<OpEntree> getListOperationEntree()
     {
-        setListOperationEntree(usermetierimpl.getListOpEntree());
-        return listOperationEntree;
+        //setListOperationEntree(usermetierimpl.getListOpEntree());
+        //return listOperationEntree;
+        return usermetierimpl.getListOpEntree();
     }
 
     public void setListOperationEntree(List<OpEntree> l)
@@ -340,6 +345,12 @@ public class SuiviEditionBean {
 
     //----------------NEW SETTER AND GETTER---------------------
 
+    public IUserMetier getUsermetierimpl() {
+        return usermetierimpl;
+    }
 
+    public void setUsermetierimpl(IUserMetier usermetierimpl) {
+        this.usermetierimpl = usermetierimpl;
+    }
 
 }

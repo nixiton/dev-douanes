@@ -16,8 +16,6 @@ import javax.faces.convert.ConverterException;
  */
 public class MaterielConverter implements Converter {
 
-
-
     @ManagedProperty(value="#{usermetier}")
     IUserMetier userMetier;
 
