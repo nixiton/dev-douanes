@@ -54,7 +54,7 @@ import java.util.zip.ZipOutputStream;
  * Created by hasina on 10/29/17.
  */
 @ManagedBean(name = "depositaireBean")
-@SessionScoped
+@ViewScoped
 @PropertySource("classpath:config.properties")
 public class DepositaireBean {
 
@@ -750,7 +750,8 @@ public class DepositaireBean {
 
 	public void mySetCurentMateriel(Materiel curentMateriel) {
 		System.out.println("SET CURENT MATERIEL  ID = "+curentMateriel.getIdMateriel());
-		this.curentMateriel = curentMateriel;
+		setCurentMateriel(curentMateriel);
+		//this.curentMateriel = curentMateriel;
 	}
 
 
