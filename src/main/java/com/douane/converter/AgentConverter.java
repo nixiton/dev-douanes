@@ -22,6 +22,8 @@ import javax.faces.convert.FacesConverter;
 @RequestScoped
 public class AgentConverter implements Converter{
 
+
+
     @ManagedProperty(value="#{usermetier}")
     IUserMetier userMetier;
 
@@ -46,5 +48,13 @@ public class AgentConverter implements Converter{
         else {
             return null;
         }
+    }
+
+    public IUserMetier getUserMetier() {
+        return userMetier;
+    }
+
+    public void setUserMetier(IUserMetier userMetier) {
+        this.userMetier = userMetier;
     }
 }
