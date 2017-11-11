@@ -746,6 +746,8 @@ public class DepositaireBean {
 		this.curentMateriel = curentMateriel;
 	}
 
+	
+
 	public String getNom() {
 		return nom;
 	}

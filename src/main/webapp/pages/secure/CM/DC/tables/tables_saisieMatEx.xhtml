@@ -17,6 +17,7 @@
         <hr></hr>
 
     </div>    
+    <h:form>
     <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielexistant}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="10" style="margin-bottom:20px">
@@ -116,6 +117,7 @@
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column>
     </p:dataTable>
+    </h:form>
 </div>
 
 <ui:include src="/pages/secure/CM/DC/tables/dialogs/dialogs_saisieMatEx.xhtml"></ui:include>
