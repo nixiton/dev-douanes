@@ -22,9 +22,13 @@
 					<p:inputText id="name" styleClass="col-md-6" value="#{userMB.name}"
 						required="true">
 
+					<hr></hr>
+
 						<p:ajax event="blur" update="nameMsg" />
 					</p:inputText>
 					<p:message id="nameMsg" for="name" display="icon" />
+
+					<hr></hr>
 
 
 					<h:outputLabel for="im" styleClass="col-md-6"
@@ -33,12 +37,21 @@
 						required="true">
 					</p:inputText>
 
+					<hr></hr>
+
 					<!-- User role -->
+					<h:outputLabel for="designation" styleClass="col-md-6"
+								   value="Designation  du role : " />
+					<p:inputText id="designation" styleClass="col-md-6" value="#{userMB.designation}"
+								 required="true">
+					</p:inputText>
 					<h:outputLabel for="role" styleClass="col-md-6"
-								   value="Role : " />
+								   value="Code du role : " />
 					<p:inputText id="role" styleClass="col-md-6" value="#{userMB.role}"
 								 required="true">
 					</p:inputText>
+
+					<hr></hr>
 
 
 					<h:outputLabel styleClass="col-md-6" for="username"
@@ -46,9 +59,13 @@
 					<p:inputText id="username" styleClass="col-md-6"
 						value="#{userMB.username}" required="true">
 
+					<hr></hr>
+
 						<p:ajax event="blur" update="usernameMsg" />
 					</p:inputText>
 					<p:message id="usernameMsg" for="username" display="icon" />
+
+					<hr></hr>
 
 
 					<h:outputLabel for="password1" styleClass="col-md-6"
@@ -57,6 +74,8 @@
 						value="#{userMB.password}" match="password2" required="true">
 					</p:password>
 
+					<hr></hr>
+
 
 					<h:outputLabel styleClass="col-md-6" for="password2"
 						value="Retaper mot de passe : " />
@@ -64,11 +83,7 @@
 						value="#{userMB.password}" required="true">
 					</p:password>
 
-					<h:outputLabel for="designation" styleClass="col-md-6"
-								   value="designation : " />
-					<p:inputText id="designation" styleClass="col-md-6" value="#{userMB.designation}"
-								 required="true">
-					</p:inputText>
+					<hr></hr>
 
 
 					<h:outputLabel styleClass="col-md-6" 
@@ -82,6 +97,8 @@
                         </p:column>
 
                     </p:selectOneMenu>
+
+                    <hr></hr>
 
 
 
