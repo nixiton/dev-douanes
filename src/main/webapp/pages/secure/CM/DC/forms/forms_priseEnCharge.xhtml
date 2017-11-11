@@ -19,42 +19,41 @@
 
             <div class="form-group">
 
-                <label for="text1" class="control-label col-lg-4">Type de Matériel
-                </label>
-
-                <div class="col-lg-6">
-
-                     <p:selectOneMenu value="#{depositaireBean.typemateriel}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItems value="#{siseBean.listNomenclature}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
-                        <p:column>
-                            <h:outputText value="#{t.designation}" />
-                        </p:column>
-                    </p:selectOneMenu>
-
-                <hr></hr>
-
-                </div>
                 
+                    <label for="text1" class="control-label col-lg-4">Type de Matériel
+                    </label>
+
+                    <div class="col-lg-6">
+
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}">
+                            <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
+                            <p:ajax event="change" update="data" listener="#{depositaireBean.onTypeMaterielChange}" />
+                        </p:selectOneMenu>
+
+                    <hr></hr>
+
+                    </div>
                 
+                    
 
 
-                 <label for="text1" class="control-label col-lg-4">Nomenclature
-                </label>
+                    <label for="text1" class="control-label col-lg-4">Nomenclature
+                    </label>
 
-                <div class="col-lg-6">
+                    <div class="col-lg-6">
 
                     <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
                         <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>
 
                     </h:selectOneMenu-->
 
-                    <h:inputText value="#{depositaireBean.nomencl}"></h:inputText>
+                        <h:inputText  id="data" value="#{depositaireBean.nomencl}" 
+                        ></h:inputText>
 
-                <hr></hr>
+                    <hr></hr>
 
-                </div>
-                
+                    </div>
+
                 
 
 

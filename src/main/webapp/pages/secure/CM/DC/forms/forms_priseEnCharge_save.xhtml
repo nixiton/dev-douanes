@@ -21,39 +21,36 @@
 
 
                 <label for="text1" class="control-label col-lg-4">Type de Matériel
-                    </label>
+                </label>
 
-                    <div class="col-lg-6">
+                <div class="col-lg-6">
 
-                    <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}">
-                            <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
-                            <p:ajax event="change" update="data" listener="#{depositaireBean.onTypeMaterielChange}" />
-                        </p:selectOneMenu>
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
+                    valueChangeListener="#{depositaireBean.typeMatChange}">
+                        <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
+                    </p:selectOneMenu>
 
-                    <hr></hr>
-
-                    </div>
+                </div>
                 
-                    
+                <hr></hr>
 
 
-                    <label for="text1" class="control-label col-lg-4">Nomenclature
-                    </label>
+                 <label for="text1" class="control-label col-lg-4">Nomenclature
+                </label>
 
-                    <div class="col-lg-6">
+                <div class="col-lg-6">
 
                     <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
                         <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>
 
                     </h:selectOneMenu-->
 
-                        <h:inputText  id="data" value="#{depositaireBean.nomencl}" 
-                        ></h:inputText>
+                    <h:inputText value="#{priseEnChargeMB.nomencl}" 
+                        disabled="true"></h:inputText>
 
-                    <hr></hr>
-
-                    </div>
-
+                </div>
+                
+                <hr></hr>
 
 
                 <label for="text1" class="control-label col-lg-4">Marque
