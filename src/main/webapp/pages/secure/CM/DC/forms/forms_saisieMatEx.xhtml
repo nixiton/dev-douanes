@@ -45,10 +45,8 @@
 
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}" onchange="#{depositaireBean.onTypeMaterielChange()}">
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}" onchange="#{depositaireBean.onTypeMaterielChange(this.nomenclature)}">
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
-                            <p:remoteCommand name="changeZone" process="@this zone" action="#{depositaireBean.onTypeMaterielChange}" update="data">
-                                
                             </p:remoteCommand> 
                         </p:selectOneMenu>
 
