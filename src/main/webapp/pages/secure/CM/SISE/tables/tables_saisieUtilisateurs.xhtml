@@ -16,6 +16,8 @@
 			
 		<hr></hr>
 
+	</div>
+
 	<p:dataTable   var="f" value="#{userMB.userList}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="10" style="margin-bottom:20px">
@@ -29,11 +31,9 @@
 		</p:column>
 		<p:column>
 			<f:facet name="header">Role</f:facet>
-			#{f.roleAgent}
+			#{f.roleAgent.designation}
 		</p:column>
 	</p:dataTable>
-
-	</div>
 
 
 </div>
