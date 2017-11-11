@@ -47,16 +47,12 @@
                 </label>
 
                 <div class="col-lg-6">
-                        <p:selectOneMenu value="#{depositaireBean.detenteur}" converter="#{UseriConverter}" panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItems value="#{userMB.userList}" var="theme" itemLabel="#{theme.im}" itemValue="#{theme}" />
-                        <p:column>
-                            <h:outputText value="#{t.im}" />
-                        </p:column>
+                    
+                    <p:selectOneMenu styleClass="form-control top" converter="#{UseriConverter}" value="#{depositaireBean.detenteur}">
+                            <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}"/>
 
-                        <p:ajax event="change" update="nom prenom" listener="#{depositaireBean.onDetenteurChange}" />
-
-                    </p:selectOneMenu>
+                            <p:ajax event="change" update="nom prenom" listener="#{depositaireBean.onDetenteurChange}" />
+                        </p:selectOneMenu>
 
                 <hr></hr>
 
