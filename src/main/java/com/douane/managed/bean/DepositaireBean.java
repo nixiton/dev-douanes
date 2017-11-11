@@ -34,6 +34,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.jws.WebParam;
@@ -53,7 +54,7 @@ import java.util.zip.ZipOutputStream;
  * Created by hasina on 10/29/17.
  */
 @ManagedBean(name = "depositaireBean")
-@RequestScoped
+@SessionScoped
 @PropertySource("classpath:config.properties")
 public class DepositaireBean {
 
