@@ -29,6 +29,7 @@ public class MaterielConverter implements Converter {
         if(value != null && value.trim().length() > 0)
         {
             try {
+                System.out.println("***************************MATERIEL CONV*****ERRORR********************************");
                 return this.userMetier.getMatById(Long.parseLong(value));
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
