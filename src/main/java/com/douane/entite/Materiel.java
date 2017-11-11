@@ -1,6 +1,7 @@
 package com.douane.entite;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -160,12 +161,43 @@ public class Materiel implements Serializable{
 	public void setDc(Agent dc) {
 		this.dc = dc;
 	}
-	/*public String getCodification() {
-		return codification;
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Materiel materiel = (Materiel) o;
+
+		if (validation != materiel.validation) return false;
+		if (!idMateriel.equals(materiel.idMateriel)) return false;
+		if (!reference.equals(materiel.reference)) return false;
+		if (!numSerie.equals(materiel.numSerie)) return false;
+		if (!code.equals(materiel.code)) return false;
+		if (!Arrays.equals(image, materiel.image)) return false;
+		return leref.equals(materiel.leref);
+
 	}
-	public void setCodification(String codification) {
-		this.codification = codification;
-	}*/
+
+	@Override
+	public int hashCode() {
+		int result = idMateriel.hashCode();
+		result = 31 * result + reference.hashCode();
+		result = 31 * result + numSerie.hashCode();
+		result = 31 * result + (validation ? 1 : 0);
+		result = 31 * result + code.hashCode();
+		result = 31 * result + Arrays.hashCode(image);
+		result = 31 * result + leref.hashCode();
+		return result;
+	}
+
+	/*public String getCodification() {
+            return codification;
+
+        }
+        public void setCodification(String codification) {
+            this.codification = codification;
+        }*/
 	public Marque getMarque() {
 		return marque;
 	}

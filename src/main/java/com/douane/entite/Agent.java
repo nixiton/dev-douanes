@@ -178,5 +178,29 @@ public class Agent {
 	public void setBureau(Bureau bureau) {
 		this.bureau = bureau;
 	}
-	
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Agent agent = (Agent) o;
+
+		if (im != null ? !im.equals(agent.im) : agent.im != null) return false;
+		if (nomAgent != null ? !nomAgent.equals(agent.nomAgent) : agent.nomAgent != null) return false;
+		if (prenomAgent != null ? !prenomAgent.equals(agent.prenomAgent) : agent.prenomAgent != null) return false;
+		if (password != null ? !password.equals(agent.password) : agent.password != null) return false;
+		return roleAgent != null ? roleAgent.equals(agent.roleAgent) : agent.roleAgent == null;
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = im != null ? im.hashCode() : 0;
+		result = 31 * result + (nomAgent != null ? nomAgent.hashCode() : 0);
+		result = 31 * result + (prenomAgent != null ? prenomAgent.hashCode() : 0);
+		result = 31 * result + (password != null ? password.hashCode() : 0);
+		result = 31 * result + (roleAgent != null ? roleAgent.hashCode() : 0);
+		return result;
+	}
 }
