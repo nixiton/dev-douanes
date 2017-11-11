@@ -840,6 +840,9 @@ public class DepositaireBean {
 	}
 
 	public void onDetenteurChange() {
+
+		System.out.println("++++++++++++++++++++++++++++NOM    ++++++++   PRENOM       " );
+
 		this.setNom(getDetenteur().getNomAgent());
 		this.setPrenom(getDetenteur().getPrenomAgent());
 	}
