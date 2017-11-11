@@ -74,7 +74,7 @@
 					<h:outputLabel styleClass="col-md-6" 
 						value="Direction " />
 
-					<p:selectOneMenu value="#{UserMB.direction}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
+					<p:selectOneMenu value="#{userMB.direction}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{siseBean.listDirection}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>

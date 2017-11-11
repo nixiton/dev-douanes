@@ -312,6 +312,22 @@
 			<to-view-id>/pages/secure/CM/SISE/content_forms/content_forms_saisieAdresse.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+
+
+		<navigation-case>
+			<from-action>#{userMB.addUserRef}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/pages/unsecure/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-action>#{userMB.addUserRef}</from-action>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/pages/secure/error.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 		
 		
 		<!-- ++++++++++++++++++++++++++++++Cuccess creation saisie ref++++++++++++++++++++++++++++++++++++++ -->		
