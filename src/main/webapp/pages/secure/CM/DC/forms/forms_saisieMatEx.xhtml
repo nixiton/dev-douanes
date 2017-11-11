@@ -45,9 +45,9 @@
 
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}" valueChangeListener="#{depositaireBean.onTypeMaterielChange(type.nomenl)}" immediate="true">
+                        <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}" >
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
-                            <f:ajax process="@this" render="nom" />
+                            <p:ajax listener="#{depositaireBean.onTypeMaterielChange(type.nomenl)}" update="nom" />
                         </p:selectOneMenu>
 
                     <hr></hr>
