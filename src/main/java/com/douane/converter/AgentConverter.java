@@ -37,7 +37,7 @@ public class AgentConverter implements Converter{
             System.out.println("***************************AGENT1 CONV*****ERRORR********************************");
             try {
                 System.out.println("***************************AGENT2 CONV*****ERRORR********************************");
-                return this.userMetier.findAgentByIm(Long.parseLong(value));
+                return (Agent)this.userMetier.findAgentByIm(Long.parseLong(value));
             } catch(Exception e) {
                 System.out.println("***************************AGENT3 CONV*****ERRORR********************************");
                 e.printStackTrace();
