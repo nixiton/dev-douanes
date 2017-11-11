@@ -525,7 +525,7 @@
 		
 		<navigation-case>
 			<from-outcome>add_PriseEnCharge</from-outcome>
-			<to-view-id>/pages/secure/CM/content_forms/content_forms_priseEnCharge.xhtml</to-view-id>
+			<to-view-id>/pages/secure/CM/DC/content_forms/content_forms_priseEnCharge.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 
