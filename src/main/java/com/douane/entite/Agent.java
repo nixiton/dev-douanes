@@ -187,9 +187,6 @@ public class Agent {
 		Agent agent = (Agent) o;
 
 		if (im != null ? !im.equals(agent.im) : agent.im != null) return false;
-		if (nomAgent != null ? !nomAgent.equals(agent.nomAgent) : agent.nomAgent != null) return false;
-		if (prenomAgent != null ? !prenomAgent.equals(agent.prenomAgent) : agent.prenomAgent != null) return false;
-		if (password != null ? !password.equals(agent.password) : agent.password != null) return false;
 		return roleAgent != null ? roleAgent.equals(agent.roleAgent) : agent.roleAgent == null;
 
 	}
