@@ -963,6 +963,7 @@ public class DepositaireBean {
 	}
 
 	public String addAttribution() {
+		System.out.println("********************************************ERRORR********************************");
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
 
@@ -972,7 +973,7 @@ public class DepositaireBean {
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("********************************************ERRORR********************************");
+			
 			e.printStackTrace();
 			System.out.println(e.getMessage());
 			return ERROR;
