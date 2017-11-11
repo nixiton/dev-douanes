@@ -3,11 +3,13 @@ package com.douane.converter;
 import com.douane.entite.Agent;
 import com.douane.entite.Materiel;
 import com.douane.metier.user.IUserMetier;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -19,12 +21,12 @@ import javax.faces.convert.FacesConverter;
  */
 
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class AgentConverter implements Converter{
 
 
 
-    @ManagedProperty(value="#{usermetier}")
+    @Autowired
     IUserMetier userMetier;
 
     @Override
