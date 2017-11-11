@@ -748,6 +748,7 @@ public class DepositaireBean {
 
 
 	public void mySetCurentMateriel(Materiel curentMateriel) {
+		System.out.println("SET CURENT MATERIEL"+curentMateriel.idMateriel);
 		this.curentMateriel = curentMateriel;
 	}
 
