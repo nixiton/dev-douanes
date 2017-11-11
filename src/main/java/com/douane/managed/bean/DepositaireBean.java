@@ -72,28 +72,28 @@ public class DepositaireBean {
 	private static final String ERROR = "error";
 
 	//@Autowired
-    @ManagedProperty(value="#{typematerielmetier}")
+	@ManagedProperty(value="#{typematerielmetier}")
 	ITypeMaterielMetier typematerielmetier;
 
 	//@Autowired
-    @ManagedProperty(value="#{nomenclaturemetier}")
+	@ManagedProperty(value="#{nomenclaturemetier}")
 	INomenclatureMetier nomenclaturemetier;
 
 	//@Autowired
-    @ManagedProperty(value="#{marquemetier}")
+	@ManagedProperty(value="#{marquemetier}")
 	IMarqueMetier marquemetier;
 
 	//@Autowired
-    @ManagedProperty(value="#{usermetier}")
+	@ManagedProperty(value="#{usermetier}")
 	IUserMetier usermetierimpl;
 
-    //@Autowired
-    @ManagedProperty(value="#{fournisseurmetier}")
+	//@Autowired
+	@ManagedProperty(value="#{fournisseurmetier}")
 	IFournisseurMetier fournisseurmetierimpl;
 
 	//@Autowired
-    @ManagedProperty(value="#{refmetier}")
-    IRefMetier refmetierimpl;
+	@ManagedProperty(value="#{refmetier}")
+	IRefMetier refmetierimpl;
 
 	public IRefMetier getRefmetierimpl() {
 		return refmetierimpl;
@@ -182,7 +182,11 @@ public class DepositaireBean {
 	private Bureau destination;
 	private Direction destinationDirec;
 	private Service destinationService;
+
+
+
 	private MotifSortie motifSortie;
+	private List<MotifSortie> listMotifSortie;
 
 	private Agent detenteur;
 
@@ -195,13 +199,13 @@ public class DepositaireBean {
 	private UploadedFile uploadedFile;
 
 
-    //Service
-    private Service serviceforMat;
+	//Service
+	private Service serviceforMat;
 
-    public void onGetService()
-    {
-        setServiceforMat(getServiceforMat());
-    }
+	public void onGetService()
+	{
+		setServiceforMat(getServiceforMat());
+	}
 
 	public List<TypeMateriel> getListTypeMateriel() {
 		return typematerielmetier.findAllTypeMateriel();
@@ -797,12 +801,21 @@ public class DepositaireBean {
 		this.destinationService = destinationService;
 	}
 
-	public MotifSortie getMotifSortie() {
-		return motifSortie;
+
+	public List<MotifSortie> getListMotifSortie() {
+		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new MotifSortie());
+		List<MotifSortie> ds = new ArrayList<MotifSortie>();
+		for (Object d :  r)
+		{
+			if(d instanceof MotifSortie) {
+				ds.add((MotifSortie)d);
+			}
+		}
+		return ds;
 	}
 
-	public void setMotifSortie(MotifSortie motifSortie) {
-		this.motifSortie = motifSortie;
+	public void setListMotifSortie(List<MotifSortie> listMotifSortie) {
+		this.listMotifSortie = listMotifSortie;
 	}
 
 	public Agent getDetenteur() {
@@ -821,9 +834,9 @@ public class DepositaireBean {
 		this.materiel = materiel;
 	}
 
-	public void onTypeMaterielChange(String nomencl) {
-		System.out.println("Nomeclature  = "+ nomencl );
-		this.setNomencl(nomencl);
+	public void onTypeMaterielChange() {
+
+		this.setNomencl(getTypemateriel().getNomenclature());
 	}
 
 	public void onDetenteurChange() {
@@ -837,51 +850,51 @@ public class DepositaireBean {
 		this.setNumSerie(this.getMateriel().getNumSerie());
 	}
 
-    //list services
-    public List<Service> getListServices()
-    {
-        ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Service());
-        List<Service> ds = new ArrayList<Service>();
-        for (Object d :  r)
-        {
-            if(d instanceof Service) {
-                ds.add((Service)d);
-            }
-        }
-        return ds;
-    }
-    public String addMateriel() {
+	//list services
+	public List<Service> getListServices()
+	{
+		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new Service());
+		List<Service> ds = new ArrayList<Service>();
+		for (Object d :  r)
+		{
+			if(d instanceof Service) {
+				ds.add((Service)d);
+			}
+		}
+		return ds;
+	}
+	public String addMateriel() {
 		System.out.println("ADD MATERIEL");
 		try{
-		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
-		// agent.setIp()
-		MaterielEx m = new MaterielEx();
-		m.setAutre(getAutre());
-		m.setBureau(getBureau());
-		// m.setDirec(getDirection());
-		//m.setDirec(agent.getDirection());
-		m.setDocumentPath("default");
-		m.setEtat(getEtat());
-		m.setMarque(getMarq());
-		m.setNomenMat(getTypemateriel());
-		m.setNumSerie(getNumSerie());
-		m.setPu(getUnitPrice());
-		m.setReference(getReference());
-		m.setRenseignement(getRenseignement());
-		
-		m.setServ(getServiceforMat());
+			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			// agent.setIp()
+			MaterielEx m = new MaterielEx();
+			m.setAutre(getAutre());
+			m.setBureau(getBureau());
+			// m.setDirec(getDirection());
+			//m.setDirec(agent.getDirection());
+			m.setDocumentPath("default");
+			m.setEtat(getEtat());
+			m.setMarque(getMarq());
+			m.setNomenMat(getTypemateriel());
+			m.setNumSerie(getNumSerie());
+			m.setPu(getUnitPrice());
+			m.setReference(getReference());
+			m.setRenseignement(getRenseignement());
 
-		// m.setCaract(caract);
-		// m.setCategorie(categorie);
-		m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
-		// m.setDocumentPath(documentPath);
+			m.setServ(getServiceforMat());
 
-		// set Operation requete entrer materiel existant
-		OpEntree opentree = usermetierimpl.reqEntrerMateriel(m, agent);
-		// set Operation valider automatique car ne necessite pas de validation GAC
-		usermetierimpl.entrerMateriel(opentree);
+			// m.setCaract(caract);
+			// m.setCategorie(categorie);
+			m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
+			// m.setDocumentPath(documentPath);
 
-		return SUCCESS;
+			// set Operation requete entrer materiel existant
+			OpEntree opentree = usermetierimpl.reqEntrerMateriel(m, agent);
+			// set Operation valider automatique car ne necessite pas de validation GAC
+			usermetierimpl.entrerMateriel(opentree);
+
+			return SUCCESS;
 		}
 		catch(JDBCException jdbce){
 			jdbce.getSQLException().getNextException().printStackTrace();
@@ -942,7 +955,7 @@ public class DepositaireBean {
 
 		// set Operation requete entrer materiel nouveau
 		OpEntree opEntree = usermetierimpl.reqEntrerMateriel(m, agent);
-		
+
 		return SUCCESS;
 	}
 
@@ -957,11 +970,11 @@ public class DepositaireBean {
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
-			
+
 			System.out.println(e.getMessage());
 			return ERROR;
 		}
-		
+
 	}
 
 	public String addDetachement() {
@@ -974,12 +987,12 @@ public class DepositaireBean {
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
-			
+
 			System.out.println(e.getMessage());
 			return ERROR;
 		}
 
-		
+
 
 	}
 
@@ -993,12 +1006,12 @@ public class DepositaireBean {
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			
+
 			System.out.println(e.getMessage());
 			return ERROR;
 		}
 
-		
+
 
 	}
 
@@ -1010,18 +1023,18 @@ public class DepositaireBean {
 		this.documentPath = documentPath;
 	}
 
-    public Service getServiceforMat() {
-        return serviceforMat;
-    }
+	public Service getServiceforMat() {
+		return serviceforMat;
+	}
 
-    public void setServiceforMat(Service serviceforMat) {
-        this.serviceforMat = serviceforMat;
-    }
-
-
+	public void setServiceforMat(Service serviceforMat) {
+		this.serviceforMat = serviceforMat;
+	}
 
 
-    //------------------------------PRIME FACES---------------------------------------
+
+
+	//------------------------------PRIME FACES---------------------------------------
 	//list service
 	//list nomenclature
 	//list marque
@@ -1113,6 +1126,76 @@ public class DepositaireBean {
 
 	public void setEtatMaterielsPrim(List<EtatMateriel> etatMaterielsPrim) {
 		this.etatMaterielsPrim = etatMaterielsPrim;
+	}
+
+
+
+
+	//-------------NEW  EDIT------------------
+	//Affichage automatique de la marque, de la référence et du numéro de série
+	private Materiel materielSeclected;
+	private Marque marqueAutom;
+	private String referenceAutom;
+	private String numSerieAutom;
+	private List<Referentiel> listDestinaiton;
+
+
+
+	public List<Referentiel> getListDestinaiton() {
+		this.listDestinaiton.add(new Bureau());
+		this.listDestinaiton.add(new Direction());
+		this.listDestinaiton.add(new Service());
+		return listDestinaiton;
+	}
+
+	public void setListDestinaiton(List<Referentiel> listDestinaiton) {
+		this.listDestinaiton = listDestinaiton;
+	}
+
+	public String getReferenceAutom() {
+		return getMaterielSeclected().getReference();
+	}
+
+	public void setReferenceAutom(String referenceAutom) {
+		this.referenceAutom = referenceAutom;
+	}
+
+	public String getNumSerieAutom() {
+		return getMaterielSeclected().getNumSerie();
+	}
+
+	public void setNumSerieAutom(String numSerieAutom) {
+		this.numSerieAutom = numSerieAutom;
+	}
+
+	public Marque getMarqueAutom() {
+		return getMaterielSeclected().getMarque();
+	}
+
+	public void setMarqueAutom(Marque marqueAutom) {
+		this.marqueAutom = marqueAutom;
+	}
+
+
+
+
+
+
+
+	public Materiel getMaterielSeclected() {
+		return materielSeclected;
+	}
+
+	public void setMaterielSeclected(Materiel materielSeclected) {
+		this.materielSeclected = materielSeclected;
+	}
+
+	public MotifSortie getMotifSortie() {
+		return motifSortie;
+	}
+
+	public void setMotifSortie(MotifSortie motifSortie) {
+		this.motifSortie = motifSortie;
 	}
 
 }
