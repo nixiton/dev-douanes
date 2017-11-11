@@ -45,8 +45,11 @@
 
                     <div class="col-lg-6">
 
-                        <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}" onchange="#{depositaireBean.onTypeMaterielChange()}">
+                        <p:selectOneMenu id="zone"  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}" onchange="changeZone()">
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
+                            <p:remoteCommand name="changeZone" process="@this zone" action="#{#{depositaireBean.onTypeMaterielChange}" update="data">
+                                
+                            </p:remoteCommand> 
                         </p:selectOneMenu>
 
                     <hr></hr>
@@ -59,7 +62,7 @@
                     <label for="text1" class="control-label col-lg-4">Nomenclature
                     </label>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" id="data">
 
                     <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
                         <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>
