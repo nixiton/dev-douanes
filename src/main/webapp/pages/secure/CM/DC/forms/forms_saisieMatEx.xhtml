@@ -47,6 +47,7 @@
 
                         <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.typemateriel}" valueChangeListener="#{depositaireBean.onTypeMaterielChange(type.nomenl)}" immediate="true">
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
+                            <f:ajax process="@this" render="nom" />
                         </p:selectOneMenu>
 
                     <hr></hr>
@@ -66,7 +67,7 @@
 
                     </h:selectOneMenu-->
 
-                        <h:inputText value="#{depositaireBean.nomencl}" 
+                        <h:inputText id="nom" value="#{depositaireBean.nomencl}" 
                         ></h:inputText>
 
                     <hr></hr>
