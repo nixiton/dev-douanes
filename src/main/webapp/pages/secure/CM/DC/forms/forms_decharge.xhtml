@@ -49,13 +49,13 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.materiel}"  panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"   panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.nomenMat.designation}" />
                         </p:column>
-
+                        <p:ajax event="change" update="nom"  listener="#{depositaireBean.onDetenteurChange}"/>
                     </p:selectOneMenu>
 
                 <hr></hr>
