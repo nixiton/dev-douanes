@@ -965,11 +965,14 @@ public class DepositaireBean {
 	public String addAttribution() {
 		System.out.println("****************************ADD ATTR**ERRORR********************************");
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+System.out.println("****************************ADD1 ATTR**ERRORR********************************");
 		// agent.setIp()
 
 		try {
 			// getCurrent Materiel ve?????
+System.out.println("****************************ADD2 ATTR**ERRORR********************************");
 			OpAttribution opAt = usermetierimpl.reqAttribution(getMateriel(), agent, getDetenteur());
+System.out.println("****************************ADD3 ATTR**ERRORR********************************");
 			return SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
