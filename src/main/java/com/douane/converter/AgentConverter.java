@@ -40,6 +40,7 @@ public class AgentConverter implements Converter{
                 return this.userMetier.findAgentByIm(Long.parseLong(value));
             } catch(Exception e) {
                 System.out.println("***************************AGENT3 CONV*****ERRORR********************************");
+                e.printStackTrace();
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
         }
