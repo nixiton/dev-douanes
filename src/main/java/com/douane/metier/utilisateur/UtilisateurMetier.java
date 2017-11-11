@@ -34,5 +34,10 @@ public class UtilisateurMetier implements IUtilisateurMetier{
 		return (List<Useri>)utilisateurrepos.findAll();
 	}
 
+	@Override
+	public Useri findById(int id) {
+		return utilisateurrepos.findOne(id);
+	}
+
 
 }

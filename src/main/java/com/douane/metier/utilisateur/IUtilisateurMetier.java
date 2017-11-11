@@ -18,6 +18,6 @@ public interface IUtilisateurMetier {
 	
 	
 	public List<Useri> findAllUtilisateur();	
-	
+	public Useri findById(int id);
 	 
 }

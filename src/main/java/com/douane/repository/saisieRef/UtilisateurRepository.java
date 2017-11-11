@@ -8,6 +8,6 @@ import com.douane.entite.Agent;
 import com.douane.entite.Nomenclature;
 import com.douane.entite.Useri;
 
-public interface UtilisateurRepository extends CrudRepository<Useri, Long> {
+public interface UtilisateurRepository extends CrudRepository<Useri, Integer> {
 	
 }
