@@ -29,6 +29,7 @@ public class AgentConverter implements Converter{
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
+        System.out.println("***************************AGENT CONV*****ERRORR********************************");
         if(value != null && value.trim().length() > 0)
         {
             try {
