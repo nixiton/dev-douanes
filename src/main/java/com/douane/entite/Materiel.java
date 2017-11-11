@@ -169,12 +169,9 @@ public class Materiel implements Serializable{
 
 		Materiel materiel = (Materiel) o;
 
-		if (validation != materiel.validation) return false;
+
 		if (!idMateriel.equals(materiel.idMateriel)) return false;
-		if (!reference.equals(materiel.reference)) return false;
-		if (!numSerie.equals(materiel.numSerie)) return false;
-		if (!code.equals(materiel.code)) return false;
-		if (!Arrays.equals(image, materiel.image)) return false;
+
 		return leref.equals(materiel.leref);
 
 	}
