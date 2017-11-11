@@ -17,10 +17,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.douane.entite.Agent;
-import com.douane.entite.Useri;
-import com.douane.metier.user.IUserMetier;
-import com.douane.model.User;
+import com.douane.entite.*
 
 
 @ManagedBean(name="userMB")
@@ -57,6 +54,7 @@ public class UserManagedBean implements Serializable {
 	private String role;
 	private String designation;
 	private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	private Direction direction;
 	/**
 	 * Add User
 	 * 
@@ -81,6 +79,7 @@ public class UserManagedBean implements Serializable {
 			useri.setDesignation(designation);
 			useri.setRole(role);
 			user.setRoleAgent(useri);
+			user.setDirection(direction);
 			//getUsermetierimpl().addAgent(user);
 			//refmetierimpl.addRef(new Useri(designation,role), new Agent(getIm(),getName(),hashedPassword,new Useri(designation,role)));
 			//refmetierimpl.addRef(useri,user);
@@ -166,6 +165,27 @@ public class UserManagedBean implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
+	/**
+	 * Get User Direction
+	 * 
+	 * @return Direction - User direction
+	 */
+	public int getDirection() {
+		return direction;
+	}
+
+	/**
+	 * Set User direction
+	 * 
+	 * @param Direction - User direction
+	 */
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
+
+
 
 	/**
 	 * Get User Name
