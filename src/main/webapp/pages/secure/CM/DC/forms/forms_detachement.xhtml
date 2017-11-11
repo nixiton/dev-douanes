@@ -31,7 +31,7 @@
 
                     <p:selectOneMenu id="zone" styleClass="form-control top" converter="#{UseriConverter}" value="#{depositaireBean.detenteur}">
                             <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}"/>
-                            <p:ajax event="change" update="nom"  listener="#{depositaireBean.onDetenteurChange}"/>
+                            <p:ajax event="change" listener="#{depositaireBean.onDetenteurChange}"/>
                         </p:selectOneMenu>
 
                 <hr></hr>
