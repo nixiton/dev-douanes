@@ -746,7 +746,13 @@ public class DepositaireBean {
 		this.curentMateriel = curentMateriel;
 	}
 
-	
+
+	public void mySetCurentMateriel(Materiel curentMateriel) {
+		this.curentMateriel = curentMateriel;
+	}
+
+
+
 
 	public String getNom() {
 		return nom;
