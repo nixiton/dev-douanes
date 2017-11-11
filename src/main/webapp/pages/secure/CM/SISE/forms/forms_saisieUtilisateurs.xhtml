@@ -41,7 +41,6 @@
 					</p:inputText>
 
 
-
 					<h:outputLabel styleClass="col-md-6" for="username"
 						value="Login : " />
 					<p:inputText id="username" styleClass="col-md-6"
@@ -64,6 +63,12 @@
 					<p:password id="password2" styleClass="col-md-6"
 						value="#{userMB.password}" required="true">
 					</p:password>
+
+					<h:outputLabel for="designation" styleClass="col-md-6"
+								   value="designation : " />
+					<p:inputText id="designation" styleClass="col-md-6" value="#{userMB.designation}"
+								 required="true">
+					</p:inputText>
 
 
 					<h:outputLabel styleClass="col-md-6" 
