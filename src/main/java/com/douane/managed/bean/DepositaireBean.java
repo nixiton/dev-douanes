@@ -1140,7 +1140,12 @@ public class DepositaireBean {
 	private List<Referentiel> listDestinaiton;
 
 
-
+	public void onChangeMateriel()
+	{
+		setMarqueAutom(getMaterielSeclected().getMarque());
+		setReferenceAutom(getMaterielSeclected().getReference());
+		setNumSerie(getMaterielSeclected().getNumSerie());
+	}
 	public List<Referentiel> getListDestinaiton() {
 		this.listDestinaiton.add(new Bureau());
 		this.listDestinaiton.add(new Direction());
