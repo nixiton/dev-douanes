@@ -59,7 +59,7 @@
             <f:facet name="header">
                 <h:outputText value="Validation" />
             </f:facet>
-            <c:if test="${'#{c.case}' == 'ACCEPTED'}">
+            <c:if test="#{c.case eq ACCEPTED}">
                 <h:outputText value="#{c.state}" />
             </c:if>
         </p:column>
