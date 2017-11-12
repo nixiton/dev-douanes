@@ -3,25 +3,17 @@ package com.douane.entite;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="typeMateriels", discriminatorType=DiscriminatorType.INTEGER)
 public class Materiel implements Serializable{
+
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@SequenceGenerator(allocationSize=1, initialValue=1, sequenceName="account_id_seq", name="account_id_seq")
+	@GeneratedValue(generator="account_id_seq", strategy=GenerationType.SEQUENCE)
 	private Long idMateriel;
 	
 	private Float pu;
@@ -59,8 +51,8 @@ public class Materiel implements Serializable{
 	private CategorieMat categorie;
 	
 	
-	@ManyToOne
-	@JoinColumn(name="idCar")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="idCar", columnDefinition="integer", nullable = true , insertable=false, updatable=false)
 	private TypeMateriel caract;
 	@ManyToOne
 	@JoinColumn(name="idMarque")
@@ -107,6 +99,7 @@ public class Materiel implements Serializable{
 	public Long getIdMateriel(){
 		return this.idMateriel;
 	}
+	public void setidMateriel(Long idMateriel){ this.idMateriel = idMateriel;}
 	public Float getPu() {
 		return pu;
 	}

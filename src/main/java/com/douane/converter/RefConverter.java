@@ -2,6 +2,7 @@ package com.douane.converter;
 
 import com.douane.entite.*;
 import com.douane.metier.referentiel.IRefMetier;
+import org.springframework.asm.Type;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,6 +56,10 @@ public class RefConverter implements Converter {
                 else if(ref instanceof Service)
                 {
                     return (Service) ref;
+                }
+                else if(ref instanceof TypeMateriel)
+                {
+                    return (TypeMateriel) ref;
                 }
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));

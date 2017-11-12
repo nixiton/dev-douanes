@@ -128,7 +128,11 @@ public class UserMetier implements IUserMetier{
 	public OpEntree reqEntrerMateriel(Materiel m, Agent dc) {
 		// TODO Auto-generated method stub*
 		m.setDc(dc);
-		matrepos.save(m);
+		m = matrepos.save(m);
+		/*MaterielEx ma= new MaterielEx();
+
+		ma = matrepos.save(ma);*/
+		//m = materielExRepository.save((MaterielEx) m);
 
 		OpEntree entree = new OpEntree(new Date(), new Date(), dc.getIp(), dc, m);
 		oprepos.save(entree);

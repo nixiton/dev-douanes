@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
+import com.douane.entite.*;
 import com.douane.metier.referentiel.IRefMetier;
 import org.primefaces.context.RequestContext;
 import org.springframework.dao.DataAccessException;
@@ -17,12 +18,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.douane.entite.Agent;
-import com.douane.entite.Bureau;
-import com.douane.entite.Direction;
-import com.douane.entite.Poste;
-import com.douane.entite.Service;
-import com.douane.entite.Useri;
 import com.douane.metier.user.IUserMetier;
 import com.douane.model.User;
 
@@ -59,6 +54,18 @@ public class UserManagedBean implements Serializable {
 	private String firstname;
 	private String password;
 	private Long im;
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	private String username;
+
+
 	private String role;
 	
 	private Useri roleuser;
@@ -386,5 +393,12 @@ public class UserManagedBean implements Serializable {
 	public void setRoleuser(Useri roleuser) {
 		this.roleuser = roleuser;
 	}
-	
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 }
