@@ -50,7 +50,7 @@
             </f:facet>
             <h:outputText value="#{c.operateur.im}" />
         </p:column>
-        <p:column sortBy="#{c.state}">
+        <p:column sortBy="#{c.state}" rendered="#{c.state == ACCEPTED}">
             <f:facet name="header">
                 <h:outputText value="Etat" />
             </f:facet>
