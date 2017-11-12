@@ -174,6 +174,10 @@ public class DepositaireBean {
 
 	private List<MaterielNouv> listMaterielnouveau;
 	private List<Materiel> listAllMateriel;
+
+
+
+	private List<Materiel> listAllMaterilValide;
 	private Materiel curentMateriel;
 	private String nom;
 	private String prenom;
@@ -1209,4 +1213,13 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		this.motifSortie = motifSortie;
 	}
 
+	public List<Materiel> getListAllMaterilValide()
+	{
+
+		return usermetierimpl.getMatByDetenteurAndValidation(null,true);
+	}
+
+	public void setListAllMaterilValide(List<Materiel> listAllMaterilValide) {
+		this.listAllMaterilValide = listAllMaterilValide;
+	}
 }

@@ -515,6 +515,16 @@ public class UserMetier implements IUserMetier{
 	}
 
 	@Override
+	public List<Materiel> getMatByValidation(boolean validation) {
+		return matrepos.findByValidation(validation);
+	}
+
+	@Override
+	public List<Materiel> getMatByDetenteurAndValidation(Agent detenteur, boolean validation) {
+		return matrepos.findByDetenteurAndValidation(detenteur,validation);
+	}
+
+	@Override
 	public List<Agent> listAgentByDirection(Direction direction) {
 		// TODO Auto-generated method stub
 		return agentrepos.findByDirection(direction);
