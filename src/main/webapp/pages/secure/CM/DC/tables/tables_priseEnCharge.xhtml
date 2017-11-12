@@ -17,6 +17,9 @@
         <hr></hr>
 
     </div>    
+
+
+
     <p:dataTable   var="materiel" value="#{depositaireBean.listMaterielnouveau}"
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="10" style="margin-bottom:20px">
@@ -29,51 +32,15 @@
         </p:column>
         <p:column>
             <f:facet name="header">
-                <h:outputText value="Prix Unitaire" />
-            </f:facet>
-            <h:outputText value="#{materiel.pu}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Référence" />
-            </f:facet>
-            <h:outputText value="#{materiel.reference}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Numéro de série" />
-            </f:facet>
-            <h:outputText value="#{materiel.numSerie}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Autre" />
-            </f:facet>
-           <h:outputText value=" #{materiel.autre}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Codification" />
-            </f:facet>
-            <h:outputText value="#{materiel.code}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Nomenclature" />
+                <h:outputText value="Type de materiel" />
             </f:facet>
             <h:outputText value="#{materiel.nomenMat.designation}" />
         </p:column>
         <p:column>
             <f:facet name="header">
-                <h:outputText value="Etat" />
+                <h:outputText value="Nomenclature" />
             </f:facet>
-            <h:outputText value="#{materiel.etat.designation}" />
-        </p:column>
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Caractéristiques" />
-            </f:facet>
-            <h:outputText value="#{materiel.caract}" />
+            <h:outputText value="#{materiel.nomenMat.nomenclature}" />
         </p:column>
         <p:column>
             <f:facet name="header">
@@ -83,30 +50,53 @@
         </p:column>
         <p:column>
             <f:facet name="header">
-                <h:outputText value="Détenteur" />
+                <h:outputText value="Réference" />
             </f:facet>
-            <h:outputText value="#{materiel.detenteur.im}" />
+           <h:outputText value=" #{materiel.reference}" />
         </p:column>
         <p:column>
             <f:facet name="header">
-                <h:outputText value="Dépositaire" />
+                <h:outputText value="Numro de Série" />
             </f:facet>
-            <h:outputText value="#{materiel.dc.nomAgent}" />
-        </p:column>
-        <!--p:column>
-            <f:facet name="header">
-                <h:outputText value="Documents" />
-            </f:facet>
-            <h:outputLink value="#{materiel.fileName}" >
-                Download back
-            </h:outputLink>
+            <h:outputText value="#{materiel.numSerie}" />
         </p:column>
         <p:column>
             <f:facet name="header">
-                <h:outputText value="Photo" />
+                <h:outputText value="Caractéristique" />
             </f:facet>
-            <h:graphicImage value="#{materiel.photo}" />
-        </p:column-->
+            <h:outputText value="#{materiel.caract}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Mode d'aquisition" />
+            </f:facet>
+            <h:outputText value="#{materiel.modAcq.designation}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Financement" />
+            </f:facet>
+            <h:outputText value="#{materiel.financement.designation}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Montant sur la facture" />
+            </f:facet>
+            <h:outputText value="#{materiel.montant_facture}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Référence facture" />
+            </f:facet>
+            <h:outputText value="#{materiel.refFacture}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Fournisseur" />
+            </f:facet>
+            <h:outputText value="#{materiel.fournisseur.designation}" />
+        </p:column>
+
         <p:column>
 
             <f:facet name="header">
