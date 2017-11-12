@@ -5,7 +5,8 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:my="http://java.sun.com/jsf/composite/my">
     >
 
 <h:head></h:head>
@@ -59,9 +60,9 @@
             <f:facet name="header">
                 <h:outputText value="Validation" />
             </f:facet>
-            <c:if test="#{c.case eq ACCEPTED}">
+            <my:if condition="#{c.state == 'ACCEPTED'}">
                 <h:outputText value="#{c.state}" />
-            </c:if>
+            </my:if>
         </p:column>
 
     </p:dataTable>
