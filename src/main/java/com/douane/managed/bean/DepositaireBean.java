@@ -973,7 +973,6 @@ public class DepositaireBean {
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			e.getNextException();
 			return ERROR;
 		}
 
