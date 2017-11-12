@@ -235,12 +235,12 @@ public class DepositaireBean {
 	}
 
 	public Float getUnitPrice() {
-
-		return (Float) RequestFilter.getSession().getAttribute("unitPrice");
+		return this.unitPrice;
+		//return (Float) RequestFilter.getSession().getAttribute("unitPrice");
 	}
 
 	public void setUnitPrice(Float unitPrice) {
-		RequestFilter.getSession().setAttribute("unitPrice", unitPrice);
+		//RequestFilter.getSession().setAttribute("unitPrice", unitPrice);
 		this.unitPrice = unitPrice;
 	}
 
@@ -269,12 +269,13 @@ public class DepositaireBean {
 	}
 
 	public String getReference() {
-		return (String) RequestFilter.getSession().getAttribute("reference");
+		return this.reference;
+		//return (String) RequestFilter.getSession().getAttribute("reference");
 	}
 
 	public void setReference(String reference) {
 
-		RequestFilter.getSession().setAttribute("reference", reference);
+		//RequestFilter.getSession().setAttribute("reference", reference);
 		this.reference = reference;
 	}
 
@@ -284,7 +285,7 @@ public class DepositaireBean {
 
 	public void setNumSerie(String numSerie) {
 
-		RequestFilter.getSession().setAttribute("numSerie", numSerie);
+		//RequestFilter.getSession().setAttribute("numSerie", numSerie);
 		this.numSerie = numSerie;
 	}
 
@@ -305,31 +306,34 @@ public class DepositaireBean {
 	}
 
 	public String getRenseignement() {
-		return (String) RequestFilter.getSession().getAttribute("renseignement");
+		return this.renseignement;
+		//return (String) RequestFilter.getSession().getAttribute("renseignement");
 	}
 
 	public void setRenseignement(String renseignement) {
-		RequestFilter.getSession().setAttribute("renseignement", renseignement);
+		//RequestFilter.getSession().setAttribute("renseignement", renseignement);
 
 		this.renseignement = renseignement;
 	}
 
 	public EtatMateriel getEtat() {
-		return (EtatMateriel) RequestFilter.getSession().getAttribute("etat");
+		return this.etat;
+		//return (EtatMateriel) RequestFilter.getSession().getAttribute("etat");
 	}
 
 	public void setEtat(EtatMateriel etat) {
 
-		RequestFilter.getSession().setAttribute("etat", etat);
+		//RequestFilter.getSession().setAttribute("etat", etat);
 		this.etat = etat;
 	}
 
 	public Nomenclature getTypemateriel() {
-		return (Nomenclature) RequestFilter.getSession().getAttribute("typemateriel");
+		return this.typemateriel;
+		//return (Nomenclature) RequestFilter.getSession().getAttribute("typemateriel");
 	}
 
 	public void setTypemateriel(Nomenclature typemateriel) {
-		RequestFilter.getSession().setAttribute("typemateriel", typemateriel);
+		//RequestFilter.getSession().setAttribute("typemateriel", typemateriel);
 		this.typemateriel = typemateriel;
 	}
 
@@ -342,51 +346,54 @@ public class DepositaireBean {
 	}
 
 	public Marque getMarq() {
-		return (Marque) RequestFilter.getSession().getAttribute("marq");
+		return this.marq;
+		//return (Marque) RequestFilter.getSession().getAttribute("marq");
 
 	}
 
 	public void setMarq(Marque marq) {
 
-		RequestFilter.getSession().setAttribute("marq", marq);
+		//RequestFilter.getSession().setAttribute("marq", marq);
 		this.marq = marq;
 	}
 
 	public ModeAcquisition getAcquisition() {
-		return (ModeAcquisition) RequestFilter.getSession().getAttribute("acquisition");
+		return this.acquisition;
+		//return (ModeAcquisition) RequestFilter.getSession().getAttribute("acquisition");
 	}
 
 	public void setAcquisition(ModeAcquisition acquisition) {
-		RequestFilter.getSession().setAttribute("acquisition", acquisition);
+		//RequestFilter.getSession().setAttribute("acquisition", acquisition);
 		this.acquisition = acquisition;
 	}
 
 	public Financement getFinancement() {
-		return (Financement) RequestFilter.getSession().getAttribute("financement");
+		return this.financement;
+		//return (Financement) RequestFilter.getSession().getAttribute("financement");
 	}
 
 	public void setFinancement(Financement financement) {
-		RequestFilter.getSession().setAttribute("financement", financement);
+		//RequestFilter.getSession().setAttribute("financement", financement);
 		this.financement = financement;
 	}
 
 	public Fournisseur getFournisseur() {
-		return (Fournisseur) RequestFilter.getSession().getAttribute("fournisseur");
+		return this.fournisseur;
+		//return (Fournisseur) RequestFilter.getSession().getAttribute("fournisseur");
 	}
 
 	public void setFournisseur(Fournisseur fournisseur) {
-
-		RequestFilter.getSession().setAttribute("fournisseur", fournisseur);
+		//RequestFilter.getSession().setAttribute("fournisseur", fournisseur);
 		this.fournisseur = fournisseur;
 	}
 
 	public Float getMontantFac() {
-
-		return (Float) RequestFilter.getSession().getAttribute("montantFac");
+		return this.montantFac;
+		//return (Float) RequestFilter.getSession().getAttribute("montantFac");
 	}
 
 	public void setMontantFac(Float montantFac) {
-		RequestFilter.getSession().setAttribute("montantFac", montantFac);
+		//RequestFilter.getSession().setAttribute("montantFac", montantFac);
 		this.montantFac = montantFac;
 	}
 
@@ -695,11 +702,12 @@ public class DepositaireBean {
 	}
 
 	public String getAutre() {
-		return (String) RequestFilter.getSession().getAttribute("autre");
+		return this.autre;
+		//return (String) RequestFilter.getSession().getAttribute("autre");
 	}
 
 	public void setAutre(String autre) {
-		RequestFilter.getSession().setAttribute("autre", autre);
+		//RequestFilter.getSession().setAttribute("autre", autre);
 		this.autre = autre;
 	}
 
@@ -712,22 +720,22 @@ public class DepositaireBean {
 	}
 
 	public Bureau getBureau() {
-		RequestFilter.getSession().getAttribute("bureau");
+		//RequestFilter.getSession().getAttribute("bureau");
 		return bureau;
 	}
 
 	public void setBureau(Bureau bureau) {
-		RequestFilter.getSession().setAttribute("bureau", bureau);
+		//RequestFilter.getSession().setAttribute("bureau", bureau);
 		this.bureau = bureau;
 	}
 
 	public Service getService() {
-
-		return (Service) RequestFilter.getSession().getAttribute("service");
+		return this.service;
+		//return (Service) RequestFilter.getSession().getAttribute("service");
 	}
 
 	public void setService(Service service) {
-		RequestFilter.getSession().setAttribute("service", service);
+		//RequestFilter.getSession().setAttribute("service", service);
 		this.service = service;
 	}
 
@@ -1221,6 +1229,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		List<Materiel> l =  new ArrayList<Materiel>();
 		for(Materiel m : listM)
 		{
+			System.out.println("----validation each list------"+m.isValidation());
 			if(m.isValidation())
 			{
 				l.add(m);

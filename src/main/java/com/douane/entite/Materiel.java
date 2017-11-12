@@ -220,7 +220,7 @@ public class Materiel implements Serializable{
 		this.caract = caract;
 		this.dc = dc;
 		this.marque = m;
-		setValidation(false);
+		//setValidation(false);
 	}
 	public Materiel() {
 		super();
