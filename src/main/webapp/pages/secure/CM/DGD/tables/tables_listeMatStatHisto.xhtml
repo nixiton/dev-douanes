@@ -48,7 +48,7 @@
             <f:facet name="header">ID</f:facet>
             #{materiel.idMateriel}
         </p:column>
-        <p:column>
+        <!--p:column>
             <f:facet name="header">Prix Unitaire</f:facet>
             #{materiel.pu}
         </p:column>
@@ -91,17 +91,49 @@
         <p:column>
             <f:facet name="header">Dépositaire</f:facet>
             #{materiel.dc.im}
+        </p:column-->
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Nomenclature" />
+            </f:facet>
+            <h:outputText value="#{materiel.nomenMat.designation}" />
         </p:column>
         <p:column>
+            <f:facet name="header">
+                <h:outputText value="Etat" />
+            </f:facet>
+            <h:outputText value="#{materiel.etat.designation}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Marque" />
+            </f:facet>
+            <h:outputText value="#{materiel.marque.designation}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Dépositaire" />
+            </f:facet>
+            <h:outputText value="#{materiel.dc.nomAgent}" />
+        </p:column>
+        <p:column>
+
+            <f:facet name="header">
+                <h:outputText value="Détail" />
+            </f:facet>
+            <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" update=":detail"
+            oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
+        </p:column> 
+        <p:column>
             <f:facet name="header">Statut</f:facet>
-            <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
+            <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" 
             oncomplete="PF('statut').show()" icon="ui-icon-info">
 
             </p:commandButton>
         </p:column>
         <p:column>
             <f:facet name="header">Histoique</f:facet>
-            <p:commandButton  action="#{depositaireBean.setCurentMateriel(materiel)}" 
+            <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" 
             oncomplete="PF('historique').show()" icon="ui-icon-clipboard">
             </p:commandButton>
         </p:column>
