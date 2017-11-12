@@ -164,7 +164,7 @@ public class Materiel implements Serializable{
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
+		/*if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
 		Materiel materiel = (Materiel) o;
@@ -172,7 +172,10 @@ public class Materiel implements Serializable{
 
 		if (!idMateriel.equals(materiel.idMateriel)) return false;
 
-		return leref.equals(materiel.leref);
+		return leref.equals(materiel.leref);*/
+		if (this.getIdMateriel().equals(((Materiel)o).getIdMateriel()))
+			return true;
+		return false;
 
 	}
 

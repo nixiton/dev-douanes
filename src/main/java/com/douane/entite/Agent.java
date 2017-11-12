@@ -181,14 +181,17 @@ public class Agent {
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
+		/*if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
 		Agent agent = (Agent) o;
 
 		if (im != null ? !im.equals(agent.im) : agent.im != null) return false;
 		return roleAgent != null ? roleAgent.equals(agent.roleAgent) : agent.roleAgent == null;
-
+		*/
+		if (this.getIm().equals(((Agent)o).getIm()))
+			return true;
+		return false;
 	}
 
 	@Override
