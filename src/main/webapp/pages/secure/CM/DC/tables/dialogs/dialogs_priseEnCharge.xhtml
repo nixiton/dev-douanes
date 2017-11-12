@@ -12,11 +12,50 @@
     <div   class="body collapse in table-responsive">
 
         <table class="table responsive-table">
-
                     <tr>
-                        <td>ID</td>
-                        <td>#{depositaireBean.curentMateriel.idMateriel}</td>
-                    </tr>      
+                        <td>Prix Unitaire</td>
+                        <td>#{depositaireBean.curentMateriel.nomenMat.designation}</td>
+                    </tr>
+                    <tr>
+                        <td>Référence</td>
+                        <td>#{depositaireBean.curentMateriel.nomenMat.nomenclature}</td>
+                    </tr>
+                    <tr>
+                        <td>Numéro de série</td>
+                        <td>#{depositaireBean.curentMateriel.marque.designation}</td>
+                    </tr>
+                    <tr>
+                        <td>Autre</td>
+                        <td>#{depositaireBean.curentMateriel.reference}</td>
+                    </tr>
+                    <tr>
+                        <td>Codification</td>
+                        <td>#{depositaireBean.curentMateriel.numSerie}</td>
+                    </tr>
+                    <tr>
+                        <td>Nomenclature</td>
+                        <td>#{depositaireBean.curentMateriel.caract}</td>
+                    </tr>
+                    <tr>
+                        <td>Etat</td>
+                        <td>#{depositaireBean.curentMateriel.modAcq.designation}</td>
+                    </tr>
+                    <tr>
+                        <td>Caractéristiques</td>
+                        <td>#{depositaireBean.curentMateriel.financement.designation}</td>
+                    </tr>
+                    <tr>
+                        <td>Marque</td>
+                        <td>#{depositaireBean.curentMateriel.montant_facture}</td>
+                    </tr>
+                    <tr>
+                        <td>Détenteur</td>
+                        <td>#{depositaireBean.curentMateriel.refFacture}</td>
+                    </tr>
+                    <tr>
+                        <td>Dépositaire</td>
+                        <td>#{depositaireBean.curentMateriel.fournisseur.designation}</td>
+                    </tr>         
             </table>
         </div>
     </p:dialog>
