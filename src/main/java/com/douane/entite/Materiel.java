@@ -173,6 +173,7 @@ public class Materiel implements Serializable{
 		if (!idMateriel.equals(materiel.idMateriel)) return false;
 
 		return leref.equals(materiel.leref);*/
+		System.out.println("herherMat");
 		if (this.getIdMateriel().equals(((Materiel)o).getIdMateriel()))
 			return true;
 		return false;

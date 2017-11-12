@@ -189,6 +189,7 @@ public class Agent {
 		if (im != null ? !im.equals(agent.im) : agent.im != null) return false;
 		return roleAgent != null ? roleAgent.equals(agent.roleAgent) : agent.roleAgent == null;
 		*/
+		System.out.println("herherMAgent");
 		if (this.getIm().equals(((Agent)o).getIm()))
 			return true;
 		return false;
