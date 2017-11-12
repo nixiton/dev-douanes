@@ -48,6 +48,13 @@
             </f:facet>
             <h:outputText value="#{c.operateur.im}" />
         </p:column>
+        <p:column sortBy="#{c.state}">
+            <f:facet name="header">
+                <h:outputText value="Etat" />
+            </f:facet>
+            <h:outputText value="#{c.state}" />
+        </p:column>
+
     </p:dataTable>
 
 
