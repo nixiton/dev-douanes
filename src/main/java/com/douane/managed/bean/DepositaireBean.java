@@ -1215,8 +1215,19 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	public List<Materiel> getListAllMaterilValide()
 	{
-		System.out.println("----size------"+usermetierimpl.getMatByValidation(true).size());
-		return usermetierimpl.getMatByValidation(true);
+		//System.out.println("----size------"+usermetierimpl.getMatByValidation(true).size());
+		List<Materiel> listM = usermetierimpl.getListMat();
+		List<Materiel> l =  new ArrayList<Materiel>();
+		for(Materiel m : listM)
+		{
+			if(m.isValidation())
+			{
+				l.add(m);
+			}
+		}
+		System.out.println("----size l------"+l.size());
+		return l;
+		//return usermetierimpl.getMatByValidation(true);
 	}
 
 	public void setListAllMaterilValide(List<Materiel> listAllMaterilValide) {
