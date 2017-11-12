@@ -919,6 +919,7 @@ public class DepositaireBean {
 		}*/
 	}
 	public String addPriseEncharge() {
+		try{
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
 
@@ -969,6 +970,13 @@ public class DepositaireBean {
 		OpEntree opEntree = usermetierimpl.reqEntrerMateriel(m, agent);
 
 		return SUCCESS;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			e.getNextException();
+			return ERROR;
+		}
+
 	}
 
 	public String addAttribution() {
