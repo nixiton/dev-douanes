@@ -1217,6 +1217,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	{
 		//System.out.println("----size------"+usermetierimpl.getMatByValidation(true).size());
 		List<Materiel> listM = usermetierimpl.getListMat();
+		System.out.println("----size listal------"+listM.size());
 		List<Materiel> l =  new ArrayList<Materiel>();
 		for(Materiel m : listM)
 		{
