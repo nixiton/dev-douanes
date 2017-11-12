@@ -58,17 +58,18 @@
         </p:column>
         <p:column sortBy="#{c.state}">
             <f:facet name="header">
+                <h:outputText value="Type materiel" />
+            </f:facet>
+            <h:outputText value="#{c.mat.type}" />
+        </p:column>
+        <p:column sortBy="#{c.state}">
+            <f:facet name="header">
                 <h:outputText value="Validation" />
             </f:facet>
             
-            <p:column>
 
-            <f:facet name="header">
-                <h:outputText value="Détail" />
-            </f:facet>
             <p:commandButton  action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
-        </p:column>
             
         </p:column>
 
