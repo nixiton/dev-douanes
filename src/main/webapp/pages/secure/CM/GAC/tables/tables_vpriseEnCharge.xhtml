@@ -15,47 +15,47 @@
     <p:dataTable   var="c" value="#{suivieditionBean.listOperationEntree}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="10" style="margin-bottom:20px" >
-        <c:if test="#{c.state eq ACCEPETED}">
-        <p:column sortBy="#{c.id}">
+        
+        <p:column sortBy="#{c.id}" rendered="#{c.state eq ACCEPETED}">
             <f:facet name="header">
                 <h:outputText value="Id" />
             </f:facet>
             <h:outputText value="#{c.id}" />
         </p:column>
  
-        <p:column sortBy="#{c.date}">
+        <p:column sortBy="#{c.date}" rendered="#{c.state eq ACCEPETED}">
             <f:facet name="header">
                 <h:outputText value="Date"/>
             </f:facet>
             <h:outputText value="#{c.date}" />
         </p:column>
  
-        <p:column sortBy="#{c.time}">
+        <p:column sortBy="#{c.time}" rendered="#{c.state eq ACCEPETED}">
             <f:facet name="header">
                 <h:outputText value="Heure" />
             </f:facet>
             <h:outputText value="#{c.time}" />
         </p:column>
  
-        <p:column sortBy="#{c.poste}">
+        <p:column sortBy="#{c.poste}" rendered="#{c.state eq ACCEPETED}">
             <f:facet name="header">
                 <h:outputText value="Poste" />
             </f:facet>
             <h:outputText value="#{c.poste}" />
         </p:column>
-        <p:column sortBy="#{c.operateur.im}">
+        <p:column sortBy="#{c.operateur.im}" rendered="#{c.state eq ACCEPETED}">
             <f:facet name="header">
                 <h:outputText value="Operateur" />
             </f:facet>
             <h:outputText value="#{c.operateur.im}" />
         </p:column>
         <p:column >
-            <f:facet name="header">
+            <f:facet name="header" rendered="#{c.state eq ACCEPETED}">
                 <h:outputText value="Etat" />
             </f:facet>
             <h:outputText value="#{c.state}" />
         </p:column>
-        <p:column>
+        <p:column rendered="#{c.state eq ACCEPETED}">
 
             <f:facet name="header">
                 <h:outputText value="Validation" />
@@ -63,7 +63,7 @@
             <p:commandButton  action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column>
-    </c:if>
+    
     </p:dataTable>
 
 
