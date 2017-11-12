@@ -1216,7 +1216,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	public List<Materiel> getListAllMaterilValide()
 	{
 
-		return usermetierimpl.getMatByDetenteurAndValidation(null,true);
+		return usermetierimpl.getMatByValidation(true);
 	}
 
 	public void setListAllMaterilValide(List<Materiel> listAllMaterilValide) {
