@@ -5,6 +5,7 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     >
 
 <h:head></h:head>
@@ -53,6 +54,14 @@
                 <h:outputText value="Etat" />
             </f:facet>
             <h:outputText value="#{c.state}" />
+        </p:column>
+        <p:column sortBy="#{c.state}">
+            <f:facet name="header">
+                <h:outputText value="Validation" />
+            </f:facet>
+            <c:if test="#{c.case==WAITING}">
+                <h:outputText value="#{c.state}" />
+            </c:if>
         </p:column>
 
     </p:dataTable>
