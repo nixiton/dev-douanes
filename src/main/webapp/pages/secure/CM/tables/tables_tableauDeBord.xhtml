@@ -26,23 +26,9 @@
  
         <p:column>
             <f:facet name="header">
-                <h:outputText value="Id" />
-            </f:facet>
-            <h:outputText value="#{c.id}" />
-        </p:column>
- 
-        <p:column>
-            <f:facet name="header">
                 <h:outputText value="Date"/>
             </f:facet>
-            <h:outputText value="#{c.date}" />
-        </p:column>
- 
-        <p:column>
-            <f:facet name="header">
-                <h:outputText value="Heure" />
-            </f:facet>
-            <h:outputText value="#{c.time}" />
+            <h:outputText value="#{c.date}  #{c.time}" />
         </p:column>
  
         <p:column>
@@ -59,10 +45,16 @@
         </p:column>
         <p:column>
             <f:facet name="header">
+                <h:outputText value="Operation" />
+            </f:facet>
+            <h:outputText value="#{c['class']}" />
+        </p:column>
+        <!--p:column>
+            <f:facet name="header">
                 <h:outputText value="Etat" />
             </f:facet>
             <h:outputText value="#{c.state}" />
-        </p:column>
+        </p:column-->
     </p:dataTable>
  
     <!--h3>Export Page Data Only</h3>
