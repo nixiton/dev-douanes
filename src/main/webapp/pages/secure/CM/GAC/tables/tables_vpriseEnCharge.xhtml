@@ -62,17 +62,6 @@
             </f:facet>
             <h:outputText value="#{c.mat['class']}" />
         </p:column>
-        <p:column sortBy="#{c.state}">
-            <f:facet name="header">
-                <h:outputText value="Validation" />
-            </f:facet>
-            
-
-            <p:commandButton  action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
-            oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
-            
-        </p:column>
-
     </p:dataTable>
 
 
