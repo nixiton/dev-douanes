@@ -21,12 +21,12 @@ import javax.faces.convert.FacesConverter;
  */
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class AgentConverter implements Converter{
 
 
 
-    @Autowired
+    @ManagedProperty(value="#{usermetier}")
     IUserMetier userMetier;
 
     @Override
