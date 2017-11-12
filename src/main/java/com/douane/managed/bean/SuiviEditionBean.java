@@ -28,7 +28,8 @@ public class SuiviEditionBean {
     private Direction direction;
     private Date startDate;
     private Date endDate;
-
+    
+    private Operation curentOperation;
 
     /*private List<OpEntree> listOperationEntree;
     private List<OpSortie> listOperationSortie;
@@ -351,6 +352,13 @@ public class SuiviEditionBean {
 
     public void setUsermetierimpl(IUserMetier usermetierimpl) {
         this.usermetierimpl = usermetierimpl;
+    }
+    
+    public void setCurentOperation(Operation operation){
+        this.curentOperation = operation;
+    }
+    public Operation getCurentOperation(){
+        return this.curentOperation;
     }
 
 }
