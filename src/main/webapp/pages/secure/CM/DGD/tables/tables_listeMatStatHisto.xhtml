@@ -118,9 +118,7 @@
         </p:column>
         <p:column>
 
-            <f:facet name="header">
-                <h:outputText value="Détail" />
-            </f:facet>
+            <f:facet name="header">Détail</f:facet>
             <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column> 
