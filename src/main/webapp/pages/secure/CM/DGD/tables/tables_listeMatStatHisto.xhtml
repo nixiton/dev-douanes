@@ -125,14 +125,14 @@
         <p:column>
             <f:facet name="header">Statut</f:facet>
             <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" 
-            oncomplete="PF('statut').show()" icon="ui-icon-info">
+            oncomplete="PF('statut').show()" icon="ui-icon-info" update=":statut">
 
             </p:commandButton>
         </p:column>
         <p:column>
             <f:facet name="header">Histoique</f:facet>
             <p:commandButton  action="#{depositaireBean.mySetCurentMateriel(materiel)}" 
-            oncomplete="PF('historique').show()" icon="ui-icon-clipboard">
+            oncomplete="PF('historique').show()" icon="ui-icon-clipboard" update=":historique">
             </p:commandButton>
         </p:column>
     </p:dataTable>
@@ -140,7 +140,7 @@
 
 
 
-<!--ui:include src="/pages/secure/CM/tables/dialogs/dialogs_listeMatStatHisto.xhtml"></ui:include-->
+<ui:include src="/pages/secure/CM/tables/dialogs/dialogs_listeMatStatHisto.xhtml"></ui:include>
 
 
 </div>
