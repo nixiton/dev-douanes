@@ -17,7 +17,7 @@
     <p:dataTable   var="c" value="#{suivieditionBean.listOperationEntree}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
                  paginator="true" rows="10" style="margin-bottom:20px">
-        <p:column sortBy="#{c.id}">
+        <!--p:column sortBy="#{c.id}">
             <f:facet name="header">
                 <h:outputText value="Id" />
             </f:facet>
@@ -49,12 +49,20 @@
                 <h:outputText value="Operateur" />
             </f:facet>
             <h:outputText value="#{c.operateur.im}" />
+        </p:column-->
+        <p:column sortBy="#{c.state}">
+            <f:facet name="header">
+                <h:outputText value="Etat" />
+            </f:facet>
+            
+            <h:outputText value="#{c.state}" />
+            
         </p:column>
         <p:column sortBy="#{c.state}">
             <f:facet name="header">
                 <h:outputText value="Etat" />
             </f:facet>
-            <c:if test="${c.state eq 'ACCEPETED'}">
+            <c:if test="#{c.state eq 'ACCEPETED'}">
             <h:outputText value="#{c.state}" />
             </c:if>
         </p:column>
