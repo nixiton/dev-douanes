@@ -900,7 +900,7 @@ public class DepositaireBean {
 			// m.setCategorie(categorie);
 			m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
 			// m.setDocumentPath(documentPath);
-
+			m.setValidation(false);
 			// set Operation requete entrer materiel existant
 			OpEntree opentree = usermetierimpl.reqEntrerMateriel(m, agent);
 			// set Operation valider automatique car ne necessite pas de validation GAC
