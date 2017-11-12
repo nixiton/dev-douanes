@@ -24,7 +24,7 @@
             <h:outputText value="#{c.id}" />
         </p:column>
  
-        <!--p:column sortBy="#{c.date}">
+        <p:column sortBy="#{c.date}">
             <f:facet name="header">
                 <h:outputText value="Date"/>
             </f:facet>
@@ -49,18 +49,6 @@
                 <h:outputText value="Operateur" />
             </f:facet>
             <h:outputText value="#{c.operateur.im}" />
-        </p:column>
-        <p:column sortBy="#{c.state}">
-            <f:facet name="header">
-                <h:outputText value="ID materiel" />
-            </f:facet>
-            <h:outputText value="#{c.mat.idMateriel}" />
-        </p:column>
-        <p:column sortBy="#{c.state}">
-            <f:facet name="header">
-                <h:outputText value="Type materiel" />
-            </f:facet>
-            <h:outputText value="#{c.mat['class']}" />
         </p:column>
         <p:column>
 
