@@ -27,15 +27,10 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"  panelStyle="width:180px"  style="width:160px"
-                         effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />
-                        <p:column>
-                            <h:outputText value="#{t.nomenMat.designation}" />
-                        </p:column>
 
-                    </p:selectOneMenu>
-
+                    <p:selectOneMenu styleClass="form-control top" converter="#{materielConverter}" value="#{depositaireBean.materiel}">
+                           <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />
+                        </p:selectOneMenu>
                 <hr></hr>
 
                 </div>
@@ -49,8 +44,8 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteur}">
-                            <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}"/>
-                            <p:ajax event="change" update="nom"  listener="#{depositaireBean.onDetenteurChange}"/>
+                            <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}" itemValue="#{type}"/>
+                            <p:ajax event="change" update="nom prenom" listener="#{depositaireBean.onDetenteurChange}"/>
                         </p:selectOneMenu>
 
                 <hr></hr>
@@ -59,6 +54,7 @@
                 
                 
 
+                
 
                 <label for="text1" class="control-label col-lg-4">Nom
                 </label>
@@ -86,6 +82,7 @@
                 <hr></hr>
 
                 </div>
+                
                 
                 
 

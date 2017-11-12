@@ -839,10 +839,7 @@ public class DepositaireBean {
 		this.setNomencl(getTypemateriel().getNomenclature());
 	}
 
-	public void onDetenteurChange() {
-
-		System.out.println("++++++++++++++++++++++++++++NOM    ++++++++   PRENOM       " );
-
+	public void onDetenteurChange(){
 		this.setNom(getDetenteur().getNomAgent());
 		this.setPrenom(getDetenteur().getPrenomAgent());
 	}
@@ -970,7 +967,9 @@ System.out.println("****************************ADD1 ATTR**ERRORR***************
 
 		try {
 			// getCurrent Materiel ve?????
-System.out.println("****************************ADD2 ATTR**ERRORR********************************");
+System.out.println("****************************ADD2 ATTR**ERRORR*****NULL*************************** "+
+			getMateriel().getNomenMat().getDesignation());
+
 			OpAttribution opAt = usermetierimpl.reqAttribution(getMateriel(), agent, getDetenteur());
 System.out.println("****************************ADD3 ATTR**ERRORR********************************");
 			return SUCCESS;
