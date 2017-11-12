@@ -14,9 +14,48 @@
         <table class="table responsive-table">
                     <tr>
                         <td>Type de materiel</td>
-                        <td>#{depositaireBean.curentMateriel.idMateriel}</td>
+                        <td>#{depositaireBean.curentMateriel.nomenMat.designation}</td>
                     </tr>
-                          
+                    <tr>
+                        <td>Nomenclature</td>
+                        <td>#{depositaireBean.curentMateriel.nomenMat.nomenclature}</td>
+                    </tr>
+                    <tr>
+                        <td>Marque</td>
+                        <td>#{depositaireBean.curentMateriel.marque.designation}</td>
+                    </tr>
+                    <tr>
+                        <td>Réference</td>
+                        <td>#{depositaireBean.curentMateriel.reference}</td>
+                    </tr>
+                    <tr>
+                        <td>Numro de Série</td>
+                        <td>#{depositaireBean.curentMateriel.numSerie}</td>
+                    </tr>
+                    <tr>
+                        <td>Caractéristique</td>
+                        <td>#{depositaireBean.curentMateriel.caract}</td>
+                    </tr>
+                    <tr>
+                        <td>Mode d'aquisition</td>
+                        <td>#{depositaireBean.curentMateriel.modAcq.designation}</td>
+                    </tr>
+                    <tr>
+                        <td>Financement</td>
+                        <td>#{depositaireBean.curentMateriel.financement.designation}</td>
+                    </tr>
+                    <tr>
+                        <td>Montant sur la facture</td>
+                        <td>#{depositaireBean.curentMateriel.montant_facture}</td>
+                    </tr>
+                    <tr>
+                        <td>Référence facture</td>
+                        <td>#{depositaireBean.curentMateriel.refFacture}</td>
+                    </tr>
+                    <tr>
+                        <td>Fournisseur</td>
+                        <td>#{depositaireBean.curentMateriel.fournisseur.designation}</td>
+                    </tr>         
             </table>
         </div>
     </p:dialog>
