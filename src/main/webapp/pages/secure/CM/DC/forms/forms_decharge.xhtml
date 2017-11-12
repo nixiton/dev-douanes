@@ -55,7 +55,7 @@
                         <p:column>
                             <h:outputText value="#{t.nomenMat.designation}" />
                         </p:column>
-                        <p:ajax event="change" listener="#{depositaireBean.onDetenteurChange}"/>
+                        <p:ajax event="change" update="marque ref num" listener="#{depositaireBean.onMaterielChange}"/>
                     </p:selectOneMenu>
 
                 <hr></hr>
@@ -65,12 +65,12 @@
                 
 
 
-                <!--label for="text1" class="control-label col-lg-4">Marque
+                <label for="text1" class="control-label col-lg-4">Marque
                 </label>
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{depositaireBean.marq.designation}" ></h:inputText>
+                    <h:inputText id="marque" value="#{depositaireBean.marq.designation}" ></h:inputText>
 
                     <hr></hr>
 
@@ -83,7 +83,7 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{depositaireBean.reference}" ></h:inputText>
+                    <h:inputText id="ref"  value="#{depositaireBean.reference}" ></h:inputText>
 
                     <hr></hr>
 
@@ -96,11 +96,11 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText value="#{dechargeMB.numSerie}" ></h:inputText>
+                    <h:inputText id="num" value="#{depositaireBean.numSerie}" ></h:inputText>
 
                     <hr></hr>
 
-                </div-->
+                </div>
                 
                 
 
@@ -113,19 +113,19 @@
 
                     <label for="text1" >Bureau</label>
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.destination}">
+                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destination}">
                         <f:selectItems value="#{siseBean.listBureau}" var="b" itemLabel="#{b.codeBureau}"/>
                     </p:selectOneMenu>
 
                     <label for="text1" >Service</label>
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.destination}">
+                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destination}">
                         <f:selectItems value="#{siseBean.listService}" var="b" itemLabel="#{b.codeService}"/>
                     </p:selectOneMenu>
 
                     <label for="text1" >Direction</label>
 
-                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.destination}">
+                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destination}">
                         <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}"/>
                     </p:selectOneMenu>
 
