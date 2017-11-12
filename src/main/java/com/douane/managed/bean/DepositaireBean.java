@@ -949,9 +949,9 @@ public class DepositaireBean {
 		// m.setCaract(caract);
 		// m.setCategorie(categorie);
 
-		m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
+		//m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
 
-		m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
+		//m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 
 		// proprietes propre aux materiels nouveaux
 
