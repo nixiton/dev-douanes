@@ -113,19 +113,19 @@
 
                     <label for="text1" >Bureau</label>
 
-                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destination}">
+                    <p:selectOneMenu  styleClass="form-control top"  value="#{depositaireBean.destination}">
                         <f:selectItems value="#{siseBean.listBureau}" var="b" itemLabel="#{b.codeBureau}"/>
                     </p:selectOneMenu>
 
                     <label for="text1" >Service</label>
 
-                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destination}">
+                    <p:selectOneMenu  styleClass="form-control top"  value="#{depositaireBean.destination}">
                         <f:selectItems value="#{siseBean.listService}" var="b" itemLabel="#{b.codeService}"/>
                     </p:selectOneMenu>
 
                     <label for="text1" >Direction</label>
 
-                    <p:selectOneMenu  styleClass="form-control top" converter="#{refConverter}" value="#{depositaireBean.destination}">
+                    <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.destination}">
                         <f:selectItems value="#{siseBean.listDirection}" var="b" itemLabel="#{b.codeDirection}"/>
                     </p:selectOneMenu>
 
