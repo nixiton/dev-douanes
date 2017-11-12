@@ -15,7 +15,8 @@
 
     <p:dataTable   var="c" value="#{suivieditionBean.listOperationEntree}" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
-                 paginator="true" rows="10" style="margin-bottom:20px" rendered="#{c.state eq ACCEPETED}">
+                 paginator="true" rows="10" style="margin-bottom:20px" >
+        <p:row rendered="#{c.state eq ACCEPETED}">
         <p:column sortBy="#{c.id}">
             <f:facet name="header">
                 <h:outputText value="Id" />
@@ -63,6 +64,7 @@
             <p:commandButton  action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
         </p:column>
+    </p:row>
     </p:dataTable>
 
 
