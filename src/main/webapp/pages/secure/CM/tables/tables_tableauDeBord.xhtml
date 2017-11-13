@@ -48,6 +48,7 @@
             <f:facet name="header">
                 <h:outputText value="Operation" />
             </f:facet>
+            {c['class'].simpleName eq 'OpEntree' }
             <p:outputLabel rendered="{c['class'].simpleName eq 'OpEntree' }" value="Saisie materiel "/>
             <p:outputLabel rendered="{c['class'].simpleName eq 'OpSaisie' }" value="Saisie réferentiel "/>
         </p:column>
