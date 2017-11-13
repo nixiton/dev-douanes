@@ -55,7 +55,7 @@
                 <h:outputText value="Operation" />
             </f:facet>
             #{c['class'].simpleName eq 'OpEntree' }
-            <p:panel rendered="{c['class'].simpleName eq 'OpEntree' }" >
+            <p:panel rendered="true" >
             Saisie materiel
         </p:panel>
             <p:panel rendered="{c['class'].simpleName eq 'OpSaisie' }" >
