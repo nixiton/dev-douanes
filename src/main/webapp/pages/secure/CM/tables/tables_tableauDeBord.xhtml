@@ -48,9 +48,11 @@
             <f:facet name="header">
                 <h:outputText value="Operation" />
             </f:facet>
-            #{c['class'].simpleName eq 'OpEntree' }
             <c:if test="#{c['class'].simpleName eq 'OpEntree' }">
-                
+                Saisie materiel 
+            </c:if>
+            <c:if test="#{c['class'].simpleName eq 'OpSaisie' }">
+                Saisie réferentiel
             </c:if>
         </p:column>
         <!--p:column>
