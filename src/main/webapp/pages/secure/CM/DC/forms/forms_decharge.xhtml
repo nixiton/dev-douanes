@@ -70,7 +70,8 @@
 
                 <div class="col-lg-6">
 
-                    <h:inputText id="marque" value="#{depositaireBean.marq.designation}" ></h:inputText>
+                    <!--h:inputText id="marque" value="#{depositaireBean.marq.designation}" ></h:inputText-->
+                    <h:outputText value="#{depositaireBean.marq != null ? depositaireBean.marq : ''}"/>
 
                     <hr></hr>
 
