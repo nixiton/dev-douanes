@@ -40,14 +40,14 @@
             <f:facet name="header" >
                 <h:outputText value="Etat" />
             </f:facet>
-            <h:outputText value="#{c.state}" />
+            <h:outputText value="#{a.state}" />
         </p:column>
             <p:column >
             
             <f:facet name="header">
                 <h:outputText value="Validation" />
             </f:facet>
-            <p:commandButton rendered="#{c.state eq 'WAITING' }" action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
+            <p:commandButton rendered="#{a.state eq 'WAITING' }" action="#{suivieditionBean.setCurentOperation(a)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
         </p:column>
 
