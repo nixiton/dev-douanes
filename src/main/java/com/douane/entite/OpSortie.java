@@ -102,7 +102,7 @@ public class OpSortie extends Operation{
 		this.bureau = bureau;
 	}
 
-	public MotifSortie getMotif() {
+	public MotifSortie getMotifSortie() {
 		return motifsortie;
 	}
 
