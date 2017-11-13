@@ -46,9 +46,15 @@
         </p:column>
         <p:column>
             <f:facet name="header">
+                <h:outputText value="class" />
+            </f:facet>
+            <h:outputText value="c['class'].simpleName" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
                 <h:outputText value="Operation" />
             </f:facet>
-            #{c['class'].simpleName eq OpEntree }
+            #{c['class'].simpleName eq 'OpEntree' }
             <c:if test="#{c['class'].simpleName eq 'OpEntree' }">
                 Saisie materiel 
             </c:if>
@@ -56,12 +62,7 @@
                 Saisie réferentiel
             </c:if>
         </p:column>
-        <!--p:column>
-            <f:facet name="header">
-                <h:outputText value="Etat" />
-            </f:facet>
-            <h:outputText value="#{c.state}" />
-        </p:column-->
+        
     </p:dataTable>
  
     <!--h3>Export Page Data Only</h3>
