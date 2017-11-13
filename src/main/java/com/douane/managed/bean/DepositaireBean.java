@@ -155,6 +155,16 @@ public class DepositaireBean {
 	private Direction direction;
 
 	private List<MaterielEx> listMaterielexistant;
+	
+	private List<Materiel> listMaterielByDet;
+	
+	public List<Materiel> getListMaterielByDet() {
+		return usermetierimpl.getListMatByDet(getDetenteur());
+	}
+
+	public void setListMaterielByDet(List<Materiel> listMateriel) {
+		this.listMaterielByDet= listMateriel;
+	}
 
 	public List<MaterielNouv> getListMaterielnouveau() {
 		return usermetierimpl.getListMatNouv();
@@ -852,6 +862,11 @@ public class DepositaireBean {
 	}
 
 	public void onDetenteurChange(){
+		this.setNom(getDetenteur().getNomAgent());
+		this.setPrenom(getDetenteur().getPrenomAgent());
+	}
+	
+	public void onDetenteurDetChange(){
 		this.setNom(getDetenteur().getNomAgent());
 		this.setPrenom(getDetenteur().getPrenomAgent());
 	}
