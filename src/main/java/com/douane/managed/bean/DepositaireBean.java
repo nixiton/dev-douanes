@@ -159,7 +159,7 @@ public class DepositaireBean {
 	private List<Materiel> listMaterielByDet;
 	
 	public List<Materiel> getListMaterielByDet() {
-		list<Materiel> listmatcorrespondant;
+		//List<Materiel> listmatcorrespondant;
 		if(usermetierimpl.getListMatByDet(getDetenteur())==null){
 			return usermetierimpl.getListMat();
 		}
