@@ -607,21 +607,22 @@ public class DepositaireBean {
 		//document = e.getFile();
 
 		docObj.setUploaded(true);
+		docObj.setByteArrayImage(e.getFile().getContents());
 		docObj.setDocumentUploadedPath("" + e.getFile().getFileName());
 
-		ArrayList<DocumentModel> imageList = (ArrayList<DocumentModel>) RequestFilter.getSession()
+		ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
 				.getAttribute("imageList");
-		if (imageList != null)
+		if (imagelist != null)
 		{
 			this.setImageList(imageList);
 		}
 		else
 		{
-			imageList = this.imageList;
+			imagelist = this.imageList;
 		}
 
-		imageList.set(imageList.indexOf(docObj), docObj);
-		RequestFilter.getSession().setAttribute("imageList", imageList);
+		imagelist.set(imageList.indexOf(docObj), docObj);
+		RequestFilter.getSession().setAttribute("imageList", imagelist);
 		System.out.println("File Uploaded");
 
 		return null;
@@ -948,9 +949,11 @@ public class DepositaireBean {
 		try{
 			uploadFilesDocument();
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
+			ArrayList<DocumentModel> imagelist = (ArrayList<DocumentModel>) RequestFilter.getSession()
+					.getAttribute("imageList");
 			// agent.setIp()
 			MaterielEx m = new MaterielEx();
-			m.setImage(getByteDoc());
+			m.setImage(imagelist.get(0).getByteArrayImage());
 			m.setAutre(getAutre());
 			m.setBureau(getBureau());
 			// m.setDirec(getDirection());
