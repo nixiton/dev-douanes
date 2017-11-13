@@ -61,8 +61,10 @@
                 <h:outputText value="Validation" />
             </f:facet>
             #{c.state eq 'WAITING' }
+            <p:commandButton rendered="#{c.state eq 'WAITING' }" action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
+            oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
             <c:if test="#{c.state eq 'WAITING' }">
-            <p:commandButton  action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
+                <p:commandButton  action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
             </c:if>
         </p:column>
