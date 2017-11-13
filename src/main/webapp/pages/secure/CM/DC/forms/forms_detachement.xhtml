@@ -47,10 +47,10 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu id="mat" value="#{depositaireBean.materiel}" converter="#{materielConverter}"  panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu  value="#{depositaireBean.materiel}" converter="#{materielConverter}"  panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{depositaireBean.currentListMateriel}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />    
+                            <f:selectItems id="mat" value="#{depositaireBean.currentListMateriel}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />    
                         <p:column>
                             <h:outputText value="#{t.nomenMat.designation}" />
                         </p:column> 
