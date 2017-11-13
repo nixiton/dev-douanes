@@ -718,8 +718,11 @@ public class DepositaireBean {
 
 			RequestFilter.getSession().setAttribute("documentpath", absolutePath + "resourcessZip.zip");
 			// eto miset an le documentpath
+			String a = (String) RequestFilter.getSession().getAttribute("documentpath");
+
 			fos = new FileOutputStream(absolutePath + "resourcessZip.zip");
 			setDocumentPath(absolutePath + "resourcessZip.zip");
+
 			zipOut = new ZipOutputStream(new BufferedOutputStream(fos));
 			for (String filePath : files) {
 				File input = new File(filePath);
@@ -738,7 +741,7 @@ public class DepositaireBean {
 			zipOut.close();
 			System.out.println("Done... Zipped the files...");
 			RequestFilter.getSession().removeAttribute("documentList");
-			RequestFilter.getSession().removeAttribute("documentpath");
+			//RequestFilter.getSession().removeAttribute("documentpath");
 
 			// response.setHeader("Refresh", "0; URL=http://your-current-page");
 		} catch (FileNotFoundException e) {
@@ -954,6 +957,8 @@ public class DepositaireBean {
 			// agent.setIp()
 			MaterielEx m = new MaterielEx();
 			m.setImage(imagelist.get(0).getByteArrayImage());
+			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
+			RequestFilter.getSession().removeAttribute("documentpath");
 			m.setAutre(getAutre());
 			m.setBureau(getBureau());
 			// m.setDirec(getDirection());
