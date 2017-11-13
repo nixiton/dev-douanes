@@ -44,15 +44,18 @@
                 </label>
 
                 <div class="col-lg-6">
-
-                    <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"  panelStyle="width:180px"  style="width:160px"
+                    <p:selectOneMenu styleClass="form-control top" converter="#{materielConverter}" value="#{depositaireBean.materiel}">
+                           <f:selectItems value="#{depositaireBean.listAllMaterilValide}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />
+                        </p:selectOneMenu>
+                    
+                    <!--p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"  panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{depositaireBean.listMaterielByDet}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.numSerie}" />
                         </p:column>
 
-                    </p:selectOneMenu>
+                    </p:selectOneMenu->
                 <hr></hr>
                 </div>
                 
