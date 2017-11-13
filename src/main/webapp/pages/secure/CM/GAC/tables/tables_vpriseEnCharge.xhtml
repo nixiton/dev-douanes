@@ -56,7 +56,7 @@
             <h:outputText value="#{c.state}" />
         </p:column>
         <p:column >
-            <c:if test="#{c.state eq WAITING}">
+            <c:if test="#{c.state eq 'WAITING' }">
             <f:facet name="header">
                 <h:outputText value="Validation" />
             </f:facet>
