@@ -159,6 +159,8 @@ public class DepositaireBean {
 	
 	private List<Materiel> listMaterielByDet;
 	
+	private List<Materiel> listAllMaterielValideSansDetenteur;
+	
 	public List<Materiel> getListMaterielByDet() {
 		//List<Materiel> listmatcorrespondant;
 		if(usermetierimpl.getListMatByDet(getDetenteur())==null){
@@ -218,7 +220,8 @@ public class DepositaireBean {
 
 	private ArrayList<UploadedFile> uploadedFiles = new ArrayList<UploadedFile>();
 	private UploadedFile uploadedFile;
-
+	
+	private List<Materiel> currentListMateriel;
 
 	//Service
 	private Service serviceforMat;
@@ -1019,6 +1022,8 @@ public class DepositaireBean {
 		m.setRenseignement(getRenseignement());
 
 		m.setServ(getService());
+		
+		m.setRefFacture(getRefFacture());
 
 		// m.setCaract(caract);
 		// m.setCategorie(categorie);
@@ -1331,5 +1336,24 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	public void setImageList(ArrayList<DocumentModel> imageList) {
 		this.imageList = imageList;
+	}
+
+	public List<Materiel> getListAllMaterielValideSansDetenteur() {
+		return usermetierimpl.getMatByDetenteurAndValidation(null, true);
+	}
+
+	public void setListAllMaterielValideSansDetenteur(List<Materiel> listAllMaterielValideSansDetenteur) {
+		this.listAllMaterielValideSansDetenteur = listAllMaterielValideSansDetenteur;
+	}
+	public List<Materiel> getCurrentListMateriel() {
+		return currentListMateriel;
+	}
+
+	public void setCurrentListMateriel(List<Materiel> currentListMateriel) {
+		this.currentListMateriel = currentListMateriel;
+	}
+	public void mySetCurrentListeMateriel(Agent detenteur){
+		
+		this.setCurrentListeMateriel(usermetierimpl.getMatByDetenteurAndValidation(detenteur, true));
 	}
 }
