@@ -25,6 +25,10 @@
             #{a.mat.idMateriel}
         </p:column>
         <p:column>
+            <f:facet name="header">Rérérence materiel</f:facet>
+            #{a.mat.reference}
+        </p:column>
+        <p:column>
             <f:facet name="header">N° Serie Materiel</f:facet>
             #{a.mat.numSerie}
         </p:column>
@@ -32,12 +36,26 @@
             <f:facet name="header">Détenteur</f:facet>
             #{a.detenteur.im}
         </p:column>
-
+        <p:column >
+            <f:facet name="header" >
+                <h:outputText value="Etat" />
+            </f:facet>
+            <h:outputText value="#{c.state}" />
+        </p:column>
 
     </p:dataTable>
 
-
+    <p:column >
+            
+            <f:facet name="header">
+                <h:outputText value="Validation" />
+            </f:facet>
+            <p:commandButton rendered="#{c.state eq 'WAITING' }" action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
+            oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
+        </p:column>
 
 </div>
+
+<ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vattribution.xhtml"></ui:include>
 
 </html>
