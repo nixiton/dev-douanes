@@ -56,12 +56,13 @@
             <h:outputText value="#{c.state}" />
         </p:column>
         <p:column >
-
+            <c:if test="#{c.state eq WAITING}">
             <f:facet name="header">
                 <h:outputText value="Validation" />
             </f:facet>
             <p:commandButton  action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
-            oncomplete="PF('detail').show()" icon="ui-icon-zoomin"/>
+            oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
+            </c:if>
         </p:column>
     
     </p:dataTable>
