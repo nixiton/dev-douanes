@@ -296,7 +296,7 @@ public class DepositaireBean {
 	}
 
 	public String getNumSerie() {
-		return (String) RequestFilter.getSession().getAttribute("numSerie");
+		return numSerie;
 	}
 
 	public void setNumSerie(String numSerie) {
