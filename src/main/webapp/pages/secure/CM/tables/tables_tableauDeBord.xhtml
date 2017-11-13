@@ -54,12 +54,17 @@
             <f:facet name="header">
                 <h:outputText value="Operation" />
             </f:facet>
-            1#{c['class'].simpleName eq 'OpEntree' }1
-            <p:panel rendered="{c['class'].simpleName eq 'OpEntree' }" >
+            <p:panel rendered="#{c['class'].simpleName eq 'OpEntree' }" >
             Saisie materiel
         </p:panel>
-            <p:panel rendered="{c['class'].simpleName eq 'OpSaisie' }" >
+            <p:panel rendered="#{c['class'].simpleName eq 'OpSaisie' }" >
             Saisie réferentiel 
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpAttribution' }" >
+            Attribution
+            </p:panel>
+            <p:panel rendered="#{c['class'].simpleName eq 'OpDetachement' }" >
+            Détachement
             </p:panel>
 
         </p:column>
