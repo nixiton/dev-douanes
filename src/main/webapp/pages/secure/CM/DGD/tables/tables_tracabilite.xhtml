@@ -18,7 +18,7 @@
 
 
     <p:dataTable   var="t" value="#{operationBean.mesOperations}" 
-                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}  "
                  paginator="true" rows="10" style="margin-bottom:20px">
         <p:column filterBy="#{t.id}">
             <f:facet name="header">ID</f:facet>
