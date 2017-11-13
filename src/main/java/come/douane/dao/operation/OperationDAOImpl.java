@@ -46,14 +46,14 @@ public class OperationDAOImpl implements IOperationDAO{
 	public Materiel attribuerMat(OpAttribution attr) {
 		// TODO Auto-generated method stub
 		System.out.println("Attribution DAO begin");
-		Materiel m = attr.getMat();
+		Materiel m = em.find(Materiel.class, attr.getMat().getIdMateriel()) ;
 		//m.setCodification("codified"+new Date());
 		m.generateCode();
 		//m.setDetenteur(attr.getDetenteur());
 		//matrepos.save(m);
 		//em.persist(m);
 		//em.merge(m);
-		Agent detent = attr.getDetenteur();
+		Agent detent = em.find(Agent.class, attr.getDetenteur().getIm());
 		m.setDetenteur(detent);
 		detent.getMatdetenu().add(m);
 		//agentrepos.save(detent);
