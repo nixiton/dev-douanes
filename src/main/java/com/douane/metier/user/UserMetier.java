@@ -473,7 +473,8 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<Operation> getListOpBetween(Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
-		return operationdao.getListOpByDate(startDate, endDate);
+		int maxresult = 100;
+		return operationdao.getListOpByDate(startDate, endDate, maxresult);
 	}
 
 	@Override
@@ -491,13 +492,15 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<OpEntree> getListOpEntreeByMatBDate(Materiel m, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
-		return operationdao.getListOpEntreeByByMaterielBDate(m, startDate, endDate);
+		int maxresult = 100;
+		return operationdao.getListOpEntreeByByMaterielBDate(m, startDate, endDate,maxresult);
 	}
 
 	@Override
 	public List<OpSortie> getListOpSortieByMatBDate(Materiel m, Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
-		return operationdao.getListOpSortieByByMaterielBDate(m, startDate, endDate);
+		int maxresult = 100;
+		return operationdao.getListOpSortieByByMaterielBDate(m, startDate, endDate,maxresult);
 	}
 
 	@Override

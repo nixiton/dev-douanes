@@ -4,11 +4,13 @@ import com.douane.entite.*;
 import com.douane.metier.user.IUserMetier;
 import com.douane.repository.OpRepository;
 import com.douane.requesthttp.RequestFilter;
+import javax.faces.bean.RequestScoped;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import java.util.HashMap;
 import java.util.List;
+@RequestScoped
 
 /**
  * Created by hasina on 11/3/17.
@@ -76,5 +78,14 @@ public class GACBean {
     {
         return usermetierimpl.findAllAgents();
     }
+
+    public IUserMetier getUsermetierimpl() {
+        return usermetierimpl;
+    }
+
+    public void setUsermetierimpl(IUserMetier usermetierimpl) {
+        this.usermetierimpl = usermetierimpl;
+    }
+
 }
 //r

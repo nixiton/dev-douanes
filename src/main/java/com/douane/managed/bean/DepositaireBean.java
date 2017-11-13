@@ -297,7 +297,7 @@ public class DepositaireBean {
 	}
 
 	public String getNumSerie() {
-		return (String) RequestFilter.getSession().getAttribute("numSerie");
+		return numSerie;
 	}
 
 	public void setNumSerie(String numSerie) {
@@ -1076,6 +1076,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
 		OpDettachement opDet = null;
+		System.out.println("****************************ADD DETACHEMENT********************************");
 		try {
 			// getCurrent Materiel ve?????
 			opDet = usermetierimpl.reqDettachement(this.getMateriel(), agent, getDetenteur());

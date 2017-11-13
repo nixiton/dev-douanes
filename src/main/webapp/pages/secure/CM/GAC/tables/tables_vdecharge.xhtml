@@ -35,9 +35,24 @@
             <f:facet name="header">Code Direction Destination</f:facet>
             #{d.direc.codeDirection}
         </p:column>
+        <p:column >
+            <f:facet name="header" >
+                <h:outputText value="Etat" />
+            </f:facet>
+            <h:outputText value="#{c.state}" />
+        </p:column>
+        <p:column >
+            
+            <f:facet name="header">
+                <h:outputText value="Validation" />
+            </f:facet>
+            <p:commandButton rendered="#{c.state eq 'WAITING' }" action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
+            oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
+        </p:column>
+
     </p:dataTable>
 
-
+<ui:include src="/pages/secure/CM/GAC/tables/dialogs/dialogs_vdecharge.xhtml"></ui:include>
 
 </div>
 

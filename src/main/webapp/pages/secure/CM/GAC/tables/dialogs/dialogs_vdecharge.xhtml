@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -34,33 +35,17 @@
                         <td>#{suivieditionBean.curentOperation.mat.numSerie}</td>
                     </tr>
                     <tr>
-                        <td>Caratéristique</td>
-                        <td>#{suivieditionBean.curentOperation.mat.caract}</td>
-                    </tr>
+                        <td>Motif de sortie</td>
+                        <td>#{suivieditionBean.curentOperation.motifsortie.designation}</td>
+                    </tr>    
                     <tr>
-                        <td>Mode d'acquisition</td>
-                        <td>#{suivieditionBean.curentOperation.mat.modAcq.designation}</td>
-                    </tr>
-                    <tr>
-                        <td>Financement</td>
-                        <td>#{suivieditionBean.curentOperation.mat.financement.designation}</td>
-                    </tr>
-                    <tr>
-                        <td>Montant sur fature</td>
-                        <td>#{suivieditionBean.curentOperation.mat.montant_facture}</td>
-                    </tr>
-                    <tr>
-                        <td>Réference facture</td>
-                        <td>#{suivieditionBean.curentOperation.mat.refFacture}</td>
-                    </tr>
-                    <tr>
-                        <td>Fournisseur</td>
-                        <td>#{suivieditionBean.curentOperation.mat.fournisseur.designation}</td>
-                    </tr>         
+                        <td>Destination</td>
+                        <td>#{suivieditionBean.curentOperation.bureau.designation} #{suivieditionBean.curentOperation.service.designation}  #{suivieditionBean.curentOperation.direction.designation}</td>
+                    </tr>    
             </table>
         </div>
         
-            <h:commandButton  action="#{gacBean.validatePrisEnChargeEntreMat(suivieditionBean.curentOperation)}" value="Valider"
+            <h:commandButton  action="#{gacBean.validateDechargeSortie(suivieditionBean.curentOperation)}" value="Valider"
                         class="btn btn-lg btn-primary btn-block"/>
         </h:form>
     </p:dialog>
