@@ -46,6 +46,12 @@
         </p:column>
         <p:column>
             <f:facet name="header">
+                <h:outputText value="Operateur" />
+            </f:facet>
+            <h:outputText value="#{c.state}" />
+        </p:column>
+        <p:column>
+            <f:facet name="header">
                 <h:outputText value="Operation" />
             </f:facet>
             #{c['class'].simpleName eq 'OpEntree' }
