@@ -14,7 +14,34 @@
     <div   class="body collapse in table-responsive">
 
         <table class="table responsive-table">
-                        
+                    <tr>
+                        <td>Type de matériel</td>
+                        <td>#{suivieditionBean.curentOperation.mat.nomenMat.designation}</td>
+                    </tr>
+                    <tr>
+                        <td>Nomenclature</td>
+                        <td>#{suivieditionBean.curentOperation.mat.nomenMat.nomenclature}</td>
+                    </tr>
+                    <tr>
+                        <td>Marque</td>
+                        <td>#{suivieditionBean.curentOperation.mat.marque.designation}</td>
+                    </tr>
+                    <tr>
+                        <td>Référence</td>
+                        <td>#{suivieditionBean.curentOperation.mat.reference}</td>
+                    </tr>
+                    <tr>
+                        <td>Numero de série</td>
+                        <td>#{suivieditionBean.curentOperation.mat.numSerie}</td>
+                    </tr>
+                    <tr>
+                        <td>Motif de sortie</td>
+                        <td>#{suivieditionBean.curentOperation.motifsortie.designation}</td>
+                    </tr>    
+                    <tr>
+                        <td>Destination</td>
+                        <td>#{suivieditionBean.curentOperation.bureau.designation} #{suivieditionBean.curentOperation.service.designation}  #{suivieditionBean.curentOperation.direction.designation}</td>
+                    </tr>    
             </table>
         </div>
         
