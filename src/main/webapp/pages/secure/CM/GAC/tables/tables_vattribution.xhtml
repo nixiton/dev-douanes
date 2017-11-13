@@ -42,10 +42,7 @@
             </f:facet>
             <h:outputText value="#{c.state}" />
         </p:column>
-
-    </p:dataTable>
-
-    <p:column >
+            <p:column >
             
             <f:facet name="header">
                 <h:outputText value="Validation" />
@@ -53,6 +50,10 @@
             <p:commandButton rendered="#{c.state eq 'WAITING' }" action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
         </p:column>
+
+    </p:dataTable>
+
+
 
 </div>
 
