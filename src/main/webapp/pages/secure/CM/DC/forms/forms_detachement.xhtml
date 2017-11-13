@@ -33,7 +33,7 @@
                             <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                              
                             <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}"/>
-                            <p:ajax event="change" listener="#{depositaireBean.mySetCurrentListMateriel(type)}" update="j_idt58:mat"/>
+                            <p:ajax event="change" listener="#{depositaireBean.mySetCurrentListMateriel}" update="mat"/>
                         </p:selectOneMenu>
 
                 <hr></hr>
