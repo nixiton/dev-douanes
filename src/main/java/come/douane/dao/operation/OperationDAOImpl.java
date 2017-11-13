@@ -9,6 +9,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
 import com.douane.entite.Agent;
+import com.douane.entite.Direction;
 import com.douane.entite.Materiel;
 import com.douane.entite.OpAttribution;
 import com.douane.entite.OpDettachement;
