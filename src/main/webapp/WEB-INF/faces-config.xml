@@ -185,6 +185,12 @@
 			<to-view-id>/pages/secure/CM/GAC/validation/attribution.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>v_decharge</from-outcome>
+			<to-view-id>/pages/secure/CM/GAC/validation/decharge.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 		
 		
 		<navigation-case>
