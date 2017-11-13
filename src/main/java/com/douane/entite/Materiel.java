@@ -265,11 +265,16 @@ public class Materiel implements Serializable{
 	}
 	*/
 	public void generateCode() {
+		String codeBureau = "tsy misy";
+		if(this.getBureau()!=null) {
+			codeBureau = this.bureau.getCodeBureau();
+		}
 		this.code = "Type"+"..."+
-					"Bureau"+this.bureau.getCodeBureau()+
+					"Bureau"+codeBureau+
 					"Acquisition"+"??problemMatExist??"+
 					"Origine"+"??problemMatExist??";
 	}
+
 	public CategorieMat getCategorie() {
 		return categorie;
 	}
