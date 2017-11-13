@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import java.util.Date;
 import java.util.List;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Component;
 
 
 @ManagedBean(name="suivieditionBean")
-@ViewScoped
+@SessionScoped
 public class SuiviEditionBean {
 
 
