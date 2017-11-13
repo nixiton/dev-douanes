@@ -1016,6 +1016,8 @@ public class DepositaireBean {
 		m.setRenseignement(getRenseignement());
 
 		m.setServ(getService());
+		
+		m.setRefFacture(getRefFacture());
 
 		// m.setCaract(caract);
 		// m.setCategorie(categorie);
