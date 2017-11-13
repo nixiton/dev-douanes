@@ -29,7 +29,7 @@
 
 
                     <p:selectOneMenu styleClass="form-control top" converter="#{materielConverter}" value="#{depositaireBean.materiel}">
-                           <f:selectItems value="#{depositaireBean.listAllMaterilValide}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />
+                           <f:selectItems value="#{depositaireBean.listAllMaterilValide}" var="theme" itemLabel="#{theme.detenteur}" itemValue="#{theme}" />
                         </p:selectOneMenu>
                 <hr></hr>
 
