@@ -1351,6 +1351,6 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	}
 	public void mySetCurrentListeMateriel(Agent detenteur){
 		
-		this.setCurrentListeMateriel(usermetierimpl.getMatByDetenteurAndValidation(detenteur, true))
+		this.setCurrentListeMateriel(usermetierimpl.getMatByDetenteurAndValidation(detenteur, true));
 	}
 }
