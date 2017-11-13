@@ -473,7 +473,8 @@ public class UserMetier implements IUserMetier{
 	@Override
 	public List<Operation> getListOpBetween(Date startDate, Date endDate) {
 		// TODO Auto-generated method stub
-		return operationdao.getListOpByDate(startDate, endDate);
+		int maxresult = 100;
+		return operationdao.getListOpByDate(startDate, endDate, maxresult);
 	}
 
 	@Override
