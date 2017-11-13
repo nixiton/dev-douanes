@@ -60,6 +60,7 @@
             <f:facet name="header">
                 <h:outputText value="Validation" />
             </f:facet>
+            #{c.state eq WAITING}
             <p:commandButton  action="#{suivieditionBean.setCurentOperation(c)}" update=":detail"
             oncomplete="PF('detail').show()" icon="ui-icon-circle-check"/>
             </c:if>
