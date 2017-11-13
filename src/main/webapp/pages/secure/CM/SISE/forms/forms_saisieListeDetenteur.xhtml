@@ -68,7 +68,8 @@
 				<div class="col-lg-6">
 
 					<p:selectOneMenu  styleClass="form-control top" value="#{saisieListeDetMB.roleAgent}">
-						<f:selectItems value="#{saisieUtilisateurMB.utilisateurList}" var="user" itemLabel="#{user.role}"/>
+						<f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{saisieUtilisateurMB.utilisateurList}" var="user" itemLabel="#{user.role}"/>
 					</p:selectOneMenu>
 				</div>
 				

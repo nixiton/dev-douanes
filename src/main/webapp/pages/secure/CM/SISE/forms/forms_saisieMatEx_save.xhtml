@@ -27,6 +27,7 @@
 
                         <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
                     valueChangeListener="#{depositaireBean.onTypeMaterielChange}">
+                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
                         </p:selectOneMenu>
 
@@ -43,7 +44,8 @@
                     <div class="col-lg-6">
 
                     <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
-                        <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>
 
                     </h:selectOneMenu-->
 
@@ -66,6 +68,7 @@
                     <div class="col-lg-6">
 
                         <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.marq}">
+                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
                         </p:selectOneMenu>
 
@@ -168,7 +171,8 @@
                     <div class="col-lg-6">
 
                         <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.etat}">
-                        <f:selectItems value="#{siseBean.listEtat}" var="etat" itemLabel="#{etat.designation}"/>
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listEtat}" var="etat" itemLabel="#{etat.designation}"/>
                         </p:selectOneMenu>
                     <hr></hr>
 

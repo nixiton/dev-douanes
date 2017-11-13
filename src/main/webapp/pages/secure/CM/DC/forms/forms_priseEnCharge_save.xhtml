@@ -27,7 +27,8 @@
 
                     <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.typemateriel}" 
                     valueChangeListener="#{depositaireBean.typeMatChange}">
-                        <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listNomenclature}" var="type" itemLabel="#{type.designation}"/>
                     </p:selectOneMenu>
 
                 </div>
@@ -41,7 +42,8 @@
                 <div class="col-lg-6">
 
                     <!--h:selectOneMenu  styleClass="form-control top" value="#{saisieMatExMB.nomenclature}">
-                        <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{saisieNomMB.nomlenclatureList}" var="nomenclature" itemLabel="#{nomenclature.nomenclature}"/>
 
                     </h:selectOneMenu-->
 
@@ -59,7 +61,8 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.marq}">
-                        <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listMarque}" var="marque" itemLabel="#{marque.designation}"/>
                     </p:selectOneMenu>
 
                 </div>
@@ -123,7 +126,8 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.acquisition}">
-                        <f:selectItems value="#{siseBean.listModeAcquisition}" var="etat" itemLabel="#{etat.designation}"/>
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listModeAcquisition}" var="etat" itemLabel="#{etat.designation}"/>
                     </p:selectOneMenu>
 
                 </div>
@@ -139,7 +143,8 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.financement}">
-                        <f:selectItems value="#{siseBean.listFinancment}" var="f" itemLabel="#{f.designation}"/>
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listFinancment}" var="f" itemLabel="#{f.designation}"/>
                     </p:selectOneMenu>
 
                 </div>
@@ -184,7 +189,8 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.fournisseur}">
-                        <f:selectItems value="#{siseBean.listFournisseur}" var="f" itemLabel="#{f.designation}"/>
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listFournisseur}" var="f" itemLabel="#{f.designation}"/>
                     </p:selectOneMenu>
 
                 </div>
@@ -203,7 +209,8 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.etat}">
-                        <f:selectItems value="#{siseBean.listEtat}" var="m" itemLabel="#{m.designation}"/>
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listEtat}" var="m" itemLabel="#{m.designation}"/>
                     </p:selectOneMenu>
 
                 </div>

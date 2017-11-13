@@ -30,6 +30,8 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteur}">
+                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                             <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}"/>
                             <p:ajax event="change" listener="#{depositaireBean.mySetCurrentListeMateriel}" update=":mat"/>
                         </p:selectOneMenu>
@@ -47,7 +49,8 @@
 
                     <p:selectOneMenu id="mat" value="#{depositaireBean.materiel}" converter="#{materielConverter}"  panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItems value="#{depositaireBean.curentListMateriel}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />    
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{depositaireBean.mySetCurrentListeMateriel}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />    
                         <p:column>
                             <h:outputText value="#{t.nomenMat.designation}" />
                         </p:column> 
@@ -66,7 +69,8 @@
 
                     <p:selectOneMenu value="#{depositaireBean.motifSortie}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItems value="#{siseBean.listMotifSortie}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{siseBean.listMotifSortie}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
                         </p:column>

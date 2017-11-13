@@ -26,7 +26,8 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.materiel}">
-                        <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomenclature}"/>
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{depositaireBean.listMaterielexistant}" var="m" itemLabel="#{m.nomenclature}"/>
                     </p:selectOneMenu>
 
                 <hr></hr>
@@ -42,7 +43,8 @@
                 <div class="col-lg-6">
 
                     <p:selectOneMenu  styleClass="form-control top" value="#{depositaireBean.detenteur}" valueChangeListener="#{depositaireBean.onDetenteurChange}">
-                        <f:selectItems value="#{depositaireBean.getDetenteurs}" var="d" itemLabel="#{d.im}"/>
+                        <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                            <f:selectItems value="#{depositaireBean.getDetenteurs}" var="d" itemLabel="#{d.im}"/>
                     </p:selectOneMenu>
 
                 <hr></hr>
