@@ -1352,7 +1352,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	public void setCurrentListMateriel(List<Materiel> currentListMateriel) {
 		this.currentListMateriel = currentListMateriel;
 	}
-	public void mySetCurrentListeMateriel(Agent detenteur){
+	public void mySetCurrentListMateriel(Agent detenteur){
 		
 		this.setCurrentListMateriel(usermetierimpl.getMatByDetenteurAndValidation(detenteur, true));
 	}

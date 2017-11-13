@@ -33,7 +33,7 @@
                             <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
                              
                             <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}"/>
-                            <p:ajax event="change" listener="#{depositaireBean.mySetCurrentListeMateriel(type)}" update="mat"/>
+                            <p:ajax event="change" listener="#{depositaireBean.mySetCurrentListMateriel(type)}" update="mat"/>
                         </p:selectOneMenu>
 
                 <hr></hr>
@@ -50,7 +50,7 @@
                     <p:selectOneMenu id="mat" value="#{depositaireBean.materiel}" converter="#{materielConverter}"  panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{depositaireBean.mySetCurrentListeMateriel}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />    
+                            <f:selectItems value="#{depositaireBean.currentListMateriel}" var="theme" itemLabel="#{theme.nomenMat.designation}" itemValue="#{theme}" />    
                         <p:column>
                             <h:outputText value="#{t.nomenMat.designation}" />
                         </p:column> 
