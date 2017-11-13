@@ -1358,7 +1358,7 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		this.currentListMateriel = currentListMateriel;
 	}
 	public void mySetCurrentListMateriel(){
-		
+		System.out.println("****************************SET LIST ******************************** " +this.getDetenteur().im);
 		this.setCurrentListMateriel(usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
 	}
 }
