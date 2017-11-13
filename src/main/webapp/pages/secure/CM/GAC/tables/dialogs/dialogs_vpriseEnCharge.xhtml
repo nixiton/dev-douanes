@@ -8,6 +8,7 @@
 
     <p:dialog id="detail" widgetVar="detail">
         
+        <h:form class="form-horizontal">
 
     <div   class="body collapse in table-responsive">
 
@@ -58,8 +59,8 @@
                     </tr>         
             </table>
         </div>
-        <h:form class="form-horizontal">
-            <h:commandButton  action="#{gacBean.validatePrisEnChargeEntreMat(#{suivieditionBean.curentOperation})}" value="Valider"
+        
+            <h:commandButton  action="#{gacBean.validatePrisEnChargeEntreMat(suivieditionBean.curentOperation)}" value="Valider"
                         class="btn btn-lg btn-primary btn-block"/>
         </h:form>
     </p:dialog>
