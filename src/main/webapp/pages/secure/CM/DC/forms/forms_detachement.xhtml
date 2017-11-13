@@ -47,7 +47,7 @@
 
                     <p:selectOneMenu value="#{depositaireBean.materiel}" converter="#{materielConverter}"  panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
-                        <f:selectItem itemLabel="Aucun Materiel" itemValue=""/>
+                        <f:selectItem itemLabel="Aucun Materiel" itemValue="#{null}"/>
                         <!--f:selectItems rendered="#{depositaireBean.listMaterielByDet != null}" value="#{depositaireBean.listMaterielByDet}" var="theme" itemLabel="#{theme.numSerie}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.numSerie}" />
