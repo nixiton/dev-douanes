@@ -82,7 +82,7 @@ public class OpSortie extends Operation{
 		return direc;
 	}
 
-	public void setDirection(Direction direc) {
+	public void setDirec(Direction direc) {
 		this.direc = direc;
 	}
 
