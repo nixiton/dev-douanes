@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>JSF Primefaces Multiple File Upload with Ajax using
+        advanced mode</title>
+</h:head>
+<h:body>
+    <h3>Test upload</h3>
+    <h:form id="fileUpoadForm" prependId="false"
+            enctype="multipart/form-data">
+
+        <h:outputLabel for="txtIdName" value="Enter Your Name:" />
+        <p:inputText id="txtIdName" required="true"
+                     value="#{depositaireBean.name}" label="Name" />
+
+        <p:separator />
+
+
+        <p:outputPanel id="testContainer">
+
+            <p:dataTable id="docId" var="row"
+                         value="#{depositaireBean.documentList}" editable="true"
+                         editMode="cell" widgetVar="documentTable">
+
+                <p:column headerText="Sr. No" style="width:3%">
+                    <h:outputText value="#{row.srNo}" title="Sr No" />
+                </p:column>
+
+                <p:column headerText="Document Name">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{row.documentName}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <p:inputText value="#{row.documentName}"
+                                         rendered="#{row.removable}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="Institute">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{row.institute}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <p:inputText value="#{row.institute}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column headerText="File">
+                    <p:panel rendered="#{!row.uploaded}">
+                        <p:fileUpload value="#{depositaireBean.document}"
+                                      fileUploadListener="#{depositaireBean.uploadDoc_Advanced}"
+                                      mode="advanced" dragDropSupport="false" update="@this,docId"
+                                      allowTypes="/(\.|\/)(gif|jpe?g|png)$/">
+                            <f:attribute name="docObj" value="#{row}"></f:attribute>
+                        </p:fileUpload>
+                    </p:panel>
+                    <p:panel rendered="#{row.uploaded}">
+                        Doc  Uploaded       <p:commandLink
+                            title="remove" value="remove document"
+                            actionListener="#{depositaireBean.removeDoc(row)}" update="docId"
+                            ajax="true" process="@this" />
+                    </p:panel>
+                </p:column>
+
+                <p:column headerText="Action">
+                    <h:outputText value="Not Removable" rendered="#{!row.removable}" />
+                    <p:commandButton icon="ui-icon-close" title="remove"
+                                     actionListener="#{depositaireBean.removeRow(row)}" update="docId"
+                                     ajax="true" rendered="#{row.removable}" process="@this" />
+
+                </p:column>
+
+            </p:dataTable>
+        </p:outputPanel>
+
+        <p:commandButton value="Upload More Document" process="@this"
+                         update="docId" actionListener="#{depositaireBean.addNewDoc}"
+                         ajax="true" />
+        <p:commandButton value="Upload More Document" process="@this"
+                         update="docId" actionListener="#{depositaireBean.uploadFiles}"
+                         ajax="true" />
+
+
+    </h:form>
+
+</h:body>
+</html>

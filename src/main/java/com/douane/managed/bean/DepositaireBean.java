@@ -112,6 +112,7 @@ public class DepositaireBean {
 	private String name;
 	private UploadedFile document;
 	ArrayList<DocumentModel> documentList = new ArrayList<DocumentModel>();
+	ArrayList<DocumentModel> imageList = new ArrayList<DocumentModel>();
 
 	private Float unitPrice;
 
@@ -494,8 +495,8 @@ public class DepositaireBean {
 		// PropertyConf dbConfig = (PropertyConf) context.getBean("propertyConf");
 		// System.out.println(dbConfig.getFileupload());
 		// env = context.getEn;
-		System.out.println(env.getProperty("fileupload.size"));
-		System.out.println(fileupload);
+		//System.out.println(env.getProperty("fileupload.size"));
+		//System.out.println(fileupload);
 		ArrayList<DocumentModel> documentlist = (ArrayList<DocumentModel>) RequestFilter.getSession()
 				.getAttribute("documentList");
 		if (documentlist != null) {
@@ -512,6 +513,7 @@ public class DepositaireBean {
 	public DepositaireBean() {
 		try {
 			documentList = initialize();
+			imageList = initializeImageFile();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -532,6 +534,17 @@ public class DepositaireBean {
 		obj.setDocumentName("test filename2");
 		obj.setRemovable(false);
 		list.add(obj);
+		return list;
+	}
+	public ArrayList<DocumentModel> initializeImageFile() throws IOException {
+
+		ArrayList<DocumentModel> list = new ArrayList<DocumentModel>();
+		DocumentModel obj = new DocumentModel();
+		obj.setSrNo(1);
+		obj.setDocumentName("test imagefilename1");
+		obj.setRemovable(false);
+		list.add(obj);
+
 		return list;
 	}
 
@@ -579,7 +592,37 @@ public class DepositaireBean {
 		RequestFilter.getSession().setAttribute("imageMat", e.getFile().getContents());
 		return null;
 	}
+	public String uploadIm_Advanced(FileUploadEvent e) throws IOException
+	{
+		this.setByteDoc(e.getFile().getContents());
 
+		DocumentModel docObj = (DocumentModel) e.getComponent().getAttributes().get("docObj");
+
+		if (e.getFile().getContents() != null)
+			docObj.setByteArrayImage(e.getFile().getContents());
+
+		//document = e.getFile();
+
+		docObj.setUploaded(true);
+		docObj.setDocumentUploadedPath("" + e.getFile().getFileName());
+
+		ArrayList<DocumentModel> imageList = (ArrayList<DocumentModel>) RequestFilter.getSession()
+				.getAttribute("imageList");
+		if (imageList != null)
+		{
+			this.setImageList(imageList);
+		}
+		else
+		{
+			imageList = this.imageList;
+		}
+
+		imageList.set(imageList.indexOf(docObj), docObj);
+		RequestFilter.getSession().setAttribute("imageList", imageList);
+		System.out.println("File Uploaded");
+
+		return null;
+	}
 	public String uploadDoc_Advanced(FileUploadEvent e) throws IOException {
 
 		DocumentModel docObj = (DocumentModel) e.getComponent().getAttributes().get("docObj");
@@ -628,17 +671,18 @@ public class DepositaireBean {
 
 	}
 
-	/*public String uploadFiles() throws IOException {
+	public String uploadFilesDocument() throws IOException {
 		String fileName = "";
-		ArrayList<UploadedFileByte> uploadedfiles = (ArrayList<UploadedFileByte>) RequestFilter.getSession()
+		/*ArrayList<UploadedFileByte> uploadedfiles = (ArrayList<UploadedFileByte>) RequestFilter.getSession()
 				.getAttribute("uploadedFiles");
 
 		HashMap<String, HashMap<UploadedFile, byte[]>> hashOfhashmapfilebytecontent = (HashMap<String, HashMap<UploadedFile, byte[]>>) RequestFilter
-				.getSession().getAttribute("hashmapFileBytecontent");
+				.getSession().getAttribute("hashmapFileBytecontent");*/
 		ArrayList<String> filesTozip = new ArrayList<String>();
-
-		for (DocumentModel d : documentList) {
-			File file = new File("resources1");
+		ArrayList<DocumentModel> documentlist = (ArrayList<DocumentModel>) RequestFilter.getSession()
+				.getAttribute("documentList");
+		for (DocumentModel d : documentlist) {
+			File file = new File("resources_13_11");
 			String absolutePath = file.getAbsolutePath();
 			String filePath = absolutePath;
 			String filePath2 = new File("test").getAbsolutePath();
@@ -657,7 +701,7 @@ public class DepositaireBean {
 		}
 		zipFiles(filesTozip);
 		return SUCCESS;
-	}*/
+	}
 
 	public void zipFiles(List<String> files) {
 
@@ -899,9 +943,11 @@ public class DepositaireBean {
 	public String addMateriel() {
 		System.out.println("ADD MATERIEL");
 		try{
+			uploadFilesDocument();
 			Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 			// agent.setIp()
 			MaterielEx m = new MaterielEx();
+			m.setImage(getByteDoc());
 			m.setAutre(getAutre());
 			m.setBureau(getBureau());
 			// m.setDirec(getDirection());
@@ -919,7 +965,7 @@ public class DepositaireBean {
 
 			// m.setCaract(caract);
 			// m.setCategorie(categorie);
-			m.setImage((byte[]) RequestFilter.getSession().getAttribute("imageMat"));
+
 			// m.setDocumentPath(documentPath);
 			m.setValidation(false);
 			// set Operation requete entrer materiel existant
@@ -931,6 +977,9 @@ public class DepositaireBean {
 		}
 		catch(JDBCException jdbce){
 			jdbce.getSQLException().getNextException().printStackTrace();
+			return ERROR;
+		} catch (IOException e) {
+			e.printStackTrace();
 			return ERROR;
 		}
 		/*catch(Exception e){
@@ -1270,5 +1319,13 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 
 	public void setListAllMaterilValide(List<Materiel> listAllMaterilValide) {
 		this.listAllMaterilValide = listAllMaterilValide;
+	}
+
+	public ArrayList<DocumentModel> getImageList() {
+		return imageList;
+	}
+
+	public void setImageList(ArrayList<DocumentModel> imageList) {
+		this.imageList = imageList;
 	}
 }
