@@ -9,7 +9,7 @@
 		<navigation-case>
 			<from-action>#{loginMgmtBean.login}</from-action>
 			<from-outcome>correct</from-outcome>
-			<to-view-id>/pages/unsecure/choice.xhtml</to-view-id>
+			<to-view-id>/pages/secure/choice.xhtml</to-view-id>
 			
 			
 			<redirect />
