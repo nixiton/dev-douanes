@@ -61,6 +61,15 @@ public class RefConverter implements Converter {
                 {
                     return (TypeMateriel) ref;
                 }
+                else if(ref instanceof ModeAcquisition) {
+                	return (ModeAcquisition) ref;
+                }
+                else if(ref instanceof Financement) {
+                	return (Financement) ref;
+                }
+                else if(ref instanceof Fournisseur) {
+                	return (Fournisseur) ref;
+                }
             } catch(NumberFormatException e) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid theme."));
             }
