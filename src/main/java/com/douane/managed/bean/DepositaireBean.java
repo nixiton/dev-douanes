@@ -1357,8 +1357,8 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 	public void setCurrentListMateriel(List<Materiel> currentListMateriel) {
 		this.currentListMateriel = currentListMateriel;
 	}
-	public void mySetCurrentListMateriel(Agent detenteur){
-		
-		this.setCurrentListMateriel(usermetierimpl.getMatByDetenteurAndValidation(detenteur, true));
+	public void mySetCurrentListMateriel(){
+		System.out.println("****************************SET LIST ******************************** " +this.getDetenteur().getIm());
+		this.setCurrentListMateriel((List<Materiel>)usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
 	}
 }
