@@ -45,6 +45,17 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/pages/secure/*</from-view-id>
+		<!-- navigation-case for method login() navigation case for method logout() -->
+		<navigation-case>
+			<from-action>#{loginMgmtBean.logout}</from-action>
+			<from-outcome>loggedout</from-outcome>
+			<to-view-id>/pages/unsecure/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
 	<!-- navigation-rule for choice.xhtml -->
 	<navigation-rule>
 		<from-view-id>/pages/secure/choice.xhtml</from-view-id>
