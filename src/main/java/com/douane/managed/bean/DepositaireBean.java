@@ -36,17 +36,18 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.event.ValueChangeEvent;
 import javax.jws.WebParam;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import java.io.*;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -72,7 +73,7 @@ public class DepositaireBean {
 	private static final String ERROR = "error";
 
 	//@Autowired
-	@ManagedProperty(value="#{typematerielmetier}")
+	//@ManagedProperty(value="#{typematerielmetier}")
 	ITypeMaterielMetier typematerielmetier;
 
 	//@Autowired
@@ -94,6 +95,7 @@ public class DepositaireBean {
 	//@Autowired
 	@ManagedProperty(value="#{refmetier}")
 	IRefMetier refmetierimpl;
+	private List<Localite> listLocalite;
 
 	public IRefMetier getRefmetierimpl() {
 		return refmetierimpl;
@@ -881,17 +883,6 @@ public class DepositaireBean {
 	}
 
 
-	public List<MotifSortie> getListMotifSortie() {
-		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new MotifSortie());
-		List<MotifSortie> ds = new ArrayList<MotifSortie>();
-		for (Object d :  r)
-		{
-			if(d instanceof MotifSortie) {
-				ds.add((MotifSortie)d);
-			}
-		}
-		return ds;
-	}
 
 	public void setListMotifSortie(List<MotifSortie> listMotifSortie) {
 		this.listMotifSortie = listMotifSortie;
@@ -902,6 +893,17 @@ public class DepositaireBean {
 	}
 
 	public void setDetenteur(Agent detenteur) {
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		System.out.println(FacesContext.getCurrentInstance().toString());
+		String userId = ec.getRequestParameterMap().get(1);
+		Map<String, String> map = ec.getRequestParameterMap();
+		for (Map.Entry<String, String> entry : map.entrySet())
+		{
+			if(entry.getKey().equals("j_idt58:det_input"))
+				System.out.println(entry.getKey() + "/" + entry.getValue());
+		}
+		String userId1 = ec.getRequestParameterMap().getClass().getName();
+
 		this.detenteur = detenteur;
 	}
 
@@ -918,9 +920,10 @@ public class DepositaireBean {
 		this.setNomencl(getTypemateriel().getNomenclature());
 	}
 
-	public void onDetenteurChange(){
+	public String onDetenteurChange(){
 		this.setNom(getDetenteur().getNomAgent());
 		this.setPrenom(getDetenteur().getPrenomAgent());
+		return null;
 	}
 	
 	public void onDetenteurDetChange(){
@@ -956,6 +959,7 @@ public class DepositaireBean {
 					.getAttribute("imageList");
 			// agent.setIp()
 			MaterielEx m = new MaterielEx();
+			System.out.println("---------------SIZE IMAGE BYTE ARRAY="+imagelist.get(0).getByteArrayImage().length);
 			m.setImage(imagelist.get(0).getByteArrayImage());
 			m.setDocumentPath((String) RequestFilter.getSession().getAttribute("documentpath"));
 			RequestFilter.getSession().removeAttribute("documentpath");
@@ -963,7 +967,6 @@ public class DepositaireBean {
 			m.setBureau(getBureau());
 			// m.setDirec(getDirection());
 			//m.setDirec(agent.getDirection());
-			m.setDocumentPath("default");
 			m.setEtat(getEtat());
 			m.setMarque(getMarq());
 			m.setNomenMat(getTypemateriel());
@@ -1084,7 +1087,11 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		}
 
 	}
-
+	public String addDetachement1(Agent dettest)
+	{
+		Agent a = dettest;
+		return SUCCESS;
+	}
 	public String addDetachement() {
 		Agent agent = (Agent) RequestFilter.getSession().getAttribute("agent");
 		// agent.setIp()
@@ -1351,14 +1358,63 @@ System.out.println("****************************ADD3 ATTR**ERRORR***************
 		this.listAllMaterielValideSansDetenteur = listAllMaterielValideSansDetenteur;
 	}
 	public List<Materiel> getCurrentListMateriel() {
-		return currentListMateriel;
+
+		//System.out.println("****************************SET LIST ******************************** " +this.getClass().getName());
+		Long idAg = Long.valueOf(1);
+		ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+		System.out.println(FacesContext.getCurrentInstance().toString());
+		String userId = ec.getRequestParameterMap().get(1);
+		Map<String, String> map = ec.getRequestParameterMap();
+		for (Map.Entry<String, String> entry : map.entrySet())
+		{
+			if(entry.getKey().equals("j_idt58:det_input"))
+				idAg = Long.parseLong(entry.getValue());
+				//System.out.println(entry.getKey() + "/" + entry.getValue());
+		}
+
+		if(!idAg.equals(Long.valueOf(1)))
+			return (List<Materiel>)usermetierimpl.getMatByDetenteurAndValidation(usermetierimpl.findAgentByIm(idAg), true);
+		System.out.println("****************************SET LIST ******************************** " +this.getClass().getName());
+
+			return currentListMateriel;
+
+
 	}
 
 	public void setCurrentListMateriel(List<Materiel> currentListMateriel) {
 		this.currentListMateriel = currentListMateriel;
 	}
+	public void mySetCurrentListMateriel1(ValueChangeEvent evt)
+	{
+		System.out.println("****************************SET LIST ******************************** " +this.getClass().getName());
+		ValueChangeEvent e = evt;
+		this.setDetenteur((Agent) evt.getNewValue());
+		this.setCurrentListMateriel((List<Materiel>)usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
+	}
+	//ActionEvent actionEvent
 	public void mySetCurrentListMateriel(){
+		this.detenteur = this.getDetenteur();
 		System.out.println("****************************SET LIST ******************************** " +this.getDetenteur().getIm());
 		this.setCurrentListMateriel((List<Materiel>)usermetierimpl.getMatByDetenteurAndValidation(this.getDetenteur(), true));
+		System.out.println("****************************SET LIST ******************************** " +this.getDetenteur().getIm());
+	}
+
+	public void setListLocalite(List<Localite> listLocalite) {
+		this.listLocalite = listLocalite;
+	}
+	public List<MotifSortie> getListMotifSortie() {
+		ArrayList<Referentiel> r = (ArrayList<Referentiel>)refmetierimpl.listRef(new MotifSortie());
+		List<MotifSortie> ds = new ArrayList<MotifSortie>();
+		for (Object d :  r)
+		{
+			if(d instanceof MotifSortie) {
+				ds.add((MotifSortie)d);
+			}
+		}
+		return ds;
+	}
+	public void test()
+	{
+		System.out.println("****************************SET LIST ******************************** " +this.getClass().getName());
 	}
 }

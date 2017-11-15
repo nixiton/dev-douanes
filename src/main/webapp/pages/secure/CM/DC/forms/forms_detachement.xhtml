@@ -29,11 +29,11 @@
 
                 <div class="col-lg-6">
 
-                    <p:selectOneMenu styleClass="form-control top" converter="#{agentConverter}" value="#{depositaireBean.detenteur}">
-                            <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
+                    <p:selectOneMenu id="det" styleClass="form-control top" converter="#{agentConverter}" valueChangeListener="#{depositaireBean.mySetCurrentListMateriel1}" value="#{depositaireBean.detenteur}">
+                            <f:selectItem itemValue="#{null}" itemLabel="--select--" />
                              
                             <f:selectItems value="#{userMB.userList}" var="type" itemLabel="#{type.im}"/>
-                            <p:ajax event="change" listener="#{depositaireBean.mySetCurrentListMateriel}" update="mat"/>
+                            <p:ajax process="@this" event="change" listener="#{depositaireBean.mySetCurrentListMateriel}" update="mat,@this"/>
                         </p:selectOneMenu>
 
                 <hr></hr>
@@ -68,7 +68,7 @@
                     <p:selectOneMenu value="#{depositaireBean.motifSortie}" converter="#{refConverter}" panelStyle="width:180px"  style="width:160px"
                          effect="fade" var="t" filter="true" filterMatchMode="startsWith">
                         <f:selectItem itemValue="#{null}" itemLabel="--select--" /> 
-                            <f:selectItems value="#{siseBean.listMotifSortie}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
+                            <f:selectItems value="#{depositaireBean.listMotifSortie}" var="theme" itemLabel="#{theme.designation}" itemValue="#{theme}" />
                         <p:column>
                             <h:outputText value="#{t.designation}" />
                         </p:column>
