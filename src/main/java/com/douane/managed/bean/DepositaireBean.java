@@ -903,7 +903,6 @@ public class DepositaireBean {
 				System.out.println(entry.getKey() + "/" + entry.getValue());
 		}
 		String userId1 = ec.getRequestParameterMap().getClass().getName();
-
 		this.detenteur = detenteur;
 	}
 
