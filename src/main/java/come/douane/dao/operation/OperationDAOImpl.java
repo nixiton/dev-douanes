@@ -27,10 +27,13 @@ public class OperationDAOImpl implements IOperationDAO{
 	}
 	
 	@Override
-	public Agent detacherMat(OpDettachement det) {
+	public Agent detacherMat(OpDettachement det) throws Exception{
 		// TODO Auto-generated method stub
-		Agent ancienDet = det.getMat().getDetenteur();
-		Materiel m = det.getMat();
+		Agent ancienDet = em.find(Agent.class,det.getMat().getDetenteur().getIm()) ;
+		if(ancienDet==null) {
+			throw new Exception("materiel non detenu");
+		}
+		Materiel m = em.find(Materiel.class, det.getMat().getIdMateriel());
 		ancienDet.getMatdetenu().remove(m);
 		em.merge(ancienDet);
 		
@@ -44,10 +47,13 @@ public class OperationDAOImpl implements IOperationDAO{
 	}
 
 	@Override
-	public Materiel attribuerMat(OpAttribution attr) {
+	public Materiel attribuerMat(OpAttribution attr) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("Attribution DAO begin");
 		Materiel m = em.find(Materiel.class, attr.getMat().getIdMateriel()) ;
+		if(m.getDetenteur()!=null) {
+			throw new Exception("Efa attribuer olona io fa mila detachena aloha");
+		}
 		//m.setCodification("codified"+new Date());
 		m.generateCode();
 		//m.setDetenteur(attr.getDetenteur());
@@ -72,7 +78,7 @@ public class OperationDAOImpl implements IOperationDAO{
 		//em.getTransaction().begin();
 	       TypedQuery<Operation> query = em.createQuery("select o from Operation o "
 	       		+ "where o.date>= :startDate AND o.date<= :endDate"
-	       		+ "order by o.date desc",Operation.class);
+	       		+ " order by o.date desc",Operation.class);
 	       query.setParameter("startDate", startDate, TemporalType.DATE);
 	       query.setParameter("endDate", endDate, TemporalType.DATE);
 	       query.setMaxResults(maxresult);
@@ -87,8 +93,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpEntree> getListOpEntreeByByMaterielBDate(Materiel m, Date startDate, Date endDate, int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpEntree> query = em.createQuery("select oe from OpEntree oe "
-	       		+ "where oe.date>= :startDate AND oe.date<= :endDate AND "
-	       		+ "oe.mat = :mymat",OpEntree.class);
+	       		+ "where oe.date>=:startDate AND oe.date<=:endDate AND "
+	       		+ " oe.mat = :mymat",OpEntree.class);
 	       query.setParameter("startDate", startDate, TemporalType.DATE);
 	       query.setParameter("endDate", endDate, TemporalType.DATE);
 	       query.setParameter("mymat", m);
@@ -101,8 +107,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpSortie> getListOpSortieByByMaterielBDate(Materiel m, Date startDate, Date endDate, int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpSortie> query = em.createQuery("select os from OpSortie os "
-	       		+ "where os.date>= :startDate AND os.date<= :endDate AND "
-	       		+ "os.mat = :mymat",OpSortie.class);
+	       		+ "where os.date>=:startDate AND os.date<=:endDate AND "
+	       		+ " os.mat = :mymat",OpSortie.class);
 	       query.setParameter("startDate", startDate, TemporalType.DATE);
 	       query.setParameter("endDate", endDate, TemporalType.DATE);
 	       query.setParameter("mymat", m);
@@ -116,7 +122,7 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpEntree> getListOpEntreeOrderByDate(int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpEntree> query = em.createQuery("select oe from OpEntree oe "
-	       		+ "order by date desc "
+	       		+ " order by date desc "
 	       		,OpEntree.class);
 		query.setMaxResults(maxresult);
 	       
@@ -127,7 +133,7 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpSortie> getListOpSortieOrderByDate(int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpSortie> query = em.createQuery("select os from OpSortie os "
-	       		+ "order by date desc "
+	       		+ " order by date desc "
 	       		,OpSortie.class);
 		query.setMaxResults(maxresult);
 	       
@@ -139,7 +145,7 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<Operation> getListOperationOrderByDate(int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<Operation> query = em.createQuery("select o from Operation o "
-	       		+ "order by date desc "
+	       		+ " order by date desc "
 	       		,Operation.class);
 		query.setMaxResults(maxresult);
 	       
@@ -151,8 +157,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpEntree> getListOpEntreeByDirOrder(Direction dirc, int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpEntree> query = em.createQuery("select oe from OpEntree oe "
-				+ "where oe.direction = :direct"
-	       		+ "order by date desc "
+				+ "where oe.direction =:direct"
+	       		+ " order by date desc "
 	       		,OpEntree.class);
 		query.setParameter("direct", dirc);
 		query.setMaxResults(maxresult);
@@ -165,8 +171,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpSortie> getListOpSortieByDirOrder(Direction dir, int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpSortie> query = em.createQuery("select os from OpSortie os "
-				+ "where os.direction = :direct"
-	       		+ "order by date desc "
+				+ "where os.direction =:direct"
+	       		+ " order by date desc "
 	       		,OpSortie.class);
 		query.setParameter("direct", dir);
 		query.setMaxResults(maxresult);
@@ -179,8 +185,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<Operation> getListOperationByDirOrder(Direction dir, int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<Operation> query = em.createQuery("select o from Operation o "
-				+ "where o.direction = :direct"
-	       		+ "order by date desc "
+				+ " where o.direction =:direct"
+	       		+ " order by date desc "
 	       		,Operation.class);
 		query.setParameter("direct", dir);
 		query.setMaxResults(maxresult);
@@ -194,8 +200,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpEntree> getListOpEntreeByOperator(Agent operator, int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpEntree> query = em.createQuery("select oe from OpEntree oe "
-				+ "where oe.operateur = :operator"
-	       		+ "order by date desc "
+				+ " where oe.operateur =:operator"
+	       		+ " order by date desc "
 	       		,OpEntree.class);
 		query.setParameter("operator", operator);
 		query.setMaxResults(maxresult);
@@ -208,8 +214,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpSortie> getListOpSortieByOperator(Agent operator, int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpSortie> query = em.createQuery("select os from OpSortie os "
-				+ "where os.operateur = :operator"
-	       		+ "order by date desc "
+				+ " where os.operateur =:operator"
+	       		+ " order by date desc "
 	       		,OpSortie.class);
 		query.setParameter("operator", operator);
 		query.setMaxResults(maxresult);
@@ -222,9 +228,9 @@ public class OperationDAOImpl implements IOperationDAO{
 	@Override
 	public List<Operation> getListOperationByOperator(Agent operator, int maxresult) {
 		// TODO Auto-generated method stub
-		TypedQuery<Operation> query = em.createQuery("select o from OpEntree o "
-				+ "where o.operateur = :operator"
-	       		+ "order by date desc "
+		TypedQuery<Operation> query = em.createQuery("select o from Operation o "
+				+ " where o.operateur =:operator"
+	       		+ " order by date desc and by time desc"
 	       		,Operation.class);
 		query.setParameter("operator", operator);
 		query.setMaxResults(maxresult);
@@ -238,7 +244,7 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpAttribution> getListOpAttributionOrderByDate(int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpAttribution> query = em.createQuery("select opa from OpAttribution opa "
-	       		+ "order by date desc "
+	       		+ " order by date desc "
 	       		,OpAttribution.class);
 		query.setMaxResults(maxresult);
 	       
@@ -250,7 +256,7 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpDettachement> getListOpDettachementOrderByDate(int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpDettachement> query = em.createQuery("select odet from OpDettachement odet "
-	       		+ "order by date desc "
+	       		+ " order by date desc "
 	       		,OpDettachement.class);
 		query.setMaxResults(maxresult);
 	       
@@ -263,8 +269,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpAttribution> getListOpAttributionByDirOrder(Direction dir, int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpAttribution> query = em.createQuery("select oat from OpAttribution oat "
-				+ "where oat.direction = :direct"
-	       		+ "order by date desc "
+				+ " where oat.direction = :direct"
+	       		+ " order by date desc "
 	       		,OpAttribution.class);
 		query.setParameter("direct", dir);
 		query.setMaxResults(maxresult);
@@ -277,8 +283,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpDettachement> getListOpDettachementByDirOrder(Direction dir, int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpDettachement> query = em.createQuery("select odet from OpDettachement odet "
-				+ "where odet.direction = :direct"
-	       		+ "order by date desc "
+				+ " where odet.direction = :direct"
+	       		+ " order by date desc "
 	       		,OpDettachement.class);
 		query.setParameter("direct", dir);
 		query.setMaxResults(maxresult);
@@ -291,8 +297,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpAttribution> getListOpAttributionByOperator(Agent operator, int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpAttribution> query = em.createQuery("select oat from OpAttribution oat "
-				+ "where oat.operateur = :operator"
-	       		+ "order by date desc "
+				+ " where oat.operateur = :operator"
+	       		+ " order by date desc "
 	       		,OpAttribution.class);
 		query.setParameter("operator", operator);
 		query.setMaxResults(maxresult);
@@ -305,8 +311,8 @@ public class OperationDAOImpl implements IOperationDAO{
 	public List<OpDettachement> getListOpDettachementByOperator(Agent operator, int maxresult) {
 		// TODO Auto-generated method stub
 		TypedQuery<OpDettachement> query = em.createQuery("select odet from OpDettachement odet "
-				+ "where odet.operateur = :operator"
-	       		+ "order by date desc "
+				+ " where odet.operateur = :operator"
+	       		+ " order by date desc "
 	       		,OpDettachement.class);
 		query.setParameter("operator", operator);
 		query.setMaxResults(maxresult);
